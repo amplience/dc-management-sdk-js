@@ -1,0 +1,16 @@
+sudo: false
+
+dist: trusty
+
+language: node_js
+
+node_js:
+  - 'stable'
+  - '8'
+  - '9'
+
+cache: yarn
+
+branches:
+  only:
+    - master

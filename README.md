@@ -1,7 +1,11 @@
+
 [![Amplience Dynamic Content](media/header.png)](https://amplience.com/dynamic-content)
 
 # dc-management-sdk-js
+
 > Official Javascript SDK for the Amplience Dynamic Content API
+
+[![Build Status](https://travis-ci.org/amplience/dc-management-sdk-js.svg?branch=master)](https://travis-ci.org/amplience/dc-management-sdk-js)
 
 [Dynamic Content](https://amplience.com/dynamic-content) is a content management, production and delivery solution designed for retailers that wish to drive engagement and conversion through powerful, visual storytelling at brand, category and product level.
 
