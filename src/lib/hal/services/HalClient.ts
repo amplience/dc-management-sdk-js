@@ -92,9 +92,9 @@ export class HalClient {
       (error: any): any => {
         if (error.response.data) {
           const newError: any = new Error(
-            `Request failed with status code ${error.response.status}: ${
-              JSON.stringify(error.response.data)
-            }`
+            `Request failed with status code ${
+              error.response.status
+            }: ${JSON.stringify(error.response.data)}`
           );
           newError.code = error.code;
           newError.response = error.response;
