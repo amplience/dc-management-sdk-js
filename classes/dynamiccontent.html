@@ -1,0 +1,692 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DynamicContent | dc-management-sdk-js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">dc-management-sdk-js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="dynamiccontent.html">DynamicContent</a>
+				</li>
+			</ul>
+			<h1>Class DynamicContent</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Amplience Dynamic Content API client.</p>
+					</div>
+					<p>Your application should avoid where possible creating a new client for each request.
+						Authentication tokens are cached by the client and only re-requested when
+					they expire, allowing performance to be improved by reusing the client across requests.</p>
+					<p>If multiple sets of credentials are required your application should create one client
+					per credential set.</p>
+					<p>Example:</p>
+					<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
+   client_id: process.env.CLIENT_ID,
+   client_secret: process.env.CLIENT_SECRET
+});
+
+<span class="hljs-keyword">const</span> repository = <span class="hljs-keyword">await</span> client.contentRepositories.get(<span class="hljs-string">'&lt;REPO-ID&gt;'</span>);
+
+<span class="hljs-keyword">const</span> contentItem = <span class="hljs-keyword">new</span> ContentItem();
+contentItem.label = <span class="hljs-string">'Homepage Article'</span>;
+contentItem.body = {
+     _meta: {
+         schema: <span class="hljs-string">"https://github.com/techiedarren/dc-examples/blob/master/content-types/blocks/text-block.json"</span>
+     },
+     paragraphs: [
+         <span class="hljs-string">"Example article text..."</span>
+     ]
+};
+
+<span class="hljs-keyword">await</span> repository.related.contentItems.create(contentItem);
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">DynamicContent</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="dynamiccontent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#contentitems" class="tsd-kind-icon">content<wbr>Items</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#contentrepositories" class="tsd-kind-icon">content<wbr>Repositories</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#editions" class="tsd-kind-icon">editions</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#events" class="tsd-kind-icon">events</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#hubs" class="tsd-kind-icon">hubs</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#snapshots" class="tsd-kind-icon">snapshots</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dynamic<wbr>Content<span class="tsd-signature-symbol">(</span>clientCredentials<span class="tsd-signature-symbol">: </span><a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a>, dcConfig<span class="tsd-signature-symbol">?: </span><a href="../interfaces/dynamiccontentconfig.html" class="tsd-signature-type">DynamicContentConfig</a>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dynamiccontent.html" class="tsd-signature-type">DynamicContent</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/DynamicContent.ts:156</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a Dynamic Content API client instance. You must provide credentials that will
+									be used to authenticate with the API.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>clientCredentials: <a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Api credentials used to generate an authentication token</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> dcConfig: <a href="../interfaces/dynamiccontentconfig.html" class="tsd-signature-type">DynamicContentConfig</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Optional configuration settings for Dynamic Content</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">AxiosRequestConfig</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Optional request settings, can be used to provide proxy settings, add interceptors etc</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="dynamiccontent.html" class="tsd-signature-type">DynamicContent</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="contentitems" class="tsd-anchor"></a>
+					<h3>content<wbr>Items</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:108</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Content Item Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="contentitems.get" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:113</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve a content item resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>content item id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="contentrepositories" class="tsd-anchor"></a>
+					<h3>content<wbr>Repositories</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Repositories<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:93</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Content Repository Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="contentrepositories.get-1" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentrepository.html" class="tsd-signature-type">ContentRepository</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:98</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve a content repository resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>content repository id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentrepository.html" class="tsd-signature-type">ContentRepository</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="editions" class="tsd-anchor"></a>
+					<h3>editions</h3>
+					<div class="tsd-signature tsd-kind-icon">editions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:144</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Edition Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="editions.get-2" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="edition.html" class="tsd-signature-type">Edition</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:149</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve an edition resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>edition id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="edition.html" class="tsd-signature-type">Edition</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="events" class="tsd-anchor"></a>
+					<h3>events</h3>
+					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:132</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Event Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="events.get-3" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:137</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve an event resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>event id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="event.html" class="tsd-signature-type">Event</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="hubs" class="tsd-anchor"></a>
+					<h3>hubs</h3>
+					<div class="tsd-signature tsd-kind-icon">hubs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:70</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Hub Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="hubs.get-4" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hub.html" class="tsd-signature-type">Hub</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:75</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve a hub resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>hub id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hub.html" class="tsd-signature-type">Hub</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="hubs.list" class="tsd-anchor"></a>
+						<h3>list</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/pageable.html" class="tsd-signature-type">Pageable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="page.html" class="tsd-signature-type">Page</a><span class="tsd-signature-symbol">&lt;</span><a href="hub.html" class="tsd-signature-type">Hub</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:82</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve a list of hub resources shared with your client credentials.</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/pageable.html" class="tsd-signature-type">Pageable</a></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Pagination options</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="page.html" class="tsd-signature-type">Page</a><span class="tsd-signature-symbol">&lt;</span><a href="hub.html" class="tsd-signature-type">Hub</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="snapshots" class="tsd-anchor"></a>
+					<h3>snapshots</h3>
+					<div class="tsd-signature tsd-kind-icon">snapshots<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in lib/DynamicContent.ts:120</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Snapshot Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="snapshots.get-5" class="tsd-anchor"></a>
+						<h3>get</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="snapshot.html" class="tsd-signature-type">Snapshot</a><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in lib/DynamicContent.ts:125</li>
+									</ul>
+								</aside>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Retrieve a snapshot resource by id</p>
+									</div>
+								</div>
+								<h4 class="tsd-parameters-title">Parameters</h4>
+								<ul class="tsd-parameters">
+									<li>
+										<h5>id: <span class="tsd-signature-type">string</span></h5>
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>snapshot id, previously generated on creation</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="snapshot.html" class="tsd-signature-type">Snapshot</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/snapshottype.html" class="tsd-kind-icon">Snapshot<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentitem.html" class="tsd-kind-icon">Content<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentlink.html" class="tsd-kind-icon">Content<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentrepository.html" class="tsd-kind-icon">Content<wbr>Repository</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="dynamiccontent.html" class="tsd-kind-icon">Dynamic<wbr>Content</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="dynamiccontent.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#contentitems" class="tsd-kind-icon">content<wbr>Items</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#contentrepositories" class="tsd-kind-icon">content<wbr>Repositories</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#editions" class="tsd-kind-icon">editions</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#events" class="tsd-kind-icon">events</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#hubs" class="tsd-kind-icon">hubs</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#snapshots" class="tsd-kind-icon">snapshots</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="edition.html" class="tsd-kind-icon">Edition</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="editionslot.html" class="tsd-kind-icon">Edition<wbr>Slot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="hub.html" class="tsd-kind-icon">Hub</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="page.html" class="tsd-kind-icon">Page</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="snapshot.html" class="tsd-kind-icon">Snapshot</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pageable.html" class="tsd-kind-icon">Pageable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#template" class="tsd-kind-icon">template</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

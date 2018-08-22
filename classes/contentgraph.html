@@ -1,0 +1,397 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ContentGraph | dc-management-sdk-js</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">dc-management-sdk-js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="contentgraph.html">ContentGraph</a>
+				</li>
+			</ul>
+			<h1>Class ContentGraph</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Utility to assist parsing and generating Content Item graphs.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ContentGraph</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="contentgraph.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="contentgraph.html#extractlinks" class="tsd-kind-icon">extract<wbr>Links</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="deepcopy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> deep<wbr>Copy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">deep<wbr>Copy<span class="tsd-signature-symbol">(</span>ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, contentItemProvider<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, contentItemPicker<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/content/services/ContentGraph.ts:54</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Utility to help deeply copy a content graph. Each content item and its dependencies
+										are visited using the contentItemProvider function to load the source item. The
+										contentItemPicker is invoked for every Content Item giving your application an opportunity
+									to either save the item to a new location (copy) or return the original (reference).</p>
+								</div>
+								<p>The JSON body provided to the contentItemPicker function will have had any Content Links
+								remapped to the newly saved Content Item.</p>
+								<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> targetRepository = <span class="hljs-keyword">await</span> client.contentRepositories.get(<span class="hljs-string">'5b32377b4cedfd01c4503691'</span>);
+<span class="hljs-keyword">const</span> contentIds = [<span class="hljs-string">'a87fd535-fb25-44ee-b687-0db72bbab721'</span>];
+
+<span class="hljs-keyword">const</span> idMap = <span class="hljs-keyword">await</span> ContentGraph.deepCopy(
+ contentIds,
+ client.contentItems.get,
+ <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item:ContentItem, body:<span class="hljs-built_in">any</span></span>) </span>{
+     <span class="hljs-keyword">return</span> targetRepository.related.contentItems.create(<span class="hljs-keyword">new</span> ContentItem({
+       label: item.label,
+       body: body
+     }));
+   }
+);
+</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ids: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Ids of the root content items to copy</p>
+									</div>
+								</li>
+								<li>
+									<h5>contentItemProvider: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function that loads content items by id</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>id: <span class="tsd-signature-type">string</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>contentItemPicker: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function that creates or returns an existing content item that should be used in place of the original</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>original<span class="tsd-signature-symbol">: </span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a>, body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>original: <a href="contentitem.html" class="tsd-signature-type">ContentItem</a></h5>
+														</li>
+														<li>
+															<h5>body: <span class="tsd-signature-type">any</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Mapping of old content item ids to the newly created ids</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="extractlinks" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> extract<wbr>Links</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">extract<wbr>Links<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/contentlinkinstance.html" class="tsd-signature-type">ContentLinkInstance</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in lib/content/services/ContentGraph.ts:14</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Extract content-link references from the body of a Content Item</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>content: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/contentlinkinstance.html" class="tsd-signature-type">ContentLinkInstance</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/snapshottype.html" class="tsd-kind-icon">Snapshot<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="contentgraph.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="contentgraph.html#extractlinks" class="tsd-kind-icon">extract<wbr>Links</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="contentitem.html" class="tsd-kind-icon">Content<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentlink.html" class="tsd-kind-icon">Content<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contentrepository.html" class="tsd-kind-icon">Content<wbr>Repository</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="dynamiccontent.html" class="tsd-kind-icon">Dynamic<wbr>Content</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="edition.html" class="tsd-kind-icon">Edition</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="editionslot.html" class="tsd-kind-icon">Edition<wbr>Slot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="hub.html" class="tsd-kind-icon">Hub</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="page.html" class="tsd-kind-icon">Page</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="snapshot.html" class="tsd-kind-icon">Snapshot</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/pageable.html" class="tsd-kind-icon">Pageable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#template" class="tsd-kind-icon">template</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
