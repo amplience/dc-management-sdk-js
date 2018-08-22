@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
-import { HalClient } from './hal/services/HALClient';
+import { HalClient } from './hal/services/HalClient';
 import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
 import { Edition } from './model/Edition';

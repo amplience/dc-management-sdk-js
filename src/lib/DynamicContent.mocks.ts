@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
-import { HalClient } from './hal/services/HALClient';
+import { HalClient } from './hal/services/HalClient';
 import { HalMocks } from './hal/utils/HalMock';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
