@@ -8,8 +8,6 @@
 [![Build Status](https://travis-ci.org/amplience/dc-management-sdk-js.svg?branch=master)](https://travis-ci.org/amplience/dc-management-sdk-js)
 [![npm version](https://badge.fury.io/js/dc-management-sdk-js.svg)](https://badge.fury.io/js/dc-management-sdk-js)
 
-[Dynamic Content](https://amplience.com/dynamic-content) is a content management, production and delivery solution designed for retailers that wish to drive engagement and conversion through powerful, visual storytelling at brand, category and product level.
-
 The management sdk is designed to help build back-office applications such as content automation or web-hook integrations. Please keep in mind the management api is rate limited.
 
 
@@ -19,7 +17,7 @@ The management sdk is designed to help build back-office applications such as co
 Using npm:
 
 ``` sh
-npm install dc-content-management-sdk-js --save
+npm install dc-management-sdk-js --save
 ```
 
 ## Usage
@@ -147,7 +145,7 @@ createEvent();
 ## Documentation
 Please use the following documentation resources to assist building your application:
 
-* Dynamic Content Management SDK [Reference documentation](https://docs.amplience.net/dc-management-sdk-js)
+* Dynamic Content Management SDK [Reference documentation](https://amplience.github.io/dc-management-sdk-js/)
 * Dynamic Content Management API [Reference documentation](https://api.amplience.net/v2/content/docs/api/index.html#_overview)
 * Dynamic Content [User guide](https://docs.amplience.net/)
 
