@@ -24,3 +24,14 @@ test('create content item', async t => {
   );
   t.is(createdContentItem.label, 'Banner Ad Homepage');
 });
+
+test('list content items', async t => {
+  const client = new MockDynamicContent();
+
+  const contentRepository = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
+  );
+
+  const result = await contentRepository.related.contentItems.list();
+  t.is(result.getItems()[0].label, 'Banner Ad Homepage');
+});

@@ -1,6 +1,8 @@
 import { HalResource } from '../hal/models/HalResource';
-import { ContentItem } from './ContentItem';
+import { ContentItem, ContentItemsPage } from './ContentItem';
 import { Page } from './Page';
+import { Pageable } from './Pageable';
+import { Sortable } from './Sortable';
 import { Status } from './Status';
 
 /**
@@ -49,7 +51,13 @@ export class ContentRepository extends HalResource {
           {},
           resource,
           ContentItem
-        )
+        ),
+
+      /**
+       * Retrieves a list of Content Items stored within this Content Repository
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<ContentItem>> =>
+        this.fetchLinkedResource('content-items', options, ContentItemsPage)
     }
   };
 }
