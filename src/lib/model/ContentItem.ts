@@ -1,5 +1,6 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentRepository } from './ContentRepository';
+import { Page } from './Page';
 import { Status } from './Status';
 
 /**
@@ -98,4 +99,13 @@ export class ContentItem extends HalResource {
     contentRepository: (): Promise<ContentRepository> =>
       this.fetchLinkedResource('content-repository', {}, ContentRepository)
   };
+}
+
+/**
+ * @hidden
+ */
+export class ContentItemsPage extends Page<ContentItem> {
+  constructor(data?: any) {
+    super('content-items', ContentItem, data);
+  }
 }

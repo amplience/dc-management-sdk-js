@@ -529,6 +529,7 @@ export class DynamicContentFixtures {
     // Content repositories
     mocks
       .resource(CONTENT_REPOSITORY)
+      .nestedCollection('content-items', {}, 'content-items', [CONTENT_ITEM])
       .nestedCreateResource('create-content-item', {}, CONTENT_ITEM);
 
     // Events
