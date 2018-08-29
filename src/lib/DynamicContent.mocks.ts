@@ -503,6 +503,90 @@ export const SNAPSHOT = {
   }
 };
 
+/**
+ * @hidden
+ */
+export const FOLDER = {
+  id: '5b72ed68d6018001c81ef05b',
+  name: 'A folder to end all folders',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b'
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b'
+    },
+    folders: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders'
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a'
+    },
+    'content-items': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05b'
+    },
+    'create-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders'
+    },
+    'delete-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b'
+    },
+    'update-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const NEW_FOLDER = {
+  id: '5b72ed68d6018001c81ef05c',
+  name: 'Another Folder',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c'
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c'
+    },
+    folders: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders'
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a'
+    },
+    'content-items': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05c'
+    },
+    'create-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders'
+    },
+    'delete-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c'
+    },
+    'update-folder': {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c'
+    }
+  }
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -530,7 +614,15 @@ export class DynamicContentFixtures {
     mocks
       .resource(CONTENT_REPOSITORY)
       .nestedCollection('content-items', {}, 'content-items', [CONTENT_ITEM])
-      .nestedCreateResource('create-content-item', {}, CONTENT_ITEM);
+      .nestedCreateResource('create-content-item', {}, CONTENT_ITEM)
+      .nestedCollection('folders', {}, 'folders', [FOLDER])
+      .nestedCreateResource('create-folder', {}, NEW_FOLDER);
+
+    // Folders
+    mocks
+      .resource(FOLDER)
+      .nestedCreateResource('create-folder', {}, NEW_FOLDER)
+      .nestedCollection('folders', {}, 'folders', [NEW_FOLDER]);
 
     // Events
     mocks

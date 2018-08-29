@@ -4,6 +4,7 @@ import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
 import { Edition } from './model/Edition';
 import { Event } from './model/Event';
+import { Folder } from './model/Folder';
 import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
@@ -112,6 +113,15 @@ export class DynamicContent {
      */
     get: (id: string): Promise<ContentItem> =>
       this.client.fetchResource(`/content-items/${id}`, ContentItem)
+  };
+
+  public readonly folders = {
+    /**
+     * Retrieve a folder resource by id
+     * @param id folder id, previously generated on creation
+     */
+    get: (id: string): Promise<Folder> =>
+      this.client.fetchResource(`/folders/${id}`, Folder)
   };
 
   /**
