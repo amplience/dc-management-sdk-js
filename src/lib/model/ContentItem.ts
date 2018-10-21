@@ -1,8 +1,8 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentRepository } from './ContentRepository';
+import { LocalizationJob } from './LocalizationJob';
 import { Page } from './Page';
 import { Status } from './Status';
-import { LocalizationJob } from './LocalizationJob';
 
 /**
  * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.

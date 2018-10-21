@@ -1,6 +1,4 @@
 import { HalResource } from '../hal/models/HalResource';
-import { ContentItem } from './ContentItem';
-import { SnapshotType } from './SnapshotType';
 import { LocalizationJobContentRoot } from './LocalizationJobContentRoot';
 
 /**
@@ -21,7 +19,7 @@ export class LocalizationJob extends HalResource {
   public createdBy?: string;
 
   /**
-   * Timestamp representing when the job as created (ISO 8601 format)
+   * Timestamp representing when the job was originally created (ISO 8601 format)
    */
   public createdDate?: string;
 

@@ -1,6 +1,4 @@
 import { HalResource } from '../hal/models/HalResource';
-import { ContentItem } from './ContentItem';
-import { SnapshotType } from './SnapshotType';
 
 /**
  * Class representing a LocalizationJob.
