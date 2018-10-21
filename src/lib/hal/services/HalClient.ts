@@ -77,7 +77,7 @@ export class HalClient {
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     let href = link.href;
-    
+
     if (link.templated) {
       href = CURIEs.expand(href, params);
     }

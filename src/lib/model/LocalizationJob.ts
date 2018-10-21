@@ -1,5 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
-import { LocalizationJobContentRoot } from './LocalizationJobContentRoot';
+import { LocalizationRoot } from './LocalizationRoot';
 
 /**
  * Class representing a LocalizationJob.
@@ -11,7 +11,10 @@ export class LocalizationJob extends HalResource {
    */
   public status?: string;
 
-  public rootContentItem?: LocalizationJobContentRoot;
+  /**
+   * Root content item
+   */
+  public rootContentItem?: LocalizationRoot;
 
   /**
    * Id of the user responsible for originally creating the job
@@ -22,5 +25,4 @@ export class LocalizationJob extends HalResource {
    * Timestamp representing when the job was originally created (ISO 8601 format)
    */
   public createdDate?: string;
-
 }

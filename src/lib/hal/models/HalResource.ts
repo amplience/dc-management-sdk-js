@@ -119,7 +119,7 @@ export class HalResource {
 
   /**
    * Post to an action endpoint and get a resource response.
-   * 
+   *
    * @hidden
    */
   protected performActionThatReturnsResource<T extends HalResource>(

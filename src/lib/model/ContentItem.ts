@@ -104,23 +104,25 @@ export class ContentItem extends HalResource {
      * Sets a locale of the form ll-CC (language, country code)
      * @param locale Locale code
      */
-    setLocale: (locale: string): Promise<ContentItem> =>
+    setLocale: (localeDefinition: string): Promise<ContentItem> =>
       this.performActionThatReturnsResource(
         'set-locale',
         {},
-        { "locale": locale, "version": this.version },
-        ContentItem),
+        { locale: localeDefinition, version: this.version },
+        ContentItem
+      ),
 
     /**
      * Create localizations of the content item
      * @param locales Array of locales to create
      */
-    localize: (locales: string[]): Promise<any> =>
-        this.performActionThatReturnsResource(
-          'create-localizations',
-          {},
-          { "locales": locales, "version": this.version },
-          LocalizationJob)        
+    localize: (localesList: string[]): Promise<any> =>
+      this.performActionThatReturnsResource(
+        'create-localizations',
+        {},
+        { locales: localesList, version: this.version },
+        LocalizationJob
+      )
   };
 }
 
