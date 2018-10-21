@@ -2,6 +2,7 @@ import { HalResource } from '../hal/models/HalResource';
 import { ContentRepository } from './ContentRepository';
 import { Page } from './Page';
 import { Status } from './Status';
+import { LocalizationJob } from './LocalizationJob';
 
 /**
  * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.
@@ -97,7 +98,29 @@ export class ContentItem extends HalResource {
      * Retrieves the ContentRepository this content item is stored in
      */
     contentRepository: (): Promise<ContentRepository> =>
-      this.fetchLinkedResource('content-repository', {}, ContentRepository)
+      this.fetchLinkedResource('content-repository', {}, ContentRepository),
+
+    /**
+     * Sets a locale of the form ll-CC (language, country code)
+     * @param locale Locale code
+     */
+    setLocale: (locale: string): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'set-locale',
+        {},
+        { "locale": locale, "version": this.version },
+        ContentItem),
+
+    /**
+     * Create localizations of the content item
+     * @param locales Array of locales to create
+     */
+    localize: (locales: string[]): Promise<any> =>
+        this.performActionThatReturnsResource(
+          'create-localizations',
+          {},
+          { "locales": locales, "version": this.version },
+          LocalizationJob)        
   };
 }
 
