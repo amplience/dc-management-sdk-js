@@ -50,6 +50,11 @@ export class ContentItem extends HalResource {
   public label?: string;
 
   /**
+   * Locale
+   */
+  public locale?: string;
+
+  /**
    * Unique id used by client applications to request the content from the delivery API
    */
   public deliveryId?: string;

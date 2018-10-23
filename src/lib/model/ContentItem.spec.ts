@@ -30,3 +30,14 @@ test('get repository', async t => {
 
   t.is(repo.name, 'inspiration');
 });
+
+test('set locale', async t => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const itemWithLocale = await contentItem.related.setLocale('en-GB');
+  t.is(itemWithLocale.locale, 'en-GB');
+});

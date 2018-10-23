@@ -203,6 +203,96 @@ export const CONTENT_ITEM = {
     'content-item-with-children': {
       href:
         'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    'set-locale': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const CONTENT_ITEM_WITH_LOCALE = {
+  id: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+  folderId: '5b3237784cedfd01c4503658',
+  body: {
+    _meta: {
+      name: 'main-banner',
+      schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+    }
+  },
+  version: 1,
+  label: 'Banner Ad Homepage',
+  status: 'ACTIVE',
+  locale: 'en-GB',
+  createdBy: 'user',
+  createdDate: '2018-06-26T12:54:16.216Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-06-26T12:54:16.216Z',
+  deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    publish: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish'
+    },
+    planned: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
+      templated: true
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1'
+    },
+    'restore-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore'
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691'
+    },
+    'content-item-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
+      templated: true
+    },
+    'content-item-versions': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
+      templated: true
+    },
+    'content-item-history': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
+      templated: true
+    },
+    copy: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
+      templated: true
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658'
+    },
+    'content-item-with-children': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721'
     }
   }
 };
@@ -550,6 +640,14 @@ export class DynamicContentFixtures {
         'snapshot-content-item',
         { id: CONTENT_ITEM.id },
         CONTENT_ITEM
+      );
+
+    mocks
+      .resource(CONTENT_ITEM)
+      .nestedCreateResource(
+        'set-locale',
+        { locale: 'en-GB', version: 1 },
+        CONTENT_ITEM_WITH_LOCALE
       );
   }
 }
