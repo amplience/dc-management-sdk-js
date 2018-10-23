@@ -293,6 +293,14 @@ export const CONTENT_ITEM_WITH_LOCALE = {
     'content-item-with-children': {
       href:
         'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    'set-locale': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale'
+    },
+    'create-localizations': {
+      href:
+        'http://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localize'
     }
   }
 };
@@ -593,6 +601,32 @@ export const SNAPSHOT = {
   }
 };
 
+/**
+ * @hidden
+ */
+export const LOCALIZATION_JOB = {
+  status: 'IN_PROGRESS',
+  rootContentItem: {
+    label: 'Text Content Item',
+    locale: 'en-GB',
+    id: 'a87fd535-fb25-44ee-b687-0db72bbab721'
+  },
+  requestedLocales: ['fr-FR'],
+  createdBy: 'user',
+  createdDate: '2018-10-23T21:46:06.169Z',
+  _links: {
+    'content-root': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    findByRootContentItem: {
+      href:
+        'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=a87fd535-fb25-44ee-b687-0db72bbab721{&page,size,sort}',
+      templated: true
+    }
+  }
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -648,6 +682,14 @@ export class DynamicContentFixtures {
         'set-locale',
         { locale: 'en-GB', version: 1 },
         CONTENT_ITEM_WITH_LOCALE
+      );
+
+    mocks
+      .resource(CONTENT_ITEM_WITH_LOCALE)
+      .nestedCreateResource(
+        'create-localizations',
+        { locales: ['fr-FR'], version: 1 },
+        LOCALIZATION_JOB
       );
   }
 }
