@@ -112,7 +112,21 @@ export class DynamicContent {
      * @param id content item id, previously generated on creation
      */
     get: (id: string): Promise<ContentItem> =>
-      this.client.fetchResource(`/content-items/${id}`, ContentItem)
+      this.client.fetchResource(`/content-items/${id}`, ContentItem),
+    /**
+     * Archive a content item resource by id
+     * @param id content item id, previously generated on creation
+     * @param resource is object, that contains version
+     */
+    archive: (id: string, resource: ContentItem): Promise<ContentItem> =>
+      this.client.createResource(`/content-items/${id}/archive`, resource, ContentItem),
+    /**
+     * Archive a content item resource by id
+     * @param id content item id, previously generated on creation
+     * @param resource is object, that contains version
+     */
+    unarchive: (id: string, resource: ContentItem): Promise<ContentItem> =>
+      this.client.createResource(`/content-items/${id}/unarchive`, resource, ContentItem)
   };
 
   public readonly folders = {
