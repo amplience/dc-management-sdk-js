@@ -110,12 +110,12 @@ export class DynamicContent {
     /**
      * Archive a content item resource by id
      * @param id content item id, previously generated on creation
-     * @param resource is object, that contains version
+     * @param data is object, that contains version
      */
-    archive: (id: string, resource: ContentItem): Promise<ContentItem> =>
-      this.client.createResource(
+    archive: (id: string, data: object): Promise<ContentItem> =>
+      this.client.postResource(
         `/content-items/${id}/archive`,
-        resource,
+        data,
         ContentItem
       ),
     /**
@@ -127,12 +127,12 @@ export class DynamicContent {
     /**
      * Unrchive a content item resource by id
      * @param id content item id, previously generated on creation
-     * @param resource is object, that contains version
+     * @param data is object, that contains version
      */
-    unarchive: (id: string, resource: ContentItem): Promise<ContentItem> =>
-      this.client.createResource(
+    unarchive: (id: string, data: object): Promise<ContentItem> =>
+      this.client.postResource(
         `/content-items/${id}/unarchive`,
-        resource,
+        data,
         ContentItem
       )
   };

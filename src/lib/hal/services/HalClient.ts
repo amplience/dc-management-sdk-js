@@ -33,6 +33,19 @@ export class HalClient {
     return this.fetchResource(href, resourceConstructor);
   }
 
+  public async postResource<T extends HalResource>(
+    path: string,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    const response = await this.invoke({
+      data: this.serialize(data),
+      method: 'post',
+      url: path
+    });
+    return this.parse(response.data, resourceConstructor);
+  }
+
   public async fetchResource<T extends HalResource>(
     path: string,
     resourceConstructor: HalResourceConstructor<T>

@@ -147,6 +147,107 @@ export const CONTENT_ITEM = {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
     },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive'
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive'
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    publish: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish'
+    },
+    planned: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
+      templated: true
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1'
+    },
+    'restore-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore'
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691'
+    },
+    'content-item-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
+      templated: true
+    },
+    'content-item-versions': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
+      templated: true
+    },
+    'content-item-history': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
+      templated: true
+    },
+    copy: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
+      templated: true
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658'
+    },
+    'content-item-with-children': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const CONTENT_ITEM_ARCHIVED = {
+  id: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+  folderId: '5b3237784cedfd01c4503658',
+  body: {
+    _meta: {
+      name: 'main-banner',
+      schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+    }
+  },
+  version: 1,
+  label: 'Banner Ad Homepage',
+  status: 'ARCHIVED',
+  createdBy: 'user',
+  createdDate: '2018-06-26T12:54:16.216Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-06-26T12:54:16.216Z',
+  deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive'
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive'
+    },
     'content-item': {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721'
@@ -609,8 +710,8 @@ export class DynamicContentFixtures {
     mocks
       .resource(CONTENT_ITEM)
       .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
-      .nestedResource('archive', { version: 1 }, CONTENT_ITEM)
-      .nestedResource('unarchive', { version: 1 }, CONTENT_ITEM);
+      .nestedCreateResource('archive', {}, CONTENT_ITEM_ARCHIVED)
+      .nestedCreateResource('unarchive', {}, CONTENT_ITEM);
 
     // Content repositories
     mocks

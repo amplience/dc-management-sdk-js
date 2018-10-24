@@ -40,13 +40,15 @@ test('archive item', async t => {
 
   const contentItemArchived = await client.contentItems.archive(
     contentItem.id,
-    contentItem
+    {
+      version: contentItem.version
+    }
   );
 
   t.is(contentItemArchived.status, 'ARCHIVED');
 });
 
-test('archive item', async t => {
+test('unarchive item', async t => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
