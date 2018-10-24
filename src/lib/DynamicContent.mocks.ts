@@ -608,7 +608,9 @@ export class DynamicContentFixtures {
     // Content items
     mocks
       .resource(CONTENT_ITEM)
-      .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM);
+      .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
+      .nestedResource('archive', { version: 1 }, CONTENT_ITEM)
+      .nestedResource('unarchive', { version: 1 }, CONTENT_ITEM);
 
     // Content repositories
     mocks

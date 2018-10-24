@@ -30,3 +30,33 @@ test('get repository', async t => {
 
   t.is(repo.name, 'inspiration');
 });
+
+test('archive item', async t => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const contentItemArchived = await client.contentItems.archive(
+    contentItem.id,
+    contentItem
+  );
+
+  t.is(contentItemArchived.status, 'ARCHIVED');
+});
+
+test('archive item', async t => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const contentItemArchived = await client.contentItems.unarchive(
+    contentItem.id,
+    contentItem
+  );
+
+  t.is(contentItemArchived.status, 'ACTIVE');
+});
