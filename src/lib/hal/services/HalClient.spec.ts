@@ -10,6 +10,9 @@ import { AxiosHalClient, HalClient } from './HalClient';
 // tslint:disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
+/**
+ * @hidden
+ */
 const tokenProvider = {
   getToken: () =>
     Promise.resolve({

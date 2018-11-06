@@ -9,6 +9,9 @@ import { HalResource } from './HalResource';
 // tslint:disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
+/**
+ * @hidden
+ */
 const tokenProvider = {
   getToken: () =>
     Promise.resolve({
