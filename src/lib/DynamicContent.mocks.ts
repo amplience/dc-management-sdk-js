@@ -1,10 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
-import { HalClient } from './hal/services/HalClient';
+import { AxiosHalClient, HalClient } from './hal/services/HalClient';
 import { HalMocks } from './hal/utils/HalMock';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
-import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
 /* tslint:disable:object-literal-sort-keys */
 
@@ -607,7 +606,7 @@ export class MockDynamicContent extends DynamicContent {
       clientConfig,
       tokenProvider
     );
-    this.mock = new MockAdapter(client.client);
+    this.mock = new MockAdapter((client as AxiosHalClient).client);
     DynamicContentFixtures.install(this.mock);
     return client;
   }

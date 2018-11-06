@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
 import { HalLink } from '../models/HalLink';
 import { HalResource, HalResourceConstructor } from '../models/HalResource';
 import { CURIEs } from './CURIEs';
@@ -6,21 +7,52 @@ import { CURIEs } from './CURIEs';
 /**
  * @hidden
  */
-type TokenProvider = () => Promise<string>;
+export interface HalClient {
+  fetchLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  fetchResource<T extends HalResource>(
+    path: string,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  createLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  createResource<T extends HalResource>(
+    path: string,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  parse<T extends HalResource>(
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): T;
+
+  serialize<T>(data: T): any;
+}
 
 /**
  * @hidden
  */
-export class HalClient {
-  public client: AxiosInstance;
+export interface ResourceRequest {
+  url: string;
+  method: string;
+  data?: any;
+}
 
-  private tokenProvider: TokenProvider;
-
-  constructor(tokenProvider: TokenProvider, config: AxiosRequestConfig) {
-    this.tokenProvider = tokenProvider;
-    this.client = axios.create(config);
-  }
-
+/**
+ * @hidden
+ */
+export abstract class DefaultHalClient implements HalClient {
   public async fetchLinkedResource<T extends HalResource>(
     link: HalLink,
     params: any,
@@ -83,12 +115,34 @@ export class HalClient {
     return JSON.parse(JSON.stringify(data));
   }
 
-  private async invoke(request: AxiosRequestConfig): Promise<any> {
-    const token = await this.tokenProvider();
-    request.headers = {
-      Authorization: 'bearer ' + token
+  protected abstract invoke(request: ResourceRequest): Promise<any>;
+}
+
+/**
+ * @hidden
+ */
+export class AxiosHalClient extends DefaultHalClient {
+  public client: AxiosInstance;
+  private tokenProvider: AccessTokenProvider;
+
+  constructor(tokenProvider: AccessTokenProvider, config: AxiosRequestConfig) {
+    super();
+
+    this.tokenProvider = tokenProvider;
+    this.client = axios.create(config);
+  }
+
+  protected async invoke(request: ResourceRequest): Promise<any> {
+    const token = await this.tokenProvider.getToken();
+
+    const requestConfig = {
+      ...request,
+      headers: {
+        Authorization: 'bearer ' + token.access_token
+      }
     };
-    return this.client.request(request).catch(
+
+    return this.client.request(requestConfig).catch(
       (error: any): any => {
         if (error.response.data) {
           const newError: any = new Error(

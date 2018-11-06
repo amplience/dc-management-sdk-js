@@ -1,5 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
-import { HalClient } from './hal/services/HalClient';
+import { AxiosHalClient, HalClient } from './hal/services/HalClient';
 import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
 import { Edition } from './model/Edition';
@@ -224,9 +224,6 @@ export class DynamicContent extends DynamicContentClient<AxiosRequestConfig> {
   ): HalClient {
     const config = { ...clientConfig };
     config.baseURL = dcConfig.apiUrl;
-    return new HalClient(
-      () => tokenProvider.getToken().then(y => y.access_token),
-      config
-    );
+    return new AxiosHalClient(tokenProvider, config);
   }
 }
