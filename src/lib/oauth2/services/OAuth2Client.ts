@@ -1,11 +1,12 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { AccessToken } from '../models/AccessToken';
+import { AccessTokenProvider } from '../models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
 
 /**
  * @hidden
  */
-export class OAuth2Client {
+export class OAuth2Client implements AccessTokenProvider {
   public client: AxiosInstance;
 
   private clientCredentials: OAuth2ClientCredentials;

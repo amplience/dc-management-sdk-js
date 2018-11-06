@@ -8,6 +8,7 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
+import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
@@ -30,40 +31,9 @@ export interface DynamicContentConfig {
 }
 
 /**
- * Amplience Dynamic Content API client.
- *
- * Your application should avoid where possible creating a new client for each request.
- * Authentication tokens are cached by the client and only re-requested when
- * they expire, allowing performance to be improved by reusing the client across requests.
- *
- * If multiple sets of credentials are required your application should create one client
- * per credential set.
- *
- * Example:
- *
- * ```typescript
- * const client = new DynamicContent({
- *    client_id: process.env.CLIENT_ID,
- *    client_secret: process.env.CLIENT_SECRET
- * });
- *
- * const repository = await client.contentRepositories.get('<REPO-ID>');
- *
- * const contentItem = new ContentItem();
- * contentItem.label = 'Homepage Article';
- * contentItem.body = {
- *      _meta: {
- *          schema: "https://github.com/techiedarren/dc-examples/blob/master/content-types/blocks/text-block.json"
- *      },
- *      paragraphs: [
- *          "Example article text..."
- *      ]
- * };
- *
- * await repository.related.contentItems.create(contentItem);
- * ```
+ * @hidden
  */
-export class DynamicContent {
+export abstract class DynamicContentClient<CLIENT_CONFIG> {
   /**
    * Hub Resources
    */
@@ -161,41 +131,83 @@ export class DynamicContent {
    *
    * @param clientCredentials Api credentials used to generate an authentication token
    * @param dcConfig Optional configuration settings for Dynamic Content
-   * @param config Optional request settings, can be used to provide proxy settings, add interceptors etc
+   * @param clientConfig Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
     clientCredentials: OAuth2ClientCredentials,
     dcConfig?: DynamicContentConfig,
-    config?: AxiosRequestConfig
+    clientConfig?: CLIENT_CONFIG
   ) {
     dcConfig = dcConfig || {};
     dcConfig.apiUrl = dcConfig.apiUrl || 'https://api.amplience.net/v2/content';
     dcConfig.authUrl = dcConfig.authUrl || 'https://auth.adis.ws';
 
-    const authConfig = { ...config };
-    const oauth2Client = this.createAuthClient(
-      clientCredentials,
+    const tokenClient = this.createTokenClient(
       dcConfig,
-      authConfig
+      clientConfig,
+      clientCredentials
     );
-
-    const halConfig = { ...config };
-    halConfig.baseURL = dcConfig.apiUrl;
-    this.client = this.createHalClient(oauth2Client, halConfig);
+    this.client = this.createResourceClient(
+      dcConfig,
+      clientConfig,
+      tokenClient
+    );
   }
 
-  /**
-   * @hidden
-   * @param clientCredentials
-   * @param dcConfig
-   * @param config
-   * @returns {OAuth2Client}
-   */
-  protected createAuthClient(
-    clientCredentials: OAuth2ClientCredentials,
+  protected abstract createTokenClient(
     dcConfig: DynamicContentConfig,
-    config?: AxiosRequestConfig
-  ): OAuth2Client {
+    clientConfig: CLIENT_CONFIG,
+    clientCredentials: OAuth2ClientCredentials
+  ): AccessTokenProvider;
+  protected abstract createResourceClient(
+    dcConfig: DynamicContentConfig,
+    clientConfig: CLIENT_CONFIG,
+    tokenProvider: AccessTokenProvider
+  ): HalClient;
+}
+
+/**
+ * Amplience Dynamic Content API client.
+ *
+ * Your application should avoid where possible creating a new client for each request.
+ * Authentication tokens are cached by the client and only re-requested when
+ * they expire, allowing performance to be improved by reusing the client across requests.
+ *
+ * If multiple sets of credentials are required your application should create one client
+ * per credential set.
+ *
+ * Example:
+ *
+ * ```typescript
+ * const client = new DynamicContent({
+ *    client_id: process.env.CLIENT_ID,
+ *    client_secret: process.env.CLIENT_SECRET
+ * });
+ *
+ * const repository = await client.contentRepositories.get('<REPO-ID>');
+ *
+ * const contentItem = new ContentItem();
+ * contentItem.label = 'Homepage Article';
+ * contentItem.body = {
+ *      _meta: {
+ *          schema: "https://github.com/techiedarren/dc-examples/blob/master/content-types/blocks/text-block.json"
+ *      },
+ *      paragraphs: [
+ *          "Example article text..."
+ *      ]
+ * };
+ *
+ * await repository.related.contentItems.create(contentItem);
+ * ```
+ */
+export class DynamicContent extends DynamicContentClient<AxiosRequestConfig> {
+  protected createTokenClient(
+    dcConfig: DynamicContentConfig,
+    clientConfig: AxiosRequestConfig,
+    clientCredentials: OAuth2ClientCredentials
+  ): AccessTokenProvider {
+    const config = { ...clientConfig };
+    config.baseURL = dcConfig.authUrl;
     return new OAuth2Client(
       clientCredentials,
       {
@@ -205,18 +217,15 @@ export class DynamicContent {
     );
   }
 
-  /**
-   * @hidden
-   * @param auth
-   * @param config
-   * @returns {HalClient}
-   */
-  protected createHalClient(
-    auth: OAuth2Client,
-    config: AxiosRequestConfig
+  protected createResourceClient(
+    dcConfig: DynamicContentConfig,
+    clientConfig: AxiosRequestConfig,
+    tokenProvider: AccessTokenProvider
   ): HalClient {
+    const config = { ...clientConfig };
+    config.baseURL = dcConfig.apiUrl;
     return new HalClient(
-      () => auth.getToken().then(y => y.access_token),
+      () => tokenProvider.getToken().then(y => y.access_token),
       config
     );
   }

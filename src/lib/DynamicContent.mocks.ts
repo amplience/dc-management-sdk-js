@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
 import { HalClient } from './hal/services/HalClient';
 import { HalMocks } from './hal/utils/HalMock';
+import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
@@ -581,33 +582,33 @@ export class MockDynamicContent extends DynamicContent {
     );
   }
 
-  protected createAuthClient(
-    clientCredentials: OAuth2ClientCredentials,
+  protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    config?: AxiosRequestConfig
-  ): OAuth2Client {
-    const auth = super.createAuthClient(clientCredentials, dcConfig, config);
-    const authMock = new MockAdapter(auth.client);
-    authMock
-      .onPost(
-        'https://auth.adis.ws/oauth/token',
-        'grant_type=client_credentials&client_id=client_id&client_secret=client_secret'
-      )
-      .reply(200, {
-        access_token: 'token',
-        expires_in: 60,
-        refresh_token: 'refresh'
-      });
-    return auth;
+    clientConfig: AxiosRequestConfig,
+    clientCredentials: OAuth2ClientCredentials
+  ): AccessTokenProvider {
+    return {
+      getToken: () =>
+        Promise.resolve({
+          access_token: 'token',
+          expires_in: 60,
+          refresh_token: 'refresh'
+        })
+    };
   }
 
-  protected createHalClient(
-    auth: OAuth2Client,
-    config: AxiosRequestConfig
+  protected createResourceClient(
+    dcConfig: DynamicContentConfig,
+    clientConfig: AxiosRequestConfig,
+    tokenProvider: AccessTokenProvider
   ): HalClient {
-    const hal = super.createHalClient(auth, config);
-    this.mock = new MockAdapter(hal.client);
+    const client = super.createResourceClient(
+      dcConfig,
+      clientConfig,
+      tokenProvider
+    );
+    this.mock = new MockAdapter(client.client);
     DynamicContentFixtures.install(this.mock);
-    return hal;
+    return client;
   }
 }

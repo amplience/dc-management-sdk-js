@@ -1,4 +1,4 @@
-export { DynamicContent } from './lib/DynamicContent';
+export { DynamicContent, DynamicContentClient } from './lib/DynamicContent';
 export { OAuth2Client } from './lib/oauth2/services/OAuth2Client';
 export {
   OAuth2ClientCredentials
