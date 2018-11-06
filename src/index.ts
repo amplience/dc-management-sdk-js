@@ -3,6 +3,17 @@ export { OAuth2Client } from './lib/oauth2/services/OAuth2Client';
 export {
   OAuth2ClientCredentials
 } from './lib/oauth2/models/OAuth2ClientCredentials';
+export { AccessTokenProvider } from './lib/oauth2/models/AccessTokenProvider';
+export {
+  HalClient,
+  DefaultHalClient,
+  AxiosHalClient,
+  ResourceRequest
+} from './lib/hal/services/HalClient';
+export {
+  HalResource,
+  HalResourceConstructor
+} from './lib/hal/models/HalResource';
 
 export { Event } from './lib/model/Event';
 export { Edition } from './lib/model/Edition';
