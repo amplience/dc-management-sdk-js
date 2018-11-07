@@ -26,4 +26,13 @@ export abstract class EmbeddedCollection<
     }
     return this.items;
   }
+
+  public toJson(): any {
+    const result = super.toJson();
+    result._embedded[this.key] = this.getItems().map(item => item.toJson());
+    delete result.key;
+    delete result.resourceType;
+    delete result.items;
+    return result;
+  }
 }

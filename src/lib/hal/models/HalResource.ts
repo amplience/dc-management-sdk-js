@@ -50,9 +50,10 @@ export class HalResource {
    * Returns a copy of this resource's attributes excluding links and client references
    */
   public toJson(): any {
-    const result = Object.assign({}, this);
+    const result: any = Object.assign({}, this);
     delete result.client;
     delete result._links;
+    delete result.related;
     return result;
   }
 
