@@ -67,7 +67,7 @@ export interface DynamicContentConfig {
  * await repository.related.contentItems.create(contentItem);
  * ```
  */
-export abstract class DynamicContent {
+export class DynamicContent {
   /**
    * Hub Resources
    */

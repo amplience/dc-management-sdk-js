@@ -4,10 +4,7 @@ export {
   OAuth2ClientCredentials
 } from './lib/oauth2/models/OAuth2ClientCredentials';
 export { AccessTokenProvider } from './lib/oauth2/models/AccessTokenProvider';
-export {
-  HalClient,
-  DefaultHalClient
-} from './lib/hal/services/HalClient';
+export { HalClient, DefaultHalClient } from './lib/hal/services/HalClient';
 export {
   HalResource,
   HalResourceConstructor
