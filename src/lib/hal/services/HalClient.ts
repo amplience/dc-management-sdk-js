@@ -1,5 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { HttpClient } from '../../http/HttpClient';
+import { HttpMethod, HttpRequest } from '../../http/HttpRequest';
+import { HttpResponse } from '../../http/HttpResponse';
 import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
+import { combineURLs } from '../../utils/URL';
 import { HalLink } from '../models/HalLink';
 import { HalResource, HalResourceConstructor } from '../models/HalResource';
 import { CURIEs } from './CURIEs';
@@ -50,16 +54,13 @@ export interface HalClient {
 /**
  * @hidden
  */
-export interface ResourceRequest {
-  url: string;
-  method: string;
-  data?: any;
-}
+export class DefaultHalClient implements HalClient {
+  constructor(
+    private baseUrl: string,
+    private httpClient: HttpClient,
+    private tokenProvider: AccessTokenProvider
+  ) {}
 
-/**
- * @hidden
- */
-export abstract class DefaultHalClient implements HalClient {
   public async fetchLinkedResource<T extends HalResource>(
     link: HalLink,
     params: any,
@@ -77,7 +78,7 @@ export abstract class DefaultHalClient implements HalClient {
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     const response = await this.invoke({
-      method: 'get',
+      method: HttpMethod.GET,
       url: path
     });
     return this.parse(response.data, resourceConstructor);
@@ -103,7 +104,7 @@ export abstract class DefaultHalClient implements HalClient {
   ): Promise<T> {
     const response = await this.invoke({
       data: this.serialize(resource),
-      method: 'post',
+      method: HttpMethod.POST,
       url: path
     });
     return this.parse(response.data, resourceConstructor);
@@ -123,7 +124,7 @@ export abstract class DefaultHalClient implements HalClient {
 
     const response = await this.invoke({
       data: this.serialize(data),
-      method: 'post',
+      method: HttpMethod.POST,
       url: href
     });
 
@@ -143,48 +144,33 @@ export abstract class DefaultHalClient implements HalClient {
     return JSON.parse(JSON.stringify(data));
   }
 
-  protected abstract invoke(request: ResourceRequest): Promise<any>;
-}
-
-/**
- * @hidden
- */
-export class AxiosHalClient extends DefaultHalClient {
-  public client: AxiosInstance;
-  private tokenProvider: AccessTokenProvider;
-
-  constructor(tokenProvider: AccessTokenProvider, config: AxiosRequestConfig) {
-    super();
-
-    this.tokenProvider = tokenProvider;
-    this.client = axios.create(config);
-  }
-
-  protected async invoke(request: ResourceRequest): Promise<any> {
+  protected async invoke(request: HttpRequest): Promise<HttpResponse> {
     const token = await this.tokenProvider.getToken();
 
-    const requestConfig = {
-      ...request,
+    const fullRequest: HttpRequest = {
+      data: request.data,
       headers: {
         Authorization: 'bearer ' + token.access_token
-      }
+      },
+      method: request.method,
+      url: combineURLs(this.baseUrl, request.url)
     };
 
-    return this.client.request(requestConfig).catch(
-      (error: any): any => {
-        if (error.response.data) {
-          const newError: any = new Error(
-            `Request failed with status code ${
-              error.response.status
-            }: ${JSON.stringify(error.response.data)}`
-          );
-          newError.code = error.code;
-          newError.response = error.response;
-          newError.requets = error.request;
-          throw newError;
+    return this.httpClient.request(fullRequest).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        if (typeof response.data === 'string') {
+          response.data = JSON.parse(response.data);
         }
-        throw error;
+        return response;
+      } else {
+        const newError: any = new Error(
+          `Request failed with status code ${response.status}: ${JSON.stringify(
+            response.data
+          )}`
+        );
+
+        throw newError;
       }
-    );
+    });
   }
 }

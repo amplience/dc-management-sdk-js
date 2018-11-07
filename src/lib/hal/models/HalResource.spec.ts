@@ -1,5 +1,6 @@
 import test from 'ava';
-import { AxiosHalClient, HalClient } from '../services/HalClient';
+import { AxiosHttpClient } from '../../http/AxiosHttpClient';
+import { DefaultHalClient, HalClient } from '../services/HalClient';
 import { HalResource } from './HalResource';
 
 // axios-mock-adaptor's typedefs are wrong preventing calling onGet with 3 args, this is a workaround
@@ -24,6 +25,17 @@ const tokenProvider = {
 /**
  * @hidden
  */
+function createMockClient(): [HalClient, any] {
+  const httpClient = new AxiosHttpClient({});
+  const client = new DefaultHalClient('', httpClient, tokenProvider);
+  const mock = new MockAdapter(httpClient.client);
+
+  return [client, mock];
+}
+
+/**
+ * @hidden
+ */
 class MockResource extends HalResource {
   public name?: string;
 
@@ -39,7 +51,8 @@ class MockResource extends HalResource {
 }
 
 test('embedded resources should be lazy parsed', t => {
-  const client = new AxiosHalClient(tokenProvider, {});
+  const [client, mock] = createMockClient();
+
   const resource = client.parse(
     {
       _embedded: {
@@ -68,8 +81,7 @@ test('input JSON should be parsed', async t => {
 });
 
 test('fetchLinkedResource should follow the resource link', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
@@ -91,7 +103,7 @@ test('fetchLinkedResource should follow the resource link', async t => {
 });
 
 test('fetchLinkedResource should return null if link is missing', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
+  const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
@@ -105,7 +117,7 @@ test('fetchLinkedResource should return null if link is missing', async t => {
 });
 
 test('fetchLinkedResource should reject if no client is linked', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
+  const [client, mock] = createMockClient();
   const resource = new MockResource({
     _links: {}
   });
@@ -114,8 +126,7 @@ test('fetchLinkedResource should reject if no client is linked', async t => {
 });
 
 test('createLinkedResource should follow the resource link', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
@@ -137,7 +148,7 @@ test('createLinkedResource should follow the resource link', async t => {
 });
 
 test('createLinkedResource should return null if link is missing', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
+  const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
@@ -151,7 +162,7 @@ test('createLinkedResource should return null if link is missing', async t => {
 });
 
 test('createLinkedResource should reject if no client is linked', async t => {
-  const client = new AxiosHalClient(tokenProvider, {});
+  const [client, mock] = createMockClient();
   const resource = new MockResource({
     _links: {}
   });

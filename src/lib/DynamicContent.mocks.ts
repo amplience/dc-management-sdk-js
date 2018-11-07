@@ -1,7 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
-import { AxiosHalClient, HalClient } from './hal/services/HalClient';
+import { HalClient } from './hal/services/HalClient';
 import { HalMocks } from './hal/utils/HalMock';
+import { AxiosHttpClient } from './http/AxiosHttpClient';
+import { HttpClient } from './http/HttpClient';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 
@@ -717,7 +719,9 @@ export class DynamicContentFixtures {
     const mocks = new HalMocks(mock);
 
     // Hubs
-    mocks.collection('/hubs', 'hubs', [HUB]);
+    mocks.collection('https://api.amplience.net/v2/content/hubs', 'hubs', [
+      HUB
+    ]);
     mocks
       .resource(HUB)
       .nestedCollection('content-repositories', {}, 'content-repositories', [
@@ -799,7 +803,7 @@ export class MockDynamicContent extends DynamicContent {
   constructor(
     clientCredentials?: OAuth2ClientCredentials,
     dcConfig?: DynamicContentConfig,
-    config?: AxiosRequestConfig
+    httpClient?: AxiosRequestConfig
   ) {
     super(
       clientCredentials || {
@@ -807,14 +811,14 @@ export class MockDynamicContent extends DynamicContent {
         client_secret: 'client_secret'
       },
       dcConfig,
-      config
+      httpClient
     );
   }
 
   protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    clientConfig: AxiosRequestConfig,
-    clientCredentials: OAuth2ClientCredentials
+    clientCredentials: OAuth2ClientCredentials,
+    httpClient: HttpClient
   ): AccessTokenProvider {
     return {
       getToken: () =>
@@ -828,15 +832,15 @@ export class MockDynamicContent extends DynamicContent {
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    clientConfig: AxiosRequestConfig,
-    tokenProvider: AccessTokenProvider
+    tokenProvider: AccessTokenProvider,
+    httpClient: HttpClient
   ): HalClient {
     const client = super.createResourceClient(
       dcConfig,
-      clientConfig,
-      tokenProvider
+      tokenProvider,
+      httpClient
     );
-    this.mock = new MockAdapter((client as AxiosHalClient).client);
+    this.mock = new MockAdapter((httpClient as AxiosHttpClient).client);
     DynamicContentFixtures.install(this.mock);
     return client;
   }
