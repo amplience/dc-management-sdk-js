@@ -126,4 +126,30 @@ export class HalResource {
       resourceConstructor
     );
   }
+
+  /**
+   * Post to an action endpoint and get a resource response.
+   *
+   * @hidden
+   */
+  protected performActionThatReturnsResource<T extends HalResource>(
+    namedAction: string,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    if (!this.client) {
+      return Promise.reject(new Error('HalResource has no client'));
+    }
+    const link = this._links[namedAction];
+    if (!link) {
+      return Promise.resolve(null);
+    }
+    return this.client.performActionThatReturnsResource(
+      link,
+      params,
+      data,
+      resourceConstructor
+    );
+  }
 }
