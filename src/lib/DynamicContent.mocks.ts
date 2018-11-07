@@ -629,6 +629,9 @@ export const LOCALIZATION_JOB = {
   }
 };
 
+/**
+ * @hidden
+ */
 export const FOLDER = {
   id: '5b72ed68d6018001c81ef05b',
   name: 'A folder to end all folders',

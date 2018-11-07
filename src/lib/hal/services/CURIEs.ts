@@ -1,3 +1,6 @@
+/**
+ * @hidden
+ */
 // tslint:disable-next-line
 const template = require('url-template');
 
