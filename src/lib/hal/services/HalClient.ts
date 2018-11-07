@@ -26,6 +26,13 @@ export interface HalClient {
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
+  performActionThatReturnsResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
   createResource<T extends HalResource>(
     path: string,
     resource: T,
