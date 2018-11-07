@@ -102,6 +102,27 @@ export abstract class DefaultHalClient implements HalClient {
     return this.parse(response.data, resourceConstructor);
   }
 
+  public async performActionThatReturnsResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    let href = link.href;
+
+    if (link.templated) {
+      href = CURIEs.expand(href, params);
+    }
+
+    const response = await this.invoke({
+      data: this.serialize(data),
+      method: 'post',
+      url: href
+    });
+
+    return this.parse(response.data, resourceConstructor);
+  }
+
   public parse<T extends HalResource>(
     data: any,
     resourceConstructor: HalResourceConstructor<T>

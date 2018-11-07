@@ -1,5 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentRepository } from './ContentRepository';
+import { LocalizationJob } from './LocalizationJob';
+import { Page } from './Page';
 import { Status } from './Status';
 
 /**
@@ -46,6 +48,11 @@ export class ContentItem extends HalResource {
    * Friendly label for the content item
    */
   public label?: string;
+
+  /**
+   * Locale
+   */
+  public locale?: string;
 
   /**
    * Unique id used by client applications to request the content from the delivery API
@@ -96,6 +103,39 @@ export class ContentItem extends HalResource {
      * Retrieves the ContentRepository this content item is stored in
      */
     contentRepository: (): Promise<ContentRepository> =>
-      this.fetchLinkedResource('content-repository', {}, ContentRepository)
+      this.fetchLinkedResource('content-repository', {}, ContentRepository),
+
+    /**
+     * Sets a locale of the form ll-CC (language, country code)
+     * @param locale Locale code
+     */
+    setLocale: (localeDefinition: string): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'set-locale',
+        {},
+        { locale: localeDefinition, version: this.version },
+        ContentItem
+      ),
+
+    /**
+     * Create localizations of the content item
+     * @param locales Array of locales to create
+     */
+    localize: (localesList: string[]): Promise<any> =>
+      this.performActionThatReturnsResource(
+        'create-localizations',
+        {},
+        { locales: localesList, version: this.version },
+        LocalizationJob
+      )
   };
+}
+
+/**
+ * @hidden
+ */
+export class ContentItemsPage extends Page<ContentItem> {
+  constructor(data?: any) {
+    super('content-items', ContentItem, data);
+  }
 }
