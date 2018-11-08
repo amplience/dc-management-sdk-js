@@ -15,15 +15,15 @@ const MockAdapter = require('axios-mock-adapter');
 class MockResource extends HalResource {
   public name?: string;
 
-  public readonly embedded = {
-    mocks: this.parseEmbedded.bind(this, 'mocks', MockResource)
-  };
-
   public readonly related = {
     nested: () => this.fetchLinkedResource('nested', {}, MockResource),
     nestedCreate: (resource: MockResource) =>
       this.createLinkedResource('nested', {}, resource, MockResource)
   };
+
+  public getMockEmbeddedResources(): MockResource[] {
+    return this.parseEmbedded('mocks', MockResource);
+  }
 }
 
 test('embedded resources should be lazy parsed', t => {
@@ -37,15 +37,15 @@ test('embedded resources should be lazy parsed', t => {
     MockResource
   );
 
-  t.is(resource.embedded.mocks().length, 1);
-  t.is(resource.embedded.mocks()[0].name, 'test');
+  t.is(resource.getMockEmbeddedResources().length, 1);
+  t.is(resource.getMockEmbeddedResources()[0].name, 'test');
 });
 
 test('missing embedded resources should return an empty list', t => {
   const resource = new MockResource({
     _embedded: {}
   });
-  t.is(resource.embedded.mocks().length, 0);
+  t.is(resource.getMockEmbeddedResources().length, 0);
 });
 
 test('input JSON should be parsed', async t => {
@@ -145,4 +145,26 @@ test('createLinkedResource should reject if no client is linked', async t => {
   });
 
   resource.related.nestedCreate(resource).then(() => t.fail(), () => t.pass());
+});
+
+test('toJson should copy resource attributes', async t => {
+  const resource = new MockResource({
+    _links: {},
+    name: 'name'
+  });
+  const json = resource.toJson();
+  t.is(json.name, 'name');
+});
+
+test('toJson should exclude links & related', async t => {
+  const resource = new MockResource({
+    _links: {
+      nested: {
+        href: '/nested/1'
+      }
+    },
+    name: 'name'
+  });
+  const json = resource.toJson();
+  t.deepEqual(json, { name: 'name' });
 });

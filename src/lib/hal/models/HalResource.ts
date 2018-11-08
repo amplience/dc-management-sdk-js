@@ -47,6 +47,17 @@ export class HalResource {
   }
 
   /**
+   * Returns a copy of this resource's attributes excluding links and client references
+   */
+  public toJson(): any {
+    const result: any = Object.assign({}, this);
+    delete result.client;
+    delete result._links;
+    delete result.related;
+    return result;
+  }
+
+  /**
    * Set automatically by the HalClient when the resource is created.
    * If this is not set the resource will be unable to resolve related
    * resources and actions.

@@ -108,7 +108,6 @@ test('should rewrite content-links with the id of the copy', async t => {
       for (let i = 0; i < oldLinks.length; i++) {
         const oldLink = oldLinks[i];
         const newLink = newLinks[i];
-        t.log(newLink.id);
 
         if (newLink.id !== expected[oldLink.id]) {
           throw new Error('Link rewrites failed');
