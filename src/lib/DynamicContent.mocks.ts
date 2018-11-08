@@ -118,6 +118,15 @@ export const HUB = {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
       templated: true
+    },
+    webhooks: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks{?page,size,sort}',
+      templated: true
+    },
+    'create-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks'
     }
   }
 };
@@ -708,6 +717,44 @@ export const NEW_FOLDER = {
   }
 };
 
+export const WEBHOOK = {
+  id: '5a497a000000000000000000',
+  label: 'myWebhookSubscription',
+  events: ['dynamic-content.edition.scheduled'],
+  active: true,
+  handlers: ['http://example.com/webhook'],
+  notifications: [],
+  secret: 'secret',
+  createdDate: '2018-01-02T03:04:05Z',
+  lastModifiedDate: '2018-01-02T03:04:05Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000'
+    },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8'
+    },
+    requests: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit}',
+      templated: true
+    },
+    'event-types': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types'
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000'
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000'
+    }
+  }
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -724,7 +771,9 @@ export class DynamicContentFixtures {
         CONTENT_REPOSITORY
       ])
       .nestedCollection('events', {}, 'events', [EVENT])
-      .nestedCreateResource('create-event', {}, EVENT);
+      .nestedCreateResource('create-event', {}, EVENT)
+      .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
+      .nestedCreateResource('create-webhook', {}, WEBHOOK);
 
     // Content items
     mocks
@@ -780,6 +829,8 @@ export class DynamicContentFixtures {
         { locales: ['fr-FR'], version: 1 },
         LOCALIZATION_JOB
       );
+
+    mocks.resource(WEBHOOK);
   }
 }
 

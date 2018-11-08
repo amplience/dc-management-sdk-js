@@ -9,6 +9,7 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
+import { Webhook } from './model/Webhook';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
