@@ -40,7 +40,9 @@ export class Webhook extends HalResource {
   /**
    * Resources and actions related to a Webhook
    */
-  public readonly related = {};
+  public readonly related = {
+    delete: (): Promise<void> => this.deleteResource()
+  };
 }
 
 /**

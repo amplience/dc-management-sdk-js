@@ -717,6 +717,9 @@ export const NEW_FOLDER = {
   }
 };
 
+/**
+ * @hidden
+ */
 export const WEBHOOK = {
   id: '5a497a000000000000000000',
   label: 'myWebhookSubscription',

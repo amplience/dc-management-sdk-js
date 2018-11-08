@@ -23,3 +23,10 @@ test('create webhook', async t => {
 
   t.is(newWebhook.label, 'myWebhookSubscription');
 });
+
+test('delete webhook', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.webhooks.get('5a497a000000000000000000');
+  return t.notThrows(result.related.delete());
+});
