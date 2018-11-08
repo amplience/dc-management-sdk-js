@@ -21,3 +21,4 @@ export { PageMetadata } from './lib/model/PageMetadata';
 export { ContentGraph } from './lib/content/services/ContentGraph';
 export { ContentLink } from './lib/content/models/ContentLink';
 export { ContentLinkInstance } from './lib/content/models/ContentLink';
+export { Webhook } from './lib/model/Webhook';
