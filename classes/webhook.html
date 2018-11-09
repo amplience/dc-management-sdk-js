@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HalResource | dc-management-sdk-js</title>
+	<title>Webhook | dc-management-sdk-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="halresource.html">HalResource</a>
+					<a href="webhook.html">Webhook</a>
 				</li>
 			</ul>
-			<h1>Class HalResource</h1>
+			<h1>Class Webhook</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Base class for all Resources</p>
+						<p>Class representing the <a href="https://api.amplience.net/v2/content/docs/api/index.html#resources-webhooks">Webhook</a> resource.
+						A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST.</p>
 					</div>
 				</div>
 			</section>
@@ -77,40 +78,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HalResource</span>
+						<a href="halresource.html" class="tsd-signature-type">HalResource</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="folder.html" class="tsd-signature-type">Folder</a>
-							</li>
-							<li>
-								<a href="contentrepository.html" class="tsd-signature-type">ContentRepository</a>
-							</li>
-							<li>
-								<a href="localizationroot.html" class="tsd-signature-type">LocalizationRoot</a>
-							</li>
-							<li>
-								<a href="localizationjob.html" class="tsd-signature-type">LocalizationJob</a>
-							</li>
-							<li>
-								<a href="contentitem.html" class="tsd-signature-type">ContentItem</a>
-							</li>
-							<li>
-								<a href="editionslot.html" class="tsd-signature-type">EditionSlot</a>
-							</li>
-							<li>
-								<a href="event.html" class="tsd-signature-type">Event</a>
-							</li>
-							<li>
-								<a href="edition.html" class="tsd-signature-type">Edition</a>
-							</li>
-							<li>
-								<a href="webhook.html" class="tsd-signature-type">Webhook</a>
-							</li>
-							<li>
-								<a href="hub.html" class="tsd-signature-type">Hub</a>
-							</li>
-							<li>
-								<a href="snapshot.html" class="tsd-signature-type">Snapshot</a>
+								<span class="target">Webhook</span>
 							</li>
 						</ul>
 					</li>
@@ -120,39 +91,52 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="halresource.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="webhook.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="halresource.html#_links" class="tsd-kind-icon">_links</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="webhook.html#_links" class="tsd-kind-icon">_links</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#active" class="tsd-kind-icon">active</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#events" class="tsd-kind-icon">events</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#handlers" class="tsd-kind-icon">handlers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#label" class="tsd-kind-icon">label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="webhook.html#secret" class="tsd-kind-icon">secret</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="webhook.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="webhook.html#tojson" class="tsd-kind-icon">to<wbr>Json</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="halresource.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="halresource.html#tojson" class="tsd-kind-icon">to<wbr>Json</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="webhook.html#related" class="tsd-kind-icon">related</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Hal<wbr>Resource<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="halresource.html" class="tsd-signature-type">HalResource</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Webhook<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="webhook.html" class="tsd-signature-type">Webhook</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#constructor">constructor</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L27">lib/hal/models/HalResource.ts:27</a></li>
 								</ul>
@@ -174,35 +158,128 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="halresource.html" class="tsd-signature-type">HalResource</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="webhook.html" class="tsd-signature-type">Webhook</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="_links" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _links</h3>
 					<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/hallink.html" class="tsd-signature-type">HalLink</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#_links">_links</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="active" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> active</h3>
+					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L32">lib/model/Webhook.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Enables or disables the webhook</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="events" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> events</h3>
+					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L22">lib/model/Webhook.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of events that will cause this webhook to trigger</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="handlers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> handlers</h3>
+					<div class="tsd-signature tsd-kind-icon">handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L27">lib/model/Webhook.ts:27</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of callback URLs to invoke when an event triggers</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L12">lib/model/Webhook.ts:12</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Unique id generated on creation</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="label" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> label</h3>
+					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L17">lib/model/Webhook.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Friendly display label for the Webhook</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="secret" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> secret</h3>
+					<div class="tsd-signature tsd-kind-icon">secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L38">lib/model/Webhook.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>When a notification is sent, this value will be used to calculate a cryptographic hash which is transmitted as part of the notification.
+							This hash can be used to assert a trusted party sent the notification.</p>
+						</div>
+					</div>
+				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="deleteresource" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> delete<wbr>Resource</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 						<li class="tsd-signature tsd-kind-icon">delete<wbr>Resource<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#deleteresource">deleteResource</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L157">lib/hal/models/HalResource.ts:157</a></li>
 								</ul>
@@ -211,15 +288,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="tojson" class="tsd-anchor"></a>
 					<h3>to<wbr>Json</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">to<wbr>Json<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#tojson">toJson</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L52">lib/hal/models/HalResource.ts:52</a></li>
 								</ul>
@@ -232,6 +310,41 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="related" class="tsd-anchor"></a>
+					<h3>related</h3>
+					<div class="tsd-signature tsd-kind-icon">related<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L43">lib/model/Webhook.ts:43</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Resources and actions related to a Webhook</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+						<a name="related.delete" class="tsd-anchor"></a>
+						<h3>delete</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+							<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Webhook.ts#L44">lib/model/Webhook.ts:44</a></li>
+									</ul>
+								</aside>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							</li>
+						</ul>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -281,27 +394,9 @@
 					<li class=" tsd-kind-class">
 						<a href="folder.html" class="tsd-kind-icon">Folder</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="halresource.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="halresource.html#_links" class="tsd-kind-icon">_links</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="halresource.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="halresource.html#tojson" class="tsd-kind-icon">to<wbr>Json</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="hub.html" class="tsd-kind-icon">Hub</a>
 					</li>
@@ -317,9 +412,48 @@
 					<li class=" tsd-kind-class">
 						<a href="snapshot.html" class="tsd-kind-icon">Snapshot</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="webhook.html" class="tsd-kind-icon">Webhook</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="webhook.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="webhook.html#_links" class="tsd-kind-icon">_links</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#active" class="tsd-kind-icon">active</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#events" class="tsd-kind-icon">events</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#handlers" class="tsd-kind-icon">handlers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#label" class="tsd-kind-icon">label</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="webhook.html#secret" class="tsd-kind-icon">secret</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="webhook.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="webhook.html#tojson" class="tsd-kind-icon">to<wbr>Json</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="webhook.html#related" class="tsd-kind-icon">related</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="webhooksignature.html" class="tsd-kind-icon">Webhook<wbr>Signature</a>
 					</li>

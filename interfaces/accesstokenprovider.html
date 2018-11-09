@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HalLink | dc-management-sdk-js</title>
+	<title>AccessTokenProvider | dc-management-sdk-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="hallink.html">HalLink</a>
+					<a href="accesstokenprovider.html">AccessTokenProvider</a>
 				</li>
 			</ul>
-			<h1>Interface HalLink</h1>
+			<h1>Interface AccessTokenProvider</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HalLink</span>
+						<span class="target">AccessTokenProvider</span>
 					</li>
 				</ul>
 			</section>
@@ -79,36 +79,32 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hallink.html#href" class="tsd-kind-icon">href</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hallink.html#templated" class="tsd-kind-icon">templated</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="accesstokenprovider.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="href" class="tsd-anchor"></a>
-					<h3>href</h3>
-					<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalLink.ts#L2">lib/hal/models/HalLink.ts:2</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="templated" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> templated</h3>
-					<div class="tsd-signature tsd-kind-icon">templated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalLink.ts#L3">lib/hal/models/HalLink.ts:3</a></li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="gettoken" class="tsd-anchor"></a>
+					<h3>get<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="accesstoken.html" class="tsd-signature-type">AccessToken</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/oauth2/models/AccessTokenProvider.ts#L4">lib/oauth2/models/AccessTokenProvider.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="accesstoken.html" class="tsd-signature-type">AccessToken</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -185,30 +181,27 @@
 					<li class=" tsd-kind-interface">
 						<a href="accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="accesstokenprovider.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hallink.html#href" class="tsd-kind-icon">href</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hallink.html#templated" class="tsd-kind-icon">templated</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
 					</li>

@@ -114,7 +114,9 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="page.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="page.html#getitems" class="tsd-kind-icon">get<wbr>Items</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="page.html#tojson" class="tsd-kind-icon">to<wbr>Json</a></li>
 							</ul>
 						</section>
 					</div>
@@ -134,7 +136,7 @@
 								<p>Inherited from EmbeddedCollection.__constructor</p>
 								<p>Overrides <a href="halresource.html">HalResource</a>.<a href="halresource.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/eaadf96/src/lib/model/EmbeddedCollection.ts#L11">lib/model/EmbeddedCollection.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/EmbeddedCollection.ts#L11">lib/model/EmbeddedCollection.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -163,7 +165,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#_links">_links</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/eaadf96/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <a href="../interfaces/pagemetadata.html" class="tsd-signature-type">PageMetadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/eaadf96/src/lib/model/Page.ts#L14">lib/model/Page.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/Page.ts#L14">lib/model/Page.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,6 +187,24 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="deleteresource" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> delete<wbr>Resource</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">delete<wbr>Resource<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#deleteresource">deleteResource</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/hal/models/HalResource.ts#L157">lib/hal/models/HalResource.ts:157</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="getitems" class="tsd-anchor"></a>
 					<h3>get<wbr>Items</h3>
@@ -196,10 +216,29 @@
 							<aside class="tsd-sources">
 								<p>Inherited from EmbeddedCollection.getItems</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/eaadf96/src/lib/model/EmbeddedCollection.ts#L23">lib/model/EmbeddedCollection.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/EmbeddedCollection.ts#L23">lib/model/EmbeddedCollection.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="tojson" class="tsd-anchor"></a>
+					<h3>to<wbr>Json</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Json<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EmbeddedCollection.toJson</p>
+								<p>Overrides <a href="halresource.html">HalResource</a>.<a href="halresource.html#tojson">toJson</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/281d75c/src/lib/model/EmbeddedCollection.ts#L30">lib/model/EmbeddedCollection.ts:30</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -249,10 +288,19 @@
 						<a href="event.html" class="tsd-kind-icon">Event</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="folder.html" class="tsd-kind-icon">Folder</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="hub.html" class="tsd-kind-icon">Hub</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="localizationjob.html" class="tsd-kind-icon">Localization<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="localizationroot.html" class="tsd-kind-icon">Localization<wbr>Root</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -268,8 +316,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="page.html#page-1" class="tsd-kind-icon">page</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="page.html#deleteresource" class="tsd-kind-icon">delete<wbr>Resource</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="page.html#getitems" class="tsd-kind-icon">get<wbr>Items</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="page.html#tojson" class="tsd-kind-icon">to<wbr>Json</a>
 							</li>
 						</ul>
 					</li>
@@ -278,8 +332,17 @@
 					<li class=" tsd-kind-class">
 						<a href="snapshot.html" class="tsd-kind-icon">Snapshot</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="webhook.html" class="tsd-kind-icon">Webhook</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="webhooksignature.html" class="tsd-kind-icon">Webhook<wbr>Signature</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
@@ -301,9 +364,6 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#template" class="tsd-kind-icon">template</a>
 					</li>
 				</ul>
 			</nav>
