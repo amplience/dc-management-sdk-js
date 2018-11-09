@@ -47,6 +47,17 @@ export class HalResource {
   }
 
   /**
+   * Returns a copy of this resource's attributes excluding links and client references
+   */
+  public toJson(): any {
+    const result: any = Object.assign({}, this);
+    delete result.client;
+    delete result._links;
+    delete result.related;
+    return result;
+  }
+
+  /**
    * Set automatically by the HalClient when the resource is created.
    * If this is not set the resource will be unable to resolve related
    * resources and actions.
@@ -141,5 +152,19 @@ export class HalResource {
       data,
       resourceConstructor
     );
+  }
+
+  protected deleteResource(): Promise<void> {
+    if (!this.client) {
+      return Promise.reject(new Error('HalResource has no client'));
+    }
+
+    // Bug in type script compiler interprets the delete keyword in a string incorrectly and raises type errors
+    const namedAction = 'del' + 'ete';
+    const link = this._links[namedAction];
+    if (!link) {
+      return Promise.reject('Resource does not have a delete action');
+    }
+    return this.client.deleteLinkedResource(link, {});
   }
 }

@@ -34,3 +34,119 @@ test('create event', async t => {
   const result = await hub.related.events.create(new Event());
   t.is(result.name, 'January Sale');
 });
+
+test('toJson should copy resource attributes', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+
+  t.deepEqual(hub.toJson(), {
+    createdBy: 'user',
+    createdDate: '2018-06-26T12:54:22.142Z',
+    description: 'Content for anyafinn.com',
+    id: '5b32377e4cedfd01c45036d8',
+    label: 'Anya Finn',
+    lastModifiedBy: 'user',
+    lastModifiedDate: '2018-06-26T12:54:22.142Z',
+    name: 'anya-finn',
+    settings: {
+      applications: [],
+      devices: [
+        {
+          height: 768,
+          name: 'Desktop',
+          orientate: false,
+          width: 1024
+        },
+        {
+          height: 768,
+          name: 'Tablet',
+          orientate: false,
+          width: 640
+        },
+        {
+          height: 512,
+          name: 'Mobile',
+          orientate: false,
+          width: 320
+        }
+      ],
+      previewVirtualStagingEnvironment: {
+        hostname: ''
+      },
+      publishing: {
+        platforms: {
+          amplience_dam: {
+            API_KEY: 'KEY',
+            endpoint: 'Endpoint'
+          }
+        }
+      },
+      virtualStagingEnvironment: {
+        hostname: ''
+      }
+    },
+    status: 'ACTIVE'
+  });
+});
+
+test('toJson on a page of resources should copy resource attributes', async t => {
+  const client = new MockDynamicContent();
+  const hubs = await client.hubs.list();
+
+  t.log(hubs.toJson());
+
+  t.deepEqual(hubs.toJson(), {
+    _embedded: {
+      hubs: [
+        {
+          createdBy: 'user',
+          createdDate: '2018-06-26T12:54:22.142Z',
+          description: 'Content for anyafinn.com',
+          id: '5b32377e4cedfd01c45036d8',
+          label: 'Anya Finn',
+          lastModifiedBy: 'user',
+          lastModifiedDate: '2018-06-26T12:54:22.142Z',
+          name: 'anya-finn',
+          settings: {
+            applications: [],
+            devices: [
+              {
+                height: 768,
+                name: 'Desktop',
+                orientate: false,
+                width: 1024
+              },
+              {
+                height: 768,
+                name: 'Tablet',
+                orientate: false,
+                width: 640
+              },
+              {
+                height: 512,
+                name: 'Mobile',
+                orientate: false,
+                width: 320
+              }
+            ],
+            previewVirtualStagingEnvironment: {
+              hostname: ''
+            },
+            publishing: {
+              platforms: {
+                amplience_dam: {
+                  API_KEY: 'KEY',
+                  endpoint: 'Endpoint'
+                }
+              }
+            },
+            virtualStagingEnvironment: {
+              hostname: ''
+            }
+          },
+          status: 'ACTIVE'
+        }
+      ]
+    }
+  });
+});

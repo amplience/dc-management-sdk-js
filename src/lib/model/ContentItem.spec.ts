@@ -55,3 +55,29 @@ test('create localizations', async t => {
 
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
+
+test('toJson should copy resource attributes', async t => {
+  const client = new MockDynamicContent();
+  const resource = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  t.deepEqual(resource.toJson(), {
+    body: {
+      _meta: {
+        name: 'main-banner',
+        schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+      }
+    },
+    createdBy: 'user',
+    createdDate: '2018-06-26T12:54:16.216Z',
+    deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+    folderId: '5b3237784cedfd01c4503658',
+    id: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+    label: 'Banner Ad Homepage',
+    lastModifiedBy: 'user',
+    lastModifiedDate: '2018-06-26T12:54:16.216Z',
+    locale: 'en-GB',
+    status: 'ACTIVE',
+    version: 1
+  });
+});
