@@ -1,5 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
-import { HalClient } from './hal/services/HalClient';
+import { DefaultHalClient, HalClient } from './hal/services/HalClient';
+import { AxiosHttpClient } from './http/AxiosHttpClient';
+import { HttpClient } from './http/HttpClient';
 import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
 import { Edition } from './model/Edition';
@@ -9,7 +11,7 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
-import { Webhook } from './model/Webhook';
+import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
@@ -172,63 +174,58 @@ export class DynamicContent {
    *
    * @param clientCredentials Api credentials used to generate an authentication token
    * @param dcConfig Optional configuration settings for Dynamic Content
-   * @param config Optional request settings, can be used to provide proxy settings, add interceptors etc
+   * @param clientConfig Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
     clientCredentials: OAuth2ClientCredentials,
     dcConfig?: DynamicContentConfig,
-    config?: AxiosRequestConfig
+    httpClient?: AxiosRequestConfig | HttpClient
   ) {
     dcConfig = dcConfig || {};
     dcConfig.apiUrl = dcConfig.apiUrl || 'https://api.amplience.net/v2/content';
     dcConfig.authUrl = dcConfig.authUrl || 'https://auth.adis.ws';
 
-    const authConfig = { ...config };
-    const oauth2Client = this.createAuthClient(
-      clientCredentials,
+    let httpClientInstance: HttpClient;
+    if (httpClient !== undefined && 'request' in httpClient) {
+      httpClientInstance = httpClient as HttpClient;
+    } else {
+      httpClientInstance = new AxiosHttpClient(
+        httpClient === undefined ? {} : (httpClient as AxiosRequestConfig)
+      );
+    }
+
+    const tokenClient = this.createTokenClient(
       dcConfig,
-      authConfig
+      clientCredentials,
+      httpClientInstance
     );
 
-    const halConfig = { ...config };
-    halConfig.baseURL = dcConfig.apiUrl;
-    this.client = this.createHalClient(oauth2Client, halConfig);
+    this.client = this.createResourceClient(
+      dcConfig,
+      tokenClient,
+      httpClientInstance
+    );
   }
 
-  /**
-   * @hidden
-   * @param clientCredentials
-   * @param dcConfig
-   * @param config
-   * @returns {OAuth2Client}
-   */
-  protected createAuthClient(
-    clientCredentials: OAuth2ClientCredentials,
+  protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    config?: AxiosRequestConfig
-  ): OAuth2Client {
+    clientCredentials: OAuth2ClientCredentials,
+    httpClient: HttpClient
+  ): AccessTokenProvider {
     return new OAuth2Client(
       clientCredentials,
       {
         authUrl: dcConfig.authUrl
       },
-      config
+      httpClient
     );
   }
 
-  /**
-   * @hidden
-   * @param auth
-   * @param config
-   * @returns {HalClient}
-   */
-  protected createHalClient(
-    auth: OAuth2Client,
-    config: AxiosRequestConfig
+  protected createResourceClient(
+    dcConfig: DynamicContentConfig,
+    tokenProvider: AccessTokenProvider,
+    httpClient: HttpClient
   ): HalClient {
-    return new HalClient(
-      () => auth.getToken().then(y => y.access_token),
-      config
-    );
+    return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);
   }
 }

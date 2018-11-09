@@ -1,7 +1,8 @@
 import test from 'ava';
+import { AxiosHttpClient } from '../../http/AxiosHttpClient';
 import { ContentRepository } from '../../model/ContentRepository';
 import { Hub } from '../../model/Hub';
-import { HalClient } from './HalClient';
+import { DefaultHalClient, HalClient } from './HalClient';
 
 // axios-mock-adaptor's typedefs are wrong preventing calling onGet with 3 args, this is a workaround
 /**
@@ -10,9 +11,31 @@ import { HalClient } from './HalClient';
 // tslint:disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
+/**
+ * @hidden
+ */
+function createMockClient(): [HalClient, any] {
+  const httpClient = new AxiosHttpClient({});
+  const client = new DefaultHalClient('', httpClient, tokenProvider);
+  const mock = new MockAdapter(httpClient.client);
+
+  return [client, mock];
+}
+
+/**
+ * @hidden
+ */
+const tokenProvider = {
+  getToken: () =>
+    Promise.resolve({
+      access_token: 'token',
+      expires_in: 500,
+      refresh_token: 'refresh'
+    })
+};
+
 test('fetchResource should load and parse resource', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
     name: 'hub 1'
@@ -23,8 +46,7 @@ test('fetchResource should load and parse resource', async t => {
 });
 
 test('fetchLinkedResource should follow href', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
     name: 'hub 1'
@@ -35,8 +57,7 @@ test('fetchLinkedResource should follow href', async t => {
 });
 
 test('fetchLinkedResource should process templated links', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
     name: 'hub 1'
@@ -51,8 +72,7 @@ test('fetchLinkedResource should process templated links', async t => {
 });
 
 test('createResource should post and parse the resource', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onPost('/hubs').reply(200, {
     id: 'hub 1',
@@ -66,8 +86,7 @@ test('createResource should post and parse the resource', async t => {
 });
 
 test('createLinkedResource should follow href', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onPost('/hubs').reply(200, {
     id: 'hub 1',
@@ -81,8 +100,7 @@ test('createLinkedResource should follow href', async t => {
 });
 
 test('createLinkedResource should process templated links', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock.onPost('/hubs/1/content-repositories').reply(200, {
     id: 'repo 1',
@@ -101,8 +119,7 @@ test('createLinkedResource should process templated links', async t => {
 });
 
 test('requests should include auth token', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {
@@ -118,13 +135,19 @@ test('requests should include auth token', async t => {
 });
 
 test('should ask for token from provider every request', async t => {
-  let tokenCount = 0;
-  const client = new HalClient(
-    () => Promise.resolve('token' + tokenCount++),
-    {}
-  );
+  const httpClient = new AxiosHttpClient({});
 
-  const mock = new MockAdapter(client.client);
+  let tokenCount = 0;
+  const client = new DefaultHalClient('', httpClient, {
+    getToken: () =>
+      Promise.resolve({
+        access_token: 'token' + tokenCount++,
+        expires_in: 500,
+        refresh_token: 'refresh'
+      })
+  });
+
+  const mock = new MockAdapter(httpClient.client);
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
@@ -148,13 +171,15 @@ test('should ask for token from provider every request', async t => {
 });
 
 test('parse should instantiate and parse the resource', t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
+  const [client, mock] = createMockClient();
+
   const hub = client.parse({ name: 'hub' }, Hub);
   t.is(hub.name, 'hub');
 });
 
 test('serialize should make a copy of the object', t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
+  const [client, mock] = createMockClient();
+
   const hub = new Hub();
   hub.name = 'hub';
   const hubJson = client.serialize(hub);
@@ -164,8 +189,7 @@ test('serialize should make a copy of the object', t => {
 });
 
 test('api errors should be surfaced in the rejection error', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {
@@ -183,8 +207,7 @@ test('api errors should be surfaced in the rejection error', async t => {
 });
 
 test('unknown errors should describe the status code', async t => {
-  const client = new HalClient(() => Promise.resolve('token'), {});
-  const mock = new MockAdapter(client.client);
+  const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {

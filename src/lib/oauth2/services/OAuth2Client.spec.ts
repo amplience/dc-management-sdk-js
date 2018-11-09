@@ -1,4 +1,5 @@
 import test from 'ava';
+import { AxiosHttpClient } from '../../http/AxiosHttpClient';
 import { OAuth2Client } from './OAuth2Client';
 
 // axios-mock-adaptor's typedefs are wrong preventing calling onGet with 3 args, this is a workaround
@@ -9,15 +10,17 @@ import { OAuth2Client } from './OAuth2Client';
 const MockAdapter = require('axios-mock-adapter');
 
 test('get token should request a token on the first invocation', async t => {
+  const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
       client_secret: 'client_secret'
     },
-    {}
+    {},
+    httpClient
   );
 
-  const mock = new MockAdapter(client.client);
+  const mock = new MockAdapter(httpClient.client);
   mock
     .onPost(
       'https://auth.adis.ws/oauth/token',
@@ -33,15 +36,17 @@ test('get token should request a token on the first invocation', async t => {
 });
 
 test('get token should cache tokens', async t => {
+  const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
       client_secret: 'client_secret'
     },
-    {}
+    {},
+    httpClient
   );
 
-  const mock = new MockAdapter(client.client);
+  const mock = new MockAdapter(httpClient.client);
   mock
     .onPost(
       'https://auth.adis.ws/oauth/token',
@@ -73,15 +78,17 @@ test('get token should cache tokens', async t => {
 });
 
 test('cached tokens should expire', async t => {
+  const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
       client_secret: 'client_secret'
     },
-    {}
+    {},
+    httpClient
   );
 
-  const mock = new MockAdapter(client.client);
+  const mock = new MockAdapter(httpClient.client);
   mock
     .onPost(
       'https://auth.adis.ws/oauth/token',
@@ -113,15 +120,17 @@ test('cached tokens should expire', async t => {
 });
 
 test('only one token refresh should be in flight at once', async t => {
+  const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
       client_secret: 'client_secret'
     },
-    {}
+    {},
+    httpClient
   );
 
-  const mock = new MockAdapter(client.client, { delayResponse: 2000 });
+  const mock = new MockAdapter(httpClient.client, { delayResponse: 2000 });
 
   mock
     .onPost(

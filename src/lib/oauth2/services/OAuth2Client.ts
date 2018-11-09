@@ -1,27 +1,31 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { HttpClient } from '../../http/HttpClient';
+import { HttpMethod } from '../../http/HttpRequest';
+import { combineURLs } from '../../utils/URL';
 import { AccessToken } from '../models/AccessToken';
+import { AccessTokenProvider } from '../models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
 
 /**
  * @hidden
  */
-export class OAuth2Client {
-  public client: AxiosInstance;
+export class OAuth2Client implements AccessTokenProvider {
+  public httpClient: HttpClient;
 
   private clientCredentials: OAuth2ClientCredentials;
   private token: AccessToken;
   private tokenExpires: number;
   private inFlight: Promise<AccessToken>;
+  private authUrl: string;
 
   constructor(
     clientCredentials: OAuth2ClientCredentials,
     { authUrl = 'https://auth.adis.ws' },
-    config?: AxiosRequestConfig
+    httpClient: HttpClient
   ) {
-    config = config || {};
-    config.baseURL = authUrl;
-    this.client = axios.create(config);
+    this.authUrl = authUrl;
     this.clientCredentials = clientCredentials;
+    this.httpClient = httpClient;
   }
 
   /**
@@ -47,15 +51,24 @@ export class OAuth2Client {
       '&client_secret=' +
       encodeURIComponent(this.clientCredentials.client_secret);
 
-    const request = this.client.post('/oauth/token', payload, {
+    const request = this.httpClient.request({
+      data: payload,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
-      }
+      },
+      method: HttpMethod.POST,
+      url: combineURLs(this.authUrl, '/oauth/token')
     });
 
     this.inFlight = request.then(
       (response): AccessToken => {
-        this.token = response.data;
+        if (typeof response.data !== 'object') {
+          throw new Error(
+            'Unexpected response format from /oauth/token endpoint'
+          );
+        }
+
+        this.token = response.data as any;
         this.tokenExpires = Date.now() + this.token.expires_in * 1000;
         this.inFlight = null;
         return this.token;

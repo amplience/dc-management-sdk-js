@@ -2,8 +2,10 @@ import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
 import { HalClient } from './hal/services/HalClient';
 import { HalMocks } from './hal/utils/HalMock';
+import { AxiosHttpClient } from './http/AxiosHttpClient';
+import { HttpClient } from './http/HttpClient';
+import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
-import { OAuth2Client } from './oauth2/services/OAuth2Client';
 
 /* tslint:disable:object-literal-sort-keys */
 
@@ -636,6 +638,9 @@ export const LOCALIZATION_JOB = {
   }
 };
 
+/**
+ * @hidden
+ */
 export const FOLDER = {
   id: '5b72ed68d6018001c81ef05b',
   name: 'A folder to end all folders',
@@ -767,7 +772,9 @@ export class DynamicContentFixtures {
     const mocks = new HalMocks(mock);
 
     // Hubs
-    mocks.collection('/hubs', 'hubs', [HUB]);
+    mocks.collection('https://api.amplience.net/v2/content/hubs', 'hubs', [
+      HUB
+    ]);
     mocks
       .resource(HUB)
       .nestedCollection('content-repositories', {}, 'content-repositories', [
@@ -853,7 +860,7 @@ export class MockDynamicContent extends DynamicContent {
   constructor(
     clientCredentials?: OAuth2ClientCredentials,
     dcConfig?: DynamicContentConfig,
-    config?: AxiosRequestConfig
+    httpClient?: AxiosRequestConfig
   ) {
     super(
       clientCredentials || {
@@ -861,37 +868,37 @@ export class MockDynamicContent extends DynamicContent {
         client_secret: 'client_secret'
       },
       dcConfig,
-      config
+      httpClient
     );
   }
 
-  protected createAuthClient(
-    clientCredentials: OAuth2ClientCredentials,
+  protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    config?: AxiosRequestConfig
-  ): OAuth2Client {
-    const auth = super.createAuthClient(clientCredentials, dcConfig, config);
-    const authMock = new MockAdapter(auth.client);
-    authMock
-      .onPost(
-        'https://auth.adis.ws/oauth/token',
-        'grant_type=client_credentials&client_id=client_id&client_secret=client_secret'
-      )
-      .reply(200, {
-        access_token: 'token',
-        expires_in: 60,
-        refresh_token: 'refresh'
-      });
-    return auth;
+    clientCredentials: OAuth2ClientCredentials,
+    httpClient: HttpClient
+  ): AccessTokenProvider {
+    return {
+      getToken: () =>
+        Promise.resolve({
+          access_token: 'token',
+          expires_in: 60,
+          refresh_token: 'refresh'
+        })
+    };
   }
 
-  protected createHalClient(
-    auth: OAuth2Client,
-    config: AxiosRequestConfig
+  protected createResourceClient(
+    dcConfig: DynamicContentConfig,
+    tokenProvider: AccessTokenProvider,
+    httpClient: HttpClient
   ): HalClient {
-    const hal = super.createHalClient(auth, config);
-    this.mock = new MockAdapter(hal.client);
+    const client = super.createResourceClient(
+      dcConfig,
+      tokenProvider,
+      httpClient
+    );
+    this.mock = new MockAdapter((httpClient as AxiosHttpClient).client);
     DynamicContentFixtures.install(this.mock);
-    return hal;
+    return client;
   }
 }

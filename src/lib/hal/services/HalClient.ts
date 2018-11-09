@@ -1,4 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { HttpClient } from '../../http/HttpClient';
+import { HttpMethod, HttpRequest } from '../../http/HttpRequest';
+import { HttpResponse } from '../../http/HttpResponse';
+import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
+import { combineURLs } from '../../utils/URL';
 import { HalLink } from '../models/HalLink';
 import { HalResource, HalResourceConstructor } from '../models/HalResource';
 import { CURIEs } from './CURIEs';
@@ -6,20 +11,59 @@ import { CURIEs } from './CURIEs';
 /**
  * @hidden
  */
-type TokenProvider = () => Promise<string>;
+export interface HalClient {
+  fetchLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  fetchResource<T extends HalResource>(
+    path: string,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  createLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  performActionThatReturnsResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  createResource<T extends HalResource>(
+    path: string,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  deleteLinkedResource(link: HalLink, params: any): Promise<void>;
+
+  deleteResource(path: string): Promise<void>;
+
+  parse<T extends HalResource>(
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): T;
+
+  serialize<T>(data: T): any;
+}
 
 /**
  * @hidden
  */
-export class HalClient {
-  public client: AxiosInstance;
-
-  private tokenProvider: TokenProvider;
-
-  constructor(tokenProvider: TokenProvider, config: AxiosRequestConfig) {
-    this.tokenProvider = tokenProvider;
-    this.client = axios.create(config);
-  }
+export class DefaultHalClient implements HalClient {
+  constructor(
+    private baseUrl: string,
+    private httpClient: HttpClient,
+    private tokenProvider: AccessTokenProvider
+  ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
     link: HalLink,
@@ -38,7 +82,7 @@ export class HalClient {
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     const response = await this.invoke({
-      method: 'get',
+      method: HttpMethod.GET,
       url: path
     });
     return this.parse(response.data, resourceConstructor);
@@ -64,7 +108,7 @@ export class HalClient {
   ): Promise<T> {
     const response = await this.invoke({
       data: this.serialize(resource),
-      method: 'post',
+      method: HttpMethod.POST,
       url: path
     });
     return this.parse(response.data, resourceConstructor);
@@ -80,7 +124,7 @@ export class HalClient {
 
   public async deleteResource(path: string): Promise<void> {
     const response = await this.invoke({
-      method: 'delete',
+      method: HttpMethod.DELETE,
       url: path
     });
     return Promise.resolve();
@@ -100,7 +144,7 @@ export class HalClient {
 
     const response = await this.invoke({
       data: this.serialize(data),
-      method: 'post',
+      method: HttpMethod.POST,
       url: href
     });
 
@@ -120,26 +164,33 @@ export class HalClient {
     return JSON.parse(JSON.stringify(data));
   }
 
-  private async invoke(request: AxiosRequestConfig): Promise<any> {
-    const token = await this.tokenProvider();
-    request.headers = {
-      Authorization: 'bearer ' + token
+  protected async invoke(request: HttpRequest): Promise<HttpResponse> {
+    const token = await this.tokenProvider.getToken();
+
+    const fullRequest: HttpRequest = {
+      data: request.data,
+      headers: {
+        Authorization: 'bearer ' + token.access_token
+      },
+      method: request.method,
+      url: combineURLs(this.baseUrl, request.url)
     };
-    return this.client.request(request).catch(
-      (error: any): any => {
-        if (error.response.data) {
-          const newError: any = new Error(
-            `Request failed with status code ${
-              error.response.status
-            }: ${JSON.stringify(error.response.data)}`
-          );
-          newError.code = error.code;
-          newError.response = error.response;
-          newError.requets = error.request;
-          throw newError;
+
+    return this.httpClient.request(fullRequest).then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        if (typeof response.data === 'string') {
+          response.data = JSON.parse(response.data);
         }
-        throw error;
+        return response;
+      } else {
+        const newError: any = new Error(
+          `Request failed with status code ${response.status}: ${JSON.stringify(
+            response.data
+          )}`
+        );
+
+        throw newError;
       }
-    );
+    });
   }
 }
