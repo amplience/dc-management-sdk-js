@@ -35,3 +35,6 @@ export { ContentLink } from './lib/content/models/ContentLink';
 export { ContentLinkInstance } from './lib/content/models/ContentLink';
 export { Webhook } from './lib/model/Webhook';
 export { WebhookSignature } from './lib/utils/WebhookSignature';
+export { Folder } from './lib/model/Folder';
+export { LocalizationJob } from './lib/model/LocalizationJob';
+export { LocalizationRoot } from './lib/model/LocalizationRoot';
