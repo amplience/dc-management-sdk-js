@@ -8,6 +8,7 @@ import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
+import { Webhook, WebhooksPage } from './Webhook';
 
 /**
  * Class representing the [Hub](https://api.amplience.net/v2/content/docs/api/index.html#resources-hubs) resource.
@@ -89,6 +90,27 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Event>> =>
         this.fetchLinkedResource('events', options, EventsPage)
+    },
+    webhooks: {
+      /**
+       * Creates a Webhook inside this Hub
+       * @param resource
+       */
+      create: (resource: Webhook): Promise<Webhook> =>
+        this.createLinkedResource('create-webhook', {}, resource, Webhook),
+
+      /**
+       * Get a webhook inside this hub by its id
+       */
+      get: (id: string): Promise<Webhook> =>
+        this.client.fetchResource(`hubs/${this.id}/webhooks/${id}`, Webhook),
+
+      /**
+       * Retrieves a list of Events associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
+        this.fetchLinkedResource('webhooks', options, WebhooksPage)
     }
   };
 }

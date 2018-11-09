@@ -153,4 +153,18 @@ export class HalResource {
       resourceConstructor
     );
   }
+
+  protected deleteResource(): Promise<void> {
+    if (!this.client) {
+      return Promise.reject(new Error('HalResource has no client'));
+    }
+
+    // Bug in type script compiler interprets the delete keyword in a string incorrectly and raises type errors
+    const namedAction = 'del' + 'ete';
+    const link = this._links[namedAction];
+    if (!link) {
+      return Promise.reject('Resource does not have a delete action');
+    }
+    return this.client.deleteLinkedResource(link, {});
+  }
 }

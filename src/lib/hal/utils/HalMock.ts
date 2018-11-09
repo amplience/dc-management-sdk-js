@@ -72,6 +72,11 @@ export class HalMocks {
       url = resource._links.self.href;
     }
     this.mockInstance.onGet(url).reply(200, resource);
+
+    if (resource._links.delete) {
+      this.mockInstance.onDelete(resource._links.delete.href).reply(204);
+    }
+
     return new HalMockResource(resource, this);
   }
 
