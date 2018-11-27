@@ -38,3 +38,10 @@ export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';
 export { LocalizationRoot } from './lib/model/LocalizationRoot';
+
+export {
+  ContentType,
+  ContentTypeSettings,
+  ContentTypeIcon,
+  ContentTypeVisualization
+} from './lib/model/ContentType';

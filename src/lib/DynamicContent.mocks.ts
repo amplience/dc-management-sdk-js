@@ -763,6 +763,9 @@ export const WEBHOOK = {
   }
 };
 
+/**
+ * @hidden
+ */
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
