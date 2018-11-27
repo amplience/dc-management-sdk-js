@@ -763,6 +763,51 @@ export const WEBHOOK = {
   }
 };
 
+export const CONTENT_TYPE = {
+  id: '5be1d5134cedfd01c030c460',
+  contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
+  settings: {
+    label: 'Carousel',
+    icons: [
+      {
+        size: 256,
+        url:
+          'http://apps.dev-artifacts.adis.ws/cms-icons/develop/v0.4.0/256/ca-types-grid-mixedmedia.png'
+      }
+    ],
+    visualizations: [
+      {
+        label: 'Desktop Website',
+        templatedUri: 'http://website',
+        default: true
+      },
+      {
+        label: 'Mobile Website',
+        templatedUri: 'http://mobile.website',
+        default: false
+      }
+    ]
+  },
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
+    },
+    'content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
+    },
+    'effective-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/effective-content-type'
+    },
+    'content-type-schema': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/schema'
+    }
+  }
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -783,7 +828,9 @@ export class DynamicContentFixtures {
       .nestedCollection('events', {}, 'events', [EVENT])
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
-      .nestedCreateResource('create-webhook', {}, WEBHOOK);
+      .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
+      .nestedCreateResource('register-content-type', {}, CONTENT_TYPE);
 
     // Content items
     mocks
