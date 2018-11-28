@@ -79,3 +79,27 @@ test('toJson should copy resource attributes', async t => {
     type: 'CONTENT'
   });
 });
+
+test('assign content type', async t => {
+  const client = new MockDynamicContent();
+  const contentRepository = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
+  );
+
+  const result = await contentRepository.related.contentTypes.assign(
+    '5be1d5134cedfd01c030c460'
+  );
+  t.is(result.id, '5b32377b4cedfd01c4503691');
+});
+
+test('unassign content type', async t => {
+  const client = new MockDynamicContent();
+  const contentRepository = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
+  );
+
+  const result = await contentRepository.related.contentTypes.unassign(
+    '5be1d5134cedfd01c030c460'
+  );
+  t.pass();
+});

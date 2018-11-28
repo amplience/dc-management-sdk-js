@@ -55,6 +55,13 @@ export class HalMockResource {
     this.mocks.createResource(href, resource);
     return this;
   }
+
+  public nestedDelete(linkName: string, args: any): this {
+    const link = this.resource._links[linkName];
+    const href = CURIEs.expand(link.href, args);
+    this.mocks.deleteResource(href);
+    return this;
+  }
 }
 
 /**
@@ -91,5 +98,9 @@ export class HalMocks {
   public createResource(url: string, resource: HalLiteral): HalMockResource {
     this.mockInstance.onPost(url).reply(200, resource);
     return new HalMockResource(resource, this);
+  }
+
+  public deleteResource(url: string): void {
+    this.mockInstance.onDelete(url).reply(200);
   }
 }

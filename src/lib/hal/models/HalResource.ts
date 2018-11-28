@@ -167,4 +167,15 @@ export class HalResource {
     }
     return this.client.deleteLinkedResource(link, {});
   }
+
+  protected deleteLinkedResource(name: string, params: any): Promise<void> {
+    if (!this.client) {
+      return Promise.reject(new Error('HalResource has no client'));
+    }
+    const link = this._links[name];
+    if (!link) {
+      return Promise.resolve(null);
+    }
+    return this.client.deleteLinkedResource(link, params);
+  }
 }

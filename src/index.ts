@@ -19,7 +19,10 @@ export { AxiosHttpClient } from './lib/http/AxiosHttpClient';
 export { Event } from './lib/model/Event';
 export { Edition } from './lib/model/Edition';
 export { Hub } from './lib/model/Hub';
-export { ContentRepository } from './lib/model/ContentRepository';
+export {
+  ContentRepository,
+  ContentRepositoryContentType
+} from './lib/model/ContentRepository';
 export { ContentItem } from './lib/model/ContentItem';
 export { Pageable } from './lib/model/Pageable';
 export { Sortable } from './lib/model/Sortable';

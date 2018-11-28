@@ -846,7 +846,11 @@ export class DynamicContentFixtures {
       .nestedCollection('content-items', {}, 'content-items', [CONTENT_ITEM])
       .nestedCreateResource('create-content-item', {}, CONTENT_ITEM)
       .nestedCollection('folders', {}, 'folders', [FOLDER])
-      .nestedCreateResource('create-folder', {}, NEW_FOLDER);
+      .nestedCreateResource('create-folder', {}, NEW_FOLDER)
+      .nestedCreateResource('assign-content-type', {}, CONTENT_REPOSITORY)
+      .nestedDelete('unassign-content-type', {
+        id: '5be1d5134cedfd01c030c460'
+      });
 
     // Folders
     mocks
