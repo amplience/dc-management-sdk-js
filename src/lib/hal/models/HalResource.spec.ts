@@ -112,12 +112,7 @@ test('fetchLinkedResource should reject if link is missing', async t => {
     MockResource
   );
 
-  try {
-    const result = await resource.related.nested();
-    t.fail();
-  } catch (err) {
-    t.pass();
-  }
+  resource.related.nested().then(() => t.fail(), () => t.pass());
 });
 
 test('fetchLinkedResource should reject if no client is linked', async t => {
@@ -151,7 +146,7 @@ test('createLinkedResource should follow the resource link', async t => {
   t.is(result.name, 'nested 1');
 });
 
-test('createLinkedResource should return null if link is missing', async t => {
+test('createLinkedResource should reject if link is missing', async t => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
@@ -161,12 +156,7 @@ test('createLinkedResource should return null if link is missing', async t => {
     MockResource
   );
 
-  try {
-    const result = await resource.related.nestedCreate(resource);
-    t.fail();
-  } catch (err) {
-    t.pass();
-  }
+  resource.related.nestedCreate(resource).then(() => t.fail(), () => t.pass());
 });
 
 test('createLinkedResource should reject if no client is linked', async t => {
