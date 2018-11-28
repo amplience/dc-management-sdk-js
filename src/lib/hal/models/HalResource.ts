@@ -184,7 +184,7 @@ export class HalResource {
     );
   }
 
-  private async withHalLink(name: string): Promise<[HalLink, HalClient]> {
+  private withHalLink(name: string): Promise<[HalLink, HalClient]> {
     if (!this.client) {
       return Promise.reject(new Error('HalResource has no client'));
     }
@@ -194,6 +194,6 @@ export class HalResource {
         `The ${name} action is not available, ensure you have permission to perform this action.`
       );
     }
-    return [link, this.client];
+    return Promise.resolve([link, this.client] as [HalLink, HalClient]);
   }
 }
