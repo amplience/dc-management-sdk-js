@@ -46,5 +46,6 @@ export {
   ContentType,
   ContentTypeSettings,
   ContentTypeIcon,
-  ContentTypeVisualization
+  ContentTypeVisualization,
+  ContentTypeCard
 } from './lib/model/ContentType';
