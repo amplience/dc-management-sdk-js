@@ -7,6 +7,21 @@ import { Sortable } from './Sortable';
 import { Status } from './Status';
 
 /**
+ * Represents the association of a content type to a repository
+ */
+export interface ContentRepositoryContentType {
+  /**
+   * Id of the content type
+   */
+  hubContentTypeId?: string;
+
+  /**
+   * URI of the content type
+   */
+  contentTypeUri?: string;
+}
+
+/**
  * Class representing the [Content Repository](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-repositories) resource.
  * Content repositories are containers where content can be stored.
  */
@@ -36,6 +51,11 @@ export class ContentRepository extends HalResource {
    * List of features enabled on the content repository, e.g. <tt>slots</tt>
    */
   public features?: string[];
+
+  /**
+   * Content Types enabled on this repository
+   */
+  public contentTypes?: ContentRepositoryContentType[];
 
   /**
    * Resources and actions related to a Content Repository
@@ -74,6 +94,27 @@ export class ContentRepository extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<ContentItem>> =>
         this.fetchLinkedResource('content-items', options, ContentItemsPage)
+    },
+
+    contentTypes: {
+      /**
+       * Assigns a content type to the repository
+       */
+      assign: (contentTypeId: string): Promise<ContentRepository> =>
+        this.performActionThatReturnsResource(
+          'assign-content-type',
+          {},
+          { contentTypeId },
+          ContentRepository
+        ),
+
+      /**
+       * Unassign a content type from this repository
+       */
+      unassign: (contentTypeId: string): Promise<void> =>
+        this.deleteLinkedResource('unassign-content-type', {
+          id: contentTypeId
+        })
     }
   };
 }

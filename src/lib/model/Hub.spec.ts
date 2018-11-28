@@ -1,5 +1,6 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
+import { ContentType } from './ContentType';
 import { Event } from './Event';
 
 test('list hubs', async t => {
@@ -33,6 +34,20 @@ test('create event', async t => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.events.create(new Event());
   t.is(result.name, 'January Sale');
+});
+
+test('list content types', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentTypes.list();
+  t.is(result.getItems()[0].settings.label, 'Carousel');
+});
+
+test('register content type', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentTypes.register(new ContentType());
+  t.is(result.id, '5be1d5134cedfd01c030c460');
 });
 
 test('toJson should copy resource attributes', async t => {
