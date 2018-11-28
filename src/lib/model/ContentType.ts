@@ -13,6 +13,23 @@ export interface ContentTypeIcon {
   url?: string;
 }
 
+export interface ContentTypeCard {
+  /**
+   * Friendly name for the card
+   */
+  label?: string;
+
+  /**
+   * Templated URL of the externally hosted application.
+   */
+  templatedUri?: string;
+
+  /**
+   * Indicates if this is the default card for the content type
+   */
+  default?: boolean;
+}
+
 /**
  * Visualizations are externally hosted applications which can provide a preview of the content type.
  */
@@ -48,6 +65,11 @@ export interface ContentTypeSettings {
    * Visualizations used to provide high quality preview of the content type
    */
   visualizations?: ContentTypeVisualization[];
+
+  /**
+   * Cards used to provide a thumbnail preview of the content type
+   */
+  cards?: ContentTypeCard[];
 }
 
 /**
