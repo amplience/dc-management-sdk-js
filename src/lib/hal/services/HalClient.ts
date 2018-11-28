@@ -43,6 +43,19 @@ export interface HalClient {
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
+  updateResource<T extends HalResource>(
+    path: string,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
+  updateLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T>;
+
   deleteLinkedResource(link: HalLink, params: any): Promise<void>;
 
   deleteResource(path: string): Promise<void>;
@@ -112,6 +125,32 @@ export class DefaultHalClient implements HalClient {
       url: path
     });
     return this.parse(response.data, resourceConstructor);
+  }
+
+  public async updateResource<T extends HalResource>(
+    path: string,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    const response = await this.invoke({
+      data: this.serialize(resource),
+      method: HttpMethod.PATCH,
+      url: path
+    });
+    return this.parse(response.data, resourceConstructor);
+  }
+
+  public async updateLinkedResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    let href = link.href;
+    if (link.templated) {
+      href = CURIEs.expand(href, params);
+    }
+    return this.updateResource(href, resource, resourceConstructor);
   }
 
   public async deleteLinkedResource(link: HalLink, params: any): Promise<void> {

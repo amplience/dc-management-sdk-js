@@ -127,7 +127,15 @@ export class ContentItem extends HalResource {
         {},
         { locales: localesList, version: this.version },
         LocalizationJob
-      )
+      ),
+
+    /**
+     * Updates this Content Item with the changes in the mutation parameter.
+     * You must provide the current version number in the mutation
+     * to avoid overwriting other user's changes.
+     */
+    update: (mutation: ContentItem): Promise<ContentItem> =>
+      this.updateResource(mutation, ContentItem)
   };
 }
 

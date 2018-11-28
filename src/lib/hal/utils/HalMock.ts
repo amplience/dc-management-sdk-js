@@ -56,6 +56,17 @@ export class HalMockResource {
     return this;
   }
 
+  public nestedUpdateResource(
+    linkName: string,
+    args: any,
+    resource: HalLiteral
+  ): this {
+    const link = this.resource._links[linkName];
+    const href = CURIEs.expand(link.href, args);
+    this.mocks.updateResource(href, resource);
+    return this;
+  }
+
   public nestedDelete(linkName: string, args: any): this {
     const link = this.resource._links[linkName];
     const href = CURIEs.expand(link.href, args);
@@ -97,6 +108,11 @@ export class HalMocks {
 
   public createResource(url: string, resource: HalLiteral): HalMockResource {
     this.mockInstance.onPost(url).reply(200, resource);
+    return new HalMockResource(resource, this);
+  }
+
+  public updateResource(url: string, resource: HalLiteral): HalMockResource {
+    this.mockInstance.onPatch(url).reply(200, resource);
     return new HalMockResource(resource, this);
   }
 
