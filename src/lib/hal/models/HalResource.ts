@@ -87,6 +87,7 @@ export class HalResource {
   }
 
   /**
+   * GET a linked resource
    * @hidden
    */
   protected fetchLinkedResource<T extends HalResource>(
@@ -94,17 +95,13 @@ export class HalResource {
     params: any,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
-    if (!this.client) {
-      return Promise.reject(new Error('HalResource has no client'));
-    }
-    const link = this._links[name];
-    if (!link) {
-      return Promise.resolve(null);
-    }
-    return this.client.fetchLinkedResource(link, params, resourceConstructor);
+    return this.withHalLink(name).then(([link, client]) =>
+      client.fetchLinkedResource(link, params, resourceConstructor)
+    );
   }
 
   /**
+   * POST / CREATE a new resource
    * @hidden
    */
   protected createLinkedResource<T extends HalResource>(
@@ -113,69 +110,90 @@ export class HalResource {
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
-    if (!this.client) {
-      return Promise.reject(new Error('HalResource has no client'));
-    }
-    const link = this._links[name];
-    if (!link) {
-      return Promise.resolve(null);
-    }
-    return this.client.createLinkedResource(
-      link,
-      params,
+    return this.withHalLink(name).then(([link, client]) =>
+      client.createLinkedResource(link, params, resource, resourceConstructor)
+    );
+  }
+
+  /**
+   * POST to an action endpoint and get a resource response
+   * @hidden
+   */
+  protected performActionThatReturnsResource<T extends HalResource>(
+    name: string,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    return this.withHalLink(name).then(([link, client]) =>
+      client.performActionThatReturnsResource(
+        link,
+        params,
+        data,
+        resourceConstructor
+      )
+    );
+  }
+
+  /**
+   * DELETE the current resource
+   * @hidden
+   */
+  protected deleteResource(): Promise<void> {
+    return this.deleteLinkedResource('delete', {});
+  }
+
+  /**
+   * DELETE a linked resource
+   * @hidden
+   */
+  protected deleteLinkedResource(name: string, params: any): Promise<void> {
+    return this.withHalLink(name).then(([link, client]) =>
+      client.deleteLinkedResource(link, params)
+    );
+  }
+
+  /**
+   * PATCH the current resource
+   * @hidden
+   */
+  protected updateResource<T extends HalResource>(
+    resource: T,
+    resourceConstructor: HalResourceConstructor<T>
+  ): Promise<T> {
+    return this.updateLinkedResource(
+      'update',
+      {},
       resource,
       resourceConstructor
     );
   }
 
   /**
-   * Post to an action endpoint and get a resource response.
-   *
+   * PATCH a linked resource
    * @hidden
    */
-  protected performActionThatReturnsResource<T extends HalResource>(
-    namedAction: string,
+  protected updateLinkedResource<T extends HalResource>(
+    name: string,
     params: any,
-    data: any,
+    resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
-    if (!this.client) {
-      return Promise.reject(new Error('HalResource has no client'));
-    }
-    const link = this._links[namedAction];
-    if (!link) {
-      return Promise.resolve(null);
-    }
-    return this.client.performActionThatReturnsResource(
-      link,
-      params,
-      data,
-      resourceConstructor
+    return this.withHalLink(name).then(([link, client]) =>
+      client.updateLinkedResource(link, params, resource, resourceConstructor)
     );
   }
 
-  protected deleteResource(): Promise<void> {
-    if (!this.client) {
-      return Promise.reject(new Error('HalResource has no client'));
-    }
-
-    // Bug in type script compiler interprets the delete keyword in a string incorrectly and raises type errors
-    const namedAction = 'del' + 'ete';
-    const link = this._links[namedAction];
-    if (!link) {
-      return Promise.reject('Resource does not have a delete action');
-    }
-    return this.client.deleteLinkedResource(link, {});
-  }
-
-  protected deleteLinkedResource(name: string, params: any): Promise<void> {
+  private withHalLink(name: string): Promise<[HalLink, HalClient]> {
     if (!this.client) {
       return Promise.reject(new Error('HalResource has no client'));
     }
     const link = this._links[name];
     if (!link) {
-      return Promise.resolve(null);
+      return Promise.reject(
+        `The ${name} action is not available, ensure you have permission to perform this action.`
+      );
     }
-    return this.client.deleteLinkedResource(link, params);
+    return Promise.resolve([link, this.client] as [HalLink, HalClient]);
   }
 }

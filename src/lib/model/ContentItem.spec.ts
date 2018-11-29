@@ -1,5 +1,6 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
+import { ContentItem } from './ContentItem';
 
 test('get content item by id', async t => {
   const client = new MockDynamicContent();
@@ -18,6 +19,22 @@ test('get version', async t => {
   const version1 = await contentItem.related.contentItemVersion(1);
 
   t.is(version1.version, 1);
+});
+
+test('update', async t => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const mutation = new ContentItem({
+    label: 'New Label',
+    version: contentItem.version
+  });
+
+  const update = await contentItem.related.update(mutation);
+  t.is(update.version, contentItem.version + 1);
 });
 
 test('get repository', async t => {

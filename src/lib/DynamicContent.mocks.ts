@@ -225,6 +225,12 @@ export const CONTENT_ITEM = {
 /**
  * @hidden
  */
+export const CONTENT_ITEM_V2 = { ...CONTENT_ITEM };
+CONTENT_ITEM_V2.version++;
+
+/**
+ * @hidden
+ */
 export const CONTENT_ITEM_WITH_LOCALE = {
   id: 'a87fd535-fb25-44ee-b687-0db72bbab721',
   folderId: '5b3237784cedfd01c4503658',
@@ -838,7 +844,8 @@ export class DynamicContentFixtures {
     // Content items
     mocks
       .resource(CONTENT_ITEM)
-      .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM);
+      .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
+      .nestedUpdateResource('update', {}, CONTENT_ITEM_V2);
 
     // Content repositories
     mocks
