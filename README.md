@@ -85,7 +85,7 @@ var contentItemVersion2 = contentItem.related.contentItemVersion(2);
 ```typescript
 import {DynamicContent, Event} from "dc-management-sdk-js";
     
-let createEvent = async function() {
+async function createEvent() {
     
     const client = new DynamicContent({
         client_id: process.env.CLIENT_ID,
@@ -95,7 +95,7 @@ let createEvent = async function() {
     const hubs = await client.hubs.list();
     const hub = hubs.getItems()[0];
     
-    const event = new Event();
+    let event = new Event();
     event.name = 'happy new year';
     event.start = '2019-01-01T00:00:00.000Z';
     event.end = '2019-01-01T23:59:59.999Z';
