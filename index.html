@@ -116,7 +116,7 @@
 				<h2 id="example">Example</h2>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;
 
-<span class="hljs-keyword">let</span> createEvent = <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
 
     <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
         client_id: process.env.CLIENT_ID,
@@ -126,7 +126,7 @@
     <span class="hljs-keyword">const</span> hubs = <span class="hljs-keyword">await</span> client.hubs.list();
     <span class="hljs-keyword">const</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
 
-    <span class="hljs-keyword">const</span> event = <span class="hljs-keyword">new</span> Event();
+    <span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event();
     event.name = <span class="hljs-string">'happy new year'</span>;
     event.start = <span class="hljs-string">'2019-01-01T00:00:00.000Z'</span>;
     event.end = <span class="hljs-string">'2019-01-01T23:59:59.999Z'</span>;
