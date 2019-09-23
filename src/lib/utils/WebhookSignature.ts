@@ -1,4 +1,4 @@
-import * as crypto from 'crypto';
+import { createHmac } from 'crypto';
 
 /**
  * Utility to help calculate webhook signatures
@@ -13,7 +13,7 @@ export class WebhookSignature {
    * @param secret Shared secret value previously set in Dynamic Content
    */
   public static calculate(body: Buffer, secret: string): string {
-    const hmac = crypto.createHmac('sha256', secret);
+    const hmac = createHmac('sha256', secret);
     hmac.update(body as any, 'utf8');
     return hmac.digest('base64');
   }
