@@ -116,6 +116,15 @@ export const HUB = {
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types{?page,size,sort}',
       templated: true
     },
+    'list-content-type-schemas': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas{?page,size,sort}',
+      templated: true
+    },
+    'create-content-type-schema': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas'
+    },
     'search-content-items': {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
@@ -321,6 +330,58 @@ export const CONTENT_ITEM_WITH_LOCALE = {
     }
   }
 };
+
+/**
+ * @hidden
+ */
+export const CONTENT_TYPE_SCHEMA = {
+  validationLevel: 'CONTENT_TYPE',
+  body:
+    '{\n\t"$schema": "http://json-schema.org/draft-04/schema#",\n\t"id": "http://example.com/content-type-schema.json",\n\t"title": "Image",\n\t"description": "Image schema",\n\t"allOf": [\n\t\t{\n\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"\n\t\t}\n\t],\n\t"type": "object",\n\t"properties": {\n\t\t"image": {\n\t\t\t"title": "Image",\n\t\t\t"description": "insert an image",\n\t\t\t"type": "object",\n\t\t\t"anyOf": [\n\t\t\t\t{\n\t\t\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t"altText": {\n\t\t\t"type": "string",\n\t\t\t"minLength": 0,\n\t\t\t"maxLength": 150,\n\t\t\t"title": "Alt text",\n\t\t\t"description": "insert image alt text"\n\t\t}\n\t},\n\t"propertyOrder": [\n\t\t"image",\n\t\t"altText"\n\t],\n\t"required": [\n\t\t"image",\n\t\t"altText"\n\t]\n}',
+  schemaId: 'http://example.com/content-type-schema.json',
+  createdBy: 'user',
+  createdDate: '2018-06-26T12:54:16.216Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-06-26T12:54:16.216Z',
+  version: 1,
+  id: '5d4af55ced6688002869d808',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808'
+    },
+    'content-type-schema': {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808'
+    },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180'
+    },
+    history: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/history'
+    },
+    getByVersion: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/{version}',
+      templated: true
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808'
+    },
+    restore: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/restore'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const CONTENT_TYPE_SCHEMA_V2 = { ...CONTENT_TYPE_SCHEMA };
+CONTENT_TYPE_SCHEMA_V2.version++;
 
 /**
  * @hidden
@@ -839,13 +900,33 @@ export class DynamicContentFixtures {
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
-      .nestedCreateResource('register-content-type', {}, CONTENT_TYPE);
+      .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
+      .nestedCollection(
+        'list-content-type-schemas',
+        {},
+        'content-type-schemas',
+        [CONTENT_TYPE_SCHEMA]
+      )
+      .nestedCreateResource(
+        'create-content-type-schema',
+        {},
+        CONTENT_TYPE_SCHEMA
+      );
 
     // Content items
     mocks
       .resource(CONTENT_ITEM)
       .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2);
+
+    // Content type schemas
+    mocks
+      .resource(CONTENT_TYPE_SCHEMA)
+      .nestedUpdateResource('update', {}, CONTENT_TYPE_SCHEMA_V2);
+    mocks.resource(
+      CONTENT_TYPE_SCHEMA_V2,
+      CONTENT_TYPE_SCHEMA_V2._links.self.href + '/2'
+    );
 
     // Content repositories
     mocks

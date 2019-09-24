@@ -4,6 +4,7 @@ import { AxiosHttpClient } from './http/AxiosHttpClient';
 import { HttpClient } from './http/HttpClient';
 import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
+import { ContentTypeSchema } from './model/ContentTypeSchema';
 import { Edition } from './model/Edition';
 import { Event } from './model/Event';
 import { Folder } from './model/Folder';
@@ -88,6 +89,29 @@ export class DynamicContent {
         { href: '/hubs{?page,size}', templated: true },
         options,
         HubsPage
+      )
+  };
+
+  public readonly contentTypeSchemas = {
+    /**
+     * Gets a content type schemas
+     * @param id ContentTypeSchema id
+     */
+    get: (id: string): Promise<ContentTypeSchema> =>
+      this.client.fetchResource(
+        `/content-type-schemas/${id}`,
+        ContentTypeSchema
+      ),
+
+    /**
+     * Gets a content type schemas
+     * @param id ContentTypeSchema id
+     * @param version Version
+     */
+    getByVersion: (id: string, version: number): Promise<ContentTypeSchema> =>
+      this.client.fetchResource(
+        `/content-type-schemas/${id}/${version}`,
+        ContentTypeSchema
       )
   };
 
