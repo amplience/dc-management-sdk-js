@@ -802,6 +802,10 @@ export const CONTENT_TYPE = {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
     },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
+    },
     'content-type': {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
@@ -814,6 +818,30 @@ export const CONTENT_TYPE = {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/schema'
     }
+  }
+};
+
+/**
+ * @hidden
+ */
+const CONTENT_TYPE_UPDATED = {
+  ...CONTENT_TYPE,
+  settings: {
+    icons: [
+      {
+        size: 512,
+        url:
+          'http://apps.dev-artifacts.adis.ws/cms-icons/develop/v0.4.0/256/ca-types-grid-mixedmedia.png'
+      }
+    ],
+    label: 'New Label',
+    visualizations: [
+      {
+        default: true,
+        label: 'Desktop Website',
+        templatedUri: 'http://example.com'
+      }
+    ]
   }
 };
 
@@ -901,6 +929,12 @@ export class DynamicContentFixtures {
         LOCALIZATION_JOB
       );
 
+    // Content Types
+    mocks
+      .resource(CONTENT_TYPE)
+      .nestedUpdateResource('update', {}, CONTENT_TYPE_UPDATED);
+
+    // Webhooks
     mocks.resource(WEBHOOK);
   }
 }

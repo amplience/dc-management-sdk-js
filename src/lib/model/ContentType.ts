@@ -95,7 +95,10 @@ export class ContentType extends HalResource {
   /**
    * Resources and actions related to a ContentType
    */
-  public readonly related = {};
+  public readonly related = {
+    update: (mutation: ContentType): Promise<ContentType> =>
+      this.updateResource(mutation, ContentType)
+  };
 }
 
 /**

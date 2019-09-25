@@ -4,6 +4,7 @@ import { AxiosHttpClient } from './http/AxiosHttpClient';
 import { HttpClient } from './http/HttpClient';
 import { ContentItem } from './model/ContentItem';
 import { ContentRepository } from './model/ContentRepository';
+import { ContentType, ContentTypePage } from './model/ContentType';
 import { Edition } from './model/Edition';
 import { Event } from './model/Event';
 import { Folder } from './model/Folder';
@@ -116,6 +117,18 @@ export class DynamicContent {
      */
     get: (id: string): Promise<ContentItem> =>
       this.client.fetchResource(`/content-items/${id}`, ContentItem)
+  };
+
+  /**
+   * Content Type Resources
+   */
+  public readonly contentTypes = {
+    /**
+     * Retrieve a content type resource by id
+     * @param id content type id, previously generated on creation
+     */
+    get: (id: string): Promise<ContentType> =>
+      this.client.fetchResource(`/content-types/${id}`, ContentType)
   };
 
   public readonly folders = {
