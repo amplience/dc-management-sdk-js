@@ -1,6 +1,9 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Page } from './Page';
 
+/**
+ * Cached schema document for the given content type
+ */
 export interface ContentTypeCachedSchema {
   /**
    * Version of JSON Schema used when creating
