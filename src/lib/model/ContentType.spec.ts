@@ -1,6 +1,7 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentType } from './ContentType';
+import { ContentTypeSchema } from './ContentTypeSchema';
 
 test('get content type by id', async t => {
   const client = new MockDynamicContent();
@@ -38,6 +39,26 @@ test('update', async t => {
 
   const update = await contentType.related.update(mutation);
   t.deepEqual(update.settings, mutation.settings);
+});
+
+test('contentTypeSchemas.get', async t => {
+  const client = new MockDynamicContent();
+
+  const contentType = await client.contentTypes.get('5be1d5134cedfd01c030c460');
+
+  const contentTypeSchema = await contentType.related.contentTypeSchema.get();
+  t.is(contentTypeSchema.hubId, '5b32377e4cedfd01c45036d8');
+});
+
+test('contentTypeSchemas.update', async t => {
+  const client = new MockDynamicContent();
+
+  const contentType = await client.contentTypes.get('5be1d5134cedfd01c030c460');
+
+  const contentTypeSchema = await contentType.related.contentTypeSchema.update(
+    new ContentTypeSchema()
+  );
+  t.is(contentTypeSchema.hubId, '5b32377e4cedfd01c45036d8');
 });
 
 test('toJson should copy resource attributes', async t => {

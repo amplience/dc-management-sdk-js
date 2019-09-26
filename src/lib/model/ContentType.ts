@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { ContentTypeSchema } from './ContentTypeSchema';
 import { Page } from './Page';
 
 export interface ContentTypeIcon {
@@ -97,7 +98,20 @@ export class ContentType extends HalResource {
    */
   public readonly related = {
     update: (mutation: ContentType): Promise<ContentType> =>
-      this.updateResource(mutation, ContentType)
+      this.updateResource(mutation, ContentType),
+
+    contentTypeSchema: {
+      get: (): Promise<ContentTypeSchema> =>
+        this.fetchLinkedResource('content-type-schema', {}, ContentTypeSchema),
+
+      update: (mutation: ContentTypeSchema): Promise<ContentTypeSchema> =>
+        this.updateLinkedResource(
+          'content-type-schema',
+          {},
+          mutation,
+          ContentTypeSchema
+        )
+    }
   };
 }
 
