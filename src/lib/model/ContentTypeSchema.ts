@@ -2,9 +2,19 @@ import { HalResource } from '../hal/models/HalResource';
 import { Page } from './Page';
 
 export interface ContentTypeCachedSchema {
+  /**
+   * Version of JSON Schema used when creating
+   */
   $schema: string;
+
+  /**
+   * URI that describes where to locate the JSON schema definition for this content type
+   */
   id: string;
 
+  /**
+   * Fields set up in the schema document
+   */
   [key: string]: any;
 }
 

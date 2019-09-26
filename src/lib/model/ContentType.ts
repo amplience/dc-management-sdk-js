@@ -97,13 +97,22 @@ export class ContentType extends HalResource {
    * Resources and actions related to a ContentType
    */
   public readonly related = {
+    /**
+     * Update a Content Type with the provided changes
+     */
     update: (mutation: ContentType): Promise<ContentType> =>
       this.updateResource(mutation, ContentType),
 
     contentTypeSchema: {
+      /**
+       * Get the associated JSON schema document for a content type
+       */
       get: (): Promise<ContentTypeSchema> =>
         this.fetchLinkedResource('content-type-schema', {}, ContentTypeSchema),
 
+      /**
+       * Sync a content type with the associated JSON schema document
+       */
       update: (mutation: ContentTypeSchema): Promise<ContentTypeSchema> =>
         this.updateLinkedResource(
           'content-type-schema',
