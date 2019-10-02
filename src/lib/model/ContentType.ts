@@ -118,7 +118,7 @@ export class ContentType extends HalResource {
        * Sync a content type with the associated JSON schema document
        */
       update: (
-        mutation: ContentTypeCachedSchema
+        mutation: ContentTypeCachedSchema = new ContentTypeCachedSchema()
       ): Promise<ContentTypeCachedSchema> =>
         this.updateLinkedResource(
           'content-type-schema',
