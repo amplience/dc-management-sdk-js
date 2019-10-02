@@ -24,6 +24,10 @@ export {
   ContentRepositoryContentType
 } from './lib/model/ContentRepository';
 export { ContentItem } from './lib/model/ContentItem';
+export {
+  ContentTypeSchema,
+  ValidationLevel
+} from './lib/model/ContentTypeSchema';
 export { Pageable } from './lib/model/Pageable';
 export { Sortable } from './lib/model/Sortable';
 export { Status } from './lib/model/Status';

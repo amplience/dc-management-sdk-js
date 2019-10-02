@@ -4,6 +4,7 @@ import {
   ContentRepository
 } from './ContentRepository';
 import { ContentType, ContentTypePage } from './ContentType';
+import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
 import { Event, EventsPage } from './Event';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
@@ -65,6 +66,31 @@ export class Hub extends HalResource {
    * Resources and actions related to a Hub
    */
   public readonly related = {
+    contentTypeSchema: {
+      /**
+       * Creates a new Content Type Schema
+       * @param resource
+       */
+      create: (resource: ContentTypeSchema): Promise<ContentTypeSchema> =>
+        this.createLinkedResource(
+          'create-content-type-schema',
+          {},
+          resource,
+          ContentTypeSchema
+        ),
+
+      /**
+       * Retrieves a list of Content Type Schemas associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<ContentTypeSchema>> =>
+        this.fetchLinkedResource(
+          'list-content-type-schemas',
+          options,
+          ContentTypeSchemaPage
+        )
+    },
+
     contentRepositories: {
       /**
        * Retrieves a list of Content Repositories associated with this Hub
