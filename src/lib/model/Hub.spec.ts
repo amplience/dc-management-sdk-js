@@ -50,11 +50,11 @@ test('register content type', async t => {
   t.is(result.id, '5be1d5134cedfd01c030c460');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
 
-  t.deepEqual(hub.toJson(), {
+  t.deepEqual(hub.toJSON(), {
     createdBy: 'user',
     createdDate: '2018-06-26T12:54:22.142Z',
     description: 'Content for anyafinn.com',
@@ -104,13 +104,13 @@ test('toJson should copy resource attributes', async t => {
   });
 });
 
-test('toJson on a page of resources should copy resource attributes', async t => {
+test('toJSON on a page of resources should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const hubs = await client.hubs.list();
 
-  t.log(hubs.toJson());
+  t.log(hubs.toJSON());
 
-  t.deepEqual(hubs.toJson(), {
+  t.deepEqual(hubs.toJSON(), {
     _embedded: {
       hubs: [
         {
