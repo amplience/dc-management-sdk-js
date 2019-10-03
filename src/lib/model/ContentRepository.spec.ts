@@ -63,13 +63,13 @@ test('create top-level folder in content repository', async t => {
   t.is(newFolder.name, 'Another Folder');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'
   );
 
-  t.deepEqual(contentRepository.toJson(), {
+  t.deepEqual(contentRepository.toJSON(), {
     contentTypes: [],
     features: [],
     id: '5b32377b4cedfd01c4503691',

@@ -49,12 +49,20 @@ export class HalResource {
   /**
    * Returns a copy of this resource's attributes excluding links and client references
    */
-  public toJson(): any {
+  public toJSON(): any {
     const result: any = Object.assign({}, this);
     delete result.client;
     delete result._links;
     delete result.related;
     return result;
+  }
+
+  /**
+   * Returns a copy of this resource's attributes excluding links and client references
+   * @deprecated
+   */
+  public toJson(): any {
+    return this.toJSON();
   }
 
   /**
