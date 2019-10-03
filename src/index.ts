@@ -45,7 +45,6 @@ export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';
 export { LocalizationRoot } from './lib/model/LocalizationRoot';
-
 export {
   ContentType,
   ContentTypeSettings,
@@ -53,3 +52,7 @@ export {
   ContentTypeVisualization,
   ContentTypeCard
 } from './lib/model/ContentType';
+export {
+  ContentTypeCachedSchema,
+  CachedSchema
+} from './lib/model/ContentTypeCachedSchema';
