@@ -73,12 +73,12 @@ test('create localizations', async t => {
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const resource = await client.contentItems.get(
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
-  t.deepEqual(resource.toJson(), {
+  t.deepEqual(resource.toJSON(), {
     body: {
       _meta: {
         name: 'main-banner',

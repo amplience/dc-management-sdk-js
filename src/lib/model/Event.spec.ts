@@ -23,11 +23,11 @@ test('create edition', async t => {
   t.is(newEdition.name, 'January Sale');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const result = await client.events.get('5b32379e4cedfd01c4504171');
 
-  t.deepEqual(result.toJson(), {
+  t.deepEqual(result.toJSON(), {
     brief: 'http://external.doc/mybrief',
     comment: 'This is an event.',
     end: '2017-01-01T23:59:59.000Z',

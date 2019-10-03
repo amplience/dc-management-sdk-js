@@ -27,11 +27,11 @@ test('create a sub-folder', async t => {
   t.is(newFolder.name, 'Another Folder');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const folder = await client.folders.get('5b72ed68d6018001c81ef05b');
 
-  t.deepEqual(folder.toJson(), {
+  t.deepEqual(folder.toJSON(), {
     id: '5b72ed68d6018001c81ef05b',
     name: 'A folder to end all folders'
   });

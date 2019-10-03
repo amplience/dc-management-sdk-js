@@ -23,11 +23,11 @@ test('list slots', async t => {
   t.is(slots.getItems()[0].slotId, '7aa5f5d4-071c-42e3-b42e-02675c56d60e');
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
 
-  t.deepEqual(result.toJson(), {
+  t.deepEqual(result.toJSON(), {
     activeEndDate: false,
     comment: 'This is an example edition.',
     createdBy: 'user',

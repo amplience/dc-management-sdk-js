@@ -168,16 +168,16 @@ test('createLinkedResource should reject if no client is linked', async t => {
   resource.related.nestedCreate(resource).then(() => t.fail(), () => t.pass());
 });
 
-test('toJson should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async t => {
   const resource = new MockResource({
     _links: {},
     name: 'name'
   });
-  const json = resource.toJson();
+  const json = resource.toJSON();
   t.is(json.name, 'name');
 });
 
-test('toJson should exclude links & related', async t => {
+test('toJSON should exclude links & related', async t => {
   const resource = new MockResource({
     _links: {
       nested: {
@@ -186,6 +186,6 @@ test('toJson should exclude links & related', async t => {
     },
     name: 'name'
   });
-  const json = resource.toJson();
+  const json = resource.toJSON();
   t.deepEqual(json, { name: 'name' });
 });
