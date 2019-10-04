@@ -394,6 +394,7 @@ export const CONTENT_REPOSITORY = {
   features: [],
   type: 'CONTENT',
   contentTypes: [],
+  itemLocales: ['en', 'fr'],
   _links: {
     self: {
       href:
