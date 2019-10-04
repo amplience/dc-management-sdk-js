@@ -58,6 +58,11 @@ export class ContentRepository extends HalResource {
   public contentTypes?: ContentRepositoryContentType[];
 
   /**
+   * Set of locales that are assigned to this repository
+   */
+  public itemLocales?: string[];
+
+  /**
    * Resources and actions related to a Content Repository
    */
   public readonly related = {
