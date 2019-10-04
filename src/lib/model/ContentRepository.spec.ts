@@ -73,6 +73,7 @@ test('toJSON should copy resource attributes', async t => {
     contentTypes: [],
     features: [],
     id: '5b32377b4cedfd01c4503691',
+    itemLocales: ['en', 'fr'],
     label: 'Inspiration',
     name: 'inspiration',
     status: 'ACTIVE',
