@@ -1,5 +1,7 @@
 import test from 'ava';
+import { HttpMethod } from '../../..';
 import { AxiosHttpClient } from '../../http/AxiosHttpClient';
+import { HttpError } from '../../http/HttpError';
 import { ContentRepository } from '../../model/ContentRepository';
 import { Hub } from '../../model/Hub';
 import { DefaultHalClient, HalClient } from './HalClient';
@@ -200,8 +202,26 @@ test('api errors should be surfaced in the rejection error', async t => {
       errors: [{ message: 'Authorization Required' }]
     });
 
-  await t.throws(
-    () => client.fetchResource('/hubs/1', Hub),
+  const error: HttpError = await t.throws(
+    async () => client.fetchResource('/hubs/1', Hub),
+    HttpError
+  );
+  t.deepEqual(error.request, {
+    data: undefined,
+    headers: {
+      Authorization: 'bearer token'
+    },
+    method: HttpMethod.GET,
+    url: '/hubs/1'
+  });
+  t.deepEqual(error.response, {
+    data: {
+      errors: [{ message: 'Authorization Required' }]
+    },
+    status: 403
+  });
+  t.is(
+    error.message,
     'Request failed with status code 403: {"errors":[{"message":"Authorization Required"}]}'
   );
 });
@@ -218,8 +238,26 @@ test('unknown errors should describe the status code', async t => {
       errors: [{ message: 'Authorization Required' }]
     });
 
-  await t.throws(
-    () => client.fetchResource('/hubs/1', Hub),
+  const error: HttpError = await t.throws(
+    async () => client.fetchResource('/hubs/1', Hub),
+    HttpError
+  );
+  t.deepEqual(error.request, {
+    data: undefined,
+    headers: {
+      Authorization: 'bearer token'
+    },
+    method: HttpMethod.GET,
+    url: '/hubs/1'
+  });
+  t.deepEqual(error.response, {
+    data: {
+      errors: [{ message: 'Authorization Required' }]
+    },
+    status: 403
+  });
+  t.is(
+    error.message,
     'Request failed with status code 403: {"errors":[{"message":"Authorization Required"}]}'
   );
 });
