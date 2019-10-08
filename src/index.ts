@@ -12,6 +12,7 @@ export {
 } from './lib/hal/models/HalResource';
 
 export { HttpClient } from './lib/http/HttpClient';
+export { HttpError } from './lib/http/HttpError';
 export { HttpRequest, HttpMethod } from './lib/http/HttpRequest';
 export { HttpResponse } from './lib/http/HttpResponse';
 export { AxiosHttpClient } from './lib/http/AxiosHttpClient';

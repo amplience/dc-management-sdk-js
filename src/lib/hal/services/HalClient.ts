@@ -1,5 +1,5 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { HttpClient } from '../../http/HttpClient';
+import { HttpError } from '../../http/HttpError';
 import { HttpMethod, HttpRequest } from '../../http/HttpRequest';
 import { HttpResponse } from '../../http/HttpResponse';
 import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
@@ -222,13 +222,13 @@ export class DefaultHalClient implements HalClient {
         }
         return response;
       } else {
-        const newError: any = new Error(
+        throw new HttpError(
           `Request failed with status code ${response.status}: ${JSON.stringify(
             response.data
-          )}`
+          )}`,
+          fullRequest,
+          response
         );
-
-        throw newError;
       }
     });
   }
