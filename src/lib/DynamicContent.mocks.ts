@@ -864,6 +864,10 @@ export const CONTENT_TYPE = {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
     },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
+    },
     'content-type': {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460'
@@ -875,6 +879,99 @@ export const CONTENT_TYPE = {
     'content-type-schema': {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/schema'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+const CONTENT_TYPE_UPDATED = {
+  ...CONTENT_TYPE,
+  settings: {
+    icons: [
+      {
+        size: 512,
+        url:
+          'http://apps.dev-artifacts.adis.ws/cms-icons/develop/v0.4.0/256/ca-types-grid-mixedmedia.png'
+      }
+    ],
+    label: 'New Label',
+    visualizations: [
+      {
+        default: true,
+        label: 'Desktop Website',
+        templatedUri: 'http://example.com'
+      }
+    ]
+  }
+};
+
+/**
+ * @hidden
+ */
+export const CONTENT_TYPE_CACHED_SCHEMA = {
+  hubId: '5b32377e4cedfd01c45036d8',
+  contentTypeUri: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+  cachedSchema: {
+    $schema: 'http://bigcontent.io/cms/schema/v1/schema#',
+    id: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+    title: 'Inline content type',
+    description: 'Example of an inline content nested content type',
+    allOf: [
+      {
+        $ref: 'http://bigcontent.io/cms/schema/v1/core#/definitions/content'
+      }
+    ],
+    type: 'object',
+    properties: {
+      inlineExample: {
+        type: 'object',
+        title: 'this is a title',
+        properties: {
+          field1: {
+            type: 'string',
+            title: 'this is a title'
+          }
+        },
+        required: ['field1']
+      },
+      internalRefExample: {
+        $ref: '#/definitions/mapEntry'
+      },
+      externalRefExample: {
+        $ref: 'http://deliver.bigcontent.io/schema/empty-type.json#'
+      },
+      arrayExample: {
+        type: 'array',
+        title: 'this is a title',
+        items: {
+          $ref: '#/definitions/mapEntry'
+        }
+      }
+    },
+    definitions: {
+      mapEntry: {
+        type: 'object',
+        title: 'this is a title',
+        properties: {
+          key: {
+            type: 'string',
+            title: 'this is a title'
+          },
+          value: {
+            type: 'string',
+            title: 'this is a title'
+          }
+        },
+        required: ['key', 'value']
+      }
+    }
+  },
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5d8a54cd46e0fb0386cb41f4/schema'
     }
   }
 };
@@ -983,6 +1080,17 @@ export class DynamicContentFixtures {
         LOCALIZATION_JOB
       );
 
+    // Content Types
+    mocks
+      .resource(CONTENT_TYPE)
+      .nestedUpdateResource('update', {}, CONTENT_TYPE_UPDATED)
+      .nestedUpdateResource(
+        'content-type-schema',
+        {},
+        CONTENT_TYPE_CACHED_SCHEMA
+      )
+      .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
+    // Webhooks
     mocks.resource(WEBHOOK);
   }
 }
