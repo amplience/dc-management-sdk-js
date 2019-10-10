@@ -83,7 +83,7 @@ export class Hub extends HalResource {
        * Retrieves a list of Content Type Schemas associated with this Hub
        * @param options Pagination options
        */
-      list: (options?: Pageable & Sortable): Promise<Page<ContentTypeSchema>> =>
+      list: (options?: Pageable): Promise<Page<ContentTypeSchema>> =>
         this.fetchLinkedResource(
           'list-content-type-schemas',
           options,
