@@ -19,7 +19,7 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:tslint": "tslint --fix --project .",
-    "test": "run-s build test:*",
+    "test": "run-s clean:test clean:cov test:* cov:check",
     "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --list-different",
     "test:unit": "nyc --silent ava",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
@@ -35,7 +35,10 @@
     "version:minor": "standard-version --release-as minor",
     "version:major": "standard-version --release-as major",
     "reset": "git clean -dfx && git reset --hard && npm i",
-    "clean": "trash build test",
+    "clean": "run-s clean:*",
+    "clean:build": "trash build test",
+    "clean:test": "trash test",
+    "clean:cov": "trash .nyc_output coverage",
     "all": "run-s reset test cov:check doc:html",
     "prepare-patch-release": "run-s all version:patch doc:publish",
     "prepare-minor-release": "run-s all version:minor doc:publish",
@@ -75,6 +78,7 @@
     "prettier": "^1.13.4",
     "standard-version": "^4.4.0",
     "trash-cli": "^1.4.0",
+    "ts-node": "^8.4.1",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-immutable": "^4.5.4",
@@ -84,10 +88,17 @@
   "ava": {
     "failFast": true,
     "files": [
-      "build/main/**/*.spec.js"
+      "src/**/*.spec.ts"
     ],
     "sources": [
-      "build/main/**/*.js"
+      "src/**/*.ts"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
     ]
   },
   "config": {
@@ -99,9 +110,26 @@
     "singleQuote": true
   },
   "nyc": {
-    "sourceMap": false,
+    "include": [
+      "src/**/*.ts"
+    ],
     "exclude": [
-      "**/*.spec.js"
-    ]
+      "**/*.d.ts",
+      "**/*.spec.ts",
+      "**/*.mocks.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "all": false
   }
 }
