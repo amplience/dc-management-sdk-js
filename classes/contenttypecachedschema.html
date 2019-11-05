@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContentGraph | dc-management-sdk-js</title>
+	<title>ContentTypeCachedSchema | dc-management-sdk-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contentgraph.html">ContentGraph</a>
+					<a href="contenttypecachedschema.html">ContentTypeCachedSchema</a>
 				</li>
 			</ul>
-			<h1>Class ContentGraph</h1>
+			<h1>Class ContentTypeCachedSchema</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Utility to assist parsing and generating Content Item graphs.</p>
+						<p>Class representing the <a href="https://api.amplience.net/v2/content/docs/api/index.html#resources-content-types">Content Type Schema</a> resource.
+						Content types are JSON schemas that define a type of content to be created, including its structure, format and validation rules.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +78,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContentGraph</span>
+						<a href="halresource.html" class="tsd-signature-type">HalResource</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">ContentTypeCachedSchema</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -85,144 +91,198 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="contenttypecachedschema.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contenttypecachedschema.html#_links" class="tsd-kind-icon">_links</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contenttypecachedschema.html#cachedschema" class="tsd-kind-icon">cached<wbr>Schema</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contenttypecachedschema.html#contenttypeuri" class="tsd-kind-icon">content<wbr>Type<wbr>Uri</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contenttypecachedschema.html#hubid" class="tsd-kind-icon">hub<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contenttypecachedschema.html#related" class="tsd-kind-icon">related</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="contentgraph.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="contentgraph.html#extractlinks" class="tsd-kind-icon">extract<wbr>Links</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="contenttypecachedschema.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="contenttypecachedschema.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="deepcopy" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> deep<wbr>Copy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">deep<wbr>Copy<span class="tsd-signature-symbol">(</span>ids<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, contentItemProvider<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, contentItemPicker<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Content<wbr>Type<wbr>Cached<wbr>Schema<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="contenttypecachedschema.html" class="tsd-signature-type">ContentTypeCachedSchema</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/content/services/ContentGraph.ts#L54">lib/content/services/ContentGraph.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L27">lib/hal/models/HalResource.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Utility to help deeply copy a content graph. Each content item and its dependencies
-										are visited using the contentItemProvider function to load the source item. The
-										contentItemPicker is invoked for every Content Item giving your application an opportunity
-									to either save the item to a new location (copy) or return the original (reference).</p>
+									<p>Creates a new instance of the resource.
+										If data is provided it will be parsed as if it had
+									come from the remote api.</p>
 								</div>
-								<p>The JSON body provided to the contentItemPicker function will have had any Content Links
-								remapped to the newly saved Content Item.</p>
-								<pre><code class="language-typescript"><span class="hljs-keyword">const</span> targetRepository = <span class="hljs-keyword">await</span> client.contentRepositories.get(<span class="hljs-string">'5b32377b4cedfd01c4503691'</span>);
-<span class="hljs-keyword">const</span> contentIds = [<span class="hljs-string">'a87fd535-fb25-44ee-b687-0db72bbab721'</span>];
-
-<span class="hljs-keyword">const</span> idMap = <span class="hljs-keyword">await</span> ContentGraph.deepCopy(
- contentIds,
- client.contentItems.get,
- <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item:ContentItem, body:<span class="hljs-built_in">any</span></span>) </span>{
-     <span class="hljs-keyword">return</span> targetRepository.related.contentItems.create(<span class="hljs-keyword">new</span> ContentItem({
-       label: item.label,
-       body: body
-     }));
-   }
-);</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>ids: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Ids of the root content items to copy</p>
+										<div class="lead">
+										</div>
 									</div>
-								</li>
-								<li>
-									<h5>contentItemProvider: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Function that loads content items by id</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>id: <span class="tsd-signature-type">string</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>contentItemPicker: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Function that creates or returns an existing content item that should be used in place of the original</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>original<span class="tsd-signature-symbol">: </span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a>, body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>original: <a href="contentitem.html" class="tsd-signature-type">ContentItem</a></h5>
-														</li>
-														<li>
-															<h5>body: <span class="tsd-signature-type">any</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a><span class="tsd-signature-symbol">&gt;</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Mapping of old content item ids to the newly created ids</p>
+							<h4 class="tsd-returns-title">Returns <a href="contenttypecachedschema.html" class="tsd-signature-type">ContentTypeCachedSchema</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="extractlinks" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> extract<wbr>Links</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">extract<wbr>Links<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/contentlinkinstance.html" class="tsd-signature-type">ContentLinkInstance</a><span class="tsd-signature-symbol">[]</span></li>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="_links" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> _links</h3>
+					<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/hallink.html" class="tsd-signature-type">HalLink</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#_links">_links</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="cachedschema" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cached<wbr>Schema</h3>
+					<div class="tsd-signature tsd-kind-icon">cached<wbr>Schema<span class="tsd-signature-symbol">:</span> <a href="../interfaces/cachedschema.html" class="tsd-signature-type">CachedSchema</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L41">lib/model/ContentTypeCachedSchema.ts:41</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Object containing the cached schema content type</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="contenttypeuri" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> content<wbr>Type<wbr>Uri</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<wbr>Uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L36">lib/model/ContentTypeCachedSchema.ts:36</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>URI that describes where to locate the JSON schema definition for this content type</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="hubid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hub<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">hub<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L31">lib/model/ContentTypeCachedSchema.ts:31</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Associated hub id</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="related" class="tsd-anchor"></a>
+					<h3>related</h3>
+					<div class="tsd-signature tsd-kind-icon">related<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L46">lib/model/ContentTypeCachedSchema.ts:46</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Resources and actions related to a ContentType</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="tojson" class="tsd-anchor"></a>
+					<h3>toJSON</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#tojson">toJSON</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/content/services/ContentGraph.ts#L14">lib/content/services/ContentGraph.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L52">lib/hal/models/HalResource.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Extract content-link references from the body of a Content Item</p>
+									<p>Returns a copy of this resource&#39;s attributes excluding links and client references</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>content: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/contentlinkinstance.html" class="tsd-signature-type">ContentLinkInstance</a><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="tojson-1" class="tsd-anchor"></a>
+					<h3>to<wbr>Json</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Json<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="halresource.html">HalResource</a>.<a href="halresource.html#tojson-1">toJson</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L64">lib/hal/models/HalResource.ts:64</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a copy of this resource&#39;s attributes excluding links and client references</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -250,21 +310,9 @@
 					<li class=" tsd-kind-enum">
 						<a href="../enums/validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class=" tsd-kind-class">
 						<a href="contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
-						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="contentgraph.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="contentgraph.html#extractlinks" class="tsd-kind-icon">extract<wbr>Links</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="contentitem.html" class="tsd-kind-icon">Content<wbr>Item</a>
 					</li>
@@ -277,9 +325,39 @@
 					<li class=" tsd-kind-class">
 						<a href="contenttype.html" class="tsd-kind-icon">Content<wbr>Type</a>
 					</li>
-					<li class=" tsd-kind-class">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
 						<a href="contenttypecachedschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Cached<wbr>Schema</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="contenttypecachedschema.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="contenttypecachedschema.html#_links" class="tsd-kind-icon">_links</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="contenttypecachedschema.html#cachedschema" class="tsd-kind-icon">cached<wbr>Schema</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="contenttypecachedschema.html#contenttypeuri" class="tsd-kind-icon">content<wbr>Type<wbr>Uri</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="contenttypecachedschema.html#hubid" class="tsd-kind-icon">hub<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="contenttypecachedschema.html#related" class="tsd-kind-icon">related</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="contenttypecachedschema.html#tojson" class="tsd-kind-icon">toJSON</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="contenttypecachedschema.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="contenttypeschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Schema</a>
 					</li>

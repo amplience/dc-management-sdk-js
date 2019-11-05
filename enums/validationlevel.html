@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Pageable | dc-management-sdk-js</title>
+	<title>ValidationLevel | dc-management-sdk-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="pageable.html">Pageable</a>
+					<a href="validationlevel.html">ValidationLevel</a>
 				</li>
 			</ul>
-			<h1>Interface Pageable</h1>
+			<h1>Enumeration ValidationLevel</h1>
 		</div>
 	</div>
 </header>
@@ -69,63 +69,56 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parameters for paginated requests</p>
+						<p>Supported validation levels</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">Pageable</span>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pageable.html#page" class="tsd-kind-icon">page</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pageable.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="validationlevel.html#content_type" class="tsd-kind-icon">CONTENT_<wbr>TYPE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="validationlevel.html#partial" class="tsd-kind-icon">PARTIAL</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="validationlevel.html#slot" class="tsd-kind-icon">SLOT</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="page" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
-					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="content_type" class="tsd-anchor"></a>
+					<h3>CONTENT_<wbr>TYPE</h3>
+					<div class="tsd-signature tsd-kind-icon">CONTENT_<wbr>TYPE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;CONTENT_TYPE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/Pageable.ts#L8">lib/model/Pageable.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeSchema.ts#L9">lib/model/ContentTypeSchema.ts:9</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Page number to request</p>
-						</div>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="size" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="partial" class="tsd-anchor"></a>
+					<h3>PARTIAL</h3>
+					<div class="tsd-signature tsd-kind-icon">PARTIAL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;PARTIAL&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/Pageable.ts#L13">lib/model/Pageable.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeSchema.ts#L10">lib/model/ContentTypeSchema.ts:10</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Maximum resources per page to return</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="slot" class="tsd-anchor"></a>
+					<h3>SLOT</h3>
+					<div class="tsd-signature tsd-kind-icon">SLOT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;SLOT&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeSchema.ts#L8">lib/model/ContentTypeSchema.ts:8</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -140,17 +133,32 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="../enums/publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
+						<a href="publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="../enums/snapshottype.html" class="tsd-kind-icon">Snapshot<wbr>Type</a>
+						<a href="snapshottype.html" class="tsd-kind-icon">Snapshot<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
+						<a href="status.html" class="tsd-kind-icon">Status</a>
 					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-enum">
+						<a href="validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
+						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="validationlevel.html#content_type" class="tsd-kind-icon">CONTENT_<wbr>TYPE</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="validationlevel.html#partial" class="tsd-kind-icon">PARTIAL</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="validationlevel.html#slot" class="tsd-kind-icon">SLOT</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class">
 						<a href="../classes/contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
 					</li>
@@ -215,61 +223,49 @@
 						<a href="../classes/webhooksignature.html" class="tsd-kind-icon">Webhook<wbr>Signature</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
+						<a href="../interfaces/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
+						<a href="../interfaces/accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
+						<a href="../interfaces/cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
+						<a href="../interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contentrepositorycontenttype.html" class="tsd-kind-icon">Content<wbr>Repository<wbr>Content<wbr>Type</a>
+						<a href="../interfaces/contentrepositorycontenttype.html" class="tsd-kind-icon">Content<wbr>Repository<wbr>Content<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contenttypecard.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Card</a>
+						<a href="../interfaces/contenttypecard.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Card</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contenttypeicon.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Icon</a>
+						<a href="../interfaces/contenttypeicon.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Icon</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contenttypesettings.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Settings</a>
+						<a href="../interfaces/contenttypesettings.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="contenttypevisualization.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Visualization</a>
+						<a href="../interfaces/contenttypevisualization.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Visualization</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
+						<a href="../interfaces/dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
+						<a href="../interfaces/hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
+						<a href="../interfaces/oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a>
+						<a href="../interfaces/pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="pageable.html" class="tsd-kind-icon">Pageable</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="pageable.html#page" class="tsd-kind-icon">page</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="pageable.html#size" class="tsd-kind-icon">size</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="sortable.html" class="tsd-kind-icon">Sortable</a>
+						<a href="../interfaces/pageable.html" class="tsd-kind-icon">Pageable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
 					</li>
 				</ul>
 			</nav>

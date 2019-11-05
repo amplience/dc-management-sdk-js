@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Pageable | dc-management-sdk-js</title>
+	<title>CachedSchema | dc-management-sdk-js</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="pageable.html">Pageable</a>
+					<a href="cachedschema.html">CachedSchema</a>
 				</li>
 			</ul>
-			<h1>Interface Pageable</h1>
+			<h1>Interface CachedSchema</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Parameters for paginated requests</p>
+						<p>Cached schema document for the given content type</p>
 					</div>
 				</div>
 			</section>
@@ -77,9 +77,18 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Pageable</span>
+						<span class="target">CachedSchema</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-interface">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Fields set up in the schema document</p>
+					</div>
+				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -88,8 +97,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pageable.html#page" class="tsd-kind-icon">page</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="pageable.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cachedschema.html#_schema" class="tsd-kind-icon">$schema</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cachedschema.html#id" class="tsd-kind-icon">id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,32 +107,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="page" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
-					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="_schema" class="tsd-anchor"></a>
+					<h3>$schema</h3>
+					<div class="tsd-signature tsd-kind-icon">$schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/Pageable.ts#L8">lib/model/Pageable.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L10">lib/model/ContentTypeCachedSchema.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Page number to request</p>
+							<p>Version of JSON Schema used when creating</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="size" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/Pageable.ts#L13">lib/model/Pageable.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/model/ContentTypeCachedSchema.ts#L15">lib/model/ContentTypeCachedSchema.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Maximum resources per page to return</p>
+							<p>URI that describes where to locate the JSON schema definition for this content type</p>
 						</div>
 					</div>
 				</section>
@@ -220,9 +229,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="cachedschema.html#_schema" class="tsd-kind-icon">$schema</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="cachedschema.html#id" class="tsd-kind-icon">id</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
 					</li>
@@ -253,21 +274,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="pageable.html" class="tsd-kind-icon">Pageable</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="pageable.html#page" class="tsd-kind-icon">page</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="pageable.html#size" class="tsd-kind-icon">size</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="sortable.html" class="tsd-kind-icon">Sortable</a>
 					</li>

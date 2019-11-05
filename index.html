@@ -65,56 +65,65 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<p><a href="https://amplience.com/dynamic-content"><img src="media/header.png" alt="Amplience Dynamic Content"></a></p>
-				<h1 id="dc-management-sdk-js">dc-management-sdk-js</h1>
+				<a href="#dc-management-sdk-js" id="dc-management-sdk-js" style="color: inherit; text-decoration: none;">
+					<h1>dc-management-sdk-js</h1>
+				</a>
 				<blockquote>
 					<p>Official Javascript SDK for the Amplience Dynamic Content API</p>
 				</blockquote>
 				<p><a href="https://travis-ci.org/amplience/dc-management-sdk-js"><img src="https://travis-ci.org/amplience/dc-management-sdk-js.svg?branch=master" alt="Build Status"></a>
 				<a href="https://badge.fury.io/js/dc-management-sdk-js"><img src="https://badge.fury.io/js/dc-management-sdk-js.svg" alt="npm version"></a></p>
 				<p>The management sdk is designed to help build back-office applications such as content automation or web-hook integrations. Please keep in mind the management api is rate limited.</p>
-				<h2 id="installation">Installation</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
 				<p>Using npm:</p>
-				<pre><code class="lang-sh">npm install dc-management-sdk-js --save
-</code></pre>
-				<h2 id="usage">Usage</h2>
+				<pre><code class="language-sh">npm install dc-management-sdk-js --save</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
 				<p>This sdk can be used with both typescript running on Node.js or regular Javascript running on Node.js. TypeScript type definition files are bundled with the library along with precompiled Javascript versions of all TypeScript classes.</p>
-				<h3 id="typescript">TypeScript</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {DynamicContent} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;
-</code></pre>
-				<h3 id="node-js">Node.js</h3>
-				<pre><code class="lang-js"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);
-</code></pre>
-				<h3 id="authentication">Authentication</h3>
+				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
+					<h3>TypeScript</h3>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;</code></pre>
+				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+					<h3>Node.js</h3>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);</code></pre>
+				<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
+					<h3>Authentication</h3>
+				</a>
 				<p>The content management API uses OAuth 2 to authenticate requests.
 					When creating an API client you can provide your API key and secret
 				and the client will handle creating authentication tokens.</p>
 				<p>For assistance creating API credentials and configuring permissions please contact <a href="https://support.amplience.com/">Amplience Support</a>.</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
     client_id: process.env.CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET
-});
-</code></pre>
+});</code></pre>
 				<p>OR</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
     <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
     <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET
-});
-</code></pre>
-				<h3 id="making-requests">Making requests</h3>
+});</code></pre>
+				<a href="#making-requests" id="making-requests" style="color: inherit; text-decoration: none;">
+					<h3>Making requests</h3>
+				</a>
 				<p>The most common top level resources (such as Hub and ContentItem) can be requested directly by calling the appropriate method on the client instance. This will return a native promise that will yield the resource or an error (e.g. if you do not have permission to access the resource).</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> hubs = client.hubs.list();
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> hubs = client.hubs.list();
 <span class="hljs-keyword">var</span> hub = client.hubs.get(<span class="hljs-string">'&lt;HUB-ID&gt;'</span>);
 <span class="hljs-keyword">var</span> event = client.events.get(<span class="hljs-string">'&lt;EVENT-ID&gt;'</span>);
 <span class="hljs-keyword">var</span> edition = client.editions.get(<span class="hljs-string">'&lt;EDITION-ID&gt;'</span>);
-<span class="hljs-keyword">var</span> contentItem = client.contentItems.get(<span class="hljs-string">'&lt;CONTENT-ITEM-ID&gt;'</span>);
-</code></pre>
+<span class="hljs-keyword">var</span> contentItem = client.contentItems.get(<span class="hljs-string">'&lt;CONTENT-ITEM-ID&gt;'</span>);</code></pre>
 				<p>Once you have a top-level resource, you can lookup related resources and perform related actions by calling one of the methods under the “related” object. Each resource has a different set of related resources and actions.</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> contentRepositories = hub.related.contentRepositories.list();
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> contentRepositories = hub.related.contentRepositories.list();
 <span class="hljs-keyword">var</span> editionEvent = edition.related.event();
-<span class="hljs-keyword">var</span> contentItemVersion2 = contentItem.related.contentItemVersion(<span class="hljs-number">2</span>);
-</code></pre>
-				<h2 id="example">Example</h2>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;
+<span class="hljs-keyword">var</span> contentItemVersion2 = contentItem.related.contentItemVersion(<span class="hljs-number">2</span>);</code></pre>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h2>Example</h2>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
 
@@ -138,10 +147,9 @@
 };
 
 createEvent();
-
 </code></pre>
 				<p>OR</p>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
 
@@ -166,16 +174,19 @@ createEvent();
         });
 }
 
-createEvent();
-</code></pre>
-				<h2 id="documentation">Documentation</h2>
+createEvent();</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
 				<p>Please use the following documentation resources to assist building your application:</p>
 				<ul>
 					<li>Dynamic Content Management SDK <a href="https://amplience.github.io/dc-management-sdk-js/">Reference documentation</a></li>
 					<li>Dynamic Content Management API <a href="https://api.amplience.net/v2/content/docs/api/index.html#_overview">Reference documentation</a></li>
 					<li>Dynamic Content <a href="https://docs.amplience.net/">User guide</a></li>
 				</ul>
-				<h2 id="getting-help">Getting Help</h2>
+				<a href="#getting-help" id="getting-help" style="color: inherit; text-decoration: none;">
+					<h2>Getting Help</h2>
+				</a>
 				<p>If you need help using the sdk please reach out using one of the following channels:</p>
 				<ul>
 					<li>Ask a question on <a href="https://stackoverflow.com/">StackOverflow</a> using the tag <code>amplience-dynamic-content</code></li>
@@ -183,14 +194,15 @@ createEvent();
 					<li>Contact your <a href="https://amplience.com/customer-success">Amplience Customer Success</a> representative</li>
 					<li>If you have found a bug please report it by <a href="https://github.com/amplience/dc-management-sdk-js/issues/new">opening an issue</a></li>
 				</ul>
-				<h2 id="license">License</h2>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
 				<p>This software is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>,</p>
 				<p>Copyright 2018 Amplience</p>
 				<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
 					you may not use this file except in compliance with the License.
 				You may obtain a copy of the License at</p>
-				<pre><code><span class="hljs-symbol">http:</span>//www.apache<span class="hljs-meta">.org</span>/licenses/LICENSE<span class="hljs-number">-2.0</span>
-</code></pre><p>Unless required by applicable law or agreed to in writing, software
+				<pre><code><span class="hljs-symbol">http:</span>//www.apache<span class="hljs-meta">.org</span>/licenses/LICENSE<span class="hljs-number">-2.0</span></code></pre><p>Unless required by applicable law or agreed to in writing, software
 					distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
 					WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 					See the License for the specific language governing permissions and
@@ -216,6 +228,9 @@ createEvent();
 					<li class=" tsd-kind-enum">
 						<a href="enums/status.html" class="tsd-kind-icon">Status</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
 					</li>
@@ -230,6 +245,12 @@ createEvent();
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/contenttype.html" class="tsd-kind-icon">Content<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/contenttypecachedschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Cached<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/contenttypeschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/dynamiccontent.html" class="tsd-kind-icon">Dynamic<wbr>Content</a>
@@ -248,6 +269,9 @@ createEvent();
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/httperror.html" class="tsd-kind-icon">Http<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/hub.html" class="tsd-kind-icon">Hub</a>
@@ -275,6 +299,9 @@ createEvent();
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
@@ -329,6 +356,7 @@ createEvent();
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -377,7 +405,7 @@ createEvent();
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>

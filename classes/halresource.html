@@ -95,6 +95,15 @@
 								<a href="contentitem.html" class="tsd-signature-type">ContentItem</a>
 							</li>
 							<li>
+								<a href="contenttypecachedschema.html" class="tsd-signature-type">ContentTypeCachedSchema</a>
+							</li>
+							<li>
+								<a href="contenttype.html" class="tsd-signature-type">ContentType</a>
+							</li>
+							<li>
+								<a href="contenttypeschema.html" class="tsd-signature-type">ContentTypeSchema</a>
+							</li>
+							<li>
 								<a href="editionslot.html" class="tsd-signature-type">EditionSlot</a>
 							</li>
 							<li>
@@ -102,9 +111,6 @@
 							</li>
 							<li>
 								<a href="edition.html" class="tsd-signature-type">Edition</a>
-							</li>
-							<li>
-								<a href="contenttype.html" class="tsd-signature-type">ContentType</a>
 							</li>
 							<li>
 								<a href="webhook.html" class="tsd-signature-type">Webhook</a>
@@ -138,7 +144,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="halresource.html#tojson" class="tsd-kind-icon">to<wbr>Json</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="halresource.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="halresource.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="halresource.html#withhallink" class="tsd-kind-icon">with<wbr>Hal<wbr>Link</a></li>
 							</ul>
 						</section>
@@ -157,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/d3a7133/src/lib/hal/models/HalResource.ts#L27">lib/hal/models/HalResource.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L27">lib/hal/models/HalResource.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -190,7 +197,7 @@
 					<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/hallink.html" class="tsd-signature-type">HalLink</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/d3a7133/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L16">lib/hal/models/HalResource.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -199,6 +206,28 @@
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="tojson" class="tsd-anchor"></a>
+					<h3>toJSON</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">toJSON<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L52">lib/hal/models/HalResource.ts:52</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a copy of this resource&#39;s attributes excluding links and client references</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tojson-1" class="tsd-anchor"></a>
 					<h3>to<wbr>Json</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">to<wbr>Json<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
@@ -207,13 +236,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/d3a7133/src/lib/hal/models/HalResource.ts#L52">lib/hal/models/HalResource.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L64">lib/hal/models/HalResource.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns a copy of this resource&#39;s attributes excluding links and client references</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd></dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
@@ -229,7 +262,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/d3a7133/src/lib/hal/models/HalResource.ts#L187">lib/hal/models/HalResource.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/93d5a1c/src/lib/hal/models/HalResource.ts#L195">lib/hal/models/HalResource.ts:195</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -263,6 +296,9 @@
 					<li class=" tsd-kind-enum">
 						<a href="../enums/status.html" class="tsd-kind-icon">Status</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
 					</li>
@@ -277,6 +313,12 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="contenttype.html" class="tsd-kind-icon">Content<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contenttypecachedschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Cached<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="contenttypeschema.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="dynamiccontent.html" class="tsd-kind-icon">Dynamic<wbr>Content</a>
@@ -305,7 +347,10 @@
 								<a href="halresource.html#_links" class="tsd-kind-icon">_links</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="halresource.html#tojson" class="tsd-kind-icon">to<wbr>Json</a>
+								<a href="halresource.html#tojson" class="tsd-kind-icon">toJSON</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="halresource.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="halresource.html#withhallink" class="tsd-kind-icon">with<wbr>Hal<wbr>Link</a>
@@ -314,6 +359,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="httperror.html" class="tsd-kind-icon">Http<wbr>Error</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="hub.html" class="tsd-kind-icon">Hub</a>
 					</li>
@@ -340,6 +388,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
@@ -394,6 +445,7 @@
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -442,7 +494,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
