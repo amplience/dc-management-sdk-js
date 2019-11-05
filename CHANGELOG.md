@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.3.1...v1.4.0) (2019-11-05)
+
+
+### Bug Fixes
+
+* **content-type-schema:** removed the sort support from the sdk ([b1e699b](https://github.com/amplience/dc-management-sdk-js/commit/b1e699b))
+* **crypto import:** replace wildcard imports to avoid deprecated warnings ([5b44b54](https://github.com/amplience/dc-management-sdk-js/commit/5b44b54))
+* **tojson:** added support for JSON.stringify serialization and deprecated previous method ([b8db6b1](https://github.com/amplience/dc-management-sdk-js/commit/b8db6b1))
+* **tojson:** added support for JSON.stringify serialization and deprecated previous method ([2cb76ac](https://github.com/amplience/dc-management-sdk-js/commit/2cb76ac))
+
+
+### Features
+
+* **content type schema:** added extra resource to content types to update and fetch ([3408df3](https://github.com/amplience/dc-management-sdk-js/commit/3408df3))
+* **content types:** added get and update actions along with tests ([d78b6e1](https://github.com/amplience/dc-management-sdk-js/commit/d78b6e1))
+* **content-repository:** exposing itemLocales property ([a263f6d](https://github.com/amplience/dc-management-sdk-js/commit/a263f6d))
+* **content-type-cached-schema:** exported ContentTypeCachedSchema & CachedSchema models ([df74052](https://github.com/amplience/dc-management-sdk-js/commit/df74052))
+* **content-type-schema:** ability to create, update, get, get by version & list content-type-schemas ([7e32fac](https://github.com/amplience/dc-management-sdk-js/commit/7e32fac))
+* **http errors:** extends the thrown http errors to include the request and response ([ca9c371](https://github.com/amplience/dc-management-sdk-js/commit/ca9c371))
+
+
+
 <a name="1.3.1"></a>
 ## 1.3.1 (2019-07-17)
 
