@@ -42,7 +42,8 @@
     "all": "run-s reset build test doc:html",
     "prepare-patch-release": "run-s all version:patch doc:publish",
     "prepare-minor-release": "run-s all version:minor doc:publish",
-    "prepare-major-release": "run-s all version:major doc:publish"
+    "prepare-major-release": "run-s all version:major doc:publish",
+    "prepare": "npm run build"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
