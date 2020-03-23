@@ -85,6 +85,16 @@ export class ContentItem extends HalResource {
   public lastModifiedDate?: string;
 
   /**
+   * List of user Id' who are assigned to the content item
+   */
+  public assignees?: string[];
+
+  /**
+   * Timestamp representing when the assignees list was last updated in ISO 8601 format
+   */
+  public assignedDate?: string;
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
