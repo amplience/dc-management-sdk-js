@@ -73,6 +73,16 @@ test('create localizations', async t => {
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
 
+test('content item with assignees', async t => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab722'
+  );
+
+  t.deepEqual(contentItem.assignees, ['28cf43f6-7521-41c8-9892-8716adcc1e4f']);
+});
+
 test('toJSON should copy resource attributes', async t => {
   const client = new MockDynamicContent();
   const resource = await client.contentItems.get(

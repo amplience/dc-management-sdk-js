@@ -334,6 +334,97 @@ export const CONTENT_ITEM_WITH_LOCALE = {
 /**
  * @hidden
  */
+export const CONTENT_ITEM_WITH_ASSIGNEE = {
+  id: 'a87fd535-fb25-44ee-b687-0db72bbab722',
+  folderId: '5b3237784cedfd01c4503658',
+  body: {
+    _meta: {
+      name: 'main-banner',
+      schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+    }
+  },
+  version: 1,
+  label: 'Banner Ad Homepage',
+  status: 'ACTIVE',
+  createdBy: 'user',
+  createdDate: '2018-06-26T12:54:16.216Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-06-26T12:54:16.216Z',
+  deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab722',
+  assignees: ['28cf43f6-7521-41c8-9892-8716adcc1e4f'],
+  assignedDate: '2018-06-27T12:54:16.216Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722'
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722'
+    },
+    publish: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/publish'
+    },
+    planned: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/planned{?epoch,time}',
+      templated: true
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722'
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions/1'
+    },
+    'restore-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/restore'
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691'
+    },
+    'content-item-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{/version}',
+      templated: true
+    },
+    'content-item-versions': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{?page,size,sort}',
+      templated: true
+    },
+    'content-item-history': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/history{?page,size,sort}',
+      templated: true
+    },
+    copy: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab722',
+      templated: true
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658'
+    },
+    'content-item-with-children': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab722'
+    },
+    'set-locale': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
 export const CONTENT_TYPE_SCHEMA = {
   validationLevel: 'CONTENT_TYPE',
   body:
@@ -1092,6 +1183,8 @@ export class DynamicContentFixtures {
       .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
     // Webhooks
     mocks.resource(WEBHOOK);
+
+    mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
   }
 }
 
