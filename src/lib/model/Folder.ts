@@ -33,7 +33,10 @@ export class Folder extends HalResource {
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Folder>> => {
-        const path = CURIEs.expand(`folders/${this.id}/folders`, options);
+        const path = CURIEs.expand(
+          `folders/${this.id}/folders{?page,size,sort}`,
+          options
+        );
         return this.client.fetchResource(path, FoldersPage);
       },
 
