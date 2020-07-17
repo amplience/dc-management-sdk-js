@@ -965,6 +965,59 @@ export const SEARCH_INDEX_UPDATED = { ...SEARCH_INDEX, label: 'Updated Label' };
 /**
  * @hidden
  */
+export const ASSIGNED_CONTENT_TYPE = {
+  id: '00112233445566778899aabb',
+  contentTypeUri: 'http://deliver.bigcontent.io/schema/banner-type.json',
+  createdDate: '2020-01-01T00:00:00.000Z',
+  lastModifiedDate: '2020-01-01T00:00:00.000Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb'
+    },
+    'assigned-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types{/id}',
+      templated: true
+    },
+    'content-type': {
+      href:
+        'https://api.amplience.net/v2/content-types/00112233445566778899aabb'
+    },
+    unassign: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb'
+    },
+    webhook: {
+      href:
+        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
+    },
+    'recreate-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook'
+    },
+    'active-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
+    },
+    'recreate-active-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active'
+    },
+    'archived-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
+    },
+    'recreate-archived-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=archived'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
 export const SEARCH_INDEX_API_KEY = {
   id: '00112233445566778899aabb',
   type: 'HUB_SEARCH',
@@ -1238,7 +1291,18 @@ export class DynamicContentFixtures {
       .resource(SEARCH_INDEX)
       .nestedCreateResource('clear', {}, SEARCH_INDEX)
       .nestedResource('hub-search-key', {}, SEARCH_INDEX_API_KEY)
-      .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED);
+      .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
+      .nestedCollection(
+        'assigned-content-types',
+        {},
+        'assigned-content-types',
+        [ASSIGNED_CONTENT_TYPE]
+      )
+      .nestedCreateResource(
+        'assigned-content-types',
+        {},
+        ASSIGNED_CONTENT_TYPE
+      );
 
     // Folders
     mocks

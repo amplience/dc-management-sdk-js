@@ -1,4 +1,8 @@
 import { HalResource } from '../hal/models/HalResource';
+import {
+  AssignedContentType,
+  AssignedContentTypePage
+} from './AssignedContentType';
 import { Page } from './Page';
 import { SearchIndexKey } from './SearchIndexKey';
 
@@ -71,10 +75,23 @@ export class SearchIndex extends HalResource {
     },
 
     assignedContentTypes: {
-      // create:
+      create: (resource: AssignedContentType): Promise<AssignedContentType> =>
+        this.createLinkedResource(
+          'assigned-content-types',
+          'assignedContentType',
+          resource,
+          AssignedContentType
+        ),
+
       // delete:
       // get:
-      // list
+
+      list: (): Promise<Page<AssignedContentType>> =>
+        this.fetchLinkedResource(
+          'assigned-content-types',
+          {},
+          AssignedContentTypePage
+        )
     },
 
     stats: {
