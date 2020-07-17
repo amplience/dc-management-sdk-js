@@ -138,6 +138,15 @@ export const HUB = {
     'create-webhook': {
       href:
         'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks'
+    },
+    'algolia-search-indexes': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{?parentId,projection,page,size,sort}',
+      templated: true
+    },
+    'create-algolia-search-index': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes'
     }
   }
 };
@@ -884,6 +893,94 @@ export const NEW_FOLDER = {
 /**
  * @hidden
  */
+export const SEARCH_INDEX = {
+  id: '00112233445566778899aabb',
+  replicaCount: 0,
+  name: 'anya-finn.my-index',
+  suffix: 'my-index',
+  label: 'My Index',
+  type: 'PRODUCTION',
+  createdDate: '2019-01-01T00:00:00.000Z',
+  lastModifiedDate: '2019-01-01T00:00:00.000Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb'
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{/id}',
+      templated: true
+    },
+    'hub-search-key': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb'
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb'
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb'
+    },
+    'list-replicas': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes?parentId=00112233445566778899aabb{&projection,page,size,sort}',
+      templated: true
+    },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8'
+    },
+    settings: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
+    },
+    'update-settings': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings{?forwardToReplicas}',
+      templated: true
+    },
+    'assigned-content-types': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types'
+    },
+    clear: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/clear'
+    },
+    stats: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
+      templated: true
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_UPDATED = { ...SEARCH_INDEX, label: 'Updated Label' };
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_API_KEY = {
+  id: '00112233445566778899aabb',
+  type: 'HUB_SEARCH',
+  key: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz',
+  applicationId: 'AaBbCcDdEeFfGg',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
 export const WEBHOOK = {
   id: '5a497a000000000000000000',
   label: 'myWebhookSubscription',
@@ -1100,6 +1197,13 @@ export class DynamicContentFixtures {
         'create-content-type-schema',
         {},
         CONTENT_TYPE_SCHEMA
+      )
+      .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
+      .nestedCollection(
+        'algolia-search-indexes',
+        {},
+        'algolia-search-indexes',
+        [SEARCH_INDEX]
       );
 
     // Content items
@@ -1128,6 +1232,13 @@ export class DynamicContentFixtures {
       .nestedDelete('unassign-content-type', {
         id: '5be1d5134cedfd01c030c460'
       });
+
+    // Search indexes
+    mocks
+      .resource(SEARCH_INDEX)
+      .nestedCreateResource('clear', {}, SEARCH_INDEX)
+      .nestedResource('hub-search-key', {}, SEARCH_INDEX_API_KEY)
+      .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED);
 
     // Folders
     mocks
