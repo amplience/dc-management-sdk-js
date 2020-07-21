@@ -101,8 +101,8 @@ export class Edition extends HalResource {
        * Retrieves a list of slots associated with this Edition
        */
       list: (): Promise<Page<EditionSlot>> =>
-        this.fetchLinkedResource('list-slots', {}, EditionSlotsPage)
-    }
+        this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
+    },
   };
 }
 

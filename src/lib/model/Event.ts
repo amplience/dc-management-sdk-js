@@ -56,8 +56,8 @@ export class Event extends HalResource {
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Edition>> =>
-        this.fetchLinkedResource('editions', options, EditionsPage)
-    }
+        this.fetchLinkedResource('editions', options, EditionsPage),
+    },
   };
 }
 

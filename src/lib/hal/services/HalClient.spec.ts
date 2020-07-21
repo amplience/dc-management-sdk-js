@@ -32,37 +32,37 @@ const tokenProvider = {
     Promise.resolve({
       access_token: 'token',
       expires_in: 500,
-      refresh_token: 'refresh'
-    })
+      refresh_token: 'refresh',
+    }),
 };
 
-test('fetchResource should load and parse resource', async t => {
+test('fetchResource should load and parse resource', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
-    name: 'hub 1'
+    name: 'hub 1',
   });
 
   const hub = await client.fetchResource('/hubs/1', Hub);
   t.is(hub.name, 'hub 1');
 });
 
-test('fetchLinkedResource should follow href', async t => {
+test('fetchLinkedResource should follow href', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
-    name: 'hub 1'
+    name: 'hub 1',
   });
 
   const hub = await client.fetchLinkedResource({ href: '/hubs/1' }, {}, Hub);
   t.is(hub.name, 'hub 1');
 });
 
-test('fetchLinkedResource should process templated links', async t => {
+test('fetchLinkedResource should process templated links', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onGet('/hubs/1').reply(200, {
-    name: 'hub 1'
+    name: 'hub 1',
   });
 
   const hub = await client.fetchLinkedResource(
@@ -73,12 +73,12 @@ test('fetchLinkedResource should process templated links', async t => {
   t.is(hub.name, 'hub 1');
 });
 
-test('createResource should post and parse the resource', async t => {
+test('createResource should post and parse the resource', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onPost('/hubs').reply(200, {
     id: 'hub 1',
-    name: 'hub 1'
+    name: 'hub 1',
   });
 
   let hub = new Hub();
@@ -87,12 +87,12 @@ test('createResource should post and parse the resource', async t => {
   t.is(hub.id, 'hub 1');
 });
 
-test('createLinkedResource should follow href', async t => {
+test('createLinkedResource should follow href', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onPost('/hubs').reply(200, {
     id: 'hub 1',
-    name: 'hub 1'
+    name: 'hub 1',
   });
 
   let hub = new Hub();
@@ -101,12 +101,12 @@ test('createLinkedResource should follow href', async t => {
   t.is(hub.id, 'hub 1');
 });
 
-test('createLinkedResource should process templated links', async t => {
+test('createLinkedResource should process templated links', async (t) => {
   const [client, mock] = createMockClient();
 
   mock.onPost('/hubs/1/content-repositories').reply(200, {
     id: 'repo 1',
-    name: 'repo 1'
+    name: 'repo 1',
   });
 
   let repo = new ContentRepository();
@@ -120,23 +120,23 @@ test('createLinkedResource should process templated links', async t => {
   t.is(repo.id, 'repo 1');
 });
 
-test('requests should include auth token', async t => {
+test('requests should include auth token', async (t) => {
   const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token'
+      Authorization: 'bearer token',
     })
     .reply(200, {
-      name: 'hub 1'
+      name: 'hub 1',
     });
 
   const hub = await client.fetchResource('/hubs/1', Hub);
   t.is(hub.name, 'hub 1');
 });
 
-test('should ask for token from provider every request', async t => {
+test('should ask for token from provider every request', async (t) => {
   const httpClient = new AxiosHttpClient({});
 
   let tokenCount = 0;
@@ -145,26 +145,26 @@ test('should ask for token from provider every request', async t => {
       Promise.resolve({
         access_token: 'token' + tokenCount++,
         expires_in: 500,
-        refresh_token: 'refresh'
-      })
+        refresh_token: 'refresh',
+      }),
   });
 
   const mock = new MockAdapter(httpClient.client);
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token0'
+      Authorization: 'bearer token0',
     })
     .reply(200, {
-      name: 'hub 1'
+      name: 'hub 1',
     });
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token1'
+      Authorization: 'bearer token1',
     })
     .reply(200, {
-      name: 'hub 1'
+      name: 'hub 1',
     });
 
   const hub = await client.fetchResource('/hubs/1', Hub);
@@ -172,14 +172,14 @@ test('should ask for token from provider every request', async t => {
   t.is(hub2.name, 'hub 1');
 });
 
-test('parse should instantiate and parse the resource', t => {
+test('parse should instantiate and parse the resource', (t) => {
   const [client, mock] = createMockClient();
 
   const hub = client.parse({ name: 'hub' }, Hub);
   t.is(hub.name, 'hub');
 });
 
-test('serialize should make a copy of the object', t => {
+test('serialize should make a copy of the object', (t) => {
   const [client, mock] = createMockClient();
 
   const hub = new Hub();
@@ -190,16 +190,16 @@ test('serialize should make a copy of the object', t => {
   t.is(hubJson.name, 'hub');
 });
 
-test('api errors should be surfaced in the rejection error', async t => {
+test('api errors should be surfaced in the rejection error', async (t) => {
   const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token'
+      Authorization: 'bearer token',
     })
     .reply(403, {
-      errors: [{ message: 'Authorization Required' }]
+      errors: [{ message: 'Authorization Required' }],
     });
 
   const error: HttpError = await t.throws(
@@ -209,16 +209,16 @@ test('api errors should be surfaced in the rejection error', async t => {
   t.deepEqual(error.request, {
     data: undefined,
     headers: {
-      Authorization: 'bearer token'
+      Authorization: 'bearer token',
     },
     method: HttpMethod.GET,
-    url: '/hubs/1'
+    url: '/hubs/1',
   });
   t.deepEqual(error.response, {
     data: {
-      errors: [{ message: 'Authorization Required' }]
+      errors: [{ message: 'Authorization Required' }],
     },
-    status: 403
+    status: 403,
   });
   t.is(
     error.message,
@@ -226,16 +226,16 @@ test('api errors should be surfaced in the rejection error', async t => {
   );
 });
 
-test('unknown errors should describe the status code', async t => {
+test('unknown errors should describe the status code', async (t) => {
   const [client, mock] = createMockClient();
 
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token'
+      Authorization: 'bearer token',
     })
     .reply(403, {
-      errors: [{ message: 'Authorization Required' }]
+      errors: [{ message: 'Authorization Required' }],
     });
 
   const error: HttpError = await t.throws(
@@ -245,16 +245,16 @@ test('unknown errors should describe the status code', async t => {
   t.deepEqual(error.request, {
     data: undefined,
     headers: {
-      Authorization: 'bearer token'
+      Authorization: 'bearer token',
     },
     method: HttpMethod.GET,
-    url: '/hubs/1'
+    url: '/hubs/1',
   });
   t.deepEqual(error.response, {
     data: {
-      errors: [{ message: 'Authorization Required' }]
+      errors: [{ message: 'Authorization Required' }],
     },
-    status: 403
+    status: 403,
   });
   t.is(
     error.message,

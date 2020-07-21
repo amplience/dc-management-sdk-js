@@ -2,7 +2,7 @@ import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentItem } from './ContentItem';
 
-test('get content item by id', async t => {
+test('get content item by id', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentItems.get(
     'a87fd535-fb25-44ee-b687-0db72bbab721'
@@ -10,7 +10,7 @@ test('get content item by id', async t => {
   t.is(result.label, 'Banner Ad Homepage');
 });
 
-test('get version', async t => {
+test('get version', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -21,7 +21,7 @@ test('get version', async t => {
   t.is(version1.version, 1);
 });
 
-test('update', async t => {
+test('update', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -30,14 +30,14 @@ test('update', async t => {
 
   const mutation = new ContentItem({
     label: 'New Label',
-    version: contentItem.version
+    version: contentItem.version,
   });
 
   const update = await contentItem.related.update(mutation);
   t.is(update.version, contentItem.version + 1);
 });
 
-test('get repository', async t => {
+test('get repository', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -48,7 +48,7 @@ test('get repository', async t => {
   t.is(repo.name, 'inspiration');
 });
 
-test('set locale', async t => {
+test('set locale', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -59,7 +59,7 @@ test('set locale', async t => {
   t.is(itemWithLocale.locale, 'en-GB');
 });
 
-test('create localizations', async t => {
+test('create localizations', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -73,7 +73,7 @@ test('create localizations', async t => {
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
 
-test('content item with assignees', async t => {
+test('content item with assignees', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
@@ -83,7 +83,7 @@ test('content item with assignees', async t => {
   t.deepEqual(contentItem.assignees, ['28cf43f6-7521-41c8-9892-8716adcc1e4f']);
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const resource = await client.contentItems.get(
     'a87fd535-fb25-44ee-b687-0db72bbab721'
@@ -92,8 +92,8 @@ test('toJSON should copy resource attributes', async t => {
     body: {
       _meta: {
         name: 'main-banner',
-        schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json'
-      }
+        schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+      },
     },
     createdBy: 'user',
     createdDate: '2018-06-26T12:54:16.216Z',
@@ -105,6 +105,6 @@ test('toJSON should copy resource attributes', async t => {
     lastModifiedDate: '2018-06-26T12:54:16.216Z',
     locale: 'en-GB',
     status: 'ACTIVE',
-    version: 1
+    version: 1,
   });
 });

@@ -29,7 +29,7 @@ export abstract class EmbeddedCollection<
 
   public toJSON(): any {
     const result = super.toJSON();
-    result._embedded[this.key] = this.getItems().map(item => item.toJSON());
+    result._embedded[this.key] = this.getItems().map((item) => item.toJSON());
     delete result.key;
     delete result.resourceType;
     delete result.items;

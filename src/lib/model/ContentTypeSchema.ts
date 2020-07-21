@@ -7,7 +7,7 @@ import { Page } from './Page';
 export enum ValidationLevel {
   SLOT = 'SLOT',
   CONTENT_TYPE = 'CONTENT_TYPE',
-  PARTIAL = 'PARTIAL'
+  PARTIAL = 'PARTIAL',
 }
 
 /**
@@ -69,7 +69,7 @@ export class ContentTypeSchema extends HalResource {
      * @param updated
      */
     update: (mutation: ContentTypeSchema): Promise<ContentTypeSchema> =>
-      this.updateResource(mutation, ContentTypeSchema)
+      this.updateResource(mutation, ContentTypeSchema),
   };
 }
 

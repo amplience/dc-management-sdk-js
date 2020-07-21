@@ -36,7 +36,7 @@ export class Folder extends HalResource {
        * @param resource The new Folder to create
        */
       create: (resource: Folder): Promise<Folder> =>
-        this.createLinkedResource('create-folder', {}, resource, Folder)
+        this.createLinkedResource('create-folder', {}, resource, Folder),
     },
 
     contentItems: {
@@ -44,8 +44,8 @@ export class Folder extends HalResource {
        * Retrieves a list of Content Items stored within this Folder
        */
       list: (): Promise<Page<ContentItem>> =>
-        this.fetchLinkedResource('content-items', {}, ContentItemsPage)
-    }
+        this.fetchLinkedResource('content-items', {}, ContentItemsPage),
+    },
   };
 }
 

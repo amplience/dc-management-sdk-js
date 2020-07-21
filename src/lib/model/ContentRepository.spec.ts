@@ -3,7 +3,7 @@ import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentItem } from './ContentItem';
 import { Folder } from './Folder';
 
-test('get content repository by id', async t => {
+test('get content repository by id', async (t) => {
   const client = new MockDynamicContent();
 
   const result = await client.contentRepositories.get(
@@ -12,7 +12,7 @@ test('get content repository by id', async t => {
   t.is(result.name, 'inspiration');
 });
 
-test('create content item', async t => {
+test('create content item', async (t) => {
   const client = new MockDynamicContent();
 
   const contentRepository = await client.contentRepositories.get(
@@ -26,7 +26,7 @@ test('create content item', async t => {
   t.is(createdContentItem.label, 'Banner Ad Homepage');
 });
 
-test('list content items', async t => {
+test('list content items', async (t) => {
   const client = new MockDynamicContent();
 
   const contentRepository = await client.contentRepositories.get(
@@ -37,7 +37,7 @@ test('list content items', async t => {
   t.is(result.getItems()[0].label, 'Banner Ad Homepage');
 });
 
-test('list repository top-level folders', async t => {
+test('list repository top-level folders', async (t) => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'
@@ -48,7 +48,7 @@ test('list repository top-level folders', async t => {
   t.is(folders.getItems()[0].name, 'A folder to end all folders');
 });
 
-test('create top-level folder in content repository', async t => {
+test('create top-level folder in content repository', async (t) => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'
@@ -56,14 +56,14 @@ test('create top-level folder in content repository', async t => {
 
   const newFolder = await contentRepository.related.folders.create(
     new Folder({
-      name: 'Another Folder'
+      name: 'Another Folder',
     })
   );
 
   t.is(newFolder.name, 'Another Folder');
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'
@@ -77,11 +77,11 @@ test('toJSON should copy resource attributes', async t => {
     label: 'Inspiration',
     name: 'inspiration',
     status: 'ACTIVE',
-    type: 'CONTENT'
+    type: 'CONTENT',
   });
 });
 
-test('assign content type', async t => {
+test('assign content type', async (t) => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'
@@ -93,7 +93,7 @@ test('assign content type', async t => {
   t.is(result.id, '5b32377b4cedfd01c4503691');
 });
 
-test('unassign content type', async t => {
+test('unassign content type', async (t) => {
   const client = new MockDynamicContent();
   const contentRepository = await client.contentRepositories.get(
     '5b32377b4cedfd01c4503691'

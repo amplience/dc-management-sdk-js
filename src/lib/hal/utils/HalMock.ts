@@ -101,8 +101,8 @@ export class HalMocks {
   public collection(url: string, type: string, values: HalLiteral[]): void {
     this.mockInstance.onGet(url).reply(200, {
       _embedded: {
-        [type]: values
-      }
+        [type]: values,
+      },
     });
   }
 

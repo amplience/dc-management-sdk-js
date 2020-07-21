@@ -96,7 +96,7 @@ export class DefaultHalClient implements HalClient {
   ): Promise<T> {
     const response = await this.invoke({
       method: HttpMethod.GET,
-      url: path
+      url: path,
     });
     return this.parse(response.data, resourceConstructor);
   }
@@ -122,7 +122,7 @@ export class DefaultHalClient implements HalClient {
     const response = await this.invoke({
       data: this.serialize(resource),
       method: HttpMethod.POST,
-      url: path
+      url: path,
     });
     return this.parse(response.data, resourceConstructor);
   }
@@ -135,7 +135,7 @@ export class DefaultHalClient implements HalClient {
     const response = await this.invoke({
       data: this.serialize(resource),
       method: HttpMethod.PATCH,
-      url: path
+      url: path,
     });
     return this.parse(response.data, resourceConstructor);
   }
@@ -164,7 +164,7 @@ export class DefaultHalClient implements HalClient {
   public async deleteResource(path: string): Promise<void> {
     const response = await this.invoke({
       method: HttpMethod.DELETE,
-      url: path
+      url: path,
     });
     return Promise.resolve();
   }
@@ -184,7 +184,7 @@ export class DefaultHalClient implements HalClient {
     const response = await this.invoke({
       data: this.serialize(data),
       method: HttpMethod.POST,
-      url: href
+      url: href,
     });
 
     return this.parse(response.data, resourceConstructor);
@@ -209,13 +209,13 @@ export class DefaultHalClient implements HalClient {
     const fullRequest: HttpRequest = {
       data: request.data,
       headers: {
-        Authorization: 'bearer ' + token.access_token
+        Authorization: 'bearer ' + token.access_token,
       },
       method: request.method,
-      url: combineURLs(this.baseUrl, request.url)
+      url: combineURLs(this.baseUrl, request.url),
     };
 
-    return this.httpClient.request(fullRequest).then(response => {
+    return this.httpClient.request(fullRequest).then((response) => {
       if (response.status >= 200 && response.status < 300) {
         if (typeof response.data === 'string') {
           response.data = JSON.parse(response.data);

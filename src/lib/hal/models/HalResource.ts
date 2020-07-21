@@ -86,7 +86,7 @@ export class HalResource {
     resourceConstructor: HalResourceConstructor<T>
   ): T[] {
     if (this._embedded[name]) {
-      return this._embedded[name].map(x =>
+      return this._embedded[name].map((x) =>
         this.client.parse(x, resourceConstructor)
       );
     } else {

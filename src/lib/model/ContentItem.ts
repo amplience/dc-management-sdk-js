@@ -145,7 +145,7 @@ export class ContentItem extends HalResource {
      * to avoid overwriting other user's changes.
      */
     update: (mutation: ContentItem): Promise<ContentItem> =>
-      this.updateResource(mutation, ContentItem)
+      this.updateResource(mutation, ContentItem),
   };
 }
 

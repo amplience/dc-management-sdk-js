@@ -1,20 +1,20 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 
-test('get edition by id', async t => {
+test('get edition by id', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
   t.is(result.name, 'January Sale');
 });
 
-test('get event', async t => {
+test('get event', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
   const event = await result.related.event();
   t.is(event.name, 'January Sale');
 });
 
-test('list slots', async t => {
+test('list slots', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
   const slots = await result.related.slots.list();
@@ -22,7 +22,7 @@ test('list slots', async t => {
   t.is(slots.getItems()[0].slotId, '7aa5f5d4-071c-42e3-b42e-02675c56d60e');
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
 
@@ -44,6 +44,6 @@ test('toJSON should copy resource attributes', async t => {
     slotsRemaining: 200,
     stagedDate: null,
     start: '2017-01-01T00:00:00.000Z',
-    statusUpdated: '2018-06-26T12:54:54.922Z'
+    statusUpdated: '2018-06-26T12:54:54.922Z',
   });
 });

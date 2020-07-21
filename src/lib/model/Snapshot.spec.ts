@@ -1,13 +1,13 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 
-test('get snapshot by id', async t => {
+test('get snapshot by id', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.snapshots.get('5b3237944cedfd01c45038ae');
   t.is(result.comment, 'This is an example snapshot.');
 });
 
-test('get content item from snapshot', async t => {
+test('get content item from snapshot', async (t) => {
   const client = new MockDynamicContent();
   const snapshot = await client.snapshots.get('5b3237944cedfd01c45038ae');
   const result = await snapshot.related.snapshotContentItem(
@@ -17,7 +17,7 @@ test('get content item from snapshot', async t => {
   t.is(result.label, 'Banner Ad Homepage');
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const snapshot = await client.snapshots.get('5b3237944cedfd01c45038ae');
 
@@ -30,9 +30,9 @@ test('toJSON should copy resource attributes', async t => {
     rootContentItem: {
       contentTypeUri:
         'http://deliver.bigcontent.io/schema/nested/nested-type.json',
-      label: 'Banner Ad Homepage'
+      label: 'Banner Ad Homepage',
     },
     taggedEditions: [],
-    type: 'USER'
+    type: 'USER',
   });
 });
