@@ -105,6 +105,6 @@ export class SearchIndex extends HalResource {
  */
 export class SearchIndexesPage extends Page<SearchIndex> {
   constructor(data?: any) {
-    super('algolia-search-indexes', SearchIndex, data);
+    super('indexes', SearchIndex, data);
   }
 }
