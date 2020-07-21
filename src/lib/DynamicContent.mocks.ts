@@ -1192,7 +1192,7 @@ export class DynamicContentFixtures {
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const MockAdapter = require('axios-mock-adapter');
 
 /**

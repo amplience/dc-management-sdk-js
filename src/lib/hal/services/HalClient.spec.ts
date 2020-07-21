@@ -10,7 +10,7 @@ import { DefaultHalClient, HalClient } from './HalClient';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
 /**

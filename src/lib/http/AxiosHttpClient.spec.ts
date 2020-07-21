@@ -6,7 +6,7 @@ import { HttpMethod } from './HttpRequest';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
 test('client should use provided base url', async t => {

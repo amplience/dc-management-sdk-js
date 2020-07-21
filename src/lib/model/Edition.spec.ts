@@ -1,6 +1,5 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
-import { ContentItem } from './ContentItem';
 
 test('get edition by id', async t => {
   const client = new MockDynamicContent();

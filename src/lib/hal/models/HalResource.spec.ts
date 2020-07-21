@@ -7,7 +7,7 @@ import { HalResource } from './HalResource';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
 /**

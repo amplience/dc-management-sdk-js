@@ -1,6 +1,5 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
-import { ContentItem } from './ContentItem';
 import { ContentTypeSchema } from './ContentTypeSchema';
 
 test('list ContentTypeSchemas for a Hub', async t => {

@@ -6,7 +6,7 @@ import { OAuth2Client } from './OAuth2Client';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
 test('get token should request a token on the first invocation', async t => {

@@ -1,7 +1,7 @@
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const template = require('url-template');
 
 /**

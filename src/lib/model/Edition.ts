@@ -2,9 +2,7 @@ import { HalResource } from '../hal/models/HalResource';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
 import { Event } from './Event';
 import { Page } from './Page';
-import { Pageable } from './Pageable';
 import { PublishingStatus } from './PublishingStatus';
-import { Sortable } from './Sortable';
 
 /**
  * Class representing the [Edition](https://api.amplience.net/v2/content/docs/api/index.html#resources-editions) resource.

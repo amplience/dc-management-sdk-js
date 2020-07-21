@@ -60,6 +60,6 @@ test('should throw if data is self-referential', t => {
   const data: any = { a: 'a' };
   data.b = data;
 
-  // tslint:disable-next-line
+  // eslint-disable-next-line
   t.throws(() => JsonTree.visit(data, (value: any) => {}));
 });

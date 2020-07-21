@@ -12,13 +12,13 @@ export interface HalResourceConstructor<T extends HalResource> {
  * Base class for all Resources
  */
 export class HalResource {
-  // tslint:disable-next-line
+  // eslint-disable-next-line
   public _links?: Map<string, HalLink>;
 
   /**
    * @hidden
    */
-  // tslint:disable-next-line
+  // eslint-disable-next-line
   protected _embedded: Map<string, any>;
 
   /**
