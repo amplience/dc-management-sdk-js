@@ -47,6 +47,18 @@ test('get api key for search index', async t => {
   t.is(result.key, 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz');
 });
 
+test('get stats for a search index', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related.stats.get();
+  t.is(result.totalRecords, 4);
+  t.is(result.usage.averageResponseTime.value, 1.25);
+  t.is(result.usage.numberOfSearches.value, 150);
+});
+
 test('list search indexes', async t => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
@@ -118,4 +130,15 @@ test('update search index settings', async t => {
   const result = await searchIndex.related.settings.update(searchIndexSettings);
   t.is(result.hitsPerPage, 25);
   t.is(result.replicas[0], 'replica one');
+});
+
+test('delete an index object', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  return t.notThrows(
+    result.related.indexObject.delete('00112233445566778899aabz')
+  );
 });
