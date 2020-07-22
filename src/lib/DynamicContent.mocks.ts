@@ -965,6 +965,45 @@ export const SEARCH_INDEX_UPDATED = { ...SEARCH_INDEX, label: 'Updated Label' };
 /**
  * @hidden
  */
+export const SEARCH_INDEX_REPLICA = {
+  ...SEARCH_INDEX,
+  id: '00112233445566778899aabc',
+  parentId: '00112233445566778899aabb',
+  label: 'replica one'
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SETTINGS = {
+  replicas: ['replica one'],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
+    },
+    settings: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb'
+    }
+  }
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SETTINGS_UPDATED = {
+  ...SEARCH_INDEX_SETTINGS,
+  hitsPerPage: 25
+};
+
+/**
+ * @hidden
+ */
 export const ASSIGNED_CONTENT_TYPE = {
   id: '00112233445566778899aabb',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/banner-type.json',
@@ -1252,12 +1291,9 @@ export class DynamicContentFixtures {
         CONTENT_TYPE_SCHEMA
       )
       .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
-      .nestedCollection(
-        'algolia-search-indexes',
-        {},
-        'algolia-search-indexes',
-        [SEARCH_INDEX]
-      );
+      .nestedCollection('algolia-search-indexes', {}, 'indexes', [
+        SEARCH_INDEX
+      ]);
 
     // Content items
     mocks
@@ -1290,8 +1326,12 @@ export class DynamicContentFixtures {
     mocks
       .resource(SEARCH_INDEX)
       .nestedCreateResource('clear', {}, SEARCH_INDEX)
+
       .nestedResource('hub-search-key', {}, SEARCH_INDEX_API_KEY)
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
+      .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
+      .nestedUpdateResource('settings', {}, SEARCH_INDEX_SETTINGS_UPDATED)
+      .nestedCollection('list-replicas', {}, 'indexes', [SEARCH_INDEX_REPLICA])
       .nestedCollection(
         'assigned-content-types',
         {},
@@ -1303,6 +1343,10 @@ export class DynamicContentFixtures {
         {},
         ASSIGNED_CONTENT_TYPE
       );
+
+    mocks
+      .resource(ASSIGNED_CONTENT_TYPE)
+      .nestedDelete('unassign', { id: '00112233445566778899aabb' });
 
     // Folders
     mocks

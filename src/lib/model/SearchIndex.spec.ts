@@ -54,6 +54,16 @@ test('list search indexes', async t => {
   t.is(result.getItems()[0].label, 'My Index');
 });
 
+test('list search index replicas', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related.replicas.list();
+  t.is(result.getItems()[0].label, 'replica one');
+});
+
 test('update a search index', async t => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
@@ -85,4 +95,27 @@ test('list assigned content types', async t => {
   );
   const result = await searchIndex.related.assignedContentTypes.list();
   t.is(result.getItems()[0].id, '00112233445566778899aabb');
+});
+
+test('get settings for a search index', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related.settings.get();
+  t.is(result.replicas[0], 'replica one');
+});
+
+test('update search index settings', async t => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const searchIndexSettings = await searchIndex.related.settings.get();
+  searchIndexSettings.hitsPerPage = 25;
+  const result = await searchIndex.related.settings.update(searchIndexSettings);
+  t.is(result.hitsPerPage, 25);
+  t.is(result.replicas[0], 'replica one');
 });

@@ -4,7 +4,10 @@ import {
   AssignedContentTypePage
 } from './AssignedContentType';
 import { Page } from './Page';
+import { Pageable } from './Pageable';
 import { SearchIndexKey } from './SearchIndexKey';
+import { SearchIndexSettings } from './SearchIndexSettings';
+import { Sortable } from './Sortable';
 
 export class SearchIndex extends HalResource {
   /**
@@ -64,16 +67,6 @@ export class SearchIndex extends HalResource {
     update: (resource: SearchIndex): Promise<SearchIndex> =>
       this.updateResource(resource, SearchIndex),
 
-    keys: {
-      get: (): Promise<SearchIndexKey> =>
-        this.fetchLinkedResource('hub-search-key', {}, SearchIndexKey)
-    },
-
-    settings: {
-      // get:
-      // update:
-    },
-
     assignedContentTypes: {
       create: (resource: AssignedContentType): Promise<AssignedContentType> =>
         this.createLinkedResource(
@@ -83,8 +76,12 @@ export class SearchIndex extends HalResource {
           AssignedContentType
         ),
 
-      // delete:
-      // get:
+      get: (id: string): Promise<AssignedContentType> =>
+        this.client.fetchResource(
+          // tslint:disable-next-line:no-string-literal
+          `${this._links['self'].href}/assigned-content-types/${id}`,
+          AssignedContentType
+        ),
 
       list: (): Promise<Page<AssignedContentType>> =>
         this.fetchLinkedResource(
@@ -92,6 +89,31 @@ export class SearchIndex extends HalResource {
           {},
           AssignedContentTypePage
         )
+    },
+
+    keys: {
+      get: (): Promise<SearchIndexKey> =>
+        this.fetchLinkedResource('hub-search-key', {}, SearchIndexKey)
+    },
+
+    replicas: {
+      list: (
+        projection?: string,
+        options?: Pageable & Sortable
+      ): Promise<Page<SearchIndex>> =>
+        this.fetchLinkedResource(
+          'list-replicas',
+          { projection, options },
+          SearchIndexesPage
+        )
+    },
+
+    settings: {
+      get: (): Promise<SearchIndexSettings> =>
+        this.fetchLinkedResource('settings', {}, SearchIndexSettings),
+
+      update: (resource: SearchIndexSettings): Promise<SearchIndexSettings> =>
+        this.updateLinkedResource('settings', {}, resource, SearchIndexSettings)
     },
 
     stats: {
