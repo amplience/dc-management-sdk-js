@@ -142,3 +142,16 @@ test('delete an index object', async (t) => {
     result.related.indexObject.delete('00112233445566778899aabz')
   );
 });
+
+test('get top-results analytics for a search index', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related['top-searches'].get({});
+  const item = result.getItems()[0];
+  t.is(item.search, 'q0');
+  t.is(item.nbHits, 1);
+  t.is(item.count, 1);
+});

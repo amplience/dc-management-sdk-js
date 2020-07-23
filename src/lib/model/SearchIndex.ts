@@ -6,6 +6,10 @@ import {
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { SearchIndexKey } from './SearchIndexKey';
+import {
+  SearchesOrderBy,
+  SearchIndexSearchesCollection,
+} from './SearchIndexSearches';
 import { SearchIndexSettings } from './SearchIndexSettings';
 import { SearchIndexStatistics } from './SearchIndexStatistics';
 import { Sortable } from './Sortable';
@@ -139,6 +143,42 @@ export class SearchIndex extends HalResource {
     stats: {
       get: (period?: string): Promise<SearchIndexStatistics> =>
         this.fetchLinkedResource('stats', { period }, SearchIndexStatistics),
+    },
+
+    'top-searches': {
+      get: ({
+        clickAnalytics = false,
+        orderBy,
+        direction,
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+      }: {
+        clickAnalytics?: boolean;
+        orderBy?: SearchesOrderBy;
+        direction?: 'asc' | 'desc';
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+      }): Promise<SearchIndexSearchesCollection> =>
+        this.fetchLinkedResource(
+          'top-searches',
+          {
+            clickAnalytics,
+            direction,
+            endDate,
+            limit,
+            offset,
+            orderBy,
+            startDate,
+            tags,
+          },
+          SearchIndexSearchesCollection
+        ),
     },
   };
 }
