@@ -60,6 +60,8 @@ export interface HalClient {
 
   deleteResource(path: string): Promise<void>;
 
+  performActionWithoutResourceResponse(link: HalLink): Promise<void>;
+
   parse<T extends HalResource>(
     data: any,
     resourceConstructor: HalResourceConstructor<T>
@@ -165,6 +167,16 @@ export class DefaultHalClient implements HalClient {
     const response = await this.invoke({
       method: HttpMethod.DELETE,
       url: path
+    });
+    return Promise.resolve();
+  }
+
+  public async performActionWithoutResourceResponse(
+    link: HalLink
+  ): Promise<void> {
+    await this.invoke({
+      method: HttpMethod.POST,
+      url: link.href
     });
     return Promise.resolve();
   }

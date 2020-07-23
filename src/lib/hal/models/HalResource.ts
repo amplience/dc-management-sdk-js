@@ -144,6 +144,15 @@ export class HalResource {
   }
 
   /**
+   * POST to an action endpoint with no resource response returned.
+   */
+  protected performActionWithoutResourceResponse(name: string): Promise<void> {
+    return this.withHalLink(name).then(([link, client]) =>
+      client.performActionWithoutResourceResponse(link)
+    );
+  }
+
+  /**
    * DELETE the current resource
    * @hidden
    */

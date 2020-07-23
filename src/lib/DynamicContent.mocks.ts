@@ -1388,6 +1388,8 @@ export class DynamicContentFixtures {
       `${SEARCH_INDEX._links.self.href}/objects/00112233445566778899aabz`
     );
 
+    mocks.postResource(ASSIGNED_CONTENT_TYPE._links['recreate-webhook'].href);
+
     mocks
       .resource(ASSIGNED_CONTENT_TYPE)
       .nestedDelete('unassign', { id: '00112233445566778899aabb' });
