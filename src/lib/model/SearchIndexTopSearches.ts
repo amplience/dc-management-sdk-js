@@ -11,7 +11,7 @@ export enum SearchesOrderBy {
 /**
  * Class representing search analytics for an Algolia Search Index
  */
-export class SearchIndexSearches extends HalResource {
+export class SearchIndexTopSearches extends HalResource {
   /**
    * The queried search term
    */
@@ -61,10 +61,10 @@ export class SearchIndexSearches extends HalResource {
 /**
  * @hidden
  */
-export class SearchIndexSearchesCollection extends EmbeddedCollection<
-  SearchIndexSearches
+export class SearchIndexTopSearchesCollection extends EmbeddedCollection<
+  SearchIndexTopSearches
 > {
   constructor(data?: any) {
-    super('searches', SearchIndexSearches, data);
+    super('top-searches', SearchIndexTopSearches, data);
   }
 }

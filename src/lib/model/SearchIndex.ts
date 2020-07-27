@@ -6,12 +6,12 @@ import {
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { SearchIndexKey } from './SearchIndexKey';
-import {
-  SearchesOrderBy,
-  SearchIndexSearchesCollection,
-} from './SearchIndexSearches';
 import { SearchIndexSettings } from './SearchIndexSettings';
 import { SearchIndexStatistics } from './SearchIndexStatistics';
+import {
+  SearchesOrderBy,
+  SearchIndexTopSearchesCollection,
+} from './SearchIndexTopSearches';
 import { Sortable } from './Sortable';
 
 /**
@@ -164,7 +164,7 @@ export class SearchIndex extends HalResource {
         limit?: number;
         offset?: number;
         tags?: string;
-      }): Promise<SearchIndexSearchesCollection> =>
+      }): Promise<SearchIndexTopSearchesCollection> =>
         this.fetchLinkedResource(
           'top-searches',
           {
@@ -177,7 +177,7 @@ export class SearchIndex extends HalResource {
             startDate,
             tags,
           },
-          SearchIndexSearchesCollection
+          SearchIndexTopSearchesCollection
         ),
     },
   };
