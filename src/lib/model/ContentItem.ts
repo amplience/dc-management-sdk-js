@@ -12,13 +12,13 @@ export class ContentItem extends HalResource {
   /**
    * Unique id generated on creation
    */
-  public id?: string;
+  public id: string;
 
   /**
    * Id of the folder where this content item is placed.
    * This will be <tt>undefined</tt> if the item is in the repository root.
    */
-  public folderId?: string;
+  public folderId: string;
 
   /**
    * Content item JSON body. The body must include the content type URL to indicate which content type this
@@ -35,64 +35,64 @@ export class ContentItem extends HalResource {
    * The body will be validated against the content type
    * and will reject if there are any validation errors.
    */
-  public body?: any;
+  public body: any;
 
   /**
    * Version number of the content item returned. By default this is
    * the latest version but content items accessed via a snapshot
    * will return the version found in the snapshot.
    */
-  public version?: number;
+  public version: number;
 
   /**
    * Friendly label for the content item
    */
-  public label?: string;
+  public label: string;
 
   /**
    * Locale
    */
-  public locale?: string;
+  public locale: string;
 
   /**
    * Unique id used by client applications to request the content from the delivery API
    */
-  public deliveryId?: string;
+  public deliveryId: string;
 
   /**
    * Lifecycle status of the content item
    */
-  public status?: Status;
+  public status: Status;
 
   /**
    * Id of the user responsible for originally creating the content item
    */
-  public createdBy?: string;
+  public createdBy: string;
 
   /**
    * Timestamp representing when the content item was originally created in ISO 8601 format
    */
-  public createdDate?: string;
+  public createdDate: string;
 
   /**
    * Id of the user responsible for the last update to the content item
    */
-  public lastModifiedBy?: string;
+  public lastModifiedBy: string;
 
   /**
    * Timestamp representing when the content item was last updated in ISO 8601 format
    */
-  public lastModifiedDate?: string;
+  public lastModifiedDate: string;
 
   /**
    * List of user Id' who are assigned to the content item
    */
-  public assignees?: string[];
+  public assignees: string[];
 
   /**
    * Timestamp representing when the assignees list was last updated in ISO 8601 format
    */
-  public assignedDate?: string;
+  public assignedDate: string;
 
   /**
    * Resources and actions related to a Content Item
@@ -146,6 +146,28 @@ export class ContentItem extends HalResource {
      */
     update: (mutation: ContentItem): Promise<ContentItem> =>
       this.updateResource(mutation, ContentItem),
+
+    /**
+     * Archive content item
+     */
+    archive: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'archive',
+        {},
+        { version: this.version },
+        ContentItem
+      ),
+
+    /**
+     * Unarchive content item
+     */
+    unarchive: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'unarchive',
+        {},
+        { version: this.version },
+        ContentItem
+      ),
   };
 }
 

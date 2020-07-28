@@ -37,6 +37,24 @@ test('update', async (t) => {
   t.is(update.version, contentItem.version + 1);
 });
 
+test('archive', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  const archiveContentType = await result.related.archive();
+  t.is(archiveContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
+});
+
+test('unarchive', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  const unarchiveContentType = await result.related.unarchive();
+  t.is(unarchiveContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
+});
+
 test('get repository', async (t) => {
   const client = new MockDynamicContent();
 

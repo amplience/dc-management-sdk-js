@@ -188,6 +188,14 @@ export const CONTENT_ITEM = {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
+    },
     delete: {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1',
@@ -283,6 +291,14 @@ export const CONTENT_ITEM_WITH_LOCALE = {
     update: {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
     },
     delete: {
       href:
@@ -465,6 +481,14 @@ export const CONTENT_TYPE_SCHEMA = {
     update: {
       href:
         'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/archive',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/unarchive',
     },
     restore: {
       href:
@@ -968,6 +992,14 @@ export const CONTENT_TYPE = {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
     },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/archive',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/unarchive',
+    },
     'content-type': {
       href:
         'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
@@ -1115,12 +1147,17 @@ export class DynamicContentFixtures {
     mocks
       .resource(CONTENT_ITEM)
       .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
-      .nestedUpdateResource('update', {}, CONTENT_ITEM_V2);
+      .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
+      .nestedCreateResource('archive', {}, CONTENT_ITEM)
+      .nestedCreateResource('unarchive', {}, CONTENT_ITEM);
 
     // Content type schemas
     mocks
       .resource(CONTENT_TYPE_SCHEMA)
-      .nestedUpdateResource('update', {}, CONTENT_TYPE_SCHEMA_V2);
+      .nestedUpdateResource('update', {}, CONTENT_TYPE_SCHEMA_V2)
+      .nestedCreateResource('archive', {}, CONTENT_TYPE_SCHEMA)
+      .nestedCreateResource('unarchive', {}, CONTENT_TYPE_SCHEMA);
+
     mocks.resource(
       CONTENT_TYPE_SCHEMA_V2,
       CONTENT_TYPE_SCHEMA_V2._links.self.href + '/2'
@@ -1184,6 +1221,8 @@ export class DynamicContentFixtures {
     mocks
       .resource(CONTENT_TYPE)
       .nestedUpdateResource('update', {}, CONTENT_TYPE_UPDATED)
+      .nestedCreateResource('archive', {}, CONTENT_TYPE)
+      .nestedCreateResource('unarchive', {}, CONTENT_TYPE)
       .nestedUpdateResource(
         'content-type-schema',
         {},

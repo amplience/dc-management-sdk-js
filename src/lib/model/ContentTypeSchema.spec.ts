@@ -56,3 +56,27 @@ test('update a ContentTypeSchema', async (t) => {
   const createContentTypeSchema = await result.related.update(result);
   t.is(createContentTypeSchema.version, 2);
 });
+
+test('archive a ContentTypeSchema', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentTypeSchemas.get(
+    '5d4af55ced6688002869d808'
+  );
+  const archiveContentTypeSchema = await result.related.archive();
+  t.is(
+    archiveContentTypeSchema.schemaId,
+    'http://example.com/content-type-schema.json'
+  );
+});
+
+test('unarchive a ContentTypeSchema', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentTypeSchemas.get(
+    '5d4af55ced6688002869d808'
+  );
+  const unarchiveContentTypeSchema = await result.related.unarchive();
+  t.is(
+    unarchiveContentTypeSchema.schemaId,
+    'http://example.com/content-type-schema.json'
+  );
+});
