@@ -74,7 +74,7 @@ export class SearchIndex extends HalResource {
     assignedContentTypes: {
       create: (resource: AssignedContentType): Promise<AssignedContentType> =>
         this.createLinkedResource(
-          'assigned-content-types',
+          'create-assigned-content-types',
           {},
           resource,
           AssignedContentType

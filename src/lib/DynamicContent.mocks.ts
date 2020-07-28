@@ -945,6 +945,10 @@ export const SEARCH_INDEX = {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types'
     },
+    'create-assigned-content-types': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types'
+    },
     clear: {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/clear'
@@ -982,9 +986,13 @@ export const SEARCH_INDEX_SETTINGS = {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
     },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8'
+    },
     settings: {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      templated: true
     },
     index: {
       href:
@@ -1025,9 +1033,12 @@ export const SEARCH_INDEX_STATISTICS = {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats'
     },
+    hub: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8'
+    },
     stats: {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
       templated: true
     },
     index: {
@@ -1052,12 +1063,12 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     'assigned-content-type': {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types{/id}',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/{/id}',
       templated: true
     },
     'content-type': {
       href:
-        'https://api.amplience.net/v2/content-types/00112233445566778899aabb'
+        'https://api.amplience.net/v2/content/content-types/00112233445566778899aabb'
     },
     unassign: {
       href:
@@ -1065,23 +1076,19 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     webhook: {
       href:
-        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb'
     },
     'recreate-webhook': {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook'
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active'
     },
     'active-content-webhook': {
       href:
-        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb'
     },
     'recreate-active-content-webhook': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active'
-    },
-    'archived-content-webhook': {
-      href:
-        'https://api.amplience.net/v2/hubs/5b32377e4cedfd01c45036d8/webhook/00112233445566778899aabb'
     },
     'recreate-archived-content-webhook': {
       href:
@@ -1379,7 +1386,7 @@ export class DynamicContentFixtures {
         [ASSIGNED_CONTENT_TYPE]
       )
       .nestedCreateResource(
-        'assigned-content-types',
+        'create-assigned-content-types',
         {},
         ASSIGNED_CONTENT_TYPE
       );
