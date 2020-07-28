@@ -103,6 +103,18 @@ export class ContentType extends HalResource {
     update: (mutation: ContentType): Promise<ContentType> =>
       this.updateResource(mutation, ContentType),
 
+    /**
+     * Archive content type
+     */
+    archive: (): Promise<ContentType> =>
+      this.performActionThatReturnsResource('archive', {}, {}, ContentType),
+
+    /**
+     * Unarchive content type
+     */
+    unarchive: (): Promise<ContentType> =>
+      this.performActionThatReturnsResource('unarchive', {}, {}, ContentType),
+
     contentTypeSchema: {
       /**
        * Get the associated JSON schema document for a content type
