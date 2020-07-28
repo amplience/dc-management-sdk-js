@@ -202,9 +202,8 @@ test('api errors should be surfaced in the rejection error', async (t) => {
       errors: [{ message: 'Authorization Required' }],
     });
 
-  const error: HttpError = await t.throws(
-    async () => client.fetchResource('/hubs/1', Hub),
-    HttpError
+  const error: HttpError = await t.throwsAsync<HttpError>(async () =>
+    client.fetchResource('/hubs/1', Hub)
   );
   t.deepEqual(error.request, {
     data: undefined,
@@ -238,9 +237,8 @@ test('unknown errors should describe the status code', async (t) => {
       errors: [{ message: 'Authorization Required' }],
     });
 
-  const error: HttpError = await t.throws(
-    async () => client.fetchResource('/hubs/1', Hub),
-    HttpError
+  const error: HttpError = await t.throwsAsync<HttpError>(async () =>
+    client.fetchResource('/hubs/1', Hub)
   );
   t.deepEqual(error.request, {
     data: undefined,

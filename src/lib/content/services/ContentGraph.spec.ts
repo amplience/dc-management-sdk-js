@@ -47,7 +47,7 @@ test('should reject if content fails to load', async (t) => {
     (x, y) => Promise.reject(new Error(''))
   );
 
-  await t.throws(() => result);
+  await t.throwsAsync(() => result);
 });
 
 test('should use content item returned', async (t) => {
