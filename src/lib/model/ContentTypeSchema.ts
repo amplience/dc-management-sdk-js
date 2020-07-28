@@ -69,7 +69,29 @@ export class ContentTypeSchema extends HalResource {
      * @param updated
      */
     update: (mutation: ContentTypeSchema): Promise<ContentTypeSchema> =>
-      this.updateResource(mutation, ContentTypeSchema)
+      this.updateResource(mutation, ContentTypeSchema),
+
+    /**
+     * Archive content type schema
+     */
+    archive: (): Promise<ContentTypeSchema> =>
+      this.performActionThatReturnsResource(
+        'archive',
+        {},
+        { version: this.version },
+        ContentTypeSchema
+      ),
+
+    /**
+     * Unarchive content type schema
+     */
+    unarchive: (): Promise<ContentTypeSchema> =>
+      this.performActionThatReturnsResource(
+        'unarchive',
+        {},
+        { version: this.version },
+        ContentTypeSchema
+      )
   };
 }
 

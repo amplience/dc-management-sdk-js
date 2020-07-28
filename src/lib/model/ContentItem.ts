@@ -145,7 +145,29 @@ export class ContentItem extends HalResource {
      * to avoid overwriting other user's changes.
      */
     update: (mutation: ContentItem): Promise<ContentItem> =>
-      this.updateResource(mutation, ContentItem)
+      this.updateResource(mutation, ContentItem),
+
+    /**
+     * Archive content item
+     */
+    archive: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'archive',
+        {},
+        { version: this.version },
+        ContentItem
+      ),
+
+    /**
+     * Unarchive content item
+     */
+    unarchive: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'unarchive',
+        {},
+        { version: this.version },
+        ContentItem
+      )
   };
 }
 

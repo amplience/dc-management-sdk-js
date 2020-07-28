@@ -41,6 +41,20 @@ test('update', async t => {
   t.deepEqual(update.settings, mutation.settings);
 });
 
+test('archive', async t => {
+  const client = new MockDynamicContent();
+  const result = await client.contentTypes.get('5be1d5134cedfd01c030c460');
+  const archiveContentType = await result.related.archive();
+  t.is(archiveContentType.id, '5be1d5134cedfd01c030c460');
+});
+
+test('unarchive', async t => {
+  const client = new MockDynamicContent();
+  const result = await client.contentTypes.get('5be1d5134cedfd01c030c460');
+  const unarchiveContentType = await result.related.unarchive();
+  t.is(unarchiveContentType.id, '5be1d5134cedfd01c030c460');
+});
+
 test('contentTypeSchemas.get', async t => {
   const client = new MockDynamicContent();
 
