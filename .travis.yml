@@ -5,9 +5,9 @@ dist: trusty
 language: node_js
 
 node_js:
-  - 'stable'
   - '8'
-  - '9'
+  - '10'
+  - '12'
 
 branches:
   only:
