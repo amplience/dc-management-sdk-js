@@ -996,6 +996,11 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags}',
       templated: true,
     },
+    'top-hits': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-hits{?search,startDate,endDate,limit,offset,tags}',
+      templated: true,
+    },
   },
 };
 
@@ -1048,6 +1053,15 @@ export const SEARCH_INDEX_TOP_SEARCHES = {
   search: 'q0',
   count: 1,
   nbHits: 1,
+};
+
+/**
+ * @hidden
+ */
+
+export const SEARCH_INDEX_TOP_HITS = {
+  hit: 'ObjectID',
+  count: 123,
 };
 
 /**
@@ -1441,6 +1455,9 @@ export class DynamicContentFixtures {
         'top-searches',
         [SEARCH_INDEX_TOP_SEARCHES]
       )
+      .nestedCollection('top-hits', { search: 'term' }, 'top-hits', [
+        SEARCH_INDEX_TOP_HITS,
+      ])
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
       .nestedUpdateResource(
