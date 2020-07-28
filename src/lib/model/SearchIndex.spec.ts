@@ -162,6 +162,18 @@ test('get top-hits analytics for a search index', async (t) => {
   const searchIndex = await hub.related.searchIndexes.get(
     '00112233445566778899aabb'
   );
+  const result = await searchIndex.related['top-hits'].get({});
+  const item = result.getItems()[0];
+  t.is(item.count, 123);
+  t.is(item.hit, 'ObjectID');
+});
+
+test('get top-hits analytics for a search index for a given search term', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
   const result = await searchIndex.related['top-hits'].get({ search: 'term' });
   const item = result.getItems()[0];
   t.is(item.count, 123);

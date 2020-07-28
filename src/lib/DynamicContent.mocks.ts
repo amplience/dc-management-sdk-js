@@ -1455,6 +1455,7 @@ export class DynamicContentFixtures {
         'top-searches',
         [SEARCH_INDEX_TOP_SEARCHES]
       )
+      .nestedCollection('top-hits', {}, 'top-hits', [SEARCH_INDEX_TOP_HITS])
       .nestedCollection('top-hits', { search: 'term' }, 'top-hits', [
         SEARCH_INDEX_TOP_HITS,
       ])

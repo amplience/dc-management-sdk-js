@@ -191,7 +191,7 @@ export class SearchIndex extends HalResource {
         offset,
         tags,
       }: {
-        search: string;
+        search?: string;
         startDate?: string;
         endDate?: string;
         limit?: number;
