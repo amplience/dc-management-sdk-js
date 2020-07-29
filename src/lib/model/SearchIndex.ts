@@ -1,7 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import {
   AssignedContentType,
-  AssignedContentTypePage
+  AssignedContentTypePage,
 } from './AssignedContentType';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
@@ -94,18 +94,18 @@ export class SearchIndex extends HalResource {
           'assigned-content-types',
           { options },
           AssignedContentTypePage
-        )
+        ),
     },
 
     indexObject: {
       delete: (id: string): Promise<void> =>
         // tslint:disable-next-line:no-string-literal
-        this.client.deleteResource(`${this._links['self'].href}/objects/${id}`)
+        this.client.deleteResource(`${this._links['self'].href}/objects/${id}`),
     },
 
     keys: {
       get: (): Promise<SearchIndexKey> =>
-        this.fetchLinkedResource('hub-search-key', {}, SearchIndexKey)
+        this.fetchLinkedResource('hub-search-key', {}, SearchIndexKey),
     },
 
     replicas: {
@@ -117,7 +117,7 @@ export class SearchIndex extends HalResource {
           'list-replicas',
           { projection, options },
           SearchIndexesPage
-        )
+        ),
     },
 
     settings: {
@@ -133,13 +133,13 @@ export class SearchIndex extends HalResource {
           { forwardToReplicas },
           resource,
           SearchIndexSettings
-        )
+        ),
     },
 
     stats: {
       get: (period?: string): Promise<SearchIndexStatistics> =>
-        this.fetchLinkedResource('stats', { period }, SearchIndexStatistics)
-    }
+        this.fetchLinkedResource('stats', { period }, SearchIndexStatistics),
+    },
   };
 }
 

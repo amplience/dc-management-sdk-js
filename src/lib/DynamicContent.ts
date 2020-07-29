@@ -90,7 +90,7 @@ export class DynamicContent {
         { href: '/hubs{?page,size}', templated: true },
         options,
         HubsPage
-      )
+      ),
   };
 
   public readonly contentTypeSchemas = {
@@ -113,7 +113,7 @@ export class DynamicContent {
       this.client.fetchResource(
         `/content-type-schemas/${id}/${version}`,
         ContentTypeSchema
-      )
+      ),
   };
 
   /**
@@ -128,7 +128,7 @@ export class DynamicContent {
       this.client.fetchResource(
         `/content-repositories/${id}`,
         ContentRepository
-      )
+      ),
   };
 
   /**
@@ -140,7 +140,7 @@ export class DynamicContent {
      * @param id content item id, previously generated on creation
      */
     get: (id: string): Promise<ContentItem> =>
-      this.client.fetchResource(`/content-items/${id}`, ContentItem)
+      this.client.fetchResource(`/content-items/${id}`, ContentItem),
   };
 
   /**
@@ -152,7 +152,7 @@ export class DynamicContent {
      * @param id content type id, previously generated on creation
      */
     get: (id: string): Promise<ContentType> =>
-      this.client.fetchResource(`/content-types/${id}`, ContentType)
+      this.client.fetchResource(`/content-types/${id}`, ContentType),
   };
 
   public readonly folders = {
@@ -161,7 +161,7 @@ export class DynamicContent {
      * @param id folder id, previously generated on creation
      */
     get: (id: string): Promise<Folder> =>
-      this.client.fetchResource(`/folders/${id}`, Folder)
+      this.client.fetchResource(`/folders/${id}`, Folder),
   };
 
   /**
@@ -173,7 +173,7 @@ export class DynamicContent {
      * @param id snapshot id, previously generated on creation
      */
     get: (id: string): Promise<Snapshot> =>
-      this.client.fetchResource(`/snapshots/${id}`, Snapshot)
+      this.client.fetchResource(`/snapshots/${id}`, Snapshot),
   };
 
   /**
@@ -185,7 +185,7 @@ export class DynamicContent {
      * @param id event id, previously generated on creation
      */
     get: (id: string): Promise<Event> =>
-      this.client.fetchResource(`/events/${id}`, Event)
+      this.client.fetchResource(`/events/${id}`, Event),
   };
 
   /**
@@ -197,7 +197,7 @@ export class DynamicContent {
      * @param id edition id, previously generated on creation
      */
     get: (id: string): Promise<Edition> =>
-      this.client.fetchResource(`/editions/${id}`, Edition)
+      this.client.fetchResource(`/editions/${id}`, Edition),
   };
 
   /**
@@ -252,7 +252,7 @@ export class DynamicContent {
     return new OAuth2Client(
       clientCredentials,
       {
-        authUrl: dcConfig.authUrl
+        authUrl: dcConfig.authUrl,
       },
       httpClient
     );

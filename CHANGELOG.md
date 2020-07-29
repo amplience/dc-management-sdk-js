@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.5.0...v1.6.0) (2020-07-29)
+
+
+### Bug Fixes
+
+* **folders:** fix subfolder pagination ([09d874d](https://github.com/amplience/dc-management-sdk-js/commit/09d874d))
+
+
+### Features
+
+* **content:** add support for archive and unarchive hal links ([ed40d28](https://github.com/amplience/dc-management-sdk-js/commit/ed40d28))
+* **folders:** add proper pagination support to subfolder and subitem list ([27fdc54](https://github.com/amplience/dc-management-sdk-js/commit/27fdc54))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.4.2...v1.5.0) (2020-04-22)
 

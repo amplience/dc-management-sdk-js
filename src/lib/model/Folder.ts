@@ -1,7 +1,10 @@
 import { HalResource } from '../hal/models/HalResource';
+import { CURIEs } from '../hal/services/CURIEs';
 import { ContentItem, ContentItemsPage } from './ContentItem';
 import { ContentRepository } from './ContentRepository';
 import { Page } from './Page';
+import { Pageable } from './Pageable';
+import { Sortable } from './Sortable';
 
 export class Folder extends HalResource {
   public id?: string;
@@ -27,25 +30,32 @@ export class Folder extends HalResource {
 
       /**
        * Retrieves the list of sub-folders contained within this Folder
+       * @param options Pagination options
        */
-      list: (): Promise<Page<Folder>> =>
-        this.client.fetchResource(`folders/${this.id}/folders`, FoldersPage),
+      list: (options?: Pageable & Sortable): Promise<Page<Folder>> => {
+        const path = CURIEs.expand(
+          `folders/${this.id}/folders{?page,size,sort}`,
+          options
+        );
+        return this.client.fetchResource(path, FoldersPage);
+      },
 
       /**
        * Creates a folder beneath the folder
        * @param resource The new Folder to create
        */
       create: (resource: Folder): Promise<Folder> =>
-        this.createLinkedResource('create-folder', {}, resource, Folder)
+        this.createLinkedResource('create-folder', {}, resource, Folder),
     },
 
     contentItems: {
       /**
        * Retrieves a list of Content Items stored within this Folder
+       * @param options Pagination options
        */
-      list: (): Promise<Page<ContentItem>> =>
-        this.fetchLinkedResource('content-items', {}, ContentItemsPage)
-    }
+      list: (options?: Pageable & Sortable): Promise<Page<ContentItem>> =>
+        this.fetchLinkedResource('content-items', options, ContentItemsPage),
+    },
   };
 }
 

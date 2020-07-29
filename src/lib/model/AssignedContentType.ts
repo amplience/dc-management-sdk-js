@@ -28,11 +28,11 @@ export class AssignedContentType extends HalResource {
   public readonly related = {
     unassign: (id: string): Promise<void> =>
       this.deleteLinkedResource('unassign', {
-        id
+        id,
       }),
 
     recreateWebhook: (): Promise<void> =>
-      this.performActionWithoutResourceResponse('recreate-webhook')
+      this.performActionWithoutResourceResponse('recreate-webhook'),
   };
 }
 

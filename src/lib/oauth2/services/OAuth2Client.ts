@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { HttpClient } from '../../http/HttpClient';
 import { HttpMethod } from '../../http/HttpRequest';
 import { combineURLs } from '../../utils/URL';
@@ -54,10 +53,10 @@ export class OAuth2Client implements AccessTokenProvider {
     const request = this.httpClient.request({
       data: payload,
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       method: HttpMethod.POST,
-      url: combineURLs(this.authUrl, '/oauth/token')
+      url: combineURLs(this.authUrl, '/oauth/token'),
     });
 
     this.inFlight = request.then(

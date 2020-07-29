@@ -3,54 +3,54 @@ import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentType } from './ContentType';
 import { Event } from './Event';
 
-test('list hubs', async t => {
+test('list hubs', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.hubs.list();
   t.is(result.getItems()[0].name, 'anya-finn');
 });
 
-test('get hub by id', async t => {
+test('get hub by id', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   t.is(hub.name, 'anya-finn');
 });
 
-test('list content repositories', async t => {
+test('list content repositories', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentRepositories.list();
   t.is(result.getItems()[0].name, 'inspiration');
 });
 
-test('list events', async t => {
+test('list events', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.events.list();
   t.is(result.getItems()[0].name, 'January Sale');
 });
 
-test('create event', async t => {
+test('create event', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.events.create(new Event());
   t.is(result.name, 'January Sale');
 });
 
-test('list content types', async t => {
+test('list content types', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.list();
   t.is(result.getItems()[0].settings.label, 'Carousel');
 });
 
-test('register content type', async t => {
+test('register content type', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.register(new ContentType());
   t.is(result.id, '5be1d5134cedfd01c030c460');
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
 
@@ -70,41 +70,41 @@ test('toJSON should copy resource attributes', async t => {
           height: 768,
           name: 'Desktop',
           orientate: false,
-          width: 1024
+          width: 1024,
         },
         {
           height: 768,
           name: 'Tablet',
           orientate: false,
-          width: 640
+          width: 640,
         },
         {
           height: 512,
           name: 'Mobile',
           orientate: false,
-          width: 320
-        }
+          width: 320,
+        },
       ],
       previewVirtualStagingEnvironment: {
-        hostname: ''
+        hostname: '',
       },
       publishing: {
         platforms: {
           amplience_dam: {
             API_KEY: 'KEY',
-            endpoint: 'Endpoint'
-          }
-        }
+            endpoint: 'Endpoint',
+          },
+        },
       },
       virtualStagingEnvironment: {
-        hostname: ''
-      }
+        hostname: '',
+      },
     },
-    status: 'ACTIVE'
+    status: 'ACTIVE',
   });
 });
 
-test('toJSON on a page of resources should copy resource attributes', async t => {
+test('toJSON on a page of resources should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const hubs = await client.hubs.list();
 
@@ -129,39 +129,39 @@ test('toJSON on a page of resources should copy resource attributes', async t =>
                 height: 768,
                 name: 'Desktop',
                 orientate: false,
-                width: 1024
+                width: 1024,
               },
               {
                 height: 768,
                 name: 'Tablet',
                 orientate: false,
-                width: 640
+                width: 640,
               },
               {
                 height: 512,
                 name: 'Mobile',
                 orientate: false,
-                width: 320
-              }
+                width: 320,
+              },
             ],
             previewVirtualStagingEnvironment: {
-              hostname: ''
+              hostname: '',
             },
             publishing: {
               platforms: {
                 amplience_dam: {
                   API_KEY: 'KEY',
-                  endpoint: 'Endpoint'
-                }
-              }
+                  endpoint: 'Endpoint',
+                },
+              },
             },
             virtualStagingEnvironment: {
-              hostname: ''
-            }
+              hostname: '',
+            },
           },
-          status: 'ACTIVE'
-        }
-      ]
-    }
+          status: 'ACTIVE',
+        },
+      ],
+    },
   });
 });

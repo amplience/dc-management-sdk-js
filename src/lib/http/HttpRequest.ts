@@ -6,7 +6,7 @@ export enum HttpMethod {
   POST = 'POST',
   PUT = 'PUT',
   PATCH = 'PATCH',
-  DELETE = 'DELETE'
+  DELETE = 'DELETE',
 }
 
 /**
@@ -15,6 +15,6 @@ export enum HttpMethod {
 export interface HttpRequest {
   url: string;
   method: HttpMethod;
-  data?: string | object;
+  data?: string | Record<string, unknown>;
   headers?: { [key: string]: string };
 }

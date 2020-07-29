@@ -1,7 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import {
   ContentRepositoriesPage,
-  ContentRepository
+  ContentRepository,
 } from './ContentRepository';
 import { ContentType, ContentTypePage } from './ContentType';
 import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
@@ -89,7 +89,7 @@ export class Hub extends HalResource {
           'list-content-type-schemas',
           options,
           ContentTypeSchemaPage
-        )
+        ),
     },
 
     contentRepositories: {
@@ -102,7 +102,7 @@ export class Hub extends HalResource {
           'content-repositories',
           options,
           ContentRepositoriesPage
-        )
+        ),
     },
     contentTypes: {
       /**
@@ -121,7 +121,7 @@ export class Hub extends HalResource {
           {},
           resource,
           ContentType
-        )
+        ),
     },
     events: {
       /**
@@ -136,7 +136,7 @@ export class Hub extends HalResource {
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Event>> =>
-        this.fetchLinkedResource('events', options, EventsPage)
+        this.fetchLinkedResource('events', options, EventsPage),
     },
 
     searchIndexes: {
@@ -173,7 +173,7 @@ export class Hub extends HalResource {
           'algolia-search-indexes',
           options,
           SearchIndexesPage
-        )
+        ),
     },
 
     webhooks: {
@@ -195,8 +195,8 @@ export class Hub extends HalResource {
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
-        this.fetchLinkedResource('webhooks', options, WebhooksPage)
-    }
+        this.fetchLinkedResource('webhooks', options, WebhooksPage),
+    },
   };
 }
 

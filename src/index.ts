@@ -1,14 +1,12 @@
 export { DynamicContent } from './lib/DynamicContent';
 export { OAuth2Client } from './lib/oauth2/services/OAuth2Client';
-export {
-  OAuth2ClientCredentials
-} from './lib/oauth2/models/OAuth2ClientCredentials';
+export { OAuth2ClientCredentials } from './lib/oauth2/models/OAuth2ClientCredentials';
 export { AccessToken } from './lib/oauth2/models/AccessToken';
 export { AccessTokenProvider } from './lib/oauth2/models/AccessTokenProvider';
 export { HalClient, DefaultHalClient } from './lib/hal/services/HalClient';
 export {
   HalResource,
-  HalResourceConstructor
+  HalResourceConstructor,
 } from './lib/hal/models/HalResource';
 
 export { HttpClient } from './lib/http/HttpClient';
@@ -22,12 +20,12 @@ export { Edition } from './lib/model/Edition';
 export { Hub } from './lib/model/Hub';
 export {
   ContentRepository,
-  ContentRepositoryContentType
+  ContentRepositoryContentType,
 } from './lib/model/ContentRepository';
 export { ContentItem } from './lib/model/ContentItem';
 export {
   ContentTypeSchema,
-  ValidationLevel
+  ValidationLevel,
 } from './lib/model/ContentTypeSchema';
 export { Pageable } from './lib/model/Pageable';
 export { Sortable } from './lib/model/Sortable';
@@ -52,9 +50,9 @@ export {
   ContentTypeSettings,
   ContentTypeIcon,
   ContentTypeVisualization,
-  ContentTypeCard
+  ContentTypeCard,
 } from './lib/model/ContentType';
 export {
   ContentTypeCachedSchema,
-  CachedSchema
+  CachedSchema,
 } from './lib/model/ContentTypeCachedSchema';
