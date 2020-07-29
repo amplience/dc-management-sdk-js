@@ -76,7 +76,7 @@
     "nyc": "^14.1.1",
     "opn-cli": "^3.1.0",
     "prettier": "^1.13.4",
-    "standard-version": "^4.4.0",
+    "standard-version": "^8.0.1",
     "trash-cli": "^1.4.0",
     "ts-node": "^8.4.1",
     "tslint": "^5.10.0",
