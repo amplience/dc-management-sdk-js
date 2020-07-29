@@ -8,6 +8,7 @@ import { Pageable } from './Pageable';
 import { SearchIndexKey } from './SearchIndexKey';
 import { SearchIndexSettings } from './SearchIndexSettings';
 import { SearchIndexStatistics } from './SearchIndexStatistics';
+import { SearchIndexTopHitsCollection } from './SearchIndexTopHits';
 import {
   SearchesOrderBy,
   SearchIndexTopSearchesCollection,
@@ -178,6 +179,36 @@ export class SearchIndex extends HalResource {
             tags,
           },
           SearchIndexTopSearchesCollection
+        ),
+    },
+
+    'top-hits': {
+      get: ({
+        search,
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+      }: {
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+      }): Promise<SearchIndexTopHitsCollection> =>
+        this.fetchLinkedResource(
+          'top-hits',
+          {
+            endDate,
+            limit,
+            offset,
+            search,
+            startDate,
+            tags,
+          },
+          SearchIndexTopHitsCollection
         ),
     },
   };
