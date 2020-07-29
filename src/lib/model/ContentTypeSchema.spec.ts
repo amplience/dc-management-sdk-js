@@ -1,9 +1,8 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
-import { ContentItem } from './ContentItem';
 import { ContentTypeSchema } from './ContentTypeSchema';
 
-test('list ContentTypeSchemas for a Hub', async t => {
+test('list ContentTypeSchemas for a Hub', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypeSchema.list();
@@ -13,7 +12,7 @@ test('list ContentTypeSchemas for a Hub', async t => {
   );
 });
 
-test('get a ContentTypeSchema', async t => {
+test('get a ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentTypeSchemas.get(
     '5d4af55ced6688002869d808'
@@ -21,7 +20,7 @@ test('get a ContentTypeSchema', async t => {
   t.is(result.schemaId, 'http://example.com/content-type-schema.json');
 });
 
-test('get a version ContentTypeSchema', async t => {
+test('get a version ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentTypeSchemas.getByVersion(
     '5d4af55ced6688002869d808',
@@ -30,7 +29,7 @@ test('get a version ContentTypeSchema', async t => {
   t.is(result.schemaId, 'http://example.com/content-type-schema.json');
 });
 
-test('create a ContentTypeSchema', async t => {
+test('create a ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const newContentTypeSchema = new ContentTypeSchema();
@@ -38,7 +37,7 @@ test('create a ContentTypeSchema', async t => {
   newContentTypeSchema.body = JSON.stringify({
     $schema: 'http://json-schema.org/draft-04/schema#',
     id: 'http://example.com/content-type-schema.json',
-    title: 'Image'
+    title: 'Image',
   });
   const createContentTypeSchema = await hub.related.contentTypeSchema.create(
     newContentTypeSchema
@@ -49,7 +48,7 @@ test('create a ContentTypeSchema', async t => {
   );
 });
 
-test('update a ContentTypeSchema', async t => {
+test('update a ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentTypeSchemas.get(
     '5d4af55ced6688002869d808'
@@ -58,7 +57,7 @@ test('update a ContentTypeSchema', async t => {
   t.is(createContentTypeSchema.version, 2);
 });
 
-test('archive a ContentTypeSchema', async t => {
+test('archive a ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentTypeSchemas.get(
     '5d4af55ced6688002869d808'
@@ -70,7 +69,7 @@ test('archive a ContentTypeSchema', async t => {
   );
 });
 
-test('unarchive a ContentTypeSchema', async t => {
+test('unarchive a ContentTypeSchema', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentTypeSchemas.get(
     '5d4af55ced6688002869d808'

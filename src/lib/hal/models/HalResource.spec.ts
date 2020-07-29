@@ -7,7 +7,7 @@ import { HalResource } from './HalResource';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
 /**
@@ -18,8 +18,8 @@ const tokenProvider = {
     Promise.resolve({
       access_token: 'token',
       expires_in: 500,
-      refresh_token: 'refresh'
-    })
+      refresh_token: 'refresh',
+    }),
 };
 
 /**
@@ -42,7 +42,7 @@ class MockResource extends HalResource {
   public readonly related = {
     nested: () => this.fetchLinkedResource('nested', {}, MockResource),
     nestedCreate: (resource: MockResource) =>
-      this.createLinkedResource('nested', {}, resource, MockResource)
+      this.createLinkedResource('nested', {}, resource, MockResource),
   };
 
   public getMockEmbeddedResources(): MockResource[] {
@@ -50,14 +50,14 @@ class MockResource extends HalResource {
   }
 }
 
-test('embedded resources should be lazy parsed', t => {
+test('embedded resources should be lazy parsed', (t) => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
       _embedded: {
-        mocks: [{ name: 'test' }]
-      }
+        mocks: [{ name: 'test' }],
+      },
     },
     MockResource
   );
@@ -66,125 +66,137 @@ test('embedded resources should be lazy parsed', t => {
   t.is(resource.getMockEmbeddedResources()[0].name, 'test');
 });
 
-test('missing embedded resources should return an empty list', t => {
+test('missing embedded resources should return an empty list', (t) => {
   const resource = new MockResource({
-    _embedded: {}
+    _embedded: {},
   });
   t.is(resource.getMockEmbeddedResources().length, 0);
 });
 
-test('input JSON should be parsed', async t => {
+test('input JSON should be parsed', async (t) => {
   const resource = new MockResource({
-    name: 'test'
+    name: 'test',
   });
   t.is(resource.name, 'test');
 });
 
-test('fetchLinkedResource should follow the resource link', async t => {
+test('fetchLinkedResource should follow the resource link', async (t) => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
       _links: {
         nested: {
-          href: '/nested/1'
-        }
-      }
+          href: '/nested/1',
+        },
+      },
     },
     MockResource
   );
 
   mock.onGet('/nested/1', undefined).reply(200, {
-    name: 'nested 1'
+    name: 'nested 1',
   });
 
   const result = await resource.related.nested();
   t.is(result.name, 'nested 1');
 });
 
-test('fetchLinkedResource should reject if link is missing', async t => {
+test('fetchLinkedResource should reject if link is missing', async (t) => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
-      _links: {}
+      _links: {},
     },
     MockResource
   );
 
-  resource.related.nested().then(() => t.fail(), () => t.pass());
+  resource.related.nested().then(
+    () => t.fail(),
+    () => t.pass()
+  );
 });
 
-test('fetchLinkedResource should reject if no client is linked', async t => {
+test('fetchLinkedResource should reject if no client is linked', async (t) => {
   const [client, mock] = createMockClient();
   const resource = new MockResource({
-    _links: {}
+    _links: {},
   });
 
-  resource.related.nested().then(() => t.fail(), () => t.pass());
+  resource.related.nested().then(
+    () => t.fail(),
+    () => t.pass()
+  );
 });
 
-test('createLinkedResource should follow the resource link', async t => {
+test('createLinkedResource should follow the resource link', async (t) => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
       _links: {
         nested: {
-          href: '/nested/1'
-        }
-      }
+          href: '/nested/1',
+        },
+      },
     },
     MockResource
   );
 
   mock.onPost('/nested/1', undefined).reply(200, {
-    name: 'nested 1'
+    name: 'nested 1',
   });
 
   const result = await resource.related.nestedCreate(resource);
   t.is(result.name, 'nested 1');
 });
 
-test('createLinkedResource should reject if link is missing', async t => {
+test('createLinkedResource should reject if link is missing', async (t) => {
   const [client, mock] = createMockClient();
 
   const resource = client.parse(
     {
-      _links: {}
+      _links: {},
     },
     MockResource
   );
 
-  resource.related.nestedCreate(resource).then(() => t.fail(), () => t.pass());
+  resource.related.nestedCreate(resource).then(
+    () => t.fail(),
+    () => t.pass()
+  );
 });
 
-test('createLinkedResource should reject if no client is linked', async t => {
+test('createLinkedResource should reject if no client is linked', async (t) => {
   const [client, mock] = createMockClient();
   const resource = new MockResource({
-    _links: {}
+    _links: {},
   });
 
-  resource.related.nestedCreate(resource).then(() => t.fail(), () => t.pass());
+  resource.related.nestedCreate(resource).then(
+    () => t.fail(),
+    () => t.pass()
+  );
 });
 
-test('toJSON should copy resource attributes', async t => {
+test('toJSON should copy resource attributes', async (t) => {
   const resource = new MockResource({
     _links: {},
-    name: 'name'
+    name: 'name',
   });
   const json = resource.toJSON();
   t.is(json.name, 'name');
 });
 
-test('toJSON should exclude links & related', async t => {
+test('toJSON should exclude links & related', async (t) => {
   const resource = new MockResource({
     _links: {
       nested: {
-        href: '/nested/1'
-      }
+        href: '/nested/1',
+      },
     },
-    name: 'name'
+    name: 'name',
   });
   const json = resource.toJSON();
   t.deepEqual(json, { name: 'name' });

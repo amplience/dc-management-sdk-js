@@ -20,19 +20,19 @@ export class AxiosHttpClient implements HttpClient {
         data: config.data,
         headers: config.headers,
         method: config.method,
-        url: config.url
+        url: config.url,
       })
-      .then(response => {
+      .then((response) => {
         return {
           data: response.data,
-          status: response.status
+          status: response.status,
         };
       })
-      .catch(error => {
+      .catch((error) => {
         if (error && error.response) {
           return {
             data: error.response.data,
-            status: error.response.status
+            status: error.response.status,
           };
         }
         return error;

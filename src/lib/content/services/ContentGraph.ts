@@ -67,14 +67,14 @@ export class ContentGraph {
         return cache[id];
       } else {
         return (cache[id] = contentItemProvider(id)
-          .then(item => {
+          .then((item) => {
             // visit children
             const links = ContentGraph.extractLinks(item.body);
-            return Promise.all(links.map(link => processItem(link.id))).then(
+            return Promise.all(links.map((link) => processItem(link.id))).then(
               () => item
             );
           })
-          .then(item => {
+          .then((item) => {
             // Rewrite the body so that linked items point to the id of the copy
             const body: any = JSON.parse(JSON.stringify(item.body));
             const links = ContentGraph.extractLinks(body);
@@ -84,7 +84,7 @@ export class ContentGraph {
 
             // Let the application choose how to copy the item
             const newItem = contentItemPicker(item, body);
-            newItem.then(newItemValue => {
+            newItem.then((newItemValue) => {
               mapping[item.id] = newItemValue.id;
             });
             return newItem;
@@ -92,7 +92,7 @@ export class ContentGraph {
       }
     };
 
-    await Promise.all(ids.map(id => processItem(id)));
+    await Promise.all(ids.map((id) => processItem(id)));
     return mapping;
   }
 }

@@ -78,7 +78,7 @@ export class ContentRepository extends HalResource {
        * @param resource The new Folder to create
        */
       create: (resource: Folder): Promise<Folder> =>
-        this.createLinkedResource('create-folder', {}, resource, Folder)
+        this.createLinkedResource('create-folder', {}, resource, Folder),
     },
 
     contentItems: {
@@ -98,7 +98,7 @@ export class ContentRepository extends HalResource {
        * Retrieves a list of Content Items stored within this Content Repository
        */
       list: (options?: Pageable & Sortable): Promise<Page<ContentItem>> =>
-        this.fetchLinkedResource('content-items', options, ContentItemsPage)
+        this.fetchLinkedResource('content-items', options, ContentItemsPage),
     },
 
     contentTypes: {
@@ -118,9 +118,9 @@ export class ContentRepository extends HalResource {
        */
       unassign: (contentTypeId: string): Promise<void> =>
         this.deleteLinkedResource('unassign-content-type', {
-          id: contentTypeId
-        })
-    }
+          id: contentTypeId,
+        }),
+    },
   };
 }
 

@@ -45,7 +45,7 @@ export class Folder extends HalResource {
        * @param resource The new Folder to create
        */
       create: (resource: Folder): Promise<Folder> =>
-        this.createLinkedResource('create-folder', {}, resource, Folder)
+        this.createLinkedResource('create-folder', {}, resource, Folder),
     },
 
     contentItems: {
@@ -54,8 +54,8 @@ export class Folder extends HalResource {
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<ContentItem>> =>
-        this.fetchLinkedResource('content-items', options, ContentItemsPage)
-    }
+        this.fetchLinkedResource('content-items', options, ContentItemsPage),
+    },
   };
 }
 

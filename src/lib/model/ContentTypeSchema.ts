@@ -7,7 +7,7 @@ import { Page } from './Page';
 export enum ValidationLevel {
   SLOT = 'SLOT',
   CONTENT_TYPE = 'CONTENT_TYPE',
-  PARTIAL = 'PARTIAL'
+  PARTIAL = 'PARTIAL',
 }
 
 /**
@@ -91,7 +91,7 @@ export class ContentTypeSchema extends HalResource {
         {},
         { version: this.version },
         ContentTypeSchema
-      )
+      ),
   };
 }
 

@@ -6,15 +6,15 @@ import { OAuth2Client } from './OAuth2Client';
 /**
  * @hidden
  */
-// tslint:disable-next-line
+// eslint-disable-next-line
 const MockAdapter = require('axios-mock-adapter');
 
-test('get token should request a token on the first invocation', async t => {
+test('get token should request a token on the first invocation', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
-      client_secret: 'client_secret'
+      client_secret: 'client_secret',
     },
     {},
     httpClient
@@ -29,18 +29,18 @@ test('get token should request a token on the first invocation', async t => {
     .reply(200, {
       access_token: 'token',
       expires_in: 0,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   t.is((await client.getToken()).access_token, 'token');
 });
 
-test('get token should cache tokens', async t => {
+test('get token should cache tokens', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
-      client_secret: 'client_secret'
+      client_secret: 'client_secret',
     },
     {},
     httpClient
@@ -55,7 +55,7 @@ test('get token should cache tokens', async t => {
     .reply(200, {
       access_token: 'token',
       expires_in: 60,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   const token1 = await client.getToken();
@@ -68,7 +68,7 @@ test('get token should cache tokens', async t => {
     .reply(200, {
       access_token: 'token2',
       expires_in: 60,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   const token2 = await client.getToken();
@@ -77,12 +77,12 @@ test('get token should cache tokens', async t => {
   t.is(token2.access_token, 'token');
 });
 
-test('cached tokens should expire', async t => {
+test('cached tokens should expire', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
-      client_secret: 'client_secret'
+      client_secret: 'client_secret',
     },
     {},
     httpClient
@@ -97,7 +97,7 @@ test('cached tokens should expire', async t => {
     .reply(200, {
       access_token: 'token',
       expires_in: -60,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   const token1 = await client.getToken();
@@ -110,7 +110,7 @@ test('cached tokens should expire', async t => {
     .reply(200, {
       access_token: 'token2',
       expires_in: 0,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   const token2 = await client.getToken();
@@ -119,12 +119,12 @@ test('cached tokens should expire', async t => {
   t.is(token2.access_token, 'token2');
 });
 
-test('only one token refresh should be in flight at once', async t => {
+test('only one token refresh should be in flight at once', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
       client_id: 'client_id',
-      client_secret: 'client_secret'
+      client_secret: 'client_secret',
     },
     {},
     httpClient
@@ -140,7 +140,7 @@ test('only one token refresh should be in flight at once', async t => {
     .replyOnce(200, {
       access_token: 'token',
       expires_in: 0,
-      refresh_token: 'refresh'
+      refresh_token: 'refresh',
     });
 
   const token1 = client.getToken();

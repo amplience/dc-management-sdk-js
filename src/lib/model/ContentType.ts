@@ -137,8 +137,8 @@ export class ContentType extends HalResource {
           {},
           mutation,
           ContentTypeCachedSchema
-        )
-    }
+        ),
+    },
   };
 }
 

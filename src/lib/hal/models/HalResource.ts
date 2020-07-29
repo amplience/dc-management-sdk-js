@@ -12,13 +12,13 @@ export interface HalResourceConstructor<T extends HalResource> {
  * Base class for all Resources
  */
 export class HalResource {
-  // tslint:disable-next-line
+  // eslint-disable-next-line
   public _links?: Map<string, HalLink>;
 
   /**
    * @hidden
    */
-  // tslint:disable-next-line
+  // eslint-disable-next-line
   protected _embedded: Map<string, any>;
 
   /**
@@ -86,7 +86,7 @@ export class HalResource {
     resourceConstructor: HalResourceConstructor<T>
   ): T[] {
     if (this._embedded[name]) {
-      return this._embedded[name].map(x =>
+      return this._embedded[name].map((x) =>
         this.client.parse(x, resourceConstructor)
       );
     } else {

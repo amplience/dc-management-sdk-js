@@ -44,6 +44,6 @@ export class Snapshot extends HalResource {
       this.client.fetchResource(
         `snapshots/${this.id}/content-items/${id}`,
         ContentItem
-      )
+      ),
   };
 }
