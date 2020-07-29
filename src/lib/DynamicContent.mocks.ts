@@ -143,6 +143,15 @@ export const HUB = {
       href:
         'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks',
     },
+    'algolia-search-indexes': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{?parentId,projection,page,size,sort}',
+      templated: true,
+    },
+    'create-algolia-search-index': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
+    },
   },
 };
 
@@ -916,6 +925,232 @@ export const NEW_FOLDER = {
 /**
  * @hidden
  */
+export const SEARCH_INDEX = {
+  id: '00112233445566778899aabb',
+  replicaCount: 0,
+  name: 'anya-finn.my-index',
+  suffix: 'my-index',
+  label: 'My Index',
+  type: 'PRODUCTION',
+  createdDate: '2019-01-01T00:00:00.000Z',
+  lastModifiedDate: '2019-01-01T00:00:00.000Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{/id}',
+      templated: true,
+    },
+    'hub-search-key': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+    'list-replicas': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes?parentId=00112233445566778899aabb{&projection,page,size,sort}',
+      templated: true,
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    settings: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+    },
+    'update-settings': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings{?forwardToReplicas}',
+      templated: true,
+    },
+    'assigned-content-types': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
+    },
+    'create-assigned-content-types': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
+    },
+    clear: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/clear',
+    },
+    stats: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
+      templated: true,
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_UPDATED = { ...SEARCH_INDEX, label: 'Updated Label' };
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_REPLICA = {
+  ...SEARCH_INDEX,
+  id: '00112233445566778899aabc',
+  parentId: '00112233445566778899aabb',
+  label: 'replica one',
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SETTINGS = {
+  replicas: ['replica one'],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    settings: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SETTINGS_UPDATED = {
+  ...SEARCH_INDEX_SETTINGS,
+  hitsPerPage: 25,
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_STATISTICS = {
+  totalRecords: 4,
+  totalRecordSize: 256,
+  averageRecordSize: 64,
+  usage: {
+    averageResponseTime: {
+      unit: 'DAYS',
+      duration: 30,
+      value: 1.25,
+    },
+    numberOfSearches: {
+      unit: 'DAYS',
+      duration: 30,
+      value: 150,
+    },
+  },
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    stats: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const ASSIGNED_CONTENT_TYPE = {
+  id: '00112233445566778899aabb',
+  contentTypeUri: 'http://deliver.bigcontent.io/schema/banner-type.json',
+  createdDate: '2020-01-01T00:00:00.000Z',
+  lastModifiedDate: '2020-01-01T00:00:00.000Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
+    },
+    'assigned-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/{/id}',
+      templated: true,
+    },
+    'content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/00112233445566778899aabb',
+    },
+    unassign: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
+    },
+    webhook: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+    },
+    'recreate-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
+    },
+    'active-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+    },
+    'recreate-active-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
+    },
+    'recreate-archived-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=archived',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_API_KEY = {
+  id: '00112233445566778899aabb',
+  type: 'HUB_SEARCH',
+  key: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz',
+  applicationId: 'AaBbCcDdEeFfGg',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 export const WEBHOOK = {
   id: '5a497a000000000000000000',
   label: 'myWebhookSubscription',
@@ -1141,7 +1376,11 @@ export class DynamicContentFixtures {
         'create-content-type-schema',
         {},
         CONTENT_TYPE_SCHEMA
-      );
+      )
+      .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
+      .nestedCollection('algolia-search-indexes', {}, 'indexes', [
+        SEARCH_INDEX,
+      ]);
 
     // Content items
     mocks
@@ -1174,6 +1413,42 @@ export class DynamicContentFixtures {
       .nestedDelete('unassign-content-type', {
         id: '5be1d5134cedfd01c030c460',
       });
+
+    // Search indexes
+    mocks
+      .resource(SEARCH_INDEX)
+      .nestedCreateResource('clear', {}, SEARCH_INDEX)
+      .nestedResource('hub-search-key', {}, SEARCH_INDEX_API_KEY)
+      .nestedResource('stats', {}, SEARCH_INDEX_STATISTICS)
+      .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
+      .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
+      .nestedUpdateResource(
+        'update-settings',
+        {},
+        SEARCH_INDEX_SETTINGS_UPDATED
+      )
+      .nestedCollection('list-replicas', {}, 'indexes', [SEARCH_INDEX_REPLICA])
+      .nestedCollection(
+        'assigned-content-types',
+        {},
+        'assigned-content-types',
+        [ASSIGNED_CONTENT_TYPE]
+      )
+      .nestedCreateResource(
+        'create-assigned-content-types',
+        {},
+        ASSIGNED_CONTENT_TYPE
+      );
+
+    mocks.deleteResource(
+      `${SEARCH_INDEX._links.self.href}/objects/00112233445566778899aabz`
+    );
+
+    mocks.postResource(ASSIGNED_CONTENT_TYPE._links['recreate-webhook'].href);
+
+    mocks
+      .resource(ASSIGNED_CONTENT_TYPE)
+      .nestedDelete('unassign', { id: '00112233445566778899aabb' });
 
     // Folders
     mocks

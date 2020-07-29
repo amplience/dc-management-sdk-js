@@ -119,4 +119,8 @@ export class HalMocks {
   public deleteResource(url: string): void {
     this.mockInstance.onDelete(url).reply(200);
   }
+
+  public postResource(url: string): void {
+    this.mockInstance.onPost(url).reply(204);
+  }
 }

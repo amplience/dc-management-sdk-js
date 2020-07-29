@@ -8,6 +8,7 @@ import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
 import { Event, EventsPage } from './Event';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
+import { SearchIndex, SearchIndexesPage } from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
 import { Webhook, WebhooksPage } from './Webhook';
@@ -137,6 +138,44 @@ export class Hub extends HalResource {
       list: (options?: Pageable & Sortable): Promise<Page<Event>> =>
         this.fetchLinkedResource('events', options, EventsPage),
     },
+
+    searchIndexes: {
+      /**
+       * Create a search index for a given hub
+       * @param resource
+       */
+      create: (resource: SearchIndex): Promise<SearchIndex> =>
+        this.createLinkedResource(
+          'create-algolia-search-index',
+          {},
+          resource,
+          SearchIndex
+        ),
+
+      /**
+       * Get a search index by its id
+       */
+      get: (id: string): Promise<SearchIndex> =>
+        this.client.fetchResource(
+          `algolia-search/${this.id}/indexes/${id}`,
+          SearchIndex
+        ),
+
+      /**
+       * Retrieves a list of search indexes associated with this Hub
+       */
+      list: (
+        parentId?: string,
+        projection?: string,
+        options?: Pageable & Sortable
+      ): Promise<Page<SearchIndex>> =>
+        this.fetchLinkedResource(
+          'algolia-search-indexes',
+          options,
+          SearchIndexesPage
+        ),
+    },
+
     webhooks: {
       /**
        * Creates a Webhook inside this Hub
