@@ -13,7 +13,7 @@ export interface HalResourceConstructor<T extends HalResource> {
  */
 export class HalResource {
   // eslint-disable-next-line
-  public _links?: Map<string, HalLink>;
+  public _links?: Record<string, HalLink>;
 
   /**
    * @hidden
