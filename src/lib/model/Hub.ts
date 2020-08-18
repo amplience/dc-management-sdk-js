@@ -171,7 +171,7 @@ export class Hub extends HalResource {
       ): Promise<Page<SearchIndex>> =>
         this.fetchLinkedResource(
           'algolia-search-indexes',
-          options,
+          { parentId, projection, ...options },
           SearchIndexesPage
         ),
     },
