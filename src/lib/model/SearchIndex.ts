@@ -156,6 +156,7 @@ export class SearchIndex extends HalResource {
         limit,
         offset,
         tags,
+        includeReplicas,
       }: {
         clickAnalytics?: boolean;
         orderBy?: SearchesOrderBy;
@@ -165,6 +166,7 @@ export class SearchIndex extends HalResource {
         limit?: number;
         offset?: number;
         tags?: string;
+        includeReplicas?: boolean;
       }): Promise<SearchIndexTopSearchesCollection> =>
         this.fetchLinkedResource(
           'top-searches',
@@ -177,6 +179,7 @@ export class SearchIndex extends HalResource {
             orderBy,
             startDate,
             tags,
+            includeReplicas,
           },
           SearchIndexTopSearchesCollection
         ),
@@ -190,6 +193,7 @@ export class SearchIndex extends HalResource {
         limit,
         offset,
         tags,
+        includeReplicas,
       }: {
         search?: string;
         startDate?: string;
@@ -197,6 +201,7 @@ export class SearchIndex extends HalResource {
         limit?: number;
         offset?: number;
         tags?: string;
+        includeReplicas?: boolean;
       }): Promise<SearchIndexTopHitsCollection> =>
         this.fetchLinkedResource(
           'top-hits',
@@ -207,6 +212,7 @@ export class SearchIndex extends HalResource {
             search,
             startDate,
             tags,
+            includeReplicas,
           },
           SearchIndexTopHitsCollection
         ),

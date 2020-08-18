@@ -993,7 +993,7 @@ export const SEARCH_INDEX = {
     },
     'top-searches': {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags}',
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags,includeReplicas}',
       templated: true,
     },
     'top-hits': {
@@ -1451,14 +1451,55 @@ export class DynamicContentFixtures {
       .nestedResource('stats', {}, SEARCH_INDEX_STATISTICS)
       .nestedCollection(
         'top-searches',
-        { clickAnalytics: false },
+        {
+          clickAnalytics: 'false',
+        },
         'top-searches',
         [SEARCH_INDEX_TOP_SEARCHES]
       )
-      .nestedCollection('top-hits', {}, 'top-hits', [SEARCH_INDEX_TOP_HITS])
-      .nestedCollection('top-hits', { search: 'term' }, 'top-hits', [
-        SEARCH_INDEX_TOP_HITS,
-      ])
+      .nestedCollection(
+        'top-searches',
+        {
+          clickAnalytics: 'true',
+          direction: 'asc',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          orderBy: 'searchCount',
+          tags: 'additional_tags',
+        },
+        'top-searches',
+        [SEARCH_INDEX_TOP_SEARCHES]
+      )
+      .nestedCollection(
+        'top-hits',
+        {
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-hits',
+        [SEARCH_INDEX_TOP_HITS]
+      )
+      .nestedCollection(
+        'top-hits',
+        {
+          search: 'term',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-hits',
+        [SEARCH_INDEX_TOP_HITS]
+      )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
       .nestedUpdateResource(
@@ -1559,7 +1600,7 @@ import MockAdapter from 'axios-mock-adapter';
  * @hidden
  */
 export class MockDynamicContent extends DynamicContent {
-  public mock: any;
+  public mock: MockAdapter;
 
   constructor(
     clientCredentials?: OAuth2ClientCredentials,
