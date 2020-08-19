@@ -241,3 +241,29 @@ test('get searches-with-no-results analytics for a search index', async (t) => {
   t.is(item.search, 'q0');
   t.is(item.withFilterCount, 10);
 });
+
+test('get top-filters-no-result-search analytics for a search index', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related['top-filters-no-result-search'].get({
+    search: 'q0',
+    endDate: '2020-12-31',
+    startDate: '2020-01-01',
+    includeReplicas: true,
+    limit: 10,
+    offset: 20,
+    tags: 'additional_tags',
+  });
+  const item = result.getItems()[0];
+  t.is(item.count, 3);
+  t.deepEqual(item.values, [
+    {
+      attribute: 'brand',
+      operator: ':',
+      value: 'apple',
+    },
+  ]);
+});
