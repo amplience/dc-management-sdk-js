@@ -14,6 +14,7 @@ import {
   SearchIndexTopSearchesCollection,
 } from './SearchIndexTopSearches';
 import { Sortable } from './Sortable';
+import { SearchIndexSearchesWithNoResultsCollection } from './SearchIndexSearchesWithNoResults';
 
 /**
  * Class representing an Algolia Search Index.
@@ -215,6 +216,36 @@ export class SearchIndex extends HalResource {
             includeReplicas,
           },
           SearchIndexTopHitsCollection
+        ),
+    },
+
+    'searches-with-no-results': {
+      get: ({
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexSearchesWithNoResultsCollection> =>
+        this.fetchLinkedResource(
+          'searches-with-no-results',
+          {
+            endDate,
+            limit,
+            offset,
+            startDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexSearchesWithNoResultsCollection
         ),
     },
   };
