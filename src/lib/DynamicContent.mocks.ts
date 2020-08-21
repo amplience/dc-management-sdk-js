@@ -1006,6 +1006,11 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-with-no-results{?startDate,endDate,limit,offset,tags}',
       templated: true,
     },
+    'top-filters-no-result-search': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-filters-no-result-search{?search,startDate,endDate,limit,offset,tags}',
+      templated: true,
+    },
   },
 };
 
@@ -1076,6 +1081,20 @@ export const SEARCH_INDEX_SEARCHES_WITH_NO_RESULTS = {
   search: 'q0',
   count: 3,
   withFilterCount: 10,
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH = {
+  count: 3,
+  values: [
+    {
+      attribute: 'brand',
+      operator: ':',
+      value: 'apple',
+    },
+  ],
 };
 
 /**
@@ -1526,6 +1545,20 @@ export class DynamicContentFixtures {
         },
         'searches-with-no-results',
         [SEARCH_INDEX_SEARCHES_WITH_NO_RESULTS]
+      )
+      .nestedCollection(
+        'top-filters-no-result-search',
+        {
+          search: 'q0',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-filters-no-result-search',
+        [SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH]
       )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)

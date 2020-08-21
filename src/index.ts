@@ -53,6 +53,10 @@ export {
   SearchesOrderBy,
 } from './lib/model/SearchIndexTopSearches';
 export { SearchIndexSearchesWithNoResults } from './lib/model/SearchIndexSearchesWithNoResults';
+export {
+  SearchIndexTopFiltersNoResultSearch,
+  SearchIndexTopFiltersNoResultSearchValue,
+} from './lib/model/SearchIndexTopFiltersNoResultSearch';
 export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';
