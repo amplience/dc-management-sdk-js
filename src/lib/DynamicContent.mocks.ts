@@ -1016,6 +1016,11 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/users-count{?startDate,endDate,tags,includeReplicas}',
       templated: true,
     },
+    'searches-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
   },
 };
 
@@ -1125,6 +1130,38 @@ export const SEARCH_INDEX_USERS_COUNT = {
     'users-count': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/users-count{?startDate,toDate,tags,includeReplicas}',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SEARCHES_COUNT = {
+  count: 3,
+  dates: [
+    {
+      count: 3,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/searches-count',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/searches-count{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
@@ -1606,6 +1643,16 @@ export class DynamicContentFixtures {
           tags: 'additional_tags',
         },
         SEARCH_INDEX_USERS_COUNT
+      )
+      .nestedResource(
+        'searches-count',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_SEARCHES_COUNT
       )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
