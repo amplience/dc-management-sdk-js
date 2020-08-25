@@ -16,6 +16,7 @@ import {
 import { Sortable } from './Sortable';
 import { SearchIndexSearchesWithNoResultsCollection } from './SearchIndexSearchesWithNoResults';
 import { SearchIndexTopFiltersNoResultSearchCollection } from './SearchIndexTopFiltersNoResultSearch';
+import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 
 /**
  * Class representing an Algolia Search Index.
@@ -279,6 +280,29 @@ export class SearchIndex extends HalResource {
             includeReplicas,
           },
           SearchIndexTopFiltersNoResultSearchCollection
+        ),
+    },
+    'users-count': {
+      get: ({
+        startDate,
+        endDate,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexUsersCount> =>
+        this.fetchLinkedResource(
+          'users-count',
+          {
+            startDate,
+            endDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexUsersCount
         ),
     },
   };

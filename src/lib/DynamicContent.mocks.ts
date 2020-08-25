@@ -1011,6 +1011,11 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-filters-no-result-search{?search,startDate,endDate,limit,offset,tags}',
       templated: true,
     },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/users-count{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
   },
 };
 
@@ -1095,6 +1100,38 @@ export const SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH = {
       value: 'apple',
     },
   ],
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_USERS_COUNT = {
+  count: 1,
+  dates: [
+    {
+      count: 1,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/users-count',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/users-count{?startDate,toDate,tags,includeReplicas}',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
 };
 
 /**
@@ -1559,6 +1596,16 @@ export class DynamicContentFixtures {
         },
         'top-filters-no-result-search',
         [SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH]
+      )
+      .nestedResource(
+        'users-count',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_USERS_COUNT
       )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
