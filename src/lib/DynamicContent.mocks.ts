@@ -1021,6 +1021,11 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,endDate,tags,includeReplicas}',
       templated: true,
     },
+    'no-results-rate': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
   },
 };
 
@@ -1121,7 +1126,7 @@ export const SEARCH_INDEX_USERS_COUNT = {
   _links: {
     self: {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/users-count',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count',
     },
     hub: {
       href:
@@ -1129,7 +1134,7 @@ export const SEARCH_INDEX_USERS_COUNT = {
     },
     'users-count': {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/users-count{?startDate,toDate,tags,includeReplicas}',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
@@ -1153,7 +1158,7 @@ export const SEARCH_INDEX_SEARCHES_COUNT = {
   _links: {
     self: {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/searches-count',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count',
     },
     hub: {
       href:
@@ -1161,7 +1166,43 @@ export const SEARCH_INDEX_SEARCHES_COUNT = {
     },
     'users-count': {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/searches-count{?startDate,toDate,tags,includeReplicas}',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,toDate,tags,includeReplicas}',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_NO_RESULTS_RATE = {
+  rate: 0.5,
+  count: 10,
+  noResultRate: 5,
+  dates: [
+    {
+      rate: 0.5,
+      count: 10,
+      noResultRate: 5,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-result-rate',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
@@ -1653,6 +1694,16 @@ export class DynamicContentFixtures {
           tags: 'additional_tags',
         },
         SEARCH_INDEX_SEARCHES_COUNT
+      )
+      .nestedResource(
+        'no-results-rate',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_NO_RESULTS_RATE
       )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
