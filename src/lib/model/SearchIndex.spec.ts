@@ -284,3 +284,20 @@ test('get user count analytics for a search index', async (t) => {
   t.is(result.dates[0].count, 1);
   t.is(result.dates[0].date, '2020-08-01');
 });
+
+test('get searches count analytics for a search index', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const result = await searchIndex.related['searches-count'].get({
+    endDate: '2020-08-01',
+    startDate: '2020-08-01',
+    includeReplicas: true,
+    tags: 'additional_tags',
+  });
+  t.is(result.count, 3);
+  t.is(result.dates[0].count, 3);
+  t.is(result.dates[0].date, '2020-08-01');
+});
