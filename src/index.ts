@@ -58,6 +58,7 @@ export {
   SearchIndexTopFiltersNoResultSearchValue,
 } from './lib/model/SearchIndexTopFiltersNoResultSearch';
 export { SearchIndexSearchesCount } from './lib/model/SearchIndexSearchesCount';
+export { SearchIndexUsersCount } from './lib/model/SearchIndexUsersCount';
 export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';
