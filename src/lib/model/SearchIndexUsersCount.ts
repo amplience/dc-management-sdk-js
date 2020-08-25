@@ -6,7 +6,7 @@ export interface SearchIndexUsersDateCount {
 }
 
 /**
- * Class representing top hits  for an Algolia Search Index
+ * Class representing users count for an Search Index
  */
 export class SearchIndexUsersCount extends HalResource {
   /**
