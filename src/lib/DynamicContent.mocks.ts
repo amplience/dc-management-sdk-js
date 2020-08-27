@@ -1194,7 +1194,7 @@ export const SEARCH_INDEX_NO_RESULTS_RATE = {
   _links: {
     self: {
       href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-result-rate',
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate',
     },
     hub: {
       href:
