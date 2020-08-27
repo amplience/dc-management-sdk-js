@@ -1164,7 +1164,7 @@ export const SEARCH_INDEX_SEARCHES_COUNT = {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
-    'users-count': {
+    'searches-count': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,toDate,tags,includeReplicas}',
       templated: true,
@@ -1200,7 +1200,7 @@ export const SEARCH_INDEX_NO_RESULTS_RATE = {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
-    'users-count': {
+    'no-results-rate': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,toDate,tags,includeReplicas}',
       templated: true,

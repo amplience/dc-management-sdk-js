@@ -144,7 +144,7 @@ test('delete an index object', async (t) => {
   );
 });
 
-test('get top-results analytics for a search index should default to clickAnalytics=false', async (t) => {
+test('get top-searches analytics for a search index should default to clickAnalytics=false', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const searchIndex = await hub.related.searchIndexes.get(
@@ -160,7 +160,7 @@ test('get top-results analytics for a search index should default to clickAnalyt
   t.is(query, 'clickAnalytics=false');
 });
 
-test('get top-results analytics for a search index', async (t) => {
+test('get top-searches analytics for a search index', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const searchIndex = await hub.related.searchIndexes.get(
