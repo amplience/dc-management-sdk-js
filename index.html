@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>dc-management-sdk-js</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for dc-management-sdk-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> dc-management-sdk-js</h1>
+			<h1>dc-management-sdk-js</h1>
 		</div>
 	</div>
 </header>
@@ -86,11 +86,11 @@
 				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
 					<h3>TypeScript</h3>
 				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;</code></pre>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dc-management-sdk-js&quot;</span>;</code></pre>
 				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
 					<h3>Node.js</h3>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;dc-management-sdk-js&#x27;</span>);</code></pre>
 				<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
 					<h3>Authentication</h3>
 				</a>
@@ -112,10 +112,10 @@
 				</a>
 				<p>The most common top level resources (such as Hub and ContentItem) can be requested directly by calling the appropriate method on the client instance. This will return a native promise that will yield the resource or an error (e.g. if you do not have permission to access the resource).</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> hubs = client.hubs.list();
-<span class="hljs-keyword">var</span> hub = client.hubs.get(<span class="hljs-string">'&lt;HUB-ID&gt;'</span>);
-<span class="hljs-keyword">var</span> event = client.events.get(<span class="hljs-string">'&lt;EVENT-ID&gt;'</span>);
-<span class="hljs-keyword">var</span> edition = client.editions.get(<span class="hljs-string">'&lt;EDITION-ID&gt;'</span>);
-<span class="hljs-keyword">var</span> contentItem = client.contentItems.get(<span class="hljs-string">'&lt;CONTENT-ITEM-ID&gt;'</span>);</code></pre>
+<span class="hljs-keyword">var</span> hub = client.hubs.get(<span class="hljs-string">&#x27;&lt;HUB-ID&gt;&#x27;</span>);
+<span class="hljs-keyword">var</span> event = client.events.get(<span class="hljs-string">&#x27;&lt;EVENT-ID&gt;&#x27;</span>);
+<span class="hljs-keyword">var</span> edition = client.editions.get(<span class="hljs-string">&#x27;&lt;EDITION-ID&gt;&#x27;</span>);
+<span class="hljs-keyword">var</span> contentItem = client.contentItems.get(<span class="hljs-string">&#x27;&lt;CONTENT-ITEM-ID&gt;&#x27;</span>);</code></pre>
 				<p>Once you have a top-level resource, you can lookup related resources and perform related actions by calling one of the methods under the “related” object. Each resource has a different set of related resources and actions.</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> contentRepositories = hub.related.contentRepositories.list();
 <span class="hljs-keyword">var</span> editionEvent = edition.related.event();
@@ -123,7 +123,7 @@
 				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
 					<h2>Example</h2>
 				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">"dc-management-sdk-js"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dc-management-sdk-js&quot;</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
 
@@ -136,9 +136,9 @@
     <span class="hljs-keyword">const</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
 
     <span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event();
-    event.name = <span class="hljs-string">'happy new year'</span>;
-    event.start = <span class="hljs-string">'2019-01-01T00:00:00.000Z'</span>;
-    event.end = <span class="hljs-string">'2019-01-01T23:59:59.999Z'</span>;
+    event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
+    event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
+    event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
 
     event = <span class="hljs-keyword">await</span> hub.related.events.create(event);
 
@@ -149,7 +149,7 @@
 createEvent();
 </code></pre>
 				<p>OR</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dc-management-sdk-js'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;dc-management-sdk-js&#x27;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
 
@@ -163,9 +163,9 @@ createEvent();
             <span class="hljs-keyword">var</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
 
             <span class="hljs-keyword">var</span> event = <span class="hljs-keyword">new</span> dc.Event();
-            event.name = <span class="hljs-string">'happy new year'</span>;
-            event.start = <span class="hljs-string">'2019-01-01T00:00:00.000Z'</span>;
-            event.end = <span class="hljs-string">'2019-01-01T23:59:59.999Z'</span>;
+            event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
+            event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
+            event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
 
             <span class="hljs-keyword">return</span> hub.related.events.create(event);
         })
@@ -202,7 +202,7 @@ createEvent();</code></pre>
 				<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
 					you may not use this file except in compliance with the License.
 				You may obtain a copy of the License at</p>
-				<pre><code><span class="hljs-symbol">http:</span>//www.apache<span class="hljs-meta">.org</span>/licenses/LICENSE<span class="hljs-number">-2.0</span></code></pre><p>Unless required by applicable law or agreed to in writing, software
+				<pre><code>http:<span class="hljs-regexp">//</span>www.apache.org<span class="hljs-regexp">/licenses/</span>LICENSE-<span class="hljs-number">2.0</span></code></pre><p>Unless required by applicable law or agreed to in writing, software
 					distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
 					WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 					See the License for the specific language governing permissions and
@@ -223,6 +223,9 @@ createEvent();</code></pre>
 						<a href="enums/publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-enum">
+						<a href="enums/searchesorderby.html" class="tsd-kind-icon">Searches<wbr>Order<wbr>By</a>
+					</li>
+					<li class=" tsd-kind-enum">
 						<a href="enums/snapshottype.html" class="tsd-kind-icon">Snapshot<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-enum">
@@ -230,6 +233,9 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/validationlevel.html" class="tsd-kind-icon">Validation<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/assignedcontenttype.html" class="tsd-kind-icon">Assigned<wbr>Content<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
@@ -286,6 +292,42 @@ createEvent();</code></pre>
 						<a href="classes/page.html" class="tsd-kind-icon">Page</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/searchindex.html" class="tsd-kind-icon">Search<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexkey.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexnoresultsrate.html" class="tsd-kind-icon">Search<wbr>Index<wbr>NoResults<wbr>Rate</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexsearchescount.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Searches<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexsearcheswithnoresults.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Searches<wbr>With<wbr>NoResults</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexsettings.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Settings</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexstatistics.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindextopfiltersnoresultsearch.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Top<wbr>Filters<wbr>NoResult<wbr>Search</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindextopfiltersnoresultsearchvalue.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Top<wbr>Filters<wbr>NoResult<wbr>Search<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindextophits.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Top<wbr>Hits</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindextopsearches.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Top<wbr>Searches</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/searchindexuserscount.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Users<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/snapshot.html" class="tsd-kind-icon">Snapshot</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -337,6 +379,15 @@ createEvent();</code></pre>
 						<a href="interfaces/pageable.html" class="tsd-kind-icon">Pageable</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/searchindexstatisticsusage.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/searchindexstatisticsusagemetric.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage<wbr>Metric</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/searchindexusersdatecount.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Users<wbr>Date<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
 					</li>
 				</ul>
@@ -349,57 +400,28 @@ createEvent();</code></pre>
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 		</div>
 	</div>
@@ -409,6 +431,5 @@ createEvent();</code></pre>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

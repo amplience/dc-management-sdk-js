@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContentTypeSettings | dc-management-sdk-js</title>
+	<title>SearchIndexStatisticsUsageMetric | dc-management-sdk-js</title>
 	<meta name="description" content="Documentation for dc-management-sdk-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contenttypesettings.html">ContentTypeSettings</a>
+					<a href="searchindexstatisticsusagemetric.html">SearchIndexStatisticsUsageMetric</a>
 				</li>
 			</ul>
-			<h1>Interface ContentTypeSettings</h1>
+			<h1>Interface SearchIndexStatisticsUsageMetric</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContentTypeSettings</span>
+						<span class="target">SearchIndexStatisticsUsageMetric</span>
 					</li>
 				</ul>
 			</section>
@@ -81,10 +81,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contenttypesettings.html#cards" class="tsd-kind-icon">cards</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contenttypesettings.html#icons" class="tsd-kind-icon">icons</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contenttypesettings.html#label" class="tsd-kind-icon">label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="contenttypesettings.html#visualizations" class="tsd-kind-icon">visualizations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="searchindexstatisticsusagemetric.html#duration" class="tsd-kind-icon">duration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="searchindexstatisticsusagemetric.html#unit" class="tsd-kind-icon">unit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="searchindexstatisticsusagemetric.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,64 +92,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cards" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cards</h3>
-					<div class="tsd-signature tsd-kind-icon">cards<span class="tsd-signature-symbol">:</span> <a href="contenttypecard.html" class="tsd-signature-type">ContentTypeCard</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="duration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> duration</h3>
+					<div class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/ContentType.ts#L73">src/lib/model/ContentType.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/SearchIndexStatistics.ts#L10">src/lib/model/SearchIndexStatistics.ts:10</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Cards used to provide a thumbnail preview of the content type</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="icons" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> icons</h3>
-					<div class="tsd-signature tsd-kind-icon">icons<span class="tsd-signature-symbol">:</span> <a href="contenttypeicon.html" class="tsd-signature-type">ContentTypeIcon</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="unit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> unit</h3>
+					<div class="tsd-signature tsd-kind-icon">unit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/ContentType.ts#L63">src/lib/model/ContentType.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/SearchIndexStatistics.ts#L9">src/lib/model/SearchIndexStatistics.ts:9</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Icons for the content type</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="label" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> label</h3>
-					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="value" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/ContentType.ts#L58">src/lib/model/ContentType.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/SearchIndexStatistics.ts#L11">src/lib/model/SearchIndexStatistics.ts:11</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Friendly name for the content type</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="visualizations" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> visualizations</h3>
-					<div class="tsd-signature tsd-kind-icon">visualizations<span class="tsd-signature-symbol">:</span> <a href="contenttypevisualization.html" class="tsd-signature-type">ContentTypeVisualization</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/model/ContentType.ts#L68">src/lib/model/ContentType.ts:68</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Visualizations used to provide high quality preview of the content type</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -167,19 +136,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="contenttypesettings.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Settings</a>
+						<a href="searchindexstatisticsusagemetric.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage<wbr>Metric</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contenttypesettings.html#cards" class="tsd-kind-icon">cards</a>
+								<a href="searchindexstatisticsusagemetric.html#duration" class="tsd-kind-icon">duration</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contenttypesettings.html#icons" class="tsd-kind-icon">icons</a>
+								<a href="searchindexstatisticsusagemetric.html#unit" class="tsd-kind-icon">unit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contenttypesettings.html#label" class="tsd-kind-icon">label</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="contenttypesettings.html#visualizations" class="tsd-kind-icon">visualizations</a>
+								<a href="searchindexstatisticsusagemetric.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>
