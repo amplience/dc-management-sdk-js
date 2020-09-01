@@ -1,6 +1,14 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.7.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.6.0...v1.7.0) (2020-09-01)
+
+
+### Features
+
+* **search indexes:** analytics apis ([#58](https://github.com/amplience/dc-management-sdk-js/issues/58)) ([759a7d8](https://github.com/amplience/dc-management-sdk-js/commit/759a7d829701d704f6a4ec3a19843d2e6fbbf9d0)), closes [#43](https://github.com/amplience/dc-management-sdk-js/issues/43) [#46](https://github.com/amplience/dc-management-sdk-js/issues/46) [#47](https://github.com/amplience/dc-management-sdk-js/issues/47) [#48](https://github.com/amplience/dc-management-sdk-js/issues/48) [#50](https://github.com/amplience/dc-management-sdk-js/issues/50) [#49](https://github.com/amplience/dc-management-sdk-js/issues/49) [#51](https://github.com/amplience/dc-management-sdk-js/issues/51)
+* search index actions ([#44](https://github.com/amplience/dc-management-sdk-js/issues/44)) ([68c2a80](https://github.com/amplience/dc-management-sdk-js/commit/68c2a80f5c2a2577d2af68687b141230c982ea61))
 
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.5.0...v1.6.0) (2020-07-29)
