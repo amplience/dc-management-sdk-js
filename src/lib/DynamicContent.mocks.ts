@@ -991,6 +991,41 @@ export const SEARCH_INDEX = {
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
       templated: true,
     },
+    'top-searches': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags,includeReplicas}',
+      templated: true,
+    },
+    'top-hits': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-hits{?search,startDate,endDate,limit,offset,tags}',
+      templated: true,
+    },
+    'searches-with-no-results': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-with-no-results{?startDate,endDate,limit,offset,tags}',
+      templated: true,
+    },
+    'top-filters-no-result-search': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-filters-no-result-search{?search,startDate,endDate,limit,offset,tags}',
+      templated: true,
+    },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/users-count{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
+    'searches-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
+    'no-results-rate': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,endDate,tags,includeReplicas}',
+      templated: true,
+    },
   },
 };
 
@@ -1026,6 +1061,148 @@ export const SEARCH_INDEX_SETTINGS = {
     settings: {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+
+export const SEARCH_INDEX_TOP_SEARCHES = {
+  search: 'q0',
+  count: 1,
+  nbHits: 1,
+};
+
+/**
+ * @hidden
+ */
+
+export const SEARCH_INDEX_TOP_HITS = {
+  hit: 'ObjectID',
+  count: 123,
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SEARCHES_WITH_NO_RESULTS = {
+  search: 'q0',
+  count: 3,
+  withFilterCount: 10,
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH = {
+  count: 3,
+  values: [
+    {
+      attribute: 'brand',
+      operator: ':',
+      value: 'apple',
+    },
+  ],
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_USERS_COUNT = {
+  count: 1,
+  dates: [
+    {
+      count: 1,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'users-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count{?startDate,toDate,tags,includeReplicas}',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_SEARCHES_COUNT = {
+  count: 3,
+  dates: [
+    {
+      count: 3,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'searches-count': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,toDate,tags,includeReplicas}',
+      templated: true,
+    },
+    index: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const SEARCH_INDEX_NO_RESULTS_RATE = {
+  rate: 0.5,
+  count: 10,
+  noResultRate: 5,
+  dates: [
+    {
+      rate: 0.5,
+      count: 10,
+      noResultRate: 5,
+      date: '2020-08-01',
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    'no-results-rate': {
+      href:
+        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
@@ -1420,6 +1597,114 @@ export class DynamicContentFixtures {
       .nestedCreateResource('clear', {}, SEARCH_INDEX)
       .nestedResource('hub-search-key', {}, SEARCH_INDEX_API_KEY)
       .nestedResource('stats', {}, SEARCH_INDEX_STATISTICS)
+      .nestedCollection(
+        'top-searches',
+        {
+          clickAnalytics: 'false',
+        },
+        'top-searches',
+        [SEARCH_INDEX_TOP_SEARCHES]
+      )
+      .nestedCollection(
+        'top-searches',
+        {
+          clickAnalytics: 'true',
+          direction: 'asc',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          orderBy: 'searchCount',
+          tags: 'additional_tags',
+        },
+        'top-searches',
+        [SEARCH_INDEX_TOP_SEARCHES]
+      )
+      .nestedCollection(
+        'top-hits',
+        {
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-hits',
+        [SEARCH_INDEX_TOP_HITS]
+      )
+      .nestedCollection(
+        'top-hits',
+        {
+          search: 'term',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-hits',
+        [SEARCH_INDEX_TOP_HITS]
+      )
+      .nestedCollection(
+        'searches-with-no-results',
+        {
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'searches-with-no-results',
+        [SEARCH_INDEX_SEARCHES_WITH_NO_RESULTS]
+      )
+      .nestedCollection(
+        'top-filters-no-result-search',
+        {
+          search: 'q0',
+          endDate: '2020-12-31',
+          startDate: '2020-01-01',
+          includeReplicas: 'true',
+          limit: '10',
+          offset: '20',
+          tags: 'additional_tags',
+        },
+        'top-filters-no-result-search',
+        [SEARCH_INDEX_TOP_FILTER_NO_RESULT_SEARCH]
+      )
+      .nestedResource(
+        'users-count',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_USERS_COUNT
+      )
+      .nestedResource(
+        'searches-count',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_SEARCHES_COUNT
+      )
+      .nestedResource(
+        'no-results-rate',
+        {
+          endDate: '2020-08-01',
+          startDate: '2020-08-01',
+          includeReplicas: 'true',
+          tags: 'additional_tags',
+        },
+        SEARCH_INDEX_NO_RESULTS_RATE
+      )
       .nestedUpdateResource('update', {}, SEARCH_INDEX_UPDATED)
       .nestedResource('settings', {}, SEARCH_INDEX_SETTINGS)
       .nestedUpdateResource(
@@ -1511,18 +1796,16 @@ export class DynamicContentFixtures {
   }
 }
 
-// axios-mock-adaptor's typedefs are wrong preventing calling onGet with 3 args, this is a workaround
 /**
  * @hidden
  */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const MockAdapter = require('axios-mock-adapter');
+import MockAdapter from 'axios-mock-adapter';
 
 /**
  * @hidden
  */
 export class MockDynamicContent extends DynamicContent {
-  public mock: any;
+  public mock: MockAdapter;
 
   constructor(
     clientCredentials?: OAuth2ClientCredentials,

@@ -1,8 +1,8 @@
 /**
  * @hidden
  */
-// eslint-disable-next-line
-const template = require('url-template');
+
+import template from 'url-template';
 
 /**
  * @hidden

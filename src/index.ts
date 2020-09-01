@@ -41,6 +41,25 @@ export { ContentLink } from './lib/content/models/ContentLink';
 export { ContentLinkInstance } from './lib/content/models/ContentLink';
 export { Webhook } from './lib/model/Webhook';
 export { SearchIndex } from './lib/model/SearchIndex';
+export { SearchIndexSettings } from './lib/model/SearchIndexSettings';
+export {
+  SearchIndexStatistics,
+  SearchIndexStatisticsUsageMetric,
+  SearchIndexStatisticsUsage,
+} from './lib/model/SearchIndexStatistics';
+export { SearchIndexTopHits } from './lib/model/SearchIndexTopHits';
+export {
+  SearchIndexTopSearches,
+  SearchesOrderBy,
+} from './lib/model/SearchIndexTopSearches';
+export { SearchIndexSearchesWithNoResults } from './lib/model/SearchIndexSearchesWithNoResults';
+export {
+  SearchIndexTopFiltersNoResultSearch,
+  SearchIndexTopFiltersNoResultSearchValue,
+} from './lib/model/SearchIndexTopFiltersNoResultSearch';
+export { SearchIndexSearchesCount } from './lib/model/SearchIndexSearchesCount';
+export { SearchIndexUsersCount } from './lib/model/SearchIndexUsersCount';
+export { SearchIndexNoResultsRate } from './lib/model/SearchIndexNoResultsRate';
 export { WebhookSignature } from './lib/utils/WebhookSignature';
 export { Folder } from './lib/model/Folder';
 export { LocalizationJob } from './lib/model/LocalizationJob';

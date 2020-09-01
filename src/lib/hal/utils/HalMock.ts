@@ -33,11 +33,11 @@ export class HalMockResource {
     return this;
   }
 
-  public nestedCollection(
+  public nestedCollection<T = HalLiteral>(
     linkName: string,
     args: any,
     type: string,
-    values: HalLiteral[]
+    values: T[]
   ): this {
     const link = this.resource._links[linkName];
     const href = CURIEs.expand(link.href, args);
@@ -98,7 +98,11 @@ export class HalMocks {
     return new HalMockResource(resource, this);
   }
 
-  public collection(url: string, type: string, values: HalLiteral[]): void {
+  public collection<T = HalLiteral>(
+    url: string,
+    type: string,
+    values: T[]
+  ): void {
     this.mockInstance.onGet(url).reply(200, {
       _embedded: {
         [type]: values,
