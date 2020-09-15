@@ -11,7 +11,9 @@ import { Pageable } from './Pageable';
 import { SearchIndex, SearchIndexesPage } from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
+import { Settings } from './Settings';
 import { Webhook, WebhooksPage } from './Webhook';
+import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 
 /**
  * Class representing the [Hub](https://api.amplience.net/v2/content/docs/api/index.html#resources-hubs) resource.
@@ -62,6 +64,11 @@ export class Hub extends HalResource {
    * Timestamp representing when the Hub was last updated in ISO 8601 format
    */
   public lastModifiedDate?: string;
+
+  /**
+   * Hub settings
+   */
+  public settings?: Settings;
 
   /**
    * Resources and actions related to a Hub
@@ -176,6 +183,21 @@ export class Hub extends HalResource {
         ),
     },
 
+    settings: {
+      /**
+       * Updates this hub settings with the changes in the mutation parameter.
+       */
+      update: (mutation: Settings): Promise<Settings> =>
+        this.updateLinkedResource(
+          'update-settings',
+          {
+            method: 'PATCH',
+          },
+          mutation,
+          Settings
+        ),
+    },
+
     webhooks: {
       /**
        * Creates a Webhook inside this Hub
@@ -196,6 +218,37 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
         this.fetchLinkedResource('webhooks', options, WebhooksPage),
+    },
+
+    workflowStates: {
+      /**
+       * Creates a Workflow State inside this Hub
+       * @param resource
+       */
+      create: (resource: WorkflowState): Promise<WorkflowState> =>
+        this.createLinkedResource(
+          'create-workflow-state',
+          {},
+          resource,
+          WorkflowState
+        ),
+
+      /*/!**
+       * Get a Workflow State inside this hub by its id
+       *!/
+      get: (id: string): Promise<WorkflowState> =>
+        this.client.fetchResource(`workflow-states/${id}`, WorkflowState),
+*/
+      /**
+       * Retrieves a list of Workflow States associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<WorkflowState>> =>
+        this.fetchLinkedResource(
+          'workflow-states',
+          options,
+          WorkflowStatesPage
+        ),
     },
   };
 }

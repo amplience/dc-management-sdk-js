@@ -13,6 +13,7 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
+import { WorkflowState } from './model/WorkflowState';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
@@ -198,6 +199,18 @@ export class DynamicContent {
      */
     get: (id: string): Promise<Edition> =>
       this.client.fetchResource(`/editions/${id}`, Edition),
+  };
+
+  /**
+   * Workflow States
+   */
+  public readonly workflowStates = {
+    /**
+     * Retrieve a Workflow State by id
+     * @param id of Workflow State, previously generated on creation
+     */
+    get: (id: string): Promise<WorkflowState> =>
+      this.client.fetchResource(`/workflow-states/${id}`, WorkflowState),
   };
 
   /**
