@@ -10,6 +10,15 @@ export enum PublishingStatus {
   PUBLISHING = 'PUBLISHING',
 }
 
+/**
+ * publishing status of the content item
+ *
+ * NONE - hasn't been published before
+ *
+ * EARLY - changes have been made since last publish
+ *
+ * LATEST - no changes have been made since last publish
+ */
 export enum ContentItemPublishingStatus {
   NONE = 'NONE',
   EARLT = 'EARLY',
