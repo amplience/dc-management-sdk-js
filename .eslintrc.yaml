@@ -15,7 +15,6 @@ rules:
   '@typescript-eslint/no-explicit-any': 'off'
   '@typescript-eslint/no-empty-function': 'off'
   '@typescript-eslint/no-unused-vars': 'off'
-  '@typescript-eslint/explicit-module-boundary-types': 'off'
   'unused-imports/no-unused-imports-ts': 2
   'unused-imports/no-unused-vars-ts': 1
 plugins:
