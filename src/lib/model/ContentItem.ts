@@ -3,6 +3,7 @@ import { ContentRepository } from './ContentRepository';
 import { LocalizationJob } from './LocalizationJob';
 import { Page } from './Page';
 import { Status } from './Status';
+import { HierarchyMeta } from './HierarchyNode';
 
 /**
  * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.
@@ -94,6 +95,10 @@ export class ContentItem extends HalResource {
    */
   public assignedDate: string;
 
+  /**
+   * Defined if content item is a member of a hierarchy
+   */
+  public hierarchy?: HierarchyMeta;
   /**
    * Resources and actions related to a Content Item
    */

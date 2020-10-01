@@ -1,5 +1,5 @@
-import { HalClient } from '../services/HalClient';
-import { HalLink } from './HalLink';
+import { HalClient } from "../services/HalClient";
+import { HalLink } from "./HalLink";
 
 /**
  * @hidden
@@ -83,7 +83,7 @@ export class HalResource {
    */
   protected parseEmbedded<T extends HalResource>(
     name: string,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): T[] {
     if (this._embedded[name]) {
       return this._embedded[name].map((x) =>
@@ -101,7 +101,7 @@ export class HalResource {
   protected fetchLinkedResource<T extends HalResource>(
     name: string,
     params: any,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.fetchLinkedResource(link, params, resourceConstructor)
@@ -116,7 +116,7 @@ export class HalResource {
     name: string,
     params: any,
     resource: T,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.createLinkedResource(link, params, resource, resourceConstructor)
@@ -131,14 +131,14 @@ export class HalResource {
     name: string,
     params: any,
     data: any,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.performActionThatReturnsResource(
         link,
         params,
         data,
-        resourceConstructor
+        resourceConstructor,
       )
     );
   }
@@ -157,7 +157,7 @@ export class HalResource {
    * @hidden
    */
   protected deleteResource(): Promise<void> {
-    return this.deleteLinkedResource('delete', {});
+    return this.deleteLinkedResource("delete", {});
   }
 
   /**
@@ -176,13 +176,13 @@ export class HalResource {
    */
   protected updateResource<T extends HalResource>(
     resource: T,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): Promise<T> {
     return this.updateLinkedResource(
-      'update',
+      "update",
       {},
       resource,
-      resourceConstructor
+      resourceConstructor,
     );
   }
 
@@ -194,7 +194,7 @@ export class HalResource {
     name: string,
     params: any,
     resource: T,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.updateLinkedResource(link, params, resource, resourceConstructor)
@@ -203,12 +203,12 @@ export class HalResource {
 
   private withHalLink(name: string): Promise<[HalLink, HalClient]> {
     if (!this.client) {
-      return Promise.reject(new Error('HalResource has no client'));
+      return Promise.reject(new Error("HalResource has no client"));
     }
     const link = this._links[name];
     if (!link) {
       return Promise.reject(
-        `The ${name} action is not available, ensure you have permission to perform this action.`
+        `The ${name} action is not available, ensure you have permission to perform this action.`,
       );
     }
     return Promise.resolve([link, this.client] as [HalLink, HalClient]);
