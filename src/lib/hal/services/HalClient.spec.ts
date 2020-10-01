@@ -223,7 +223,7 @@ test('api errors should be surfaced in the rejection error', async (t) => {
   );
 });
 
-test('any errors should describe the status code', async (t) => {
+test('unknown errors should describe the status code', async (t) => {
   const [client, mock] = createMockClient();
 
   mock

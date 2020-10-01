@@ -3,5 +3,5 @@
  */
 export interface HttpResponse {
   status: number;
-  data: string | Record<string, any>;
+  data: string | Record<string, unknown>;
 }
