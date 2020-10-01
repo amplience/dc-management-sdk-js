@@ -1,10 +1,13 @@
-import { HalResource } from "../hal/models/HalResource";
-import { HierarchyNodeModel, HierarchyNode } from "./HierarchyNode";
-import { ContentItemPublishingStatus } from "./PublishingStatus";
-import { ContentItem } from "./ContentItem";
-import { HalClient } from "../hal/services/HalClient";
+import { HalResource } from '../hal/models/HalResource';
+import { HierarchyNodeModel, HierarchyNode } from './HierarchyNode';
+import { ContentItemPublishingStatus } from './PublishingStatus';
+import { ContentItem } from './ContentItem';
+import { HalClient } from '../hal/services/HalClient';
 
-type HierarchyChildrenModelJson = HierarchyNodeModel & {
+export type HierarchyChildrenModelJson = HierarchyNodeModel & {
+  /**
+   * List of children of this node
+   */
   children: Array<HierarchyNodeModel>;
 };
 
@@ -41,6 +44,7 @@ export class HierarchyChildren extends HalResource
   toJson(): HierarchyChildrenModelJson {
     return this.toJSON();
   }
+
   toJSON(): HierarchyChildrenModelJson {
     return Object.assign(super.toJSON(), {
       children: this.children.map((parent) => parent.toJSON()),
@@ -53,7 +57,7 @@ export class HierarchyChildren extends HalResource
        * Retrieve the content item associated with this node
        */
       get: (): Promise<ContentItem> =>
-        this.fetchLinkedResource("content-item", {}, ContentItem),
+        this.fetchLinkedResource('content-item', {}, ContentItem),
     },
   };
 }

@@ -1,8 +1,8 @@
-import { ContentItemPublishingStatus } from "./PublishingStatus";
-import { HalResource } from "../hal/models/HalResource";
-import { HierarchyParents } from "./HierarchyParents";
-import { HierarchyChildren } from "./HierarchyChildren";
-import { ContentItem } from "./ContentItem";
+import { ContentItemPublishingStatus } from './PublishingStatus';
+import { HalResource } from '../hal/models/HalResource';
+import { HierarchyParents } from './HierarchyParents';
+import { HierarchyChildren } from './HierarchyChildren';
+import { ContentItem } from './ContentItem';
 
 export type HierarchyNodeModel = HierarchyMeta & {
   /**
@@ -69,7 +69,7 @@ export class HierarchyNode extends HalResource implements HierarchyNodeModel {
        * Retrieve the content item associated with this node
        */
       get: (): Promise<ContentItem> => {
-        return this.fetchLinkedResource("content-item", {}, ContentItem);
+        return this.fetchLinkedResource('content-item', {}, ContentItem);
       },
     },
     children: {
@@ -78,9 +78,9 @@ export class HierarchyNode extends HalResource implements HierarchyNodeModel {
        */
       get: (): Promise<HierarchyChildren> => {
         return this.fetchLinkedResource(
-          "get-hierarchy-children",
+          'get-hierarchy-children',
           {},
-          HierarchyChildren,
+          HierarchyChildren
         );
       },
     },
@@ -90,9 +90,9 @@ export class HierarchyNode extends HalResource implements HierarchyNodeModel {
        */
       get: (): Promise<HierarchyParents> => {
         return this.fetchLinkedResource(
-          "get-hierarchy-parents",
+          'get-hierarchy-parents',
           {},
-          HierarchyParents,
+          HierarchyParents
         );
       },
     },

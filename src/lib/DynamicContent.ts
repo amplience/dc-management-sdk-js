@@ -1,23 +1,23 @@
-import { AxiosRequestConfig } from "axios";
-import { DefaultHalClient, HalClient } from "./hal/services/HalClient";
-import { AxiosHttpClient } from "./http/AxiosHttpClient";
-import { HttpClient } from "./http/HttpClient";
-import { ContentItem } from "./model/ContentItem";
-import { ContentRepository } from "./model/ContentRepository";
-import { ContentType } from "./model/ContentType";
-import { ContentTypeSchema } from "./model/ContentTypeSchema";
-import { Edition } from "./model/Edition";
-import { Event } from "./model/Event";
-import { Folder } from "./model/Folder";
-import { Hub, HubsPage } from "./model/Hub";
-import { Page } from "./model/Page";
-import { Pageable } from "./model/Pageable";
-import { Snapshot } from "./model/Snapshot";
-import { AccessTokenProvider } from "./oauth2/models/AccessTokenProvider";
-import { OAuth2ClientCredentials } from "./oauth2/models/OAuth2ClientCredentials";
-import { OAuth2Client } from "./oauth2/services/OAuth2Client";
-import { HierarchyParents } from "./model/HierarchyParents";
-import { HierarchyChildren } from "./model/HierarchyChildren";
+import { AxiosRequestConfig } from 'axios';
+import { DefaultHalClient, HalClient } from './hal/services/HalClient';
+import { AxiosHttpClient } from './http/AxiosHttpClient';
+import { HttpClient } from './http/HttpClient';
+import { ContentItem } from './model/ContentItem';
+import { ContentRepository } from './model/ContentRepository';
+import { ContentType } from './model/ContentType';
+import { ContentTypeSchema } from './model/ContentTypeSchema';
+import { Edition } from './model/Edition';
+import { Event } from './model/Event';
+import { Folder } from './model/Folder';
+import { Hub, HubsPage } from './model/Hub';
+import { Page } from './model/Page';
+import { Pageable } from './model/Pageable';
+import { Snapshot } from './model/Snapshot';
+import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
+import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
+import { OAuth2Client } from './oauth2/services/OAuth2Client';
+import { HierarchyParents } from './model/HierarchyParents';
+import { HierarchyChildren } from './model/HierarchyChildren';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -89,9 +89,9 @@ export class DynamicContent {
      */
     list: (options?: Pageable): Promise<Page<Hub>> =>
       this.client.fetchLinkedResource(
-        { href: "/hubs{?page,size}", templated: true },
+        { href: '/hubs{?page,size}', templated: true },
         options,
-        HubsPage,
+        HubsPage
       ),
   };
 
@@ -103,7 +103,7 @@ export class DynamicContent {
     get: (id: string): Promise<ContentTypeSchema> =>
       this.client.fetchResource(
         `/content-type-schemas/${id}`,
-        ContentTypeSchema,
+        ContentTypeSchema
       ),
 
     /**
@@ -114,7 +114,7 @@ export class DynamicContent {
     getByVersion: (id: string, version: number): Promise<ContentTypeSchema> =>
       this.client.fetchResource(
         `/content-type-schemas/${id}/${version}`,
-        ContentTypeSchema,
+        ContentTypeSchema
       ),
   };
 
@@ -129,7 +129,7 @@ export class DynamicContent {
     get: (id: string): Promise<ContentRepository> =>
       this.client.fetchResource(
         `/content-repositories/${id}`,
-        ContentRepository,
+        ContentRepository
       ),
   };
 
@@ -145,7 +145,7 @@ export class DynamicContent {
       get: (id: string): Promise<HierarchyParents> =>
         this.client.fetchResource(
           `/hierarchy-node/${id}/parents`,
-          HierarchyParents,
+          HierarchyParents
         ),
     },
     children: {
@@ -156,7 +156,7 @@ export class DynamicContent {
       get: (id: string): Promise<HierarchyChildren> =>
         this.client.fetchResource(
           `/hierarchy-node/${id}/children`,
-          HierarchyChildren,
+          HierarchyChildren
         ),
     },
   };
@@ -246,52 +246,52 @@ export class DynamicContent {
   constructor(
     clientCredentials: OAuth2ClientCredentials,
     dcConfig?: DynamicContentConfig,
-    httpClient?: AxiosRequestConfig | HttpClient,
+    httpClient?: AxiosRequestConfig | HttpClient
   ) {
     dcConfig = dcConfig || {};
-    dcConfig.apiUrl = dcConfig.apiUrl || "https://api.amplience.net/v2/content";
-    dcConfig.authUrl = dcConfig.authUrl || "https://auth.adis.ws";
+    dcConfig.apiUrl = dcConfig.apiUrl || 'https://api.amplience.net/v2/content';
+    dcConfig.authUrl = dcConfig.authUrl || 'https://auth.adis.ws';
 
     let httpClientInstance: HttpClient;
-    if (httpClient !== undefined && "request" in httpClient) {
+    if (httpClient !== undefined && 'request' in httpClient) {
       httpClientInstance = httpClient as HttpClient;
     } else {
       httpClientInstance = new AxiosHttpClient(
-        httpClient === undefined ? {} : (httpClient as AxiosRequestConfig),
+        httpClient === undefined ? {} : (httpClient as AxiosRequestConfig)
       );
     }
 
     const tokenClient = this.createTokenClient(
       dcConfig,
       clientCredentials,
-      httpClientInstance,
+      httpClientInstance
     );
 
     this.client = this.createResourceClient(
       dcConfig,
       tokenClient,
-      httpClientInstance,
+      httpClientInstance
     );
   }
 
   protected createTokenClient(
     dcConfig: DynamicContentConfig,
     clientCredentials: OAuth2ClientCredentials,
-    httpClient: HttpClient,
+    httpClient: HttpClient
   ): AccessTokenProvider {
     return new OAuth2Client(
       clientCredentials,
       {
         authUrl: dcConfig.authUrl,
       },
-      httpClient,
+      httpClient
     );
   }
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
     tokenProvider: AccessTokenProvider,
-    httpClient: HttpClient,
+    httpClient: HttpClient
   ): HalClient {
     return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);
   }

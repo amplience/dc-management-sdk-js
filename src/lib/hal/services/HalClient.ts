@@ -164,7 +164,7 @@ export class DefaultHalClient implements HalClient {
   }
 
   public async deleteResource(path: string): Promise<void> {
-    const response = await this.invoke({
+    await this.invoke({
       method: HttpMethod.DELETE,
       url: path,
     });

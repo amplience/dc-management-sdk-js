@@ -15,6 +15,6 @@ export enum HttpMethod {
 export interface HttpRequest {
   url: string;
   method: HttpMethod;
-  data?: string | Record<string, unknown>;
+  data?: string | Record<string, any>;
   headers?: { [key: string]: string };
 }

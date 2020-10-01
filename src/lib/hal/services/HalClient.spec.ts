@@ -165,20 +165,20 @@ test('should ask for token from provider every request', async (t) => {
       name: 'hub 1',
     });
 
-  const hub = await client.fetchResource('/hubs/1', Hub);
+  await client.fetchResource('/hubs/1', Hub);
   const hub2 = await client.fetchResource('/hubs/1', Hub);
   t.is(hub2.name, 'hub 1');
 });
 
 test('parse should instantiate and parse the resource', (t) => {
-  const [client, mock] = createMockClient();
+  const [client] = createMockClient();
 
   const hub = client.parse({ name: 'hub' }, Hub);
   t.is(hub.name, 'hub');
 });
 
 test('serialize should make a copy of the object', (t) => {
-  const [client, mock] = createMockClient();
+  const [client] = createMockClient();
 
   const hub = new Hub();
   hub.name = 'hub';
@@ -223,7 +223,7 @@ test('api errors should be surfaced in the rejection error', async (t) => {
   );
 });
 
-test('unknown errors should describe the status code', async (t) => {
+test('any errors should describe the status code', async (t) => {
   const [client, mock] = createMockClient();
 
   mock
