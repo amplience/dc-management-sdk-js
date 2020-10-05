@@ -9,7 +9,7 @@ import { HierarchyChildren } from './HierarchyChildren';
 
 test('get parents from id', async (t) => {
   const client = new MockDynamicContent();
-  const result = await client.hierarchys.parents.get(
+  const result = await client.hierarchies.parents.get(
     'e3ba7f44-8236-41e9-80d3-1ef769c289f4'
   );
   const expected = new HierarchyParents(HIERARCHY_PARENTS as any);
@@ -22,7 +22,7 @@ test('get parents from id', async (t) => {
 
 test('should beable to get as JSON', async (t) => {
   const client = new MockDynamicContent();
-  const result = await client.hierarchys.parents.get(
+  const result = await client.hierarchies.parents.get(
     'e3ba7f44-8236-41e9-80d3-1ef769c289f4'
   );
 
@@ -61,7 +61,7 @@ test('should beable to get as JSON', async (t) => {
 
 test('should beable to get content item from parents response', async (t) => {
   const client = new MockDynamicContent();
-  const parents = await client.hierarchys.parents.get(
+  const parents = await client.hierarchies.parents.get(
     'e3ba7f44-8236-41e9-80d3-1ef769c289f4'
   );
 
@@ -75,7 +75,7 @@ test('should beable to get content item from parents response', async (t) => {
 
 test('get children from parent', async (t) => {
   const client = new MockDynamicContent();
-  const parents = await client.hierarchys.parents.get(
+  const parents = await client.hierarchies.parents.get(
     'e3ba7f44-8236-41e9-80d3-1ef769c289f4'
   );
 

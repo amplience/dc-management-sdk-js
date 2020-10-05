@@ -3,7 +3,7 @@ import { MockDynamicContent } from '../DynamicContent.mocks';
 
 test('should beable to get content item from node', async (t) => {
   const client = new MockDynamicContent();
-  const children = await client.hierarchys.children.get(
+  const children = await client.hierarchies.children.get(
     'cb1f55f2-e541-4502-bd74-01052edc399d'
   );
 
@@ -17,7 +17,7 @@ test('should beable to get content item from node', async (t) => {
 
 test('should beable to turn node into json', async (t) => {
   const client = new MockDynamicContent();
-  const children = await client.hierarchys.children.get(
+  const children = await client.hierarchies.children.get(
     'cb1f55f2-e541-4502-bd74-01052edc399d'
   );
 
@@ -37,7 +37,7 @@ test('should beable to turn node into json', async (t) => {
 
 test('should beable to get parents from sub nodes', async (t) => {
   const client = new MockDynamicContent();
-  const children = await client.hierarchys.children.get(
+  const children = await client.hierarchies.children.get(
     'cb1f55f2-e541-4502-bd74-01052edc399d'
   );
 
@@ -78,7 +78,7 @@ test('should beable to get parents from sub nodes', async (t) => {
 
 test('should beable to get children from sub nodes', async (t) => {
   const client = new MockDynamicContent();
-  const children = await client.hierarchys.children.get(
+  const children = await client.hierarchies.children.get(
     'cb1f55f2-e541-4502-bd74-01052edc399d'
   );
 

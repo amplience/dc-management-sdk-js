@@ -136,7 +136,7 @@ export class DynamicContent {
   /**
    * Hierarchy Resources
    */
-  public readonly hierarchys = {
+  public readonly hierarchies = {
     parents: {
       /**
        * Retrieve parents of the associated content item
