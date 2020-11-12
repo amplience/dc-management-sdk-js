@@ -1,5 +1,6 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentItem } from './ContentItem';
+import { Hub } from './Hub';
 import { SnapshotType } from './SnapshotType';
 
 /**
@@ -36,6 +37,11 @@ export class Snapshot extends HalResource {
    * Resources and actions related to a Snapshot
    */
   public readonly related = {
+    /**
+     * Retrieves the Hub this snapshot is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
     /**
      * Retrieves the specific version of a content item referenced by the Snapshot
      * @param id Content item id

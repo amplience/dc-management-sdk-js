@@ -1570,6 +1570,7 @@ export class DynamicContentFixtures {
     // Content type schemas
     mocks
       .resource(CONTENT_TYPE_SCHEMA)
+      .nestedResource('hub', {}, HUB)
       .nestedUpdateResource('update', {}, CONTENT_TYPE_SCHEMA_V2)
       .nestedCreateResource('archive', {}, CONTENT_TYPE_SCHEMA)
       .nestedCreateResource('unarchive', {}, CONTENT_TYPE_SCHEMA);
@@ -1582,6 +1583,7 @@ export class DynamicContentFixtures {
     // Content repositories
     mocks
       .resource(CONTENT_REPOSITORY)
+      .nestedResource('hub', {}, HUB)
       .nestedCollection('content-items', {}, 'content-items', [CONTENT_ITEM])
       .nestedCreateResource('create-content-item', {}, CONTENT_ITEM)
       .nestedCollection('folders', {}, 'folders', [FOLDER])
@@ -1744,6 +1746,7 @@ export class DynamicContentFixtures {
     // Events
     mocks
       .resource(EVENT)
+      .nestedResource('hub', {}, HUB)
       .nestedCollection('editions', {}, 'editions', [EDITION])
       .nestedCreateResource('create-edition', {}, EDITION);
 
@@ -1755,6 +1758,7 @@ export class DynamicContentFixtures {
     // Snapshots
     mocks
       .resource(SNAPSHOT)
+      .nestedResource('hub', {}, HUB)
       .nestedResource(
         'snapshot-content-item',
         { id: CONTENT_ITEM.id },
@@ -1789,8 +1793,9 @@ export class DynamicContentFixtures {
         CONTENT_TYPE_CACHED_SCHEMA
       )
       .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
+
     // Webhooks
-    mocks.resource(WEBHOOK);
+    mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
   }
