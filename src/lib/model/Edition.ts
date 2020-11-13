@@ -5,6 +5,42 @@ import { Page } from './Page';
 import { PublishingStatus } from './PublishingStatus';
 
 /**
+ * Interface representing a projected [Event](https://api.amplience.net/v2/content/docs/api/index.html#resources-events) resource.
+ * An Event represents a major date in the calendar, such as Christmas or Black Friday. An Event may span multiple days and start and end at any given UTC time.
+ */
+interface ProjectedEvent {
+  /**
+   * Unique id generated on creation
+   */
+  id?: string;
+
+  /**
+   * Friendly name for the event
+   */
+  name?: string;
+
+  /**
+   * Textual comment to describe the event
+   */
+  comment?: string;
+
+  /**
+   * Date when the event should begin in ISO 8601 format
+   */
+  start?: string;
+
+  /**
+   * Date when the event should end in ISO 8601 format
+   */
+  end?: string;
+
+  /**
+   * Hyperlink to a document describing the requirements for the Event
+   */
+  brief?: string;
+}
+
+/**
  * Class representing the [Edition](https://api.amplience.net/v2/content/docs/api/index.html#resources-editions) resource.
  * An Edition is the main way of scheduling content to be published on a specific date.
  * It holds the association between slots and content items. Once all slots are valid and
@@ -86,6 +122,11 @@ export class Edition extends HalResource {
    * Timestamp representing when the edition was last updated in ISO 8601 format
    */
   public lastModifiedDate?: string;
+
+  /**
+   * Projected event
+   */
+  public event?: ProjectedEvent;
 
   /**
    * Resources and actions related to an Edition
