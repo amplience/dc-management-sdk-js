@@ -241,10 +241,10 @@ export class DynamicContent {
    *
    * @param clientCredentials Api credentials used to generate an authentication token
    * @param dcConfig Optional configuration settings for Dynamic Content
-   * @param clientConfig Optional request settings, can be used to provide proxy settings, add interceptors etc
+   * @param httpClient Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
-    clientCredentials: OAuth2ClientCredentials,
+    clientCredentials: Partial<OAuth2ClientCredentials>,
     dcConfig?: DynamicContentConfig,
     httpClient?: AxiosRequestConfig | HttpClient
   ) {
@@ -263,7 +263,7 @@ export class DynamicContent {
 
     const tokenClient = this.createTokenClient(
       dcConfig,
-      clientCredentials,
+      clientCredentials as OAuth2ClientCredentials,
       httpClientInstance
     );
 
