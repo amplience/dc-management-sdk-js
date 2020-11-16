@@ -1,5 +1,6 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Edition, EditionsPage } from './Edition';
+import { Hub } from './Hub';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
@@ -43,6 +44,11 @@ export class Event extends HalResource {
    * Resources and actions related to an Event
    */
   public readonly related = {
+    /**
+     * Retrieves the Hub this event is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
     editions: {
       /**
        * Creates an Edition inside the Event

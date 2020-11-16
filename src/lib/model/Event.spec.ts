@@ -36,3 +36,10 @@ test('toJSON should copy resource attributes', async (t) => {
     start: '2017-01-01T00:00:00.000Z',
   });
 });
+
+test('get hub', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.events.get('5b32379e4cedfd01c4504171');
+  const hub = await result.related.hub();
+  t.is(hub.name, 'anya-finn');
+});

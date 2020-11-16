@@ -1,6 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentItem, ContentItemsPage } from './ContentItem';
 import { Folder, FoldersPage } from './Folder';
+import { Hub } from './Hub';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
@@ -66,6 +67,11 @@ export class ContentRepository extends HalResource {
    * Resources and actions related to a Content Repository
    */
   public readonly related = {
+    /**
+     * Retrieves the Hub this content repository is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
     folders: {
       /**
        * Retrieves the list of top-level folders within this Content Repository
