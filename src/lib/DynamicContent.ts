@@ -16,6 +16,8 @@ import { Snapshot } from './model/Snapshot';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
+import { HierarchyParents } from './model/HierarchyParents';
+import { HierarchyChildren } from './model/HierarchyChildren';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -132,6 +134,34 @@ export class DynamicContent {
   };
 
   /**
+   * Hierarchy Resources
+   */
+  public readonly hierarchies = {
+    parents: {
+      /**
+       * Retrieve parents of the associated content item
+       * @param id content item id accociated content item
+       */
+      get: (id: string): Promise<HierarchyParents> =>
+        this.client.fetchResource(
+          `/hierarchy-node/${id}/parents`,
+          HierarchyParents
+        ),
+    },
+    children: {
+      /**
+       * Retrieve children of the associated content item
+       * @param id content item id accociated content item
+       */
+      get: (id: string): Promise<HierarchyChildren> =>
+        this.client.fetchResource(
+          `/hierarchy-node/${id}/children`,
+          HierarchyChildren
+        ),
+    },
+  };
+
+  /**
    * Content Item Resources
    */
   public readonly contentItems = {
@@ -211,10 +241,10 @@ export class DynamicContent {
    *
    * @param clientCredentials Api credentials used to generate an authentication token
    * @param dcConfig Optional configuration settings for Dynamic Content
-   * @param clientConfig Optional request settings, can be used to provide proxy settings, add interceptors etc
+   * @param httpClient Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
-    clientCredentials: OAuth2ClientCredentials,
+    clientCredentials: Partial<OAuth2ClientCredentials>,
     dcConfig?: DynamicContentConfig,
     httpClient?: AxiosRequestConfig | HttpClient
   ) {
@@ -233,7 +263,7 @@ export class DynamicContent {
 
     const tokenClient = this.createTokenClient(
       dcConfig,
-      clientCredentials,
+      clientCredentials as OAuth2ClientCredentials,
       httpClientInstance
     );
 
