@@ -30,3 +30,11 @@ test('delete webhook', async (t) => {
   const result = await hub.related.webhooks.get('5a497a000000000000000000');
   return t.notThrowsAsync(result.related.delete());
 });
+
+test('get hub', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.webhooks.get('5a497a000000000000000000');
+  const followedHub = await result.related.hub();
+  t.is(followedHub.name, 'anya-finn');
+});
