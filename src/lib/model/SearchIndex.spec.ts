@@ -322,3 +322,13 @@ test('get no results rate analytics for a search index', async (t) => {
   t.is(result.dates[0].noResultRate, 5);
   t.is(result.dates[0].date, '2020-08-01');
 });
+
+test('get hub', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const followedHub = await searchIndex.related.hub();
+  t.is(followedHub.name, 'anya-finn');
+});

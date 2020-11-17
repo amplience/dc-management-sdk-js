@@ -5,7 +5,9 @@ import {
 } from './ContentRepository';
 import { ContentType, ContentTypePage } from './ContentType';
 import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
+import { Edition, EditionsPage } from './Edition';
 import { Event, EventsPage } from './Event';
+import { FindByDate } from './FindByDate';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { SearchIndex, SearchIndexesPage } from './SearchIndex';
@@ -130,6 +132,23 @@ export class Hub extends HalResource {
           ContentType
         ),
     },
+
+    editions: {
+      /**
+       * Find editions by date associated with this Hub
+       * @param options FindByDate & Pageable & Sortable options
+       */
+      findByDate: (
+        options?: FindByDate & Pageable & Sortable,
+        projection?: string
+      ): Promise<Page<Edition>> =>
+        this.fetchLinkedResource(
+          'search-editions',
+          { projection, ...options },
+          EditionsPage
+        ),
+    },
+
     events: {
       /**
        * Creates an Event inside this Hub

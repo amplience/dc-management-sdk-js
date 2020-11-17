@@ -30,14 +30,20 @@ export {
 export { Pageable } from './lib/model/Pageable';
 export { Sortable } from './lib/model/Sortable';
 export { Status } from './lib/model/Status';
-export { PublishingStatus } from './lib/model/PublishingStatus';
+export {
+  PublishingStatus,
+  ContentItemPublishingStatus,
+} from './lib/model/PublishingStatus';
 export { SnapshotType } from './lib/model/SnapshotType';
 export { EditionSlot } from './lib/model/EditionSlot';
 export { Snapshot } from './lib/model/Snapshot';
 export { Page } from './lib/model/Page';
 export { PageMetadata } from './lib/model/PageMetadata';
 export { ContentGraph } from './lib/content/services/ContentGraph';
-export { ContentLink } from './lib/content/models/ContentLink';
+export {
+  ContentLink,
+  ContentLinkModel,
+} from './lib/content/models/ContentLink';
 export { ContentLinkInstance } from './lib/content/models/ContentLink';
 export { Webhook } from './lib/model/Webhook';
 export { SearchIndex } from './lib/model/SearchIndex';
@@ -73,6 +79,19 @@ export {
   ContentTypeVisualization,
   ContentTypeCard,
 } from './lib/model/ContentType';
+export {
+  HierarchyChildren,
+  HierarchyChildrenModelJson,
+} from './lib/model/HierarchyChildren';
+export {
+  HierarchyParents,
+  HierarchyParentModelJson,
+} from './lib/model/HierarchyParents';
+export {
+  HierarchyMeta,
+  HierarchyNode,
+  HierarchyNodeModel,
+} from './lib/model/HierarchyNode';
 export {
   ContentTypeCachedSchema,
   CachedSchema,

@@ -80,3 +80,12 @@ test('unarchive a ContentTypeSchema', async (t) => {
     'http://example.com/content-type-schema.json'
   );
 });
+
+test('get hub', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentTypeSchemas.get(
+    '5d4af55ced6688002869d808'
+  );
+  const hub = await result.related.hub();
+  t.is(hub.name, 'anya-finn');
+});

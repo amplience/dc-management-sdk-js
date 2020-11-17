@@ -3,6 +3,8 @@ import { AxiosHttpClient } from '../../http/AxiosHttpClient';
 import { DefaultHalClient, HalClient } from '../services/HalClient';
 import { HalResource } from './HalResource';
 
+/* eslint-disable unused-imports/no-unused-vars-ts */
+
 /**
  * @hidden
  */
