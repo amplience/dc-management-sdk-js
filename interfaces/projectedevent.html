@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OAuth2ClientCredentials | dc-management-sdk-js</title>
+	<title>ProjectedEvent | dc-management-sdk-js</title>
 	<meta name="description" content="Documentation for dc-management-sdk-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="oauth2clientcredentials.html">OAuth2ClientCredentials</a>
+					<a href="projectedevent.html">ProjectedEvent</a>
 				</li>
 			</ul>
-			<h1>Interface OAuth2ClientCredentials</h1>
+			<h1>Interface ProjectedEvent</h1>
 		</div>
 	</div>
 </header>
@@ -69,7 +69,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>OAuth2 Client Credentials</p>
+						<p>Interface representing a projected <a href="https://api.amplience.net/v2/content/docs/api/index.html#resources-events">Event</a> resource.
+						An Event represents a major date in the calendar, such as Christmas or Black Friday. An Event may span multiple days and start and end at any given UTC time.</p>
 					</div>
 				</div>
 			</section>
@@ -77,7 +78,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">OAuth2ClientCredentials</span>
+						<span class="target">ProjectedEvent</span>
 					</li>
 				</ul>
 			</section>
@@ -88,8 +89,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oauth2clientcredentials.html#client_id" class="tsd-kind-icon">client_<wbr>id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="oauth2clientcredentials.html#client_secret" class="tsd-kind-icon">client_<wbr>secret</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#brief" class="tsd-kind-icon">brief</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#comment" class="tsd-kind-icon">comment</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#end" class="tsd-kind-icon">end</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="projectedevent.html#start" class="tsd-kind-icon">start</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,32 +103,92 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="client_id" class="tsd-anchor"></a>
-					<h3>client_<wbr>id</h3>
-					<div class="tsd-signature tsd-kind-icon">client_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="brief" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> brief</h3>
+					<div class="tsd-signature tsd-kind-icon">brief<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/oauth2/models/OAuth2ClientCredentials.ts#L8">src/lib/oauth2/models/OAuth2ClientCredentials.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L40">src/lib/model/Edition.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Client id</p>
+							<p>Hyperlink to a document describing the requirements for the Event</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="client_secret" class="tsd-anchor"></a>
-					<h3>client_<wbr>secret</h3>
-					<div class="tsd-signature tsd-kind-icon">client_<wbr>secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="comment" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> comment</h3>
+					<div class="tsd-signature tsd-kind-icon">comment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/oauth2/models/OAuth2ClientCredentials.ts#L13">src/lib/oauth2/models/OAuth2ClientCredentials.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L25">src/lib/model/Edition.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Client secret</p>
+							<p>Textual comment to describe the event</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="end" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
+					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L35">src/lib/model/Edition.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Date when the event should end in ISO 8601 format</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L15">src/lib/model/Edition.ts:15</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Unique id generated on creation</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L20">src/lib/model/Edition.ts:20</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Friendly name for the event</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="start" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> start</h3>
+					<div class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/model/Edition.ts#L30">src/lib/model/Edition.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Date when the event should begin in ISO 8601 format</p>
 						</div>
 					</div>
 				</section>
@@ -142,13 +207,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
+						<a href="projectedevent.html" class="tsd-kind-icon">Projected<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oauth2clientcredentials.html#client_id" class="tsd-kind-icon">client_<wbr>id</a>
+								<a href="projectedevent.html#brief" class="tsd-kind-icon">brief</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="oauth2clientcredentials.html#client_secret" class="tsd-kind-icon">client_<wbr>secret</a>
+								<a href="projectedevent.html#comment" class="tsd-kind-icon">comment</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectedevent.html#end" class="tsd-kind-icon">end</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectedevent.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectedevent.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="projectedevent.html#start" class="tsd-kind-icon">start</a>
 							</li>
 						</ul>
 					</li>

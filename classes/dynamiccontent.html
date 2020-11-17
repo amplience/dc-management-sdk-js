@@ -133,6 +133,7 @@ contentItem.body = {
 								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#editions" class="tsd-kind-icon">editions</a></li>
 								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#folders" class="tsd-kind-icon">folders</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#hierarchies" class="tsd-kind-icon">hierarchies</a></li>
 								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#hubs" class="tsd-kind-icon">hubs</a></li>
 								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="dynamiccontent.html#snapshots" class="tsd-kind-icon">snapshots</a></li>
 							</ul>
@@ -146,13 +147,13 @@ contentItem.body = {
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Dynamic<wbr>Content<span class="tsd-signature-symbol">(</span>clientCredentials<span class="tsd-signature-symbol">: </span><a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a>, dcConfig<span class="tsd-signature-symbol">?: </span><a href="../interfaces/dynamiccontentconfig.html" class="tsd-signature-type">DynamicContentConfig</a>, httpClient<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HttpClient</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dynamiccontent.html" class="tsd-signature-type">DynamicContent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dynamic<wbr>Content<span class="tsd-signature-symbol">(</span>clientCredentials<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a><span class="tsd-signature-symbol">&gt;</span>, dcConfig<span class="tsd-signature-symbol">?: </span><a href="../interfaces/dynamiccontentconfig.html" class="tsd-signature-type">DynamicContentConfig</a>, httpClient<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HttpClient</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="dynamiccontent.html" class="tsd-signature-type">DynamicContent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L206">src/lib/DynamicContent.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L236">src/lib/DynamicContent.ts:236</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,7 +165,7 @@ contentItem.body = {
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>clientCredentials: <a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a></h5>
+									<h5>clientCredentials: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/oauth2clientcredentials.html" class="tsd-signature-type">OAuth2ClientCredentials</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>Api credentials used to generate an authentication token</p>
@@ -181,6 +182,11 @@ contentItem.body = {
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> httpClient: <span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HttpClient</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Optional request settings, can be used to provide proxy settings, add interceptors etc</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="dynamiccontent.html" class="tsd-signature-type">DynamicContent</a></h4>
@@ -200,7 +206,7 @@ contentItem.body = {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L261">src/lib/DynamicContent.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L291">src/lib/DynamicContent.ts:291</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -229,7 +235,7 @@ contentItem.body = {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L247">src/lib/DynamicContent.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L277">src/lib/DynamicContent.ts:277</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -257,7 +263,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L137">src/lib/DynamicContent.ts:137</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L167">src/lib/DynamicContent.ts:167</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,7 +281,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L142">src/lib/DynamicContent.ts:142</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L172">src/lib/DynamicContent.ts:172</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -305,7 +311,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Repositories<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L122">src/lib/DynamicContent.ts:122</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L124">src/lib/DynamicContent.ts:124</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -323,7 +329,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L127">src/lib/DynamicContent.ts:127</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L129">src/lib/DynamicContent.ts:129</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -353,7 +359,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<wbr>Schemas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L96">src/lib/DynamicContent.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L98">src/lib/DynamicContent.ts:98</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -366,7 +372,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L101">src/lib/DynamicContent.ts:101</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L103">src/lib/DynamicContent.ts:103</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -399,7 +405,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L112">src/lib/DynamicContent.ts:112</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L114">src/lib/DynamicContent.ts:114</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -437,7 +443,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L149">src/lib/DynamicContent.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L179">src/lib/DynamicContent.ts:179</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -455,7 +461,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L154">src/lib/DynamicContent.ts:154</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L184">src/lib/DynamicContent.ts:184</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -485,7 +491,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">editions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L194">src/lib/DynamicContent.ts:194</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L224">src/lib/DynamicContent.ts:224</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -503,7 +509,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L199">src/lib/DynamicContent.ts:199</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L229">src/lib/DynamicContent.ts:229</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -533,7 +539,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L182">src/lib/DynamicContent.ts:182</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L212">src/lib/DynamicContent.ts:212</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -551,7 +557,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L187">src/lib/DynamicContent.ts:187</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L217">src/lib/DynamicContent.ts:217</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -581,7 +587,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">folders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L158">src/lib/DynamicContent.ts:158</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L188">src/lib/DynamicContent.ts:188</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
@@ -594,7 +600,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L163">src/lib/DynamicContent.ts:163</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L193">src/lib/DynamicContent.ts:193</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -619,12 +625,113 @@ contentItem.body = {
 					</section>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+					<a name="hierarchies" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> hierarchies</h3>
+					<div class="tsd-signature tsd-kind-icon">hierarchies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L139">src/lib/DynamicContent.ts:139</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Hierarchy Resources</p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="hierarchies.children" class="tsd-anchor"></a>
+						<h3>children</h3>
+						<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L151">src/lib/DynamicContent.ts:151</a></li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+							<a name="hierarchies.children.get-7" class="tsd-anchor"></a>
+							<h3>get</h3>
+							<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+								<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hierarchychildren.html" class="tsd-signature-type">HierarchyChildren</a><span class="tsd-signature-symbol">&gt;</span></li>
+							</ul>
+							<ul class="tsd-descriptions">
+								<li class="tsd-description">
+									<aside class="tsd-sources">
+										<ul>
+											<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L156">src/lib/DynamicContent.ts:156</a></li>
+										</ul>
+									</aside>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Retrieve children of the associated content item</p>
+										</div>
+									</div>
+									<h4 class="tsd-parameters-title">Parameters</h4>
+									<ul class="tsd-parameters">
+										<li>
+											<h5>id: <span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>content item id accociated content item</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hierarchychildren.html" class="tsd-signature-type">HierarchyChildren</a><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+						</section>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="hierarchies.parents" class="tsd-anchor"></a>
+						<h3>parents</h3>
+						<div class="tsd-signature tsd-kind-icon">parents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L140">src/lib/DynamicContent.ts:140</a></li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
+							<a name="hierarchies.parents.get-8" class="tsd-anchor"></a>
+							<h3>get</h3>
+							<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
+								<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hierarchyparents.html" class="tsd-signature-type">HierarchyParents</a><span class="tsd-signature-symbol">&gt;</span></li>
+							</ul>
+							<ul class="tsd-descriptions">
+								<li class="tsd-description">
+									<aside class="tsd-sources">
+										<ul>
+											<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L145">src/lib/DynamicContent.ts:145</a></li>
+										</ul>
+									</aside>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Retrieve parents of the associated content item</p>
+										</div>
+									</div>
+									<h4 class="tsd-parameters-title">Parameters</h4>
+									<ul class="tsd-parameters">
+										<li>
+											<h5>id: <span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>content item id accociated content item</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hierarchyparents.html" class="tsd-signature-type">HierarchyParents</a><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
 					<a name="hubs" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> hubs</h3>
 					<div class="tsd-signature tsd-kind-icon">hubs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L76">src/lib/DynamicContent.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L78">src/lib/DynamicContent.ts:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -633,7 +740,7 @@ contentItem.body = {
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
-						<a name="hubs.get-7" class="tsd-anchor"></a>
+						<a name="hubs.get-9" class="tsd-anchor"></a>
 						<h3>get</h3>
 						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
 							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="hub.html" class="tsd-signature-type">Hub</a><span class="tsd-signature-symbol">&gt;</span></li>
@@ -642,7 +749,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L81">src/lib/DynamicContent.ts:81</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L83">src/lib/DynamicContent.ts:83</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -675,7 +782,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L88">src/lib/DynamicContent.ts:88</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L90">src/lib/DynamicContent.ts:90</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -705,7 +812,7 @@ contentItem.body = {
 					<div class="tsd-signature tsd-kind-icon">snapshots<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L170">src/lib/DynamicContent.ts:170</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L200">src/lib/DynamicContent.ts:200</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -714,7 +821,7 @@ contentItem.body = {
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal">
-						<a name="snapshots.get-8" class="tsd-anchor"></a>
+						<a name="snapshots.get-10" class="tsd-anchor"></a>
 						<h3>get</h3>
 						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal">
 							<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="snapshot.html" class="tsd-signature-type">Snapshot</a><span class="tsd-signature-symbol">&gt;</span></li>
@@ -723,7 +830,7 @@ contentItem.body = {
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/759a7d8/src/lib/DynamicContent.ts#L175">src/lib/DynamicContent.ts:175</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/59dd7d4/src/lib/DynamicContent.ts#L205">src/lib/DynamicContent.ts:205</a></li>
 									</ul>
 								</aside>
 								<div class="tsd-comment tsd-typography">
@@ -793,6 +900,9 @@ contentItem.body = {
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
 								<a href="dynamiccontent.html#folders" class="tsd-kind-icon">folders</a>
+							</li>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="dynamiccontent.html#hierarchies" class="tsd-kind-icon">hierarchies</a>
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
 								<a href="dynamiccontent.html#hubs" class="tsd-kind-icon">hubs</a>

@@ -71,7 +71,7 @@
 				<blockquote>
 					<p>Official Javascript SDK for the Amplience Dynamic Content API</p>
 				</blockquote>
-				<p><a href="https://travis-ci.org/amplience/dc-management-sdk-js"><img src="https://travis-ci.org/amplience/dc-management-sdk-js.svg?branch=master" alt="Build Status"></a>
+				<p><img src="https://img.shields.io/github/workflow/status/amplience/dc-management-sdk-js/Run%20tests%20(Node.js%208.x,%2010.x,%2012.x)" alt="Build Status">
 				<a href="https://badge.fury.io/js/dc-management-sdk-js"><img src="https://badge.fury.io/js/dc-management-sdk-js.svg" alt="npm version"></a></p>
 				<p>The management sdk is designed to help build back-office applications such as content automation or web-hook integrations. Please keep in mind the management api is rate limited.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
@@ -86,7 +86,7 @@
 				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
 					<h3>TypeScript</h3>
 				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dc-management-sdk-js&quot;</span>;</code></pre>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DynamicContent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;dc-management-sdk-js&#x27;</span>;</code></pre>
 				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
 					<h3>Node.js</h3>
 				</a>
@@ -99,13 +99,13 @@
 				and the client will handle creating authentication tokens.</p>
 				<p>For assistance creating API credentials and configuring permissions please contact <a href="https://support.amplience.com/">Amplience Support</a>.</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
 });</code></pre>
 				<p>OR</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
-    <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
-    <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET
+  <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
+  <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET,
 });</code></pre>
 				<a href="#making-requests" id="making-requests" style="color: inherit; text-decoration: none;">
 					<h3>Making requests</h3>
@@ -123,55 +123,52 @@
 				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
 					<h2>Example</h2>
 				</a>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {DynamicContent, Event} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;dc-management-sdk-js&quot;</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { DynamicContent, Event } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;dc-management-sdk-js&#x27;</span>;
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
+  });
 
-    <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET
-    });
+  <span class="hljs-keyword">const</span> hubs = <span class="hljs-keyword">await</span> client.hubs.list();
+  <span class="hljs-keyword">const</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
 
-    <span class="hljs-keyword">const</span> hubs = <span class="hljs-keyword">await</span> client.hubs.list();
-    <span class="hljs-keyword">const</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
+  <span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event();
+  event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
+  event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
+  event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
 
-    <span class="hljs-keyword">let</span> event = <span class="hljs-keyword">new</span> Event();
-    event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
-    event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
-    event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
+  event = <span class="hljs-keyword">await</span> hub.related.events.create(event);
 
-    event = <span class="hljs-keyword">await</span> hub.related.events.create(event);
+  <span class="hljs-built_in">console</span>.log(event);
+}
 
-    <span class="hljs-built_in">console</span>.log(event);
-
-};
-
-createEvent();
-</code></pre>
+createEvent();</code></pre>
 				<p>OR</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> dc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;dc-management-sdk-js&#x27;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
+    <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
+    <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET,
+  });
 
-    <span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
-        <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
-        <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET
+  client.hubs
+    .list()
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">hubs</span>) </span>{
+      <span class="hljs-keyword">var</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
+
+      <span class="hljs-keyword">var</span> event = <span class="hljs-keyword">new</span> dc.Event();
+      event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
+      event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
+      event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
+
+      <span class="hljs-keyword">return</span> hub.related.events.create(event);
+    })
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(event);
     });
-
-    client.hubs.list()
-        .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">hubs</span>) </span>{
-            <span class="hljs-keyword">var</span> hub = hubs.getItems()[<span class="hljs-number">0</span>];
-
-            <span class="hljs-keyword">var</span> event = <span class="hljs-keyword">new</span> dc.Event();
-            event.name = <span class="hljs-string">&#x27;happy new year&#x27;</span>;
-            event.start = <span class="hljs-string">&#x27;2019-01-01T00:00:00.000Z&#x27;</span>;
-            event.end = <span class="hljs-string">&#x27;2019-01-01T23:59:59.999Z&#x27;</span>;
-
-            <span class="hljs-keyword">return</span> hub.related.events.create(event);
-        })
-        .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
-            <span class="hljs-built_in">console</span>.log(event);
-        });
 }
 
 createEvent();</code></pre>
@@ -219,6 +216,9 @@ createEvent();</code></pre>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/contentitempublishingstatus.html" class="tsd-kind-icon">Content<wbr>Item<wbr>Publishing<wbr>Status</a>
+					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/publishingstatus.html" class="tsd-kind-icon">Publishing<wbr>Status</a>
 					</li>
@@ -275,6 +275,15 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/halresource.html" class="tsd-kind-icon">Hal<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hierarchychildren.html" class="tsd-kind-icon">Hierarchy<wbr>Children</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hierarchynode.html" class="tsd-kind-icon">Hierarchy<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hierarchyparents.html" class="tsd-kind-icon">Hierarchy<wbr>Parents</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/httperror.html" class="tsd-kind-icon">Http<wbr>Error</a>
@@ -349,6 +358,9 @@ createEvent();</code></pre>
 						<a href="interfaces/contentlinkinstance.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Instance</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/contentlinkmodel.html" class="tsd-kind-icon">Content<wbr>Link<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/contentrepositorycontenttype.html" class="tsd-kind-icon">Content<wbr>Repository<wbr>Content<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -367,7 +379,13 @@ createEvent();</code></pre>
 						<a href="interfaces/dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/findbydate.html" class="tsd-kind-icon">Find<wbr>ByDate</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/hallink.html" class="tsd-kind-icon">Hal<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/hierarchymeta.html" class="tsd-kind-icon">Hierarchy<wbr>Meta</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
@@ -377,6 +395,9 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/pageable.html" class="tsd-kind-icon">Pageable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/projectedevent.html" class="tsd-kind-icon">Projected<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/searchindexstatisticsusage.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage</a>
@@ -389,6 +410,18 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#hierarchychildrenmodeljson" class="tsd-kind-icon">Hierarchy<wbr>Children<wbr>Model<wbr>Json</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#hierarchynodemodel" class="tsd-kind-icon">Hierarchy<wbr>Node<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#hierarchyparentmodeljson" class="tsd-kind-icon">Hierarchy<wbr>Parent<wbr>Model<wbr>Json</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#hierarchy_node" class="tsd-kind-icon">HIERARCHY_<wbr>NODE</a>
 					</li>
 				</ul>
 			</nav>
