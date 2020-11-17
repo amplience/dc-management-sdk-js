@@ -228,15 +228,13 @@ export class DefaultHalClient implements HalClient {
     };
 
     return this.httpClient.request(fullRequest).then((response) => {
+      if (response.status === 204) {
+        return response;
+      }
+
       if (response.status >= 200 && response.status < 300) {
         if (typeof response.data === 'string') {
-          if (typeof response.data === 'string') {
-            try {
-              response.data = JSON.parse(response.data);
-            } catch (e) {
-              return response;
-            }
-          }
+          response.data = JSON.parse(response.data);
         }
         return response;
       } else {
