@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { Hub } from './Hub';
 import { Page } from './Page';
 
 /**
@@ -41,6 +42,11 @@ export class Webhook extends HalResource {
    * Resources and actions related to a Webhook
    */
   public readonly related = {
+    /**
+     * Retrieves the Hub this webhook is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
     delete: (): Promise<void> => this.deleteResource(),
   };
 }

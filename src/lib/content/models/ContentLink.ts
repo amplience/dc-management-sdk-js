@@ -6,6 +6,14 @@ export interface ContentLinkInstance {
   contentType: string;
 }
 
+export interface ContentLinkModel {
+  _meta?: {
+    schema?: string;
+    [key: string]: any;
+  };
+  [key: string]: any;
+}
+
 /**
  * Utility to assist parsing the body of a content item
  */
@@ -18,7 +26,7 @@ export class ContentLink {
    * @param json JSON node to test
    * @returns boolean <tt>true</tt> if the json node is a content link, otherwise <tt>false</tt>
    */
-  public static isContentLink(json: any): boolean {
+  public static isContentLink(json: ContentLinkModel): boolean {
     return json && json._meta && json._meta.schema === ContentLink.SCHEMA;
   }
 }

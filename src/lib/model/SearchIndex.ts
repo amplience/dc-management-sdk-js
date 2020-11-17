@@ -19,6 +19,7 @@ import { SearchIndexTopFiltersNoResultSearchCollection } from './SearchIndexTopF
 import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
 import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
+import { Hub } from './Hub';
 
 /**
  * Class representing an Algolia Search Index.
@@ -73,6 +74,11 @@ export class SearchIndex extends HalResource {
    * Resources and actions related to a Search Index.
    */
   public readonly related = {
+    /**
+     * Retrieves the Hub this search index is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
     clear: (): Promise<SearchIndex> =>
       this.performActionThatReturnsResource('clear', {}, {}, SearchIndex),
 
