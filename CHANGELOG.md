@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.7.0...v1.8.0) (2020-11-17)
+
+
+### Features
+
+* added hub() methods to the resource that have hub hal links ([#64](https://github.com/amplience/dc-management-sdk-js/issues/64)) ([5a94e36](https://github.com/amplience/dc-management-sdk-js/commit/5a94e36c74a2c23f8d96752de5ebf5a23b9daa86))
+* expose edition find by date ([#63](https://github.com/amplience/dc-management-sdk-js/issues/63)) ([fcc5150](https://github.com/amplience/dc-management-sdk-js/commit/fcc51502254ad60dccaf921fda26089051c61567))
+* Feature/cmp 7269 able to fetch children and parents to create hierarchys ([#60](https://github.com/amplience/dc-management-sdk-js/issues/60)) ([1badea6](https://github.com/amplience/dc-management-sdk-js/commit/1badea6d8ad76eb61a0aa9a3e8bb55a664e09d00))
+
 ## [1.7.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.6.0...v1.7.0) (2020-09-01)
 
 
