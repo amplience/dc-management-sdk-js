@@ -595,6 +595,86 @@ export const CONTENT_REPOSITORY = {
 /**
  * @hidden
  */
+export const CONTENT_REPOSITORY_SLOTS = {
+  id: '5b32377b4cedfd01c4503691',
+  name: 'slots',
+  label: 'Slots',
+  status: 'ACTIVE',
+  features: ['slots'],
+  type: 'CONTENT',
+  contentTypes: [],
+  itemLocales: ['en', 'fr'],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
+    },
+    'create-content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items',
+    },
+    'search-content-items': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
+      templated: true,
+    },
+    'content-items': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items{?page,size,sort}',
+      templated: true,
+    },
+    share: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
+    },
+    'assign-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types',
+    },
+    'unassign-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types/{id}',
+      templated: true,
+    },
+    folders: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders{?page,size,sort}',
+      templated: true,
+    },
+    'create-folder': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders',
+    },
+    features: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/features?feature={feature}',
+      templated: true,
+    },
+    'update-content-items': {
+      href: 'https://api.amplience.net/v2/content/content-items',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 export const EVENT = {
   id: '5b32379e4cedfd01c4504171',
   name: 'January Sale',
@@ -1963,7 +2043,7 @@ export class DynamicContentFixtures {
     mocks.collection('https://api.amplience.net/v2/content/hubs', 'hubs', [
       HUB,
     ]);
-    mocks
+    const hubMockResource = mocks
       .resource(HUB)
       .nestedCollection('content-repositories', {}, 'content-repositories', [
         CONTENT_REPOSITORY,
@@ -1990,6 +2070,11 @@ export class DynamicContentFixtures {
       .nestedCollection('algolia-search-indexes', {}, 'indexes', [
         SEARCH_INDEX,
       ]);
+    hubMockResource.mocks.collection(
+      `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
+      'content-repositories',
+      [CONTENT_REPOSITORY_SLOTS]
+    );
 
     // Content items
     mocks

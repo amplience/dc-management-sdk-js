@@ -1,3 +1,4 @@
+import MockAdapter from 'axios-mock-adapter/types';
 import { HalLink } from '../models/HalLink';
 import { CURIEs } from '../services/CURIEs';
 
@@ -14,13 +15,10 @@ export interface HalLiteral {
  * @hidden
  */
 export class HalMockResource {
-  private resource: HalLiteral;
-  private mocks: HalMocks;
-
-  constructor(resource: HalLiteral, mocks: HalMocks) {
-    this.resource = resource;
-    this.mocks = mocks;
-  }
+  constructor(
+    public readonly resource: HalLiteral,
+    public readonly mocks: HalMocks
+  ) {}
 
   public nestedResource(
     linkName: string,
@@ -79,11 +77,7 @@ export class HalMockResource {
  * @hidden
  */
 export class HalMocks {
-  public mockInstance;
-
-  constructor(mockInstance) {
-    this.mockInstance = mockInstance;
-  }
+  constructor(public readonly mockInstance: MockAdapter) {}
 
   public resource(resource: HalLiteral, url?: string): HalMockResource {
     if (!url) {
