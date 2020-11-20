@@ -2052,6 +2052,7 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
       .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
       .nestedCollection(

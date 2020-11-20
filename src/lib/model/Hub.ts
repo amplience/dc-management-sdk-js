@@ -141,6 +141,12 @@ export class Hub extends HalResource {
           resource,
           ContentType
         ),
+
+      /**
+       * Get a content type by its id
+       */
+      get: (id: string): Promise<ContentType> =>
+        this.client.fetchResource(`content-types/${id}`, ContentType),
     },
 
     editions: {
