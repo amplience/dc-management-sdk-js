@@ -2082,7 +2082,8 @@ export class DynamicContentFixtures {
       .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
       .nestedCreateResource('archive', {}, CONTENT_ITEM)
-      .nestedCreateResource('unarchive', {}, CONTENT_ITEM);
+      .nestedCreateResource('unarchive', {}, CONTENT_ITEM)
+      .nestedCreateResource('publish', {}, CONTENT_ITEM);
 
     // Content type schemas
     mocks

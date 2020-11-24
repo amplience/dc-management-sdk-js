@@ -173,6 +173,12 @@ export class ContentItem extends HalResource {
         { version: this.version },
         ContentItem
       ),
+
+    /**
+     * Publish content item
+     */
+    publish: (): Promise<void> =>
+      this.performActionWithoutResourceResponse('publish'),
   };
 }
 
