@@ -43,6 +43,17 @@ export class Event extends HalResource {
    * Resources and actions related to an Event
    */
   public readonly related = {
+    /**
+     * Archive Event
+     */
+    archive: (): Promise<Event> =>
+      this.performActionThatReturnsResource('archive', {}, {}, Event),
+
+    /**
+     * Delete Event
+     */
+    delete: (): Promise<void> => this.deleteResource(),
+
     editions: {
       /**
        * Creates an Edition inside the Event
