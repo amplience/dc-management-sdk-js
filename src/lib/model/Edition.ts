@@ -92,6 +92,17 @@ export class Edition extends HalResource {
    */
   public readonly related = {
     /**
+     * Archive Edition
+     */
+    archive: (): Promise<Edition> =>
+      this.performActionThatReturnsResource('archive', {}, {}, Edition),
+
+    /**
+     * Delete Edition
+     */
+    delete: (): Promise<void> => this.deleteResource(),
+
+    /**
      * Retrieves the Event associated with this Edition
      */
     event: (): Promise<Event> => this.fetchLinkedResource('event', {}, Event),
@@ -103,6 +114,11 @@ export class Edition extends HalResource {
       list: (): Promise<Page<EditionSlot>> =>
         this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
     },
+
+    /**
+     * Unschedule Edition
+     */
+    unschedule: (): Promise<void> => this.deleteLinkedResource('schedule', {}),
   };
 }
 

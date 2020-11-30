@@ -14,6 +14,30 @@ test('get event', async (t) => {
   t.is(event.name, 'January Sale');
 });
 
+test('archive edition', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504172');
+  const result = await edition.related.archive();
+  t.is(result.id, '5b32379e4cedfd01c4504172');
+});
+
+test('unshcedult edition', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504172');
+  await edition.related.unschedule();
+  const newRequest = await client.editions.get('5b32379e4cedfd01c4504172');
+
+  t.is(newRequest.publishingStatus, 'DRAFT');
+});
+
+test('delete edition', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504172');
+  const result = await edition.related.delete();
+
+  t.false(result !== undefined);
+});
+
 test('list slots', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
