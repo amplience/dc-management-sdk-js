@@ -6,12 +6,10 @@ import { ContentRepository } from '../../model/ContentRepository';
 import { Hub } from '../../model/Hub';
 import { DefaultHalClient, HalClient } from './HalClient';
 
-// axios-mock-adaptor's typedefs are wrong preventing calling onGet with 3 args, this is a workaround
 /**
  * @hidden
  */
-// eslint-disable-next-line
-const MockAdapter = require('axios-mock-adapter');
+import MockAdapter from 'axios-mock-adapter';
 
 /**
  * @hidden

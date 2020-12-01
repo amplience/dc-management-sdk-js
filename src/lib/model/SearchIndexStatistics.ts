@@ -1,11 +1,11 @@
 import { HalResource } from '../hal/models/HalResource';
 
-interface Usage {
-  averageResponseTime?: UsageMetric;
-  numberOfSearches?: UsageMetric;
+export interface SearchIndexStatisticsUsage {
+  averageResponseTime?: SearchIndexStatisticsUsageMetric;
+  numberOfSearches?: SearchIndexStatisticsUsageMetric;
 }
 
-interface UsageMetric {
+export interface SearchIndexStatisticsUsageMetric {
   unit?: string;
   duration?: number;
   value?: number;
@@ -33,5 +33,5 @@ export class SearchIndexStatistics extends HalResource {
   /**
    * Usage statistics for an index.
    */
-  public usage?: Usage;
+  public usage?: SearchIndexStatisticsUsage;
 }

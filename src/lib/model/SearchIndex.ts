@@ -8,7 +8,17 @@ import { Pageable } from './Pageable';
 import { SearchIndexKey } from './SearchIndexKey';
 import { SearchIndexSettings } from './SearchIndexSettings';
 import { SearchIndexStatistics } from './SearchIndexStatistics';
+import { SearchIndexTopHitsCollection } from './SearchIndexTopHits';
+import {
+  SearchesOrderBy,
+  SearchIndexTopSearchesCollection,
+} from './SearchIndexTopSearches';
 import { Sortable } from './Sortable';
+import { SearchIndexSearchesWithNoResultsCollection } from './SearchIndexSearchesWithNoResults';
+import { SearchIndexTopFiltersNoResultSearchCollection } from './SearchIndexTopFiltersNoResultSearch';
+import { SearchIndexUsersCount } from './SearchIndexUsersCount';
+import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
+import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
 
 /**
  * Class representing an Algolia Search Index.
@@ -139,6 +149,209 @@ export class SearchIndex extends HalResource {
     stats: {
       get: (period?: string): Promise<SearchIndexStatistics> =>
         this.fetchLinkedResource('stats', { period }, SearchIndexStatistics),
+    },
+
+    'top-searches': {
+      get: ({
+        clickAnalytics = false,
+        orderBy,
+        direction,
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+        includeReplicas,
+      }: {
+        clickAnalytics?: boolean;
+        orderBy?: SearchesOrderBy;
+        direction?: 'asc' | 'desc';
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexTopSearchesCollection> =>
+        this.fetchLinkedResource(
+          'top-searches',
+          {
+            clickAnalytics,
+            direction,
+            endDate,
+            limit,
+            offset,
+            orderBy,
+            startDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexTopSearchesCollection
+        ),
+    },
+
+    'top-hits': {
+      get: ({
+        search,
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+        includeReplicas,
+      }: {
+        search?: string;
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexTopHitsCollection> =>
+        this.fetchLinkedResource(
+          'top-hits',
+          {
+            endDate,
+            limit,
+            offset,
+            search,
+            startDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexTopHitsCollection
+        ),
+    },
+
+    'searches-with-no-results': {
+      get: ({
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexSearchesWithNoResultsCollection> =>
+        this.fetchLinkedResource(
+          'searches-with-no-results',
+          {
+            endDate,
+            limit,
+            offset,
+            startDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexSearchesWithNoResultsCollection
+        ),
+    },
+    'top-filters-no-result-search': {
+      get: ({
+        search,
+        startDate,
+        endDate,
+        limit,
+        offset,
+        tags,
+        includeReplicas,
+      }: {
+        search: string;
+        startDate?: string;
+        endDate?: string;
+        limit?: number;
+        offset?: number;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexTopFiltersNoResultSearchCollection> =>
+        this.fetchLinkedResource(
+          'top-filters-no-result-search',
+          {
+            endDate,
+            limit,
+            offset,
+            search,
+            startDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexTopFiltersNoResultSearchCollection
+        ),
+    },
+    'users-count': {
+      get: ({
+        startDate,
+        endDate,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexUsersCount> =>
+        this.fetchLinkedResource(
+          'users-count',
+          {
+            startDate,
+            endDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexUsersCount
+        ),
+    },
+    'searches-count': {
+      get: ({
+        startDate,
+        endDate,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexSearchesCount> =>
+        this.fetchLinkedResource(
+          'searches-count',
+          {
+            startDate,
+            endDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexSearchesCount
+        ),
+    },
+    'no-results-rate': {
+      get: ({
+        startDate,
+        endDate,
+        tags,
+        includeReplicas,
+      }: {
+        startDate?: string;
+        endDate?: string;
+        tags?: string;
+        includeReplicas?: boolean;
+      }): Promise<SearchIndexNoResultsRate> =>
+        this.fetchLinkedResource(
+          'no-results-rate',
+          {
+            startDate,
+            endDate,
+            tags,
+            includeReplicas,
+          },
+          SearchIndexNoResultsRate
+        ),
     },
   };
 }
