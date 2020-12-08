@@ -6,7 +6,7 @@ import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
 
 /**
- * Class representing the [Event](https://api.amplience.net/v2/content/docs/api/index.html#resources-events) resource.
+ * Class representing the [Event](https://amplience.com/docs/api/dynamic-content/management/#tag/Events) resource.
  * An Event represents a major date in the calendar, such as Christmas or Black Friday. An Event may span multiple days and start and end at any given UTC time.
  */
 export class Event extends HalResource {
