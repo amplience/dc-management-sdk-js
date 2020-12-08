@@ -22,6 +22,13 @@ test('list content repositories', async (t) => {
   t.is(result.getItems()[0].name, 'inspiration');
 });
 
+test('list of slot content repositories ', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentRepositories.findByFeature('slots');
+  t.is(result.getItems()[0].name, 'slots');
+});
+
 test('list events', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
@@ -41,6 +48,13 @@ test('list content types', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.list();
   t.is(result.getItems()[0].settings.label, 'Carousel');
+});
+
+test('get content type', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentTypes.get('5be1d5134cedfd01c030c460');
+  t.is(result.settings.label, 'Carousel');
 });
 
 test('register content type', async (t) => {

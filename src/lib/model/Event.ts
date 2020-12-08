@@ -1,5 +1,6 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Edition, EditionsPage } from './Edition';
+import { Hub } from './Hub';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { Sortable } from './Sortable';
@@ -53,6 +54,11 @@ export class Event extends HalResource {
      * Delete Event
      */
     delete: (): Promise<void> => this.deleteResource(),
+
+    /**
+     * Retrieves the Hub this event is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
 
     editions: {
       /**

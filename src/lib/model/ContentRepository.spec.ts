@@ -99,8 +99,17 @@ test('unassign content type', async (t) => {
     '5b32377b4cedfd01c4503691'
   );
 
-  const result = await contentRepository.related.contentTypes.unassign(
+  await contentRepository.related.contentTypes.unassign(
     '5be1d5134cedfd01c030c460'
   );
   t.pass();
+});
+
+test('get hub', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
+  );
+  const hub = await result.related.hub();
+  t.is(hub.name, 'anya-finn');
 });

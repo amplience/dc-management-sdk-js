@@ -1,33 +1,30 @@
-
 [![Amplience Dynamic Content](media/header.png)](https://amplience.com/dynamic-content)
 
 # dc-management-sdk-js
 
 > Official Javascript SDK for the Amplience Dynamic Content API
 
-[![Build Status](https://travis-ci.org/amplience/dc-management-sdk-js.svg?branch=master)](https://travis-ci.org/amplience/dc-management-sdk-js)
+![Build Status](<https://img.shields.io/github/workflow/status/amplience/dc-management-sdk-js/Run%20tests%20(Node.js%208.x,%2010.x,%2012.x)>)
 [![npm version](https://badge.fury.io/js/dc-management-sdk-js.svg)](https://badge.fury.io/js/dc-management-sdk-js)
 
 The management sdk is designed to help build back-office applications such as content automation or web-hook integrations. Please keep in mind the management api is rate limited.
-
-
 
 ## Installation
 
 Using npm:
 
-``` sh
+```sh
 npm install dc-management-sdk-js --save
 ```
 
 ## Usage
+
 This sdk can be used with both typescript running on Node.js or regular Javascript running on Node.js. TypeScript type definition files are bundled with the library along with precompiled Javascript versions of all TypeScript classes.
 
 ### TypeScript
 
-
 ```typescript
-import {DynamicContent} from "dc-management-sdk-js";
+import { DynamicContent } from 'dc-management-sdk-js';
 ```
 
 ### Node.js
@@ -38,7 +35,7 @@ var dc = require('dc-management-sdk-js');
 
 ### Authentication
 
-The content management API uses OAuth 2 to authenticate requests. 
+The content management API uses OAuth 2 to authenticate requests.
 When creating an API client you can provide your API key and secret
 and the client will handle creating authentication tokens.
 
@@ -46,8 +43,8 @@ For assistance creating API credentials and configuring permissions please conta
 
 ```typescript
 const client = new DynamicContent({
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
 });
 ```
 
@@ -55,8 +52,8 @@ OR
 
 ```javascript
 var client = new dc.DynamicContent({
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET
+  client_id: process.env.CLIENT_ID,
+  client_secret: process.env.CLIENT_SECRET,
 });
 ```
 
@@ -83,79 +80,77 @@ var contentItemVersion2 = contentItem.related.contentItemVersion(2);
 ## Example
 
 ```typescript
-import {DynamicContent, Event} from "dc-management-sdk-js";
-    
+import { DynamicContent, Event } from 'dc-management-sdk-js';
+
 async function createEvent() {
-    
-    const client = new DynamicContent({
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET
-    });
-    
-    const hubs = await client.hubs.list();
-    const hub = hubs.getItems()[0];
-    
-    let event = new Event();
-    event.name = 'happy new year';
-    event.start = '2019-01-01T00:00:00.000Z';
-    event.end = '2019-01-01T23:59:59.999Z';
-    
-    event = await hub.related.events.create(event);
-    
-    console.log(event);
+  const client = new DynamicContent({
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
+  });
 
-};
-    
+  const hubs = await client.hubs.list();
+  const hub = hubs.getItems()[0];
+
+  let event = new Event();
+  event.name = 'happy new year';
+  event.start = '2019-01-01T00:00:00.000Z';
+  event.end = '2019-01-01T23:59:59.999Z';
+
+  event = await hub.related.events.create(event);
+
+  console.log(event);
+}
+
 createEvent();
-
 ```
 
 OR
 
 ```javascript
 var dc = require('dc-management-sdk-js');
-    
+
 function createEvent() {
-        
-    var client = new dc.DynamicContent({
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET
+  var client = new dc.DynamicContent({
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
+  });
+
+  client.hubs
+    .list()
+    .then(function (hubs) {
+      var hub = hubs.getItems()[0];
+
+      var event = new dc.Event();
+      event.name = 'happy new year';
+      event.start = '2019-01-01T00:00:00.000Z';
+      event.end = '2019-01-01T23:59:59.999Z';
+
+      return hub.related.events.create(event);
+    })
+    .then(function (event) {
+      console.log(event);
     });
-    
-    client.hubs.list()
-        .then(function(hubs) {
-            var hub = hubs.getItems()[0];
-            
-            var event = new dc.Event();
-            event.name = 'happy new year';
-            event.start = '2019-01-01T00:00:00.000Z';
-            event.end = '2019-01-01T23:59:59.999Z';
-            
-            return hub.related.events.create(event);
-        })
-        .then(function(event) {
-            console.log(event);
-        });
 }
-    
+
 createEvent();
 ```
 
-
 ## Documentation
+
 Please use the following documentation resources to assist building your application:
 
-* Dynamic Content Management SDK [Reference documentation](https://amplience.github.io/dc-management-sdk-js/)
-* Dynamic Content Management API [Reference documentation](https://api.amplience.net/v2/content/docs/api/index.html#_overview)
-* Dynamic Content [User guide](https://docs.amplience.net/)
+- Dynamic Content Management SDK [Reference documentation](https://amplience.github.io/dc-management-sdk-js/)
+- Dynamic Content Management API [Reference documentation](https://api.amplience.net/v2/content/docs/api/index.html#_overview)
+- Dynamic Content [User guide](https://docs.amplience.net/)
 
 ## Getting Help
+
 If you need help using the sdk please reach out using one of the following channels:
 
-* Ask a question on [StackOverflow](https://stackoverflow.com/) using the tag `amplience-dynamic-content`
-* Open a support ticket with [Amplience Support](https://support.amplience.com/)
-* Contact your [Amplience Customer Success](https://amplience.com/customer-success) representative
-* If you have found a bug please report it by [opening an issue](https://github.com/amplience/dc-management-sdk-js/issues/new)
+- Ask a question on [StackOverflow](https://stackoverflow.com/) using the tag `amplience-dynamic-content`
+- Open a support ticket with [Amplience Support](https://support.amplience.com/)
+- Contact your [Amplience Customer Success](https://amplience.com/customer-success) representative
+- If you have found a bug please report it by [opening an issue](https://github.com/amplience/dc-management-sdk-js/issues/new)
 
 ## License
 
@@ -174,4 +169,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-

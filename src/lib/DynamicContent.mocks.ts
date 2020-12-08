@@ -595,6 +595,86 @@ export const CONTENT_REPOSITORY = {
 /**
  * @hidden
  */
+export const CONTENT_REPOSITORY_SLOTS = {
+  id: '5b32377b4cedfd01c4503691',
+  name: 'slots',
+  label: 'Slots',
+  status: 'ACTIVE',
+  features: ['slots'],
+  type: 'CONTENT',
+  contentTypes: [],
+  itemLocales: ['en', 'fr'],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
+    },
+    'create-content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items',
+    },
+    'search-content-items': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
+      templated: true,
+    },
+    'content-items': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items{?page,size,sort}',
+      templated: true,
+    },
+    share: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
+    },
+    'assign-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types',
+    },
+    'unassign-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types/{id}',
+      templated: true,
+    },
+    folders: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders{?page,size,sort}',
+      templated: true,
+    },
+    'create-folder': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders',
+    },
+    features: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/features?feature={feature}',
+      templated: true,
+    },
+    'update-content-items': {
+      href: 'https://api.amplience.net/v2/content/content-items',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 export const EVENT = {
   id: '5b32379e4cedfd01c4504171',
   name: 'January Sale',
@@ -1528,19 +1608,450 @@ export const CONTENT_TYPE_CACHED_SCHEMA = {
   },
 };
 
+/**
+ * @hidden
+ */
+
+export const HIERARCHY_CONTENT_ITEM = {
+  id: 'e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+  contentRepositoryId: '5f647f72c9e77c0001706820',
+  folderId: '5f648c86c9e77c0001706832',
+  body: {
+    _meta: {
+      name: 'Lancashire',
+      schema: 'http://release.sort1.com',
+      hierarchy: {
+        parentId: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+        root: false,
+      },
+    },
+    string: 'lancashire',
+  },
+  version: 7,
+  label: 'Lancashire',
+  status: 'ACTIVE',
+  createdBy: '68126707-d044-415a-bf0b-5d0c262e0b6b',
+  createdDate: '2020-09-18T10:39:11.180Z',
+  lastModifiedBy: '68126707-d044-415a-bf0b-5d0c262e0b6b',
+  lastModifiedDate: '2020-09-18T14:41:04.701Z',
+  hierarchy: {
+    parentId: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+    root: false,
+  },
+  deliveryId: 'e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4{?projection}',
+      templated: true,
+    },
+    planned: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/planned{?epoch,time}',
+      templated: true,
+    },
+    publish: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/publish',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+    },
+    'restore-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/restore',
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5f647f72c9e77c0001706820',
+    },
+    'content-item-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{/version}',
+      templated: true,
+    },
+    'content-item-versions': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{?page,size,sort}',
+      templated: true,
+    },
+    'content-item-history': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/history{?page,size,sort}',
+      templated: true,
+    },
+    copy: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      templated: true,
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/unarchive',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/archive',
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5f648c86c9e77c0001706832',
+    },
+    'set-locale': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/locale',
+    },
+    'create-localizations': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localize',
+    },
+    localizations: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localizations{?page,size,sort}',
+      templated: true,
+    },
+    'localization-jobs': {
+      href:
+        'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4{&page,size,sort}',
+      templated: true,
+    },
+    'edition-slot-associations': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/edition-slot-associations',
+    },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/workflow',
+    },
+    'content-item-with-children': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+    },
+  },
+};
+/**
+ * @hidden
+ */
+
+export const HIERARCHY_NODE_FIRST_CHILD = {
+  id: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+  contentTypeUri: 'http://release.sort.com',
+  label: 'England',
+  publishingStatus: 'NONE',
+  root: false,
+  parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+  hasChildren: true,
+  repositoryId: '5f647f72c9e77c0001706820',
+  _links: {
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+    },
+    'get-hierarchy-parents': {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+    },
+    'get-hierarchy-children': {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+    },
+  },
+};
+export const HIERARCHY_NODE = {
+  id: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+  contentTypeUri: 'http://release.sort.com',
+  label: 'Countries',
+  publishingStatus: 'NONE',
+  root: true,
+  hasChildren: true,
+  repositoryId: '5f647f72c9e77c0001706820',
+  _links: {
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
+    },
+    'get-hierarchy-parents': {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+    },
+    'get-hierarchy-children': {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const HIERARCHY_CHILDREN = {
+  id: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+  contentTypeUri: 'http://release.sort.com',
+  label: 'Countries',
+  publishingStatus: 'NONE',
+  root: true,
+  hasChildren: true,
+  repositoryId: '5f647f72c9e77c0001706820',
+  children: [
+    {
+      id: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+      contentTypeUri: 'http://release.sort.com',
+      label: 'England',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: true,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+        },
+      },
+    },
+    {
+      id: 'cac578af-eab5-42a4-9dc9-4c1e08a6a8e8',
+      contentTypeUri: 'http://release.sort.com',
+      label: 'Scotland',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: false,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/children',
+        },
+      },
+    },
+    {
+      id: '2e68125c-25b2-45c2-b098-4fd1f8529f88',
+      contentTypeUri: 'http://release.sort.com',
+      label: 'USA',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: true,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/children',
+        },
+      },
+    },
+    {
+      id: '1ee912c5-60fd-4439-8bf5-b9703935999e',
+      contentTypeUri: 'http://release.sort2.com',
+      label: 'Continents',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: false,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/children',
+        },
+      },
+    },
+    {
+      id: '17d26e9e-302d-4f3d-97ba-590cb70418e1',
+      contentTypeUri: 'http://release.sort2.com',
+      label: 'Hemispheres',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: false,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/children',
+        },
+      },
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const HIERARCHY_PARENTS = {
+  id: 'e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+  contentTypeUri: 'http://release.sort1.com',
+  label: 'Lancashire',
+  publishingStatus: 'NONE',
+  root: false,
+  parentId: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+  hasChildren: false,
+  repositoryId: '5f647f72c9e77c0001706820',
+  parents: [
+    {
+      id: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      contentTypeUri: 'http://release.sort.com',
+      label: 'Countries',
+      publishingStatus: 'NONE',
+      root: true,
+      hasChildren: true,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
+        },
+      },
+    },
+    {
+      id: '07d9e788-6ee8-49a8-b343-7f01d18f5205',
+      contentTypeUri: 'http://release.sort.com',
+      label: 'England',
+      publishingStatus: 'NONE',
+      root: false,
+      parentId: 'cb1f55f2-e541-4502-bd74-01052edc399d',
+      hasChildren: true,
+      repositoryId: '5f647f72c9e77c0001706820',
+      _links: {
+        'content-item': {
+          href:
+            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+        },
+        archive: {
+          href:
+            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+        },
+        'get-hierarchy-parents': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+        },
+        'get-hierarchy-children': {
+          href:
+            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+        },
+      },
+    },
+  ],
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hierarchy-node/e3ba7f44-8236-41e9-80d3-1ef769c289f4/parents',
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+    },
+  },
+};
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
  */
 export class DynamicContentFixtures {
-  public static install(mock): void {
+  public static install(mock: MockAdapter): void {
     const mocks = new HalMocks(mock);
 
     // Hubs
     mocks.collection('https://api.amplience.net/v2/content/hubs', 'hubs', [
       HUB,
     ]);
-    mocks
+    const hubMockResource = mocks
       .resource(HUB)
       .nestedCollection('content-repositories', {}, 'content-repositories', [
         CONTENT_REPOSITORY,
@@ -1549,6 +2060,7 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
       .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
       .nestedCollection(
@@ -1566,6 +2078,11 @@ export class DynamicContentFixtures {
       .nestedCollection('algolia-search-indexes', {}, 'indexes', [
         SEARCH_INDEX,
       ]);
+    hubMockResource.mocks.collection(
+      `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
+      'content-repositories',
+      [CONTENT_REPOSITORY_SLOTS]
+    );
 
     // Content items
     mocks
@@ -1578,6 +2095,7 @@ export class DynamicContentFixtures {
     // Content type schemas
     mocks
       .resource(CONTENT_TYPE_SCHEMA)
+      .nestedResource('hub', {}, HUB)
       .nestedUpdateResource('update', {}, CONTENT_TYPE_SCHEMA_V2)
       .nestedCreateResource('archive', {}, CONTENT_TYPE_SCHEMA)
       .nestedCreateResource('unarchive', {}, CONTENT_TYPE_SCHEMA);
@@ -1590,6 +2108,7 @@ export class DynamicContentFixtures {
     // Content repositories
     mocks
       .resource(CONTENT_REPOSITORY)
+      .nestedResource('hub', {}, HUB)
       .nestedCollection('content-items', {}, 'content-items', [CONTENT_ITEM])
       .nestedCreateResource('create-content-item', {}, CONTENT_ITEM)
       .nestedCollection('folders', {}, 'folders', [FOLDER])
@@ -1752,6 +2271,7 @@ export class DynamicContentFixtures {
     // Events
     mocks
       .resource(EVENT)
+      .nestedResource('hub', {}, HUB)
       .nestedCollection('editions', {}, 'editions', [EDITION])
       .nestedCreateResource('create-edition', {}, EDITION)
       .nestedCreateResource('archive', {}, EVENT);
@@ -1766,6 +2286,7 @@ export class DynamicContentFixtures {
     // Snapshots
     mocks
       .resource(SNAPSHOT)
+      .nestedResource('hub', {}, HUB)
       .nestedResource(
         'snapshot-content-item',
         { id: CONTENT_ITEM.id },
@@ -1800,10 +2321,31 @@ export class DynamicContentFixtures {
         CONTENT_TYPE_CACHED_SCHEMA
       )
       .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
+
     // Webhooks
-    mocks.resource(WEBHOOK);
+    mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
+
+    mocks
+      .resource(HIERARCHY_CHILDREN)
+      .nestedResource('content-item', {}, HIERARCHY_CONTENT_ITEM);
+
+    mocks
+      .resource(HIERARCHY_PARENTS)
+      .nestedResource('content-item', {}, HIERARCHY_CONTENT_ITEM);
+
+    mocks
+      .resource(HIERARCHY_NODE_FIRST_CHILD, 'noself')
+      .nestedResource('get-hierarchy-children', {}, HIERARCHY_CHILDREN)
+      .nestedResource('get-hierarchy-parents', {}, HIERARCHY_PARENTS)
+      .nestedResource('content-item', {}, HIERARCHY_CONTENT_ITEM);
+
+    mocks
+      .resource(HIERARCHY_NODE, 'noself')
+      .nestedResource('get-hierarchy-children', {}, HIERARCHY_CHILDREN)
+      .nestedResource('get-hierarchy-parents', {}, HIERARCHY_PARENTS)
+      .nestedResource('content-item', {}, HIERARCHY_CONTENT_ITEM);
   }
 }
 
@@ -1834,10 +2376,12 @@ export class MockDynamicContent extends DynamicContent {
   }
 
   protected createTokenClient(
+    /* eslint-disable unused-imports/no-unused-vars-ts */
     dcConfig: DynamicContentConfig,
     clientCredentials: OAuth2ClientCredentials,
     httpClient: HttpClient
   ): AccessTokenProvider {
+    /* eslint-enable */
     return {
       getToken: () =>
         Promise.resolve({
