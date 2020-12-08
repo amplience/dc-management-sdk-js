@@ -21,7 +21,7 @@ test('archive edition', async (t) => {
   t.is(result.id, '5b32379e4cedfd01c4504172');
 });
 
-test('unshcedult edition', async (t) => {
+test('unschedule edition', async (t) => {
   const client = new MockDynamicContent();
   const edition = await client.editions.get('5b32379e4cedfd01c4504172');
   await edition.related.unschedule();

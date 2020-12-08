@@ -27,8 +27,6 @@ test('delete event', async (t) => {
   const event = await client.events.get('5b32379e4cedfd01c4504171');
   const result = await event.related.delete();
 
-  console.log(result);
-
   t.false(result !== undefined);
 });
 
