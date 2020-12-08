@@ -94,3 +94,11 @@ export {
   ContentTypeCachedSchema,
   CachedSchema,
 } from './lib/model/ContentTypeCachedSchema';
+export {
+  FacetField,
+  FacetQuery,
+  DateFacet,
+  EnumFacet,
+  FacetsResponse,
+  FacetCount,
+} from './lib/model/Facets';

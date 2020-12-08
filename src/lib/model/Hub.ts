@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { ContentItemsFacets, FacetedContentItem } from './ContentItem';
 import {
   ContentRepositoriesPage,
   ContentRepository,
@@ -7,6 +8,7 @@ import { ContentType, ContentTypePage } from './ContentType';
 import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
 import { Edition, EditionsPage } from './Edition';
 import { Event, EventsPage } from './Event';
+import { FacetQuery, FacetsResponse } from './Facets';
 import { FindByDate } from './FindByDate';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
@@ -147,6 +149,22 @@ export class Hub extends HalResource {
        */
       get: (id: string): Promise<ContentType> =>
         this.client.fetchResource(`content-types/${id}`, ContentType),
+    },
+
+    contentItems: {
+      /**
+       * Facet content items and search by text. See [Text Search Query Syntax](https://amplience.com/docs/api/dynamic-content/management/#section/Text-Search-Query-Syntax) for a summary of the query syntax.
+       */
+      facet: (
+        facetQuery: FacetQuery,
+        options?: Pageable & Sortable & { query: string }
+      ): Promise<FacetsResponse<FacetedContentItem>> =>
+        this.performActionThatReturnsResource(
+          'facet-content-items',
+          options,
+          facetQuery,
+          ContentItemsFacets
+        ),
     },
 
     editions: {

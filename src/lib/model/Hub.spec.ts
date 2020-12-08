@@ -29,6 +29,85 @@ test('list of slot content repositories ', async (t) => {
   t.is(result.getItems()[0].name, 'slots');
 });
 
+test('facet the content items ', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentItems.facet(
+    {
+      fields: [
+        {
+          facetAs: 'ENUM',
+          field: 'schema',
+          filter: {
+            type: 'IN',
+            values: [
+              'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+            ],
+          },
+        },
+        {
+          facetAs: 'ENUM',
+          field: 'assignees',
+          filter: {
+            type: 'IN',
+            values: ['7078e5e7-d5bf-4015-9add-b75fb6f60537'],
+          },
+        },
+        { facetAs: 'ENUM', field: 'workflow.state', name: 'workflow.state' },
+        { facetAs: 'ENUM', field: 'publishingStatus' },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 7 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-7:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 14 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-14:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 30 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-30:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 60 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-60:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Over 60 days',
+          field: 'lastModifiedDate',
+          range: { start: '-60:DAYS', end: '-100:YEARS' },
+        },
+        { facetAs: 'ENUM', field: 'locale' },
+      ],
+      returnEntities: true,
+    },
+    {
+      query: 'status:"ACTIVE"contentRepositoryId:"5d4af2ccc9e77c00015fa183"',
+      page: 0,
+      size: 30,
+      sort: 'lastModifiedDate,desc',
+    }
+  );
+  t.is(result.getItems()[0].label, 'Banner Ad Homepage');
+  t.is(result.getFacets()['schema'].length, 1);
+  t.is(
+    result.getItems()[0].schema,
+    'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+  );
+  t.is(
+    result.getFacets()['schema'][0]._id,
+    'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+  );
+});
+
 test('list events', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
