@@ -18,6 +18,7 @@ import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
+import { WorkflowState } from './model/WorkflowState';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -228,6 +229,15 @@ export class DynamicContent {
      */
     get: (id: string): Promise<Edition> =>
       this.client.fetchResource(`/editions/${id}`, Edition),
+  };
+
+  public readonly workflowStates = {
+    /**
+     * Retrieve an Workflow State resource by id
+     * @param id workflow state id, previously generated on creation
+     */
+    get: (id: string): Promise<WorkflowState> =>
+      this.client.fetchResource(`/workflow-states/${id}`, WorkflowState),
   };
 
   /**

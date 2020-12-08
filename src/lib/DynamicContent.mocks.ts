@@ -258,6 +258,10 @@ export const CONTENT_ITEM = {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
     },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+    },
   },
 };
 
@@ -366,6 +370,10 @@ export const CONTENT_ITEM_WITH_LOCALE = {
       href:
         'http://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localize',
     },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+    },
   },
 };
 
@@ -456,6 +464,10 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
     'set-locale': {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale',
+    },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -1495,6 +1507,14 @@ export const WORKFLOW_STATE_V2 = { ...WORKFLOW_STATE, label: 'Done' };
 /**
  * @hidden
  */
+export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
+  ...CONTENT_ITEM,
+  workflow: { state: WORKFLOW_STATE.id },
+};
+
+/**
+ * @hidden
+ */
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
@@ -2333,6 +2353,11 @@ export class DynamicContentFixtures {
 
     mocks
       .resource(CONTENT_ITEM)
+      .nestedUpdateResource(
+        'edit-workflow',
+        {},
+        CONTENT_ITEM_WITH_WORKFLOW_STATE
+      )
       .nestedCreateResource(
         'set-locale',
         { locale: 'en-GB', version: 1 },

@@ -1,3 +1,4 @@
+import { HttpMethod } from '../../http/HttpRequest';
 import { HalClient } from '../services/HalClient';
 import { HalLink } from './HalLink';
 
@@ -131,14 +132,16 @@ export class HalResource {
     name: string,
     params: any,
     data: any,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
+    method: HttpMethod.POST | HttpMethod.PATCH = HttpMethod.POST
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.performActionThatReturnsResource(
         link,
         params,
         data,
-        resourceConstructor
+        resourceConstructor,
+        method
       )
     );
   }

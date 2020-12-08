@@ -126,3 +126,17 @@ test('toJSON should copy resource attributes', async (t) => {
     version: 1,
   });
 });
+
+test('assign a workflow state', async (t) => {
+  const client = new MockDynamicContent();
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  const workflowState = await client.workflowStates.get(
+    '5a497a000000000000000000'
+  );
+  const updatedContentItem = await contentItem.related.assignWorkflowState(
+    workflowState
+  );
+  t.is(updatedContentItem.workflow.state, workflowState.id);
+});

@@ -53,6 +53,10 @@ export class WorkflowState extends HalResource {
      */
     hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
 
+    /**
+     * Updates this Workflow State with the changes in the mutation parameter.
+     * @param mutation
+     */
     update: (mutation: WorkflowState): Promise<WorkflowState> =>
       this.updateResource(mutation, WorkflowState),
   };
@@ -62,7 +66,7 @@ export class WorkflowState extends HalResource {
  * @hidden
  */
 export class WorkflowStatesPage extends Page<WorkflowState> {
-  constructor(data?: any) {
+  constructor(data?: Record<string, unknown>) {
     super('workflow-states', WorkflowState, data);
   }
 }

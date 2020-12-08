@@ -4,6 +4,12 @@ import { LocalizationJob } from './LocalizationJob';
 import { Page } from './Page';
 import { Status } from './Status';
 import { HierarchyMeta } from './HierarchyNode';
+import { WorkflowState } from './WorkflowState';
+import { HttpMethod } from '../http/HttpRequest';
+
+interface AssignedWorkflow {
+  state: string;
+}
 
 /**
  * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.
@@ -99,6 +105,12 @@ export class ContentItem extends HalResource {
    * Defined if content item is a member of a hierarchy
    */
   public hierarchy?: HierarchyMeta;
+
+  /**
+   * Assigned workflow state
+   */
+  public workflow?: AssignedWorkflow;
+
   /**
    * Resources and actions related to a Content Item
    */
@@ -172,6 +184,18 @@ export class ContentItem extends HalResource {
         {},
         { version: this.version },
         ContentItem
+      ),
+
+    /**
+     * Assign a WorkflowState
+     */
+    assignWorkflowState: (workflowState: WorkflowState): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'edit-workflow',
+        {},
+        { version: this.version, state: workflowState.id },
+        ContentItem,
+        HttpMethod.PATCH
       ),
   };
 }
