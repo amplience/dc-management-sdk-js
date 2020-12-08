@@ -152,6 +152,15 @@ export const HUB = {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
     },
+    'create-workflow-state': {
+      href:
+        'https://apigee-dev.adis.ws/v2/content/hubs/5be1d5814cedfd01c030da20/workflow-states',
+    },
+    'workflow-states': {
+      href:
+        'https://apigee-dev.adis.ws/v2/content/hubs/5be1d5814cedfd01c030da20/workflow-states{?page,size,sort}',
+      templated: true,
+    },
   },
 };
 
@@ -1450,6 +1459,42 @@ export const WEBHOOK = {
 /**
  * @hidden
  */
+export const WORKFLOW_STATE = {
+  id: '5a497a000000000000000000',
+  label: 'Todo',
+  createdBy: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+  createdDate: '2018-01-02T03:04:05Z',
+  lastModifiedBy: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+  lastModifiedDate: '2018-01-02T03:04:05Z',
+  color: 'rgb(63,152,134)',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+    'workflow-state': {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const WORKFLOW_STATE_V2 = { ...WORKFLOW_STATE, label: 'Done' };
+
+/**
+ * @hidden
+ */
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
@@ -2052,6 +2097,10 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedCollection('workflow-states', {}, 'workflow-states', [
+        WORKFLOW_STATE,
+      ])
+      .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
       .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
@@ -2313,6 +2362,12 @@ export class DynamicContentFixtures {
 
     // Webhooks
     mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
+
+    // Workflow States
+    mocks
+      .resource(WORKFLOW_STATE)
+      .nestedResource('hub', {}, HUB)
+      .nestedUpdateResource('update', {}, WORKFLOW_STATE_V2);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
 
