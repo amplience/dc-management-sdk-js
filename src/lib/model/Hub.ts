@@ -112,6 +112,23 @@ export class Hub extends HalResource {
           options,
           ContentRepositoriesPage
         ),
+
+      /**
+       * Find all the Content Repositories that contain a feature
+       * @param options Options
+       */
+      findByFeature: (
+        feature: string,
+        options?: Pageable & Sortable
+      ): Promise<Page<ContentRepository>> =>
+        this.client.fetchLinkedResource(
+          {
+            href: `hubs/${this.id}/content-repositories/search/findByFeaturesContaining?feature={feature}{&page,size,sort}`,
+            templated: true,
+          },
+          { feature, ...options },
+          ContentRepositoriesPage
+        ),
     },
     contentTypes: {
       /**
@@ -131,6 +148,12 @@ export class Hub extends HalResource {
           resource,
           ContentType
         ),
+
+      /**
+       * Get a content type by its id
+       */
+      get: (id: string): Promise<ContentType> =>
+        this.client.fetchResource(`content-types/${id}`, ContentType),
     },
 
     editions: {
