@@ -44,7 +44,6 @@ export class WorkflowState extends HalResource {
   /**
    * Resources and actions related to a Workflow State
    */
-
   public readonly related = {
     /**
      * Updates this Workflow State with the changes in the mutation parameter.
