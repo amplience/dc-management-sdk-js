@@ -40,6 +40,7 @@ export class WorkflowState extends HalResource {
    * Timestamp representing when the workflow state was last updated in ISO 8601 format
    */
   public lastModifiedDate: string;
+
   /**
    * Resources and actions related to a Workflow State
    */
