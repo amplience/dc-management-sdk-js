@@ -233,7 +233,7 @@ export class DynamicContent {
   /**
    * @hidden
    */
-  public client: HalClient;
+  private client: HalClient;
 
   /**
    * Creates a Dynamic Content API client instance. You must provide credentials that will
