@@ -35,7 +35,6 @@ export interface Locale {
 /**
  * Hub settings
  */
-
 export class Settings extends HalResource {
   public virtualStagingEnvironment?: VSE;
   public previewVirtualStagingEnvironment?: VSE;
