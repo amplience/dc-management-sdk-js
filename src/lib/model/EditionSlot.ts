@@ -2,7 +2,7 @@ import { HalResource } from '../hal/models/HalResource';
 import { Page } from './Page';
 
 /**
- * Class representing the [EditionSlot](https://api.amplience.net/v2/content/docs/api/index.html#resources-editions-slots) resource.
+ * Class representing the [EditionSlot](https://amplience.com/docs/api/dynamic-content/management/#tag/Slots) resource.
  * EditionSlots model what content will go into a particular Slot for a specific Edition.
  */
 export class EditionSlot extends HalResource {

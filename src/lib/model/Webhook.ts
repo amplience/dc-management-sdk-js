@@ -3,7 +3,7 @@ import { Hub } from './Hub';
 import { Page } from './Page';
 
 /**
- * Class representing the [Webhook](https://api.amplience.net/v2/content/docs/api/index.html#resources-webhooks) resource.
+ * Class representing the [Webhook](https://amplience.com/docs/api/dynamic-content/management/#tag/Webhooks) resource.
  * A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST.
  */
 export class Webhook extends HalResource {

@@ -21,7 +21,7 @@ export interface CachedSchema {
 }
 
 /**
- * Class representing the [Content Type Schema](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-types) resource.
+ * Class representing the Content Type Schema resource.
  * Content types are JSON schemas that define a type of content to be created, including its structure, format and validation rules.
  */
 export class ContentTypeCachedSchema extends HalResource {

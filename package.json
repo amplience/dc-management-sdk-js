@@ -43,7 +43,8 @@
     "prepare-patch-release": "run-s all version:patch doc:publish",
     "prepare-minor-release": "run-s all version:minor doc:publish",
     "prepare-major-release": "run-s all version:major doc:publish",
-    "prepack": "npm ci && npm run build"
+    "prepack": "npm ci && npm run build",
+    "prepare": "npm run build"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",

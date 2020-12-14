@@ -4,7 +4,7 @@ import { Hub } from './Hub';
 import { SnapshotType } from './SnapshotType';
 
 /**
- * Class representing the [Snapshot](https://api.amplience.net/v2/content/docs/api/index.html#resources-snapshots) resource.
+ * Class representing the [Snapshot](https://amplience.com/docs/api/dynamic-content/management/#tag/Snapshots) resource.
  * A Snapshot is an immutable representation of a content item with all of its descendants (including their versions) at a given point in time.
  */
 export class Snapshot extends HalResource {
