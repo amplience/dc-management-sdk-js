@@ -2,6 +2,8 @@ import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentType } from './ContentType';
 import { Event } from './Event';
+import { WorkflowState } from './WorkflowState';
+import { Settings } from './Settings';
 
 test('list hubs', async (t) => {
   const client = new MockDynamicContent();
@@ -27,6 +29,85 @@ test('list of slot content repositories ', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentRepositories.findByFeature('slots');
   t.is(result.getItems()[0].name, 'slots');
+});
+
+test('facet the content items ', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentItems.facet(
+    {
+      fields: [
+        {
+          facetAs: 'ENUM',
+          field: 'schema',
+          filter: {
+            type: 'IN',
+            values: [
+              'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+            ],
+          },
+        },
+        {
+          facetAs: 'ENUM',
+          field: 'assignees',
+          filter: {
+            type: 'IN',
+            values: ['7078e5e7-d5bf-4015-9add-b75fb6f60537'],
+          },
+        },
+        { facetAs: 'ENUM', field: 'workflow.state', name: 'workflow.state' },
+        { facetAs: 'ENUM', field: 'publishingStatus' },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 7 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-7:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 14 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-14:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 30 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-30:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Last 60 days',
+          field: 'lastModifiedDate',
+          range: { start: 'NOW', end: '-60:DAYS' },
+        },
+        {
+          facetAs: 'DATE',
+          name: 'lastModifiedDate:Over 60 days',
+          field: 'lastModifiedDate',
+          range: { start: '-60:DAYS', end: '-100:YEARS' },
+        },
+        { facetAs: 'ENUM', field: 'locale' },
+      ],
+      returnEntities: true,
+    },
+    {
+      query: 'status:"ACTIVE"contentRepositoryId:"5d4af2ccc9e77c00015fa183"',
+      page: 0,
+      size: 30,
+      sort: 'lastModifiedDate,desc',
+    }
+  );
+  t.is(result.getItems()[0].label, 'Banner Ad Homepage');
+  t.is(result.getFacets()['schema'].length, 1);
+  t.is(
+    result.getItems()[0].schema,
+    'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+  );
+  t.is(
+    result.getFacets()['schema'][0]._id,
+    'http://deliver.bigcontent.io/schema/nested/nested-type.json'
+  );
 });
 
 test('list events', async (t) => {
@@ -62,6 +143,59 @@ test('register content type', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.register(new ContentType());
   t.is(result.id, '5be1d5134cedfd01c030c460');
+});
+
+test('update settings', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  await hub.related.settings.update(
+    new Settings({
+      virtualStagingEnvironment: {
+        hostname: 'test.com',
+      },
+    })
+  );
+
+  t.not(hub.settings.virtualStagingEnvironment.hostname, 'test.com');
+});
+
+test('list workflow-states', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.list();
+  t.is(result.getItems()[0].label, 'Translation complete');
+});
+
+test('get workflow-states', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.workflowStates.get('5ca3409bc9e77c0001b02253');
+  t.is(result.id, '5ca3409bc9e77c0001b02253');
+});
+
+test('create workflow-state', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.create(
+    new WorkflowState({
+      label: 'Translation complete',
+      color: 'rgb(0,0,0)',
+    })
+  );
+  t.is(result.label, 'Translation complete');
+});
+
+test('update workflow-state', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.list();
+
+  const mutation = new WorkflowState({
+    label: 'test updated',
+  });
+
+  const updated = await result.getItems()[0].related.update(mutation);
+
+  t.is(updated.label, 'test updated');
 });
 
 test('toJSON should copy resource attributes', async (t) => {

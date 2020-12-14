@@ -134,14 +134,19 @@ export const HUB = {
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
       templated: true,
     },
+    'facet-content-items': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/facet{?page,projection,query,size,sort}',
+      templated: true,
+    },
     webhooks: {
       href:
-        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks{?page,size,sort}',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks{?page,size,sort}',
       templated: true,
     },
     'create-webhook': {
       href:
-        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks',
     },
     'algolia-search-indexes': {
       href:
@@ -151,6 +156,67 @@ export const HUB = {
     'create-algolia-search-index': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
+    },
+    'workflow-states': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states{?page,size,sort}',
+      templated: true,
+    },
+    'create-workflow-state': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+
+export const WORKFLOW_STATE = {
+  color: 'rgb(25,195,151)',
+  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  createdDate: '2019-04-02T10:59:39.849Z',
+  id: '5ca3409bc9e77c0001b02253',
+  label: 'Translation complete',
+  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  lastModifiedDate: '2019-04-02T10:59:39.849Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    get: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+
+export const WORKFLOW_STATE_UPDATED = {
+  color: 'rgb(25,195,151)',
+  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  createdDate: '2019-04-02T10:59:39.849Z',
+  id: '5ca3409bc9e77c0001b02253',
+  label: 'test updated',
+  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  lastModifiedDate: '2019-04-02T10:59:39.849Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
     },
   },
 };
@@ -451,6 +517,69 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
   },
 };
 
+export const FACETED_CONTENT_ITEM = (() => {
+  const facetedContentItem = {
+    ...CONTENT_ITEM,
+    schema: CONTENT_ITEM.body._meta.schema,
+  };
+  delete facetedContentItem.body;
+  return facetedContentItem;
+})();
+
+export const CONTENT_ITEMS_FACET = {
+  _embedded: {
+    'content-items': [FACETED_CONTENT_ITEM],
+  },
+  _links: {
+    first: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+    last: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+  },
+  page: {
+    size: 30,
+    totalElements: 0,
+    totalPages: 0,
+    number: 0,
+  },
+  _facets: {
+    schema: [
+      {
+        _id: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 7 days': [],
+    root: [
+      {
+        _id: '0',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 60 days': [],
+    publishingStatus: [],
+    assignees: [
+      {
+        _id: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 30 days': [],
+    'workflow.state': [],
+    'lastModifiedDate:Last 14 days': [],
+    locale: [],
+    'lastModifiedDate:Over 60 days': [],
+  },
+};
+
 /**
  * @hidden
  */
@@ -699,6 +828,10 @@ export const EVENT = {
       href:
         'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/archive',
+    },
     hub: {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32379e4cedfd01c4504170',
@@ -767,6 +900,10 @@ export const EDITION = {
     delete: {
       href:
         'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/archive',
     },
     slots: {
       href:
@@ -2054,6 +2191,10 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
       .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
+      .nestedCollection('workflow-states', {}, 'workflow-states', [
+        WORKFLOW_STATE,
+      ])
+      .nestedUpdateResource('update-settings', {}, undefined)
       .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
       .nestedCollection(
         'list-content-type-schemas',
@@ -2066,10 +2207,20 @@ export class DynamicContentFixtures {
         {},
         CONTENT_TYPE_SCHEMA
       )
+      .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
-      .nestedCollection('algolia-search-indexes', {}, 'indexes', [
-        SEARCH_INDEX,
-      ]);
+      .nestedCollection('algolia-search-indexes', {}, 'indexes', [SEARCH_INDEX])
+      .nestedCreateResource(
+        'facet-content-items',
+        {
+          query:
+            'status:"ACTIVE"contentRepositoryId:"5d4af2ccc9e77c00015fa183"',
+          page: 0,
+          size: 30,
+          sort: 'lastModifiedDate,desc',
+        },
+        CONTENT_ITEMS_FACET
+      );
     hubMockResource.mocks.collection(
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
       'content-repositories',
@@ -2265,12 +2416,15 @@ export class DynamicContentFixtures {
       .resource(EVENT)
       .nestedResource('hub', {}, HUB)
       .nestedCollection('editions', {}, 'editions', [EDITION])
-      .nestedCreateResource('create-edition', {}, EDITION);
+      .nestedCreateResource('create-edition', {}, EDITION)
+      .nestedCreateResource('archive', {}, EVENT);
 
     // Editions
     mocks
       .resource(EDITION)
-      .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT]);
+      .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT])
+      .nestedCreateResource('archive', {}, EDITION)
+      .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' });
 
     // Snapshots
     mocks
@@ -2313,6 +2467,12 @@ export class DynamicContentFixtures {
 
     // Webhooks
     mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
+
+    // Workflow States
+    mocks
+      .resource(WORKFLOW_STATE)
+      .nestedResource('get', {}, WORKFLOW_STATE)
+      .nestedUpdateResource('update', {}, WORKFLOW_STATE_UPDATED);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
 

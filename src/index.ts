@@ -48,6 +48,8 @@ export { ContentLinkInstance } from './lib/content/models/ContentLink';
 export { Webhook } from './lib/model/Webhook';
 export { SearchIndex } from './lib/model/SearchIndex';
 export { SearchIndexSettings } from './lib/model/SearchIndexSettings';
+export { Settings } from './lib/model/Settings';
+export { WorkflowState } from './lib/model/WorkflowState';
 export {
   SearchIndexStatistics,
   SearchIndexStatisticsUsageMetric,
@@ -94,3 +96,11 @@ export {
   ContentTypeCachedSchema,
   CachedSchema,
 } from './lib/model/ContentTypeCachedSchema';
+export {
+  FacetField,
+  FacetQuery,
+  DateFacet,
+  EnumFacet,
+  FacetsResponse,
+  FacetCount,
+} from './lib/model/Facets';

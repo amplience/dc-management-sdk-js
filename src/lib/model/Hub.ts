@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { ContentItemsFacets, FacetedContentItem } from './ContentItem';
 import {
   ContentRepositoriesPage,
   ContentRepository,
@@ -7,13 +8,16 @@ import { ContentType, ContentTypePage } from './ContentType';
 import { ContentTypeSchema, ContentTypeSchemaPage } from './ContentTypeSchema';
 import { Edition, EditionsPage } from './Edition';
 import { Event, EventsPage } from './Event';
+import { FacetQuery, FacetsResponse } from './Facets';
 import { FindByDate } from './FindByDate';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
 import { SearchIndex, SearchIndexesPage } from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
+import { Settings } from './Settings';
 import { Webhook, WebhooksPage } from './Webhook';
+import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -64,6 +68,11 @@ export class Hub extends HalResource {
    * Timestamp representing when the Hub was last updated in ISO 8601 format
    */
   public lastModifiedDate?: string;
+
+  /**
+   * Hub settings
+   */
+  public settings?: Settings;
 
   /**
    * Resources and actions related to a Hub
@@ -149,6 +158,22 @@ export class Hub extends HalResource {
         this.client.fetchResource(`content-types/${id}`, ContentType),
     },
 
+    contentItems: {
+      /**
+       * Facet content items and search by text. See [Text Search Query Syntax](https://amplience.com/docs/api/dynamic-content/management/#section/Text-Search-Query-Syntax) for a summary of the query syntax.
+       */
+      facet: (
+        facetQuery: FacetQuery,
+        options?: Pageable & Sortable & { query: string }
+      ): Promise<FacetsResponse<FacetedContentItem>> =>
+        this.performActionThatReturnsResource(
+          'facet-content-items',
+          options,
+          facetQuery,
+          ContentItemsFacets
+        ),
+    },
+
     editions: {
       /**
        * Find editions by date associated with this Hub
@@ -218,6 +243,21 @@ export class Hub extends HalResource {
         ),
     },
 
+    settings: {
+      /**
+       * Updates this hub settings with the changes in the mutation parameter.
+       */
+      update: (mutation: Settings): Promise<Settings> =>
+        this.updateLinkedResource(
+          'update-settings',
+          {
+            method: 'PATCH',
+          },
+          mutation,
+          Settings
+        ),
+    },
+
     webhooks: {
       /**
        * Creates a Webhook inside this Hub
@@ -238,6 +278,31 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
         this.fetchLinkedResource('webhooks', options, WebhooksPage),
+    },
+
+    workflowStates: {
+      /**
+       * Creates a Workflow State inside this Hub
+       * @param resource
+       */
+      create: (resource: WorkflowState): Promise<WorkflowState> =>
+        this.createLinkedResource(
+          'create-workflow-state',
+          {},
+          resource,
+          WorkflowState
+        ),
+
+      /**
+       * Retrieves a list of Workflow States associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<WorkflowState>> =>
+        this.fetchLinkedResource(
+          'workflow-states',
+          options,
+          WorkflowStatesPage
+        ),
     },
   };
 }

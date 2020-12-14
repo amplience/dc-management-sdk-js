@@ -16,7 +16,7 @@
     "build": "run-s clean && run-p build:*",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
-    "fix": "run-s fix:*",
+    "fix": "run-s fix:eslint fix:prettier",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:eslint": "eslint --fix \"src/**/*.ts\"",
     "test": "run-s clean:test clean:cov test:* cov:check",
@@ -43,7 +43,8 @@
     "prepare-patch-release": "run-s all version:patch doc:publish",
     "prepare-minor-release": "run-s all version:minor doc:publish",
     "prepare-major-release": "run-s all version:major doc:publish",
-    "prepack": "npm ci && npm run build"
+    "prepack": "npm ci && npm run build",
+    "prepare": "npm run build"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
