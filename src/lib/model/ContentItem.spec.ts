@@ -101,6 +101,14 @@ test('content item with assignees', async (t) => {
   t.deepEqual(contentItem.assignees, ['28cf43f6-7521-41c8-9892-8716adcc1e4f']);
 });
 
+test('publish', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  return t.notThrowsAsync(result.related.publish());
+});
+
 test('toJSON should copy resource attributes', async (t) => {
   const client = new MockDynamicContent();
   const resource = await client.contentItems.get(
