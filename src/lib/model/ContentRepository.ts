@@ -23,7 +23,7 @@ export interface ContentRepositoryContentType {
 }
 
 /**
- * Class representing the [Content Repository](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-repositories) resource.
+ * Class representing the [Content Repository](https://amplience.com/docs/api/dynamic-content/management/#tag/Content-Repositories) resource.
  * Content repositories are containers where content can be stored.
  */
 export class ContentRepository extends HalResource {
