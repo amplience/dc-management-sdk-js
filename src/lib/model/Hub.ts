@@ -16,7 +16,7 @@ import { Status } from './Status';
 import { Webhook, WebhooksPage } from './Webhook';
 
 /**
- * Class representing the [Hub](https://api.amplience.net/v2/content/docs/api/index.html#resources-hubs) resource.
+ * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
  * Hubs are containers for multiple repositories including media, content, content types.
  */
 export class Hub extends HalResource {
@@ -227,13 +227,13 @@ export class Hub extends HalResource {
         this.createLinkedResource('create-webhook', {}, resource, Webhook),
 
       /**
-       * Get a webhook inside this hub by its id
+       * Get a Webhook inside this Hub by its id
        */
       get: (id: string): Promise<Webhook> =>
         this.client.fetchResource(`hubs/${this.id}/webhooks/${id}`, Webhook),
 
       /**
-       * Retrieves a list of Events associated with this Hub
+       * Retrieves a list of Webhooks associated with this Hub
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
