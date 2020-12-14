@@ -699,6 +699,10 @@ export const EVENT = {
       href:
         'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/archive',
+    },
     hub: {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32379e4cedfd01c4504170',
@@ -767,6 +771,10 @@ export const EDITION = {
     delete: {
       href:
         'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/archive',
     },
     slots: {
       href:
@@ -2265,12 +2273,15 @@ export class DynamicContentFixtures {
       .resource(EVENT)
       .nestedResource('hub', {}, HUB)
       .nestedCollection('editions', {}, 'editions', [EDITION])
-      .nestedCreateResource('create-edition', {}, EDITION);
+      .nestedCreateResource('create-edition', {}, EDITION)
+      .nestedCreateResource('archive', {}, EVENT);
 
     // Editions
     mocks
       .resource(EDITION)
-      .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT]);
+      .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT])
+      .nestedCreateResource('archive', {}, EDITION)
+      .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' });
 
     // Snapshots
     mocks
