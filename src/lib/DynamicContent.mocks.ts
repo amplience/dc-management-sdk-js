@@ -136,12 +136,12 @@ export const HUB = {
     },
     webhooks: {
       href:
-        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks{?page,size,sort}',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks{?page,size,sort}',
       templated: true,
     },
     'create-webhook': {
       href:
-        'https://api.amplience.net/v2/content/hubs/5be1d5814cedfd01c030da20/webhooks',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks',
     },
     'algolia-search-indexes': {
       href:
@@ -151,6 +151,67 @@ export const HUB = {
     'create-algolia-search-index': {
       href:
         'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
+    },
+    'workflow-states': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states{?page,size,sort}',
+      templated: true,
+    },
+    'create-workflow-state': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+
+export const WORKFLOW_STATE = {
+  color: 'rgb(25,195,151)',
+  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  createdDate: '2019-04-02T10:59:39.849Z',
+  id: '5ca3409bc9e77c0001b02253',
+  label: 'Translation complete',
+  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  lastModifiedDate: '2019-04-02T10:59:39.849Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    get: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+
+export const WORKFLOW_STATE_UPDATED = {
+  color: 'rgb(25,195,151)',
+  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  createdDate: '2019-04-02T10:59:39.849Z',
+  id: '5ca3409bc9e77c0001b02253',
+  label: 'test updated',
+  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
+  lastModifiedDate: '2019-04-02T10:59:39.849Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
     },
   },
 };
@@ -2062,6 +2123,10 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
       .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
+      .nestedCollection('workflow-states', {}, 'workflow-states', [
+        WORKFLOW_STATE,
+      ])
+      .nestedUpdateResource('update-settings', {}, undefined)
       .nestedCreateResource('register-content-type', {}, CONTENT_TYPE)
       .nestedCollection(
         'list-content-type-schemas',
@@ -2074,6 +2139,7 @@ export class DynamicContentFixtures {
         {},
         CONTENT_TYPE_SCHEMA
       )
+      .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
       .nestedCollection('algolia-search-indexes', {}, 'indexes', [
         SEARCH_INDEX,
@@ -2324,6 +2390,12 @@ export class DynamicContentFixtures {
 
     // Webhooks
     mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
+
+    // Workflow States
+    mocks
+      .resource(WORKFLOW_STATE)
+      .nestedResource('get', {}, WORKFLOW_STATE)
+      .nestedUpdateResource('update', {}, WORKFLOW_STATE_UPDATED);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);
 
