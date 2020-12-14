@@ -140,7 +140,7 @@ createEvent();
 Please use the following documentation resources to assist building your application:
 
 - Dynamic Content Management SDK [Reference documentation](https://amplience.github.io/dc-management-sdk-js/)
-- Dynamic Content Management API [Reference documentation](https://api.amplience.net/v2/content/docs/api/index.html#_overview)
+- Dynamic Content Management API [Reference documentation](https://amplience.com/docs/api/dynamic-content/management/)
 - Dynamic Content [User guide](https://docs.amplience.net/)
 
 ## Getting Help

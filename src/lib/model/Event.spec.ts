@@ -15,6 +15,21 @@ test('list editions', async (t) => {
   t.is(editions.getItems()[0].name, 'January Sale');
 });
 
+test('archive event', async (t) => {
+  const client = new MockDynamicContent();
+  const event = await client.events.get('5b32379e4cedfd01c4504171');
+  const result = await event.related.archive();
+  t.is(result.id, '5b32379e4cedfd01c4504171');
+});
+
+test('delete event', async (t) => {
+  const client = new MockDynamicContent();
+  const event = await client.events.get('5b32379e4cedfd01c4504171');
+  const result = await event.related.delete();
+
+  t.false(result !== undefined);
+});
+
 test('create edition', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.events.get('5b32379e4cedfd01c4504171');

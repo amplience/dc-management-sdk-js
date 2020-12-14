@@ -5,7 +5,7 @@ import { Page } from './Page';
 import { PublishingStatus } from './PublishingStatus';
 
 /**
- * Interface representing a projected [Event](https://api.amplience.net/v2/content/docs/api/index.html#resources-events) resource.
+ * Interface representing a projected [Event](https://amplience.com/docs/api/dynamic-content/management/#resources-events) resource.
  * An Event represents a major date in the calendar, such as Christmas or Black Friday. An Event may span multiple days and start and end at any given UTC time.
  */
 interface ProjectedEvent {
@@ -41,7 +41,7 @@ interface ProjectedEvent {
 }
 
 /**
- * Class representing the [Edition](https://api.amplience.net/v2/content/docs/api/index.html#resources-editions) resource.
+ * Class representing the [Edition](https://amplience.com/docs/api/dynamic-content/management/#tag/Editions) resource.
  * An Edition is the main way of scheduling content to be published on a specific date.
  * It holds the association between slots and content items. Once all slots are valid and
  * there are no conflicts, it is ready to be scheduled.
@@ -133,6 +133,17 @@ export class Edition extends HalResource {
    */
   public readonly related = {
     /**
+     * Archive Edition
+     */
+    archive: (): Promise<Edition> =>
+      this.performActionThatReturnsResource('archive', {}, {}, Edition),
+
+    /**
+     * Delete Edition
+     */
+    delete: (): Promise<void> => this.deleteResource(),
+
+    /**
      * Retrieves the Event associated with this Edition
      */
     event: (): Promise<Event> => this.fetchLinkedResource('event', {}, Event),
@@ -144,6 +155,11 @@ export class Edition extends HalResource {
       list: (): Promise<Page<EditionSlot>> =>
         this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
     },
+
+    /**
+     * Unschedule Edition
+     */
+    unschedule: (): Promise<void> => this.deleteLinkedResource('schedule', {}),
   };
 }
 
