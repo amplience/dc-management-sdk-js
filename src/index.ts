@@ -49,6 +49,7 @@ export { Webhook } from './lib/model/Webhook';
 export { WorkflowState } from './lib/model/WorkflowState';
 export { SearchIndex } from './lib/model/SearchIndex';
 export { SearchIndexSettings } from './lib/model/SearchIndexSettings';
+export { Settings } from './lib/model/Settings';
 export {
   SearchIndexStatistics,
   SearchIndexStatisticsUsageMetric,

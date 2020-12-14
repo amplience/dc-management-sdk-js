@@ -13,11 +13,12 @@ import { Pageable } from './Pageable';
 import { SearchIndex, SearchIndexesPage } from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
+import { Settings } from './Settings';
 import { Webhook, WebhooksPage } from './Webhook';
 import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 
 /**
- * Class representing the [Hub](https://api.amplience.net/v2/content/docs/api/index.html#resources-hubs) resource.
+ * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
  * Hubs are containers for multiple repositories including media, content, content types.
  */
 export class Hub extends HalResource {
@@ -65,6 +66,11 @@ export class Hub extends HalResource {
    * Timestamp representing when the Hub was last updated in ISO 8601 format
    */
   public lastModifiedDate?: string;
+
+  /**
+   * Hub settings
+   */
+  public settings?: Settings;
 
   /**
    * Resources and actions related to a Hub
@@ -219,6 +225,21 @@ export class Hub extends HalResource {
         ),
     },
 
+    settings: {
+      /**
+       * Updates this hub settings with the changes in the mutation parameter.
+       */
+      update: (mutation: Settings): Promise<Settings> =>
+        this.updateLinkedResource(
+          'update-settings',
+          {
+            method: 'PATCH',
+          },
+          mutation,
+          Settings
+        ),
+    },
+
     webhooks: {
       /**
        * Creates a Webhook inside this Hub
@@ -228,13 +249,13 @@ export class Hub extends HalResource {
         this.createLinkedResource('create-webhook', {}, resource, Webhook),
 
       /**
-       * Get a webhook inside this hub by its id
+       * Get a Webhook inside this Hub by its id
        */
       get: (id: string): Promise<Webhook> =>
         this.client.fetchResource(`hubs/${this.id}/webhooks/${id}`, Webhook),
 
       /**
-       * Retrieves a list of Events associated with this Hub
+       * Retrieves a list of Webhooks associated with this Hub
        * @param options Pagination options
        */
       list: (options?: Pageable & Sortable): Promise<Page<Webhook>> =>
@@ -243,7 +264,7 @@ export class Hub extends HalResource {
 
     workflowStates: {
       /**
-       * Create a Webhook State inside this Hub
+       * Creates a Workflow State inside this Hub
        * @param resource
        */
       create: (resource: WorkflowState): Promise<WorkflowState> =>

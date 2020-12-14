@@ -41,9 +41,10 @@ export class WorkflowState extends HalResource {
   public lastModifiedDate?: string;
 
   /**
-   * Assigned colour in the format of `rgb(R,B,G)`
+   * Assigned colour in the format of `rgb(R,G,B)`
    */
   public 'color': string;
+
   /**
    * Resources and actions related to a WorkflowState
    */

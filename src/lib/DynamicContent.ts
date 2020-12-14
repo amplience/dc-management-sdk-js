@@ -231,10 +231,13 @@ export class DynamicContent {
       this.client.fetchResource(`/editions/${id}`, Edition),
   };
 
+  /**
+   * Workflow States
+   */
   public readonly workflowStates = {
     /**
-     * Retrieve an Workflow State resource by id
-     * @param id workflow state id, previously generated on creation
+     * Retrieve a Workflow State by id
+     * @param id of Workflow State, previously generated on creation
      */
     get: (id: string): Promise<WorkflowState> =>
       this.client.fetchResource(`/workflow-states/${id}`, WorkflowState),

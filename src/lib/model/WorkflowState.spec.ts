@@ -18,15 +18,6 @@ test('list workflow states', async (t) => {
   t.is(workflowStates.getItems()[0].label, 'Todo');
 });
 
-test('create a workflow state', async (t) => {
-  const client = new MockDynamicContent();
-  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
-  const newWorkflowState = await hub.related.workflowStates.create(
-    new WorkflowState({ label: 'Todo' })
-  );
-  t.is(newWorkflowState.label, 'Todo');
-});
-
 test('update a workflow state', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');

@@ -12,7 +12,7 @@ interface AssignedWorkflow {
 }
 
 /**
- * Class representing the [Content Item](https://api.amplience.net/v2/content/docs/api/index.html#resources-content-items) resource.
+ * Class representing the [Content Item](https://amplience.com/docs/api/dynamic-content/management/#tag/Content-Items) resource.
  * Content Items are instances of content created from a content type.
  */
 export class ContentItem extends HalResource {

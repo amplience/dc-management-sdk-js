@@ -2,6 +2,8 @@ import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentType } from './ContentType';
 import { Event } from './Event';
+import { WorkflowState } from './WorkflowState';
+import { Settings } from './Settings';
 
 test('list hubs', async (t) => {
   const client = new MockDynamicContent();
@@ -62,6 +64,39 @@ test('register content type', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.register(new ContentType());
   t.is(result.id, '5be1d5134cedfd01c030c460');
+});
+
+test('update settings', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  await hub.related.settings.update(
+    new Settings({
+      virtualStagingEnvironment: {
+        hostname: 'test.com',
+      },
+    })
+  );
+
+  t.not(hub.settings.virtualStagingEnvironment.hostname, 'test.com');
+});
+
+test('list workflow-states', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.list();
+  t.is(result.getItems()[0].label, 'Todo');
+});
+
+test('create workflow-state', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.workflowStates.create(
+    new WorkflowState({
+      label: 'Todo',
+      color: 'rgb(0,0,0)',
+    })
+  );
+  t.is(result.label, 'Todo');
 });
 
 test('toJSON should copy resource attributes', async (t) => {
