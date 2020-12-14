@@ -134,6 +134,11 @@ export const HUB = {
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
       templated: true,
     },
+    'facet-content-items': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/facet{?page,projection,query,size,sort}',
+      templated: true,
+    },
     webhooks: {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks{?page,size,sort}',
@@ -509,6 +514,69 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale',
     },
+  },
+};
+
+export const FACETED_CONTENT_ITEM = (() => {
+  const facetedContentItem = {
+    ...CONTENT_ITEM,
+    schema: CONTENT_ITEM.body._meta.schema,
+  };
+  delete facetedContentItem.body;
+  return facetedContentItem;
+})();
+
+export const CONTENT_ITEMS_FACET = {
+  _embedded: {
+    'content-items': [FACETED_CONTENT_ITEM],
+  },
+  _links: {
+    first: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+    last: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+    },
+  },
+  page: {
+    size: 30,
+    totalElements: 0,
+    totalPages: 0,
+    number: 0,
+  },
+  _facets: {
+    schema: [
+      {
+        _id: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 7 days': [],
+    root: [
+      {
+        _id: '0',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 60 days': [],
+    publishingStatus: [],
+    assignees: [
+      {
+        _id: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+        count: 0,
+      },
+    ],
+    'lastModifiedDate:Last 30 days': [],
+    'workflow.state': [],
+    'lastModifiedDate:Last 14 days': [],
+    locale: [],
+    'lastModifiedDate:Over 60 days': [],
   },
 };
 
@@ -2141,9 +2209,18 @@ export class DynamicContentFixtures {
       )
       .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedCreateResource('create-algolia-search-index', {}, SEARCH_INDEX)
-      .nestedCollection('algolia-search-indexes', {}, 'indexes', [
-        SEARCH_INDEX,
-      ]);
+      .nestedCollection('algolia-search-indexes', {}, 'indexes', [SEARCH_INDEX])
+      .nestedCreateResource(
+        'facet-content-items',
+        {
+          query:
+            'status:"ACTIVE"contentRepositoryId:"5d4af2ccc9e77c00015fa183"',
+          page: 0,
+          size: 30,
+          sort: 'lastModifiedDate,desc',
+        },
+        CONTENT_ITEMS_FACET
+      );
     hubMockResource.mocks.collection(
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
       'content-repositories',

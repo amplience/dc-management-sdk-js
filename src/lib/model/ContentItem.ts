@@ -4,39 +4,24 @@ import { LocalizationJob } from './LocalizationJob';
 import { Page } from './Page';
 import { Status } from './Status';
 import { HierarchyMeta } from './HierarchyNode';
+import { FacetsResponse } from './Facets';
 
-/**
- * Class representing the [Content Item](https://amplience.com/docs/api/dynamic-content/management/#tag/Content-Items) resource.
- * Content Items are instances of content created from a content type.
- */
-export class ContentItem extends HalResource {
+abstract class BaseContentItem extends HalResource {
   /**
    * Unique id generated on creation
    */
   public id: string;
 
   /**
+   * Content repository id
+   */
+  public contentRepositoryId: string;
+
+  /**
    * Id of the folder where this content item is placed.
    * This will be <tt>undefined</tt> if the item is in the repository root.
    */
   public folderId: string;
-
-  /**
-   * Content item JSON body. The body must include the content type URL to indicate which content type this
-   * item will be created against, e.g.
-   *
-   * ```json
-   * {
-   *  "_meta": {
-   *    "schema": "https://raw.githubusercontent.com/amplience/dc-content-types/master/text-block.json"
-   *  }
-   * }
-   * ```
-   *
-   * The body will be validated against the content type
-   * and will reject if there are any validation errors.
-   */
-  public body: any;
 
   /**
    * Version number of the content item returned. By default this is
@@ -177,10 +162,53 @@ export class ContentItem extends HalResource {
 }
 
 /**
+ * Class representing a Faceted Content Item.
+ * A faceted content item does not include a body, but includes the schema of the content item
+ */
+export class FacetedContentItem extends BaseContentItem {
+  /**
+   * Content item schema
+   */
+  public schema: string;
+}
+
+/**
+ * Class representing the [Content Item](https://amplience.com/docs/api/dynamic-content/management/#tag/Content-Items) resource.
+ * Content Items are instances of content created from a content type.
+ */
+export class ContentItem extends BaseContentItem {
+  /**
+   * Content item JSON body. The body must include the content type URL to indicate which content type this
+   * item will be created against, e.g.
+   *
+   * ```json
+   * {
+   *  "_meta": {
+   *    "schema": "https://raw.githubusercontent.com/amplience/dc-content-types/master/text-block.json"
+   *  }
+   * }
+   * ```
+   *
+   * The body will be validated against the content type
+   * and will reject if there are any validation errors.
+   */
+  public body: any;
+}
+
+/**
  * @hidden
  */
 export class ContentItemsPage extends Page<ContentItem> {
   constructor(data?: any) {
     super('content-items', ContentItem, data);
+  }
+}
+
+/**
+ * @hidden
+ */
+export class ContentItemsFacets extends FacetsResponse<FacetedContentItem> {
+  constructor(data?: any) {
+    super('content-items', FacetedContentItem, data);
   }
 }
