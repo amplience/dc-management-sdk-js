@@ -1,11 +1,11 @@
-name: Run tests (Node.js 8.x, 10.x, 12.x)
+name: Build & test
 
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
