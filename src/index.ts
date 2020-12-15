@@ -22,7 +22,7 @@ export {
   ContentRepository,
   ContentRepositoryContentType,
 } from './lib/model/ContentRepository';
-export { ContentItem } from './lib/model/ContentItem';
+export { ContentItem, FacetedContentItem } from './lib/model/ContentItem';
 export {
   ContentTypeSchema,
   ValidationLevel,
