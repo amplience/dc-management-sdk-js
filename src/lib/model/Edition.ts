@@ -167,7 +167,7 @@ export class Edition extends HalResource {
  * @hidden
  */
 export class EditionsPage extends Page<Edition> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('editions', Edition, data);
   }
 }

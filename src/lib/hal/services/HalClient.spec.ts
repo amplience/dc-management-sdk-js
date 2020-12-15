@@ -185,7 +185,7 @@ test('serialize should make a copy of the object', (t) => {
   const hubJson = client.serialize(hub);
 
   t.not(hub, hubJson);
-  t.is(hubJson.name, 'hub');
+  t.is(hubJson['name'], 'hub');
 });
 
 test('api errors should be surfaced in the rejection error', async (t) => {

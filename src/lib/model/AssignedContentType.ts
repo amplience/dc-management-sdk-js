@@ -40,7 +40,7 @@ export class AssignedContentType extends HalResource {
  * @hidden
  */
 export class AssignedContentTypePage extends Page<AssignedContentType> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('assigned-content-types', AssignedContentType, data);
   }
 }

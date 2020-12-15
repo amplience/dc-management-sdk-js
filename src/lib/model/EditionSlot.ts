@@ -21,7 +21,7 @@ export class EditionSlot extends HalResource {
  * @hidden
  */
 export class EditionSlotsPage extends Page<EditionSlot> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('edition-slots', EditionSlot, data);
   }
 }

@@ -105,7 +105,7 @@ export class ContentTypeSchema extends HalResource {
  * @hidden
  */
 export class ContentTypeSchemaPage extends Page<ContentTypeSchema> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('content-type-schemas', ContentTypeSchema, data);
   }
 }

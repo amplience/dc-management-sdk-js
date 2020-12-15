@@ -23,7 +23,7 @@ export class HierarchyParents extends HalResource
   public parents: Array<HierarchyNode>;
   public publishingStatus: ContentItemPublishingStatus | string;
 
-  constructor(data: any) {
+  constructor(data?: unknown) {
     super(data);
 
     this.parents = this.parents.map((node) => {

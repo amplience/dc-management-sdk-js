@@ -82,7 +82,7 @@ export class Event extends HalResource {
  * @hidden
  */
 export class EventsPage extends Page<Event> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('events', Event, data);
   }
 }

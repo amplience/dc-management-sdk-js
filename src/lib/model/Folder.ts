@@ -63,7 +63,7 @@ export class Folder extends HalResource {
  * @hidden
  */
 export class FoldersPage extends Page<Folder> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('folders', Folder, data);
   }
 }

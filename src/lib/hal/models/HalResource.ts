@@ -5,7 +5,7 @@ import { HalLink } from './HalLink';
  * @hidden
  */
 export interface HalResourceConstructor<T extends HalResource> {
-  new (data?: any): T;
+  new (data?: unknown): T;
 }
 
 /**
@@ -32,7 +32,7 @@ export class HalResource {
    * come from the remote api.
    * @param data
    */
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     if (data) {
       this.parse(data);
     }
@@ -42,7 +42,7 @@ export class HalResource {
    * Parses the data returned by the API into the model class
    * @hidden
    */
-  public parse(data: any): void {
+  public parse(data: unknown): void {
     Object.assign(this, data);
   }
 
@@ -100,7 +100,7 @@ export class HalResource {
    */
   protected fetchLinkedResource<T extends HalResource>(
     name: string,
-    params: any,
+    params: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
@@ -114,7 +114,7 @@ export class HalResource {
    */
   protected createLinkedResource<T extends HalResource>(
     name: string,
-    params: any,
+    params: unknown,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
@@ -129,8 +129,8 @@ export class HalResource {
    */
   protected performActionThatReturnsResource<T extends HalResource>(
     name: string,
-    params: any,
-    data: any,
+    params: unknown,
+    data: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
@@ -164,7 +164,7 @@ export class HalResource {
    * DELETE a linked resource
    * @hidden
    */
-  protected deleteLinkedResource(name: string, params: any): Promise<void> {
+  protected deleteLinkedResource(name: string, params: unknown): Promise<void> {
     return this.withHalLink(name).then(([link, client]) =>
       client.deleteLinkedResource(link, params)
     );
@@ -192,7 +192,7 @@ export class HalResource {
    */
   protected updateLinkedResource<T extends HalResource>(
     name: string,
-    params: any,
+    params: unknown,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {

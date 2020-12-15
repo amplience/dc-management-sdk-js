@@ -19,7 +19,7 @@ export class OAuth2Client implements AccessTokenProvider {
 
   constructor(
     clientCredentials: OAuth2ClientCredentials,
-    { authUrl = 'https://auth.adis.ws' },
+    { authUrl = 'https://auth.adis.ws' }: { authUrl?: string },
     httpClient: HttpClient
   ) {
     this.authUrl = authUrl;

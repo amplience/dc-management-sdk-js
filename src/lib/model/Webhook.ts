@@ -55,7 +55,7 @@ export class Webhook extends HalResource {
  * @hidden
  */
 export class WebhooksPage extends Page<Webhook> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('webhooks', Webhook, data);
   }
 }

@@ -1,13 +1,13 @@
 /**
  * @hidden
  */
-export type JsonVisitor = (value: any) => void;
+export type JsonVisitor = (value: unknown) => void;
 
 /**
  * @hidden
  */
 export class JsonTree {
-  public static visit(data: any, visitor: JsonVisitor, depth = 0): void {
+  public static visit(data: unknown, visitor: JsonVisitor, depth = 0): void {
     if (depth > 1000) {
       throw new Error(
         'Tree depth exceeded maximum of 1000, verify the data is not self-referential'

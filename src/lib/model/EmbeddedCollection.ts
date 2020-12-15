@@ -13,7 +13,7 @@ export abstract class EmbeddedCollection<
   constructor(
     key: string,
     resourceType: HalResourceConstructor<T>,
-    data?: any
+    data?: unknown
   ) {
     super(data);
     this.key = key;

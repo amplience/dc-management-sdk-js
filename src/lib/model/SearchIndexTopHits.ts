@@ -22,7 +22,7 @@ export class SearchIndexTopHits extends HalResource {
 export class SearchIndexTopHitsCollection extends EmbeddedCollection<
   SearchIndexTopHits
 > {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('top-hits', SearchIndexTopHits, data);
   }
 }

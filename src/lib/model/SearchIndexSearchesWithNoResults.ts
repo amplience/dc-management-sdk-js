@@ -27,7 +27,7 @@ export class SearchIndexSearchesWithNoResults extends HalResource {
 export class SearchIndexSearchesWithNoResultsCollection extends EmbeddedCollection<
   SearchIndexSearchesWithNoResults
 > {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('searches-with-no-results', SearchIndexSearchesWithNoResults, data);
   }
 }

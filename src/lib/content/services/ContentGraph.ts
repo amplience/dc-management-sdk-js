@@ -11,9 +11,11 @@ export class ContentGraph {
    * @param content
    * @returns {IContentLink[]}
    */
-  public static extractLinks(content: any): ContentLinkInstance[] {
+  public static extractLinks(
+    content: Record<string, unknown>
+  ): ContentLinkInstance[] {
     const result = new Array<ContentLinkInstance>();
-    JsonTree.visit(content, (value: any) => {
+    JsonTree.visit(content, (value: unknown) => {
       if (ContentLink.isContentLink(value)) {
         result.push(value as ContentLinkInstance);
       }

@@ -146,7 +146,7 @@ export class ContentType extends HalResource {
  * @hidden
  */
 export class ContentTypePage extends Page<ContentType> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('content-types', ContentType, data);
   }
 }

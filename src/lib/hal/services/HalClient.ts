@@ -14,7 +14,7 @@ import { CURIEs } from './CURIEs';
 export interface HalClient {
   fetchLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
@@ -25,15 +25,15 @@ export interface HalClient {
 
   createLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: unknown,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
   performActionThatReturnsResource<T extends HalResource>(
     link: HalLink,
-    params: any,
-    data: any,
+    params: unknown,
+    data: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
@@ -51,23 +51,23 @@ export interface HalClient {
 
   updateLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: unknown,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T>;
 
-  deleteLinkedResource(link: HalLink, params: any): Promise<void>;
+  deleteLinkedResource(link: HalLink, params: unknown): Promise<void>;
 
   deleteResource(path: string): Promise<void>;
 
   performActionWithoutResourceResponse(link: HalLink): Promise<void>;
 
   parse<T extends HalResource>(
-    data: any,
+    data: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): T;
 
-  serialize<T>(data: T): any;
+  serialize<T>(data: T): unknown;
 }
 
 /**
@@ -82,7 +82,7 @@ export class DefaultHalClient implements HalClient {
 
   public async fetchLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     let href = link.href;
@@ -105,7 +105,7 @@ export class DefaultHalClient implements HalClient {
 
   public async createLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: Record<string, unknown>,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
@@ -144,7 +144,7 @@ export class DefaultHalClient implements HalClient {
 
   public async updateLinkedResource<T extends HalResource>(
     link: HalLink,
-    params: any,
+    params: Record<string, unknown>,
     resource: T,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
@@ -155,7 +155,10 @@ export class DefaultHalClient implements HalClient {
     return this.updateResource(href, resource, resourceConstructor);
   }
 
-  public async deleteLinkedResource(link: HalLink, params: any): Promise<void> {
+  public async deleteLinkedResource(
+    link: HalLink,
+    params: Record<string, unknown>
+  ): Promise<void> {
     let href = link.href;
     if (link.templated) {
       href = CURIEs.expand(href, params);
@@ -183,8 +186,8 @@ export class DefaultHalClient implements HalClient {
 
   public async performActionThatReturnsResource<T extends HalResource>(
     link: HalLink,
-    params: any,
-    data: any,
+    params: Record<string, unknown>,
+    data: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): Promise<T> {
     let href = link.href;
@@ -203,7 +206,7 @@ export class DefaultHalClient implements HalClient {
   }
 
   public parse<T extends HalResource>(
-    data: any,
+    data: unknown,
     resourceConstructor: HalResourceConstructor<T>
   ): T {
     const instance: T = new resourceConstructor(data);
@@ -211,7 +214,7 @@ export class DefaultHalClient implements HalClient {
     return instance;
   }
 
-  public serialize<T>(data: T): any {
+  public serialize<T>(data: T): unknown {
     return JSON.parse(JSON.stringify(data));
   }
 

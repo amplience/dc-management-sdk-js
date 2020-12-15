@@ -366,7 +366,7 @@ export class SearchIndex extends HalResource {
  * @hidden
  */
 export class SearchIndexesPage extends Page<SearchIndex> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('indexes', SearchIndex, data);
   }
 }

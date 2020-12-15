@@ -199,7 +199,7 @@ export class ContentItem extends BaseContentItem {
  * @hidden
  */
 export class ContentItemsPage extends Page<ContentItem> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('content-items', ContentItem, data);
   }
 }
@@ -208,7 +208,7 @@ export class ContentItemsPage extends Page<ContentItem> {
  * @hidden
  */
 export class ContentItemsFacets extends FacetsResponse<FacetedContentItem> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('content-items', FacetedContentItem, data);
   }
 }

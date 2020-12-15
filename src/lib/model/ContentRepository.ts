@@ -134,7 +134,7 @@ export class ContentRepository extends HalResource {
  * @hidden
  */
 export class ContentRepositoriesPage extends Page<ContentRepository> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('content-repositories', ContentRepository, data);
   }
 }

@@ -57,7 +57,7 @@ export class WorkflowState extends HalResource {
  * @hidden
  */
 export class WorkflowStatesPage extends Page<WorkflowState> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('workflow-states', WorkflowState, data);
   }
 }

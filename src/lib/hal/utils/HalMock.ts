@@ -22,7 +22,7 @@ export class HalMockResource {
 
   public nestedResource(
     linkName: string,
-    args: any,
+    args: Record<string, unknown>,
     resource: HalLiteral
   ): this {
     const link = this.resource._links[linkName];
@@ -33,7 +33,7 @@ export class HalMockResource {
 
   public nestedCollection<T = HalLiteral>(
     linkName: string,
-    args: any,
+    args: Record<string, unknown>,
     type: string,
     values: T[]
   ): this {
@@ -45,7 +45,7 @@ export class HalMockResource {
 
   public nestedCreateResource(
     linkName: string,
-    args: any,
+    args: Record<string, unknown>,
     resource: HalLiteral
   ): this {
     const link = this.resource._links[linkName];
@@ -56,7 +56,7 @@ export class HalMockResource {
 
   public nestedUpdateResource(
     linkName: string,
-    args: any,
+    args: Record<string, unknown>,
     resource: HalLiteral
   ): this {
     const link = this.resource._links[linkName];
@@ -65,7 +65,7 @@ export class HalMockResource {
     return this;
   }
 
-  public nestedDelete(linkName: string, args: any): this {
+  public nestedDelete(linkName: string, args: Record<string, unknown>): this {
     const link = this.resource._links[linkName];
     const href = CURIEs.expand(link.href, args);
     this.mocks.deleteResource(href);

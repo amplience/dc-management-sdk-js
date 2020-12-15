@@ -311,7 +311,7 @@ export class Hub extends HalResource {
  * @hidden
  */
 export class HubsPage extends Page<Hub> {
-  constructor(data?: any) {
+  constructor(data?: unknown) {
     super('hubs', Hub, data);
   }
 }
