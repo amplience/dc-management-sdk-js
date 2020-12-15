@@ -1,5 +1,3 @@
-import { createHmac } from 'crypto';
-
 /**
  * Utility to help calculate webhook signatures
  */
@@ -12,7 +10,8 @@ export class WebhookSignature {
    * @param body Raw response body bytes sent as part of the notification
    * @param secret Shared secret value previously set in Dynamic Content
    */
-  public static calculate(body: Buffer, secret: string): string {
+  public static async calculate(body: Buffer, secret: string): Promise<string> {
+    const { createHmac } = await import('crypto');
     const hmac = createHmac('sha256', secret);
     hmac.update(body as any, 'utf8');
     return hmac.digest('base64');
