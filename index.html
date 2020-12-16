@@ -99,8 +99,8 @@
 				and the client will handle creating authentication tokens.</p>
 				<p>For assistance creating API credentials and configuring permissions please contact <a href="https://support.amplience.com/">Amplience Support</a>.</p>
 				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
-  client_id: process.env.CLIENT_ID,
-  client_secret: process.env.CLIENT_SECRET,
+  <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
+  <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET,
 });</code></pre>
 				<p>OR</p>
 				<pre><code class="language-javascript"><span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> dc.DynamicContent({
@@ -127,8 +127,8 @@
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createEvent</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> DynamicContent({
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET,
+    <span class="hljs-attr">client_id</span>: process.env.CLIENT_ID,
+    <span class="hljs-attr">client_secret</span>: process.env.CLIENT_SECRET,
   });
 
   <span class="hljs-keyword">const</span> hubs = <span class="hljs-keyword">await</span> client.hubs.list();
@@ -178,7 +178,7 @@ createEvent();</code></pre>
 				<p>Please use the following documentation resources to assist building your application:</p>
 				<ul>
 					<li>Dynamic Content Management SDK <a href="https://amplience.github.io/dc-management-sdk-js/">Reference documentation</a></li>
-					<li>Dynamic Content Management API <a href="https://api.amplience.net/v2/content/docs/api/index.html#_overview">Reference documentation</a></li>
+					<li>Dynamic Content Management API <a href="https://amplience.com/docs/api/dynamic-content/management/">Reference documentation</a></li>
 					<li>Dynamic Content <a href="https://docs.amplience.net/">User guide</a></li>
 				</ul>
 				<a href="#getting-help" id="getting-help" style="color: inherit; text-decoration: none;">
@@ -238,6 +238,9 @@ createEvent();</code></pre>
 						<a href="classes/assignedcontenttype.html" class="tsd-kind-icon">Assigned<wbr>Content<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/basecontentitem.html" class="tsd-kind-icon">Base<wbr>Content<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/contentgraph.html" class="tsd-kind-icon">Content<wbr>Graph</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -269,6 +272,12 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/facetedcontentitem.html" class="tsd-kind-icon">Faceted<wbr>Content<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/facetsresponse.html" class="tsd-kind-icon">Facets<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/folder.html" class="tsd-kind-icon">Folder</a>
@@ -337,6 +346,9 @@ createEvent();</code></pre>
 						<a href="classes/searchindexuserscount.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Users<wbr>Count</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/settings.html" class="tsd-kind-icon">Settings</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/snapshot.html" class="tsd-kind-icon">Snapshot</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -345,11 +357,20 @@ createEvent();</code></pre>
 					<li class=" tsd-kind-class">
 						<a href="classes/webhooksignature.html" class="tsd-kind-icon">Webhook<wbr>Signature</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/workflowstate.html" class="tsd-kind-icon">Workflow<wbr>State</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/accesstokenprovider.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/application.html" class="tsd-kind-icon">Application</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/assignedworkflow.html" class="tsd-kind-icon">Assigned<wbr>Workflow</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/cachedschema.html" class="tsd-kind-icon">Cached<wbr>Schema</a>
@@ -376,7 +397,22 @@ createEvent();</code></pre>
 						<a href="interfaces/contenttypevisualization.html" class="tsd-kind-icon">Content<wbr>Type<wbr>Visualization</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/datefacet.html" class="tsd-kind-icon">Date<wbr>Facet</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/device.html" class="tsd-kind-icon">Device</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/dynamiccontentconfig.html" class="tsd-kind-icon">Dynamic<wbr>Content<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/enumfacet.html" class="tsd-kind-icon">Enum<wbr>Facet</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/facetcount.html" class="tsd-kind-icon">Facet<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/facetquery.html" class="tsd-kind-icon">Facet<wbr>Query</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/findbydate.html" class="tsd-kind-icon">Find<wbr>ByDate</a>
@@ -386,6 +422,9 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/hierarchymeta.html" class="tsd-kind-icon">Hierarchy<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/locale.html" class="tsd-kind-icon">Locale</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/oauth2clientcredentials.html" class="tsd-kind-icon">OAuth2<wbr>Client<wbr>Credentials</a>
@@ -411,6 +450,12 @@ createEvent();</code></pre>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/sortable.html" class="tsd-kind-icon">Sortable</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/vse.html" class="tsd-kind-icon">VSE</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#facetfield" class="tsd-kind-icon">Facet<wbr>Field</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#hierarchychildrenmodeljson" class="tsd-kind-icon">Hierarchy<wbr>Children<wbr>Model<wbr>Json</a>
 					</li>
@@ -419,6 +464,12 @@ createEvent();</code></pre>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#hierarchyparentmodeljson" class="tsd-kind-icon">Hierarchy<wbr>Parent<wbr>Model<wbr>Json</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#faceted_content_item" class="tsd-kind-icon">FACETED_<wbr>CONTENT_<wbr>ITEM</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#content_items_facet" class="tsd-kind-icon">CONTENT_<wbr>ITEMS_<wbr>FACET</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#hierarchy_node" class="tsd-kind-icon">HIERARCHY_<wbr>NODE</a>

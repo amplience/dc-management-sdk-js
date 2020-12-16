@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContentItem | dc-management-sdk-js</title>
+	<title>BaseContentItem | dc-management-sdk-js</title>
 	<meta name="description" content="Documentation for dc-management-sdk-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,32 +56,32 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="contentitem.html">ContentItem</a>
+					<a href="basecontentitem.html">BaseContentItem</a>
 				</li>
 			</ul>
-			<h1>Class ContentItem</h1>
+			<h1>Class BaseContentItem</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Class representing the <a href="https://amplience.com/docs/api/dynamic-content/management/#tag/Content-Items">Content Item</a> resource.
-						Content Items are instances of content created from a content type.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="basecontentitem.html" class="tsd-signature-type">BaseContentItem</a>
+						<a href="halresource.html" class="tsd-signature-type">HalResource</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ContentItem</span>
+								<span class="target">BaseContentItem</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="facetedcontentitem.html" class="tsd-signature-type">FacetedContentItem</a>
+									</li>
+									<li>
+										<a href="contentitem.html" class="tsd-signature-type">ContentItem</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -94,44 +94,43 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="basecontentitem.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#_links" class="tsd-kind-icon">_links</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#assigneddate" class="tsd-kind-icon">assigned<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#assignees" class="tsd-kind-icon">assignees</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="contentitem.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#contentrepositoryid" class="tsd-kind-icon">content<wbr>Repository<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#createdby" class="tsd-kind-icon">created<wbr>By</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#createddate" class="tsd-kind-icon">created<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#deliveryid" class="tsd-kind-icon">delivery<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#folderid" class="tsd-kind-icon">folder<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#hierarchy" class="tsd-kind-icon">hierarchy</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#label" class="tsd-kind-icon">label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#lastmodifiedby" class="tsd-kind-icon">last<wbr>Modified<wbr>By</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#locale" class="tsd-kind-icon">locale</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#status" class="tsd-kind-icon">status</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#version" class="tsd-kind-icon">version</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#workflow" class="tsd-kind-icon">workflow</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="basecontentitem.html#_links" class="tsd-kind-icon">_links</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#assigneddate" class="tsd-kind-icon">assigned<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#assignees" class="tsd-kind-icon">assignees</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#contentrepositoryid" class="tsd-kind-icon">content<wbr>Repository<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#createdby" class="tsd-kind-icon">created<wbr>By</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#createddate" class="tsd-kind-icon">created<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#deliveryid" class="tsd-kind-icon">delivery<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#folderid" class="tsd-kind-icon">folder<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#hierarchy" class="tsd-kind-icon">hierarchy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#label" class="tsd-kind-icon">label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#lastmodifiedby" class="tsd-kind-icon">last<wbr>Modified<wbr>By</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#locale" class="tsd-kind-icon">locale</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#version" class="tsd-kind-icon">version</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="basecontentitem.html#workflow" class="tsd-kind-icon">workflow</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="contentitem.html#performactionwithoutresourceresponse" class="tsd-kind-icon">perform<wbr>Action<wbr>Without<wbr>Resource<wbr>Response</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#tojson" class="tsd-kind-icon">toJSON</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="basecontentitem.html#performactionwithoutresourceresponse" class="tsd-kind-icon">perform<wbr>Action<wbr>Without<wbr>Resource<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basecontentitem.html#tojson" class="tsd-kind-icon">toJSON</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="basecontentitem.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited"><a href="contentitem.html#related" class="tsd-kind-icon">related</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="basecontentitem.html#related" class="tsd-kind-icon">related</a></li>
 							</ul>
 						</section>
 					</div>
@@ -143,7 +142,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Content<wbr>Item<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="contentitem.html" class="tsd-signature-type">ContentItem</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Base<wbr>Content<wbr>Item<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="basecontentitem.html" class="tsd-signature-type">BaseContentItem</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -170,7 +169,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="contentitem.html" class="tsd-signature-type">ContentItem</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="basecontentitem.html" class="tsd-signature-type">BaseContentItem</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -188,12 +187,11 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="assigneddate" class="tsd-anchor"></a>
 					<h3>assigned<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">assigned<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#assigneddate">assignedDate</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L87">src/lib/model/ContentItem.ts:87</a></li>
 						</ul>
@@ -204,12 +202,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="assignees" class="tsd-anchor"></a>
 					<h3>assignees</h3>
 					<div class="tsd-signature tsd-kind-icon">assignees<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#assignees">assignees</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L82">src/lib/model/ContentItem.ts:82</a></li>
 						</ul>
@@ -221,34 +218,10 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="body" class="tsd-anchor"></a>
-					<h3>body</h3>
-					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L219">src/lib/model/ContentItem.ts:219</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Content item JSON body. The body must include the content type URL to indicate which content type this
-							item will be created against, e.g.</p>
-						</div>
-						<pre><code class="language-json">{
- <span class="hljs-attr">&quot;_meta&quot;</span>: {
-   <span class="hljs-attr">&quot;schema&quot;</span>: <span class="hljs-string">&quot;https://raw.githubusercontent.com/amplience/dc-content-types/master/text-block.json&quot;</span>
- }
-}</code></pre>
-						<p>The body will be validated against the content type
-						and will reject if there are any validation errors.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="contentrepositoryid" class="tsd-anchor"></a>
 					<h3>content<wbr>Repository<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">content<wbr>Repository<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#contentrepositoryid">contentRepositoryId</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L24">src/lib/model/ContentItem.ts:24</a></li>
 						</ul>
@@ -259,12 +232,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="createdby" class="tsd-anchor"></a>
 					<h3>created<wbr>By</h3>
 					<div class="tsd-signature tsd-kind-icon">created<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#createdby">createdBy</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L62">src/lib/model/ContentItem.ts:62</a></li>
 						</ul>
@@ -275,12 +247,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="createddate" class="tsd-anchor"></a>
 					<h3>created<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">created<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#createddate">createdDate</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L67">src/lib/model/ContentItem.ts:67</a></li>
 						</ul>
@@ -291,12 +262,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="deliveryid" class="tsd-anchor"></a>
 					<h3>delivery<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">delivery<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#deliveryid">deliveryId</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L52">src/lib/model/ContentItem.ts:52</a></li>
 						</ul>
@@ -307,12 +277,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="folderid" class="tsd-anchor"></a>
 					<h3>folder<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">folder<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#folderid">folderId</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L30">src/lib/model/ContentItem.ts:30</a></li>
 						</ul>
@@ -324,12 +293,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="hierarchy" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hierarchy</h3>
 					<div class="tsd-signature tsd-kind-icon">hierarchy<span class="tsd-signature-symbol">:</span> <a href="../interfaces/hierarchymeta.html" class="tsd-signature-type">HierarchyMeta</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#hierarchy">hierarchy</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L92">src/lib/model/ContentItem.ts:92</a></li>
 						</ul>
@@ -340,12 +308,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="id" class="tsd-anchor"></a>
 					<h3>id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#id">id</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L19">src/lib/model/ContentItem.ts:19</a></li>
 						</ul>
@@ -356,12 +323,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="label" class="tsd-anchor"></a>
 					<h3>label</h3>
 					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#label">label</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L42">src/lib/model/ContentItem.ts:42</a></li>
 						</ul>
@@ -372,12 +338,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="lastmodifiedby" class="tsd-anchor"></a>
 					<h3>last<wbr>Modified<wbr>By</h3>
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#lastmodifiedby">lastModifiedBy</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L72">src/lib/model/ContentItem.ts:72</a></li>
 						</ul>
@@ -388,12 +353,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="lastmodifieddate" class="tsd-anchor"></a>
 					<h3>last<wbr>Modified<wbr>Date</h3>
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#lastmodifieddate">lastModifiedDate</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L77">src/lib/model/ContentItem.ts:77</a></li>
 						</ul>
@@ -404,12 +368,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="locale" class="tsd-anchor"></a>
 					<h3>locale</h3>
 					<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#locale">locale</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L47">src/lib/model/ContentItem.ts:47</a></li>
 						</ul>
@@ -420,12 +383,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="status" class="tsd-anchor"></a>
 					<h3>status</h3>
 					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../enums/status.html" class="tsd-signature-type">Status</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#status">status</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L57">src/lib/model/ContentItem.ts:57</a></li>
 						</ul>
@@ -436,12 +398,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="version" class="tsd-anchor"></a>
 					<h3>version</h3>
 					<div class="tsd-signature tsd-kind-icon">version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#version">version</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L37">src/lib/model/ContentItem.ts:37</a></li>
 						</ul>
@@ -454,12 +415,11 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="workflow" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> workflow</h3>
 					<div class="tsd-signature tsd-kind-icon">workflow<span class="tsd-signature-symbol">:</span> <a href="../interfaces/assignedworkflow.html" class="tsd-signature-type">AssignedWorkflow</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#workflow">workflow</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L97">src/lib/model/ContentItem.ts:97</a></li>
 						</ul>
@@ -553,14 +513,13 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
 					<a name="related" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> related</h3>
 					<div class="tsd-signature tsd-kind-icon">related<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="basecontentitem.html">BaseContentItem</a>.<a href="basecontentitem.html#related">related</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/ContentItem.ts#L102">src/lib/model/ContentItem.ts:102</a></li>
 						</ul>
@@ -799,76 +758,73 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="contentitem.html" class="tsd-kind-icon">Content<wbr>Item</a>
+						<a href="basecontentitem.html" class="tsd-kind-icon">Base<wbr>Content<wbr>Item</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="basecontentitem.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#_links" class="tsd-kind-icon">_links</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#assigneddate" class="tsd-kind-icon">assigned<wbr>Date</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#assignees" class="tsd-kind-icon">assignees</a>
+								<a href="basecontentitem.html#_links" class="tsd-kind-icon">_links</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="contentitem.html#body" class="tsd-kind-icon">body</a>
+								<a href="basecontentitem.html#assigneddate" class="tsd-kind-icon">assigned<wbr>Date</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#contentrepositoryid" class="tsd-kind-icon">content<wbr>Repository<wbr>Id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#assignees" class="tsd-kind-icon">assignees</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#createdby" class="tsd-kind-icon">created<wbr>By</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#contentrepositoryid" class="tsd-kind-icon">content<wbr>Repository<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#createddate" class="tsd-kind-icon">created<wbr>Date</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#createdby" class="tsd-kind-icon">created<wbr>By</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#deliveryid" class="tsd-kind-icon">delivery<wbr>Id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#createddate" class="tsd-kind-icon">created<wbr>Date</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#folderid" class="tsd-kind-icon">folder<wbr>Id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#deliveryid" class="tsd-kind-icon">delivery<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#hierarchy" class="tsd-kind-icon">hierarchy</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#folderid" class="tsd-kind-icon">folder<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#id" class="tsd-kind-icon">id</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#hierarchy" class="tsd-kind-icon">hierarchy</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#label" class="tsd-kind-icon">label</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#id" class="tsd-kind-icon">id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#lastmodifiedby" class="tsd-kind-icon">last<wbr>Modified<wbr>By</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#label" class="tsd-kind-icon">label</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#lastmodifiedby" class="tsd-kind-icon">last<wbr>Modified<wbr>By</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#locale" class="tsd-kind-icon">locale</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#lastmodifieddate" class="tsd-kind-icon">last<wbr>Modified<wbr>Date</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#status" class="tsd-kind-icon">status</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#locale" class="tsd-kind-icon">locale</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#version" class="tsd-kind-icon">version</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#status" class="tsd-kind-icon">status</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#workflow" class="tsd-kind-icon">workflow</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#version" class="tsd-kind-icon">version</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="basecontentitem.html#workflow" class="tsd-kind-icon">workflow</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="contentitem.html#performactionwithoutresourceresponse" class="tsd-kind-icon">perform<wbr>Action<wbr>Without<wbr>Resource<wbr>Response</a>
+								<a href="basecontentitem.html#performactionwithoutresourceresponse" class="tsd-kind-icon">perform<wbr>Action<wbr>Without<wbr>Resource<wbr>Response</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#tojson" class="tsd-kind-icon">toJSON</a>
+								<a href="basecontentitem.html#tojson" class="tsd-kind-icon">toJSON</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a>
+								<a href="basecontentitem.html#tojson-1" class="tsd-kind-icon">to<wbr>Json</a>
 							</li>
-							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited">
-								<a href="contentitem.html#related" class="tsd-kind-icon">related</a>
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+								<a href="basecontentitem.html#related" class="tsd-kind-icon">related</a>
 							</li>
 						</ul>
 					</li>

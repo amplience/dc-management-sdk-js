@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SearchesOrderBy | dc-management-sdk-js</title>
+	<title>FacetQuery | dc-management-sdk-js</title>
 	<meta name="description" content="Documentation for dc-management-sdk-js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,73 +56,76 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="searchesorderby.html">SearchesOrderBy</a>
+					<a href="facetquery.html">FacetQuery</a>
 				</li>
 			</ul>
-			<h1>Enumeration SearchesOrderBy</h1>
+			<h1>Interface FacetQuery</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Facet query</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">FacetQuery</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="searchesorderby.html#average_click_position" class="tsd-kind-icon">AVERAGE_<wbr>CLICK_<wbr>POSITION</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="searchesorderby.html#click_through_rate" class="tsd-kind-icon">CLICK_<wbr>THROUGH_<wbr>RATE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="searchesorderby.html#conversion_rate" class="tsd-kind-icon">CONVERSION_<wbr>RATE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="searchesorderby.html#search_count" class="tsd-kind-icon">SEARCH_<wbr>COUNT</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="facetquery.html#fields" class="tsd-kind-icon">fields</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="facetquery.html#returnentities" class="tsd-kind-icon">return<wbr>Entities</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="average_click_position" class="tsd-anchor"></a>
-					<h3>AVERAGE_<wbr>CLICK_<wbr>POSITION</h3>
-					<div class="tsd-signature tsd-kind-icon">AVERAGE_<wbr>CLICK_<wbr>POSITION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;averageClickPosition&quot;</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fields" class="tsd-anchor"></a>
+					<h3>fields</h3>
+					<div class="tsd-signature tsd-kind-icon">fields<span class="tsd-signature-symbol">:</span> <a href="../globals.html#facetfield" class="tsd-signature-type">FacetField</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/SearchIndexTopSearches.ts#L8">src/lib/model/SearchIndexTopSearches.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/Facets.ts#L50">src/lib/model/Facets.ts:50</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Facet fields</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="click_through_rate" class="tsd-anchor"></a>
-					<h3>CLICK_<wbr>THROUGH_<wbr>RATE</h3>
-					<div class="tsd-signature tsd-kind-icon">CLICK_<wbr>THROUGH_<wbr>RATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;clickThroughRate&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="returnentities" class="tsd-anchor"></a>
+					<h3>return<wbr>Entities</h3>
+					<div class="tsd-signature tsd-kind-icon">return<wbr>Entities<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/SearchIndexTopSearches.ts#L6">src/lib/model/SearchIndexTopSearches.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/Facets.ts#L45">src/lib/model/Facets.ts:45</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="conversion_rate" class="tsd-anchor"></a>
-					<h3>CONVERSION_<wbr>RATE</h3>
-					<div class="tsd-signature tsd-kind-icon">CONVERSION_<wbr>RATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;conversionRate&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/SearchIndexTopSearches.ts#L7">src/lib/model/SearchIndexTopSearches.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="search_count" class="tsd-anchor"></a>
-					<h3>SEARCH_<wbr>COUNT</h3>
-					<div class="tsd-signature tsd-kind-icon">SEARCH_<wbr>COUNT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;searchCount&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/39d3f66/src/lib/model/SearchIndexTopSearches.ts#L5">src/lib/model/SearchIndexTopSearches.ts:5</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Return matching entities in the response</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -138,20 +141,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="searchesorderby.html" class="tsd-kind-icon">Searches<wbr>Order<wbr>By</a>
+					<li class="current tsd-kind-interface">
+						<a href="facetquery.html" class="tsd-kind-icon">Facet<wbr>Query</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="searchesorderby.html#average_click_position" class="tsd-kind-icon">AVERAGE_<wbr>CLICK_<wbr>POSITION</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="facetquery.html#fields" class="tsd-kind-icon">fields</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="searchesorderby.html#click_through_rate" class="tsd-kind-icon">CLICK_<wbr>THROUGH_<wbr>RATE</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="searchesorderby.html#conversion_rate" class="tsd-kind-icon">CONVERSION_<wbr>RATE</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="searchesorderby.html#search_count" class="tsd-kind-icon">SEARCH_<wbr>COUNT</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="facetquery.html#returnentities" class="tsd-kind-icon">return<wbr>Entities</a>
 							</li>
 						</ul>
 					</li>
