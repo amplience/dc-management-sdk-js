@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.8.0...v1.9.0) (2020-12-16)
+
+
+### Features
+
+* **content items:** facets support ([#71](https://github.com/amplience/dc-management-sdk-js/issues/71)) ([494d5e3](https://github.com/amplience/dc-management-sdk-js/commit/494d5e36800b5cb0e07de289c8a05be9ce5579e9))
+* **content repository:** find by feature ([#65](https://github.com/amplience/dc-management-sdk-js/issues/65)) ([0e25837](https://github.com/amplience/dc-management-sdk-js/commit/0e2583795e629bda525a4a40f8386d2eeceedcf5))
+* **event:** delete, archive events and delete, archive, unschedule editions ([#61](https://github.com/amplience/dc-management-sdk-js/issues/61)) ([32c9951](https://github.com/amplience/dc-management-sdk-js/commit/32c9951cc56fd417397c005438beaa8e75c55de4))
+* **settings:** added update settings in a hub and workflow states lis… ([#62](https://github.com/amplience/dc-management-sdk-js/issues/62)) ([8326435](https://github.com/amplience/dc-management-sdk-js/commit/8326435f91eee5481670073ecb2115d2f34b51af))
+* **webhook signature:** dynamically imports crypt ([#72](https://github.com/amplience/dc-management-sdk-js/issues/72)) ([12a67f7](https://github.com/amplience/dc-management-sdk-js/commit/12a67f7c5cf32a9d8d7809a37a10bf085d303e2e))
+* **workflow-state:** assign to content-item and update workflow-state support ([#70](https://github.com/amplience/dc-management-sdk-js/issues/70)) ([578aca8](https://github.com/amplience/dc-management-sdk-js/commit/578aca85f5eadc5d833c0d82271ccbae20a37e10))
+
 ## [1.8.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.7.0...v1.8.0) (2020-11-17)
 
 
