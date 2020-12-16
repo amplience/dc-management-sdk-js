@@ -163,13 +163,7 @@ test('list workflow-states', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.workflowStates.list();
-  t.is(result.getItems()[0].label, 'Translation complete');
-});
-
-test('get workflow-states', async (t) => {
-  const client = new MockDynamicContent();
-  const result = await client.workflowStates.get('5ca3409bc9e77c0001b02253');
-  t.is(result.id, '5ca3409bc9e77c0001b02253');
+  t.is(result.getItems()[0].label, 'Todo');
 });
 
 test('create workflow-state', async (t) => {
@@ -177,25 +171,11 @@ test('create workflow-state', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.workflowStates.create(
     new WorkflowState({
-      label: 'Translation complete',
+      label: 'Todo',
       color: 'rgb(0,0,0)',
     })
   );
-  t.is(result.label, 'Translation complete');
-});
-
-test('update workflow-state', async (t) => {
-  const client = new MockDynamicContent();
-  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
-  const result = await hub.related.workflowStates.list();
-
-  const mutation = new WorkflowState({
-    label: 'test updated',
-  });
-
-  const updated = await result.getItems()[0].related.update(mutation);
-
-  t.is(updated.label, 'test updated');
+  t.is(result.label, 'Todo');
 });
 
 test('toJSON should copy resource attributes', async (t) => {

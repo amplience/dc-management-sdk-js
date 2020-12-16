@@ -13,12 +13,12 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
-import { WorkflowState } from './model/WorkflowState';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
+import { WorkflowState } from './model/WorkflowState';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally

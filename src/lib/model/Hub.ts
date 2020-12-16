@@ -294,6 +294,13 @@ export class Hub extends HalResource {
         ),
 
       /**
+       * Get a Webhook State insidee this Hub by its id
+       * @param id
+       */
+      get: (id: string): Promise<WorkflowState> =>
+        this.client.fetchResource(`workflow-states/${id}`, WorkflowState),
+
+      /**
        * Retrieves a list of Workflow States associated with this Hub
        * @param options Pagination options
        */

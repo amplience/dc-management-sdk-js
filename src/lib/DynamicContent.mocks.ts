@@ -172,58 +172,6 @@ export const HUB = {
 /**
  * @hidden
  */
-
-export const WORKFLOW_STATE = {
-  color: 'rgb(25,195,151)',
-  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
-  createdDate: '2019-04-02T10:59:39.849Z',
-  id: '5ca3409bc9e77c0001b02253',
-  label: 'Translation complete',
-  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
-  lastModifiedDate: '2019-04-02T10:59:39.849Z',
-  _links: {
-    self: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
-    },
-    get: {
-      href:
-        'https://api.amplience.net/v2/content/workflow-states/5ca3409bc9e77c0001b02253',
-    },
-    update: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
-    },
-  },
-};
-
-/**
- * @hidden
- */
-
-export const WORKFLOW_STATE_UPDATED = {
-  color: 'rgb(25,195,151)',
-  createdBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
-  createdDate: '2019-04-02T10:59:39.849Z',
-  id: '5ca3409bc9e77c0001b02253',
-  label: 'test updated',
-  lastModifiedBy: 'a670ee25-adc2-4ea7-8504-c3d8cc867e8e',
-  lastModifiedDate: '2019-04-02T10:59:39.849Z',
-  _links: {
-    self: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
-    },
-    update: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states/5ca3409bc9e77c0001b02253',
-    },
-  },
-};
-
-/**
- * @hidden
- */
 export const CONTENT_ITEM = {
   id: 'a87fd535-fb25-44ee-b687-0db72bbab721',
   folderId: '5b3237784cedfd01c4503658',
@@ -314,6 +262,10 @@ export const CONTENT_ITEM = {
     'set-locale': {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
+    },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -423,6 +375,10 @@ export const CONTENT_ITEM_WITH_LOCALE = {
       href:
         'http://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localize',
     },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+    },
   },
 };
 
@@ -513,6 +469,10 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
     'set-locale': {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale',
+    },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -1587,6 +1547,50 @@ export const WEBHOOK = {
 /**
  * @hidden
  */
+export const WORKFLOW_STATE = {
+  id: '5a497a000000000000000000',
+  label: 'Todo',
+  createdBy: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+  createdDate: '2018-01-02T03:04:05Z',
+  lastModifiedBy: '7078e5e7-d5bf-4015-9add-b75fb6f60537',
+  lastModifiedDate: '2018-01-02T03:04:05Z',
+  color: 'rgb(0,0,0)',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+    'workflow-state': {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const WORKFLOW_STATE_UPDATED = { ...WORKFLOW_STATE, label: 'Done' };
+
+/**
+ * @hidden
+ */
+export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
+  ...CONTENT_ITEM,
+  workflow: { state: WORKFLOW_STATE.id },
+};
+
+/**
+ * @hidden
+ */
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
@@ -2189,6 +2193,10 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedCollection('workflow-states', {}, 'workflow-states', [
+        WORKFLOW_STATE,
+      ])
+      .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
       .nestedCollection('workflow-states', {}, 'workflow-states', [
@@ -2438,6 +2446,11 @@ export class DynamicContentFixtures {
 
     mocks
       .resource(CONTENT_ITEM)
+      .nestedUpdateResource(
+        'edit-workflow',
+        {},
+        CONTENT_ITEM_WITH_WORKFLOW_STATE
+      )
       .nestedCreateResource(
         'set-locale',
         { locale: 'en-GB', version: 1 },
@@ -2471,7 +2484,7 @@ export class DynamicContentFixtures {
     // Workflow States
     mocks
       .resource(WORKFLOW_STATE)
-      .nestedResource('get', {}, WORKFLOW_STATE)
+      .nestedResource('hub', {}, HUB)
       .nestedUpdateResource('update', {}, WORKFLOW_STATE_UPDATED);
 
     mocks.resource(CONTENT_ITEM_WITH_ASSIGNEE);

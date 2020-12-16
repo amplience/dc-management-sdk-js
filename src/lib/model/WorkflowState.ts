@@ -1,52 +1,62 @@
 import { HalResource } from '../hal/models/HalResource';
+import { Hub } from './Hub';
 import { Page } from './Page';
 
 /**
- * Workflow state
+ * Class representing the [WorkflowState](https://amplience.com/docs/api/dynamic-content/management/#tag/Workflows) resource.
+ *
+ * It is possible to define a list of workflow states on a hub which will allow users to implement one or more rudimentary workflows. Each content item within the hub can have its status set to one of the workflow states defined within the hub.
+ *
+ * In the interest of flexibility, the transitions between states are not validated. In other words, it is possible to transition a content item from any state into any other state.
  */
-
 export class WorkflowState extends HalResource {
   /**
    * Unique id generated on creation
    */
-  public id: string;
+  public id?: string;
 
   /**
-   * RGB color of the workflow state
+   * Friendly display label for the WorkflowState
    */
-  public color: string;
+  public label?: string;
 
   /**
-   * Id of the user responsible for originally creating the workflow state
+   * Id of the user responsible for originally creating the Workflow State
    */
-  public createdBy: string;
+  public createdBy?: string;
 
   /**
-   * Timestamp representing when the workflow state was originally created in ISO 8601 format
+   * Timestamp representing when the Workflow State was originally created in ISO 8601 format
    */
-  public createdDate: string;
+  public createdDate?: string;
 
   /**
-   * Friendly label for the workflow state
+   * Id of the user responsible for the last update to the Workflow State
    */
-  public label: string;
+  public lastModifiedBy?: string;
 
   /**
-   * Id of the user responsible for the last update to the workflow state
+   * Timestamp representing when the Workflow State was last updated in ISO 8601 format
    */
-  public lastModifiedBy: string;
+  public lastModifiedDate?: string;
 
   /**
-   * Timestamp representing when the workflow state was last updated in ISO 8601 format
+   * Assigned colour in the format of `rgb(R,G,B)`
    */
-  public lastModifiedDate: string;
+  public 'color': string;
 
   /**
-   * Resources and actions related to a Workflow State
+   * Resources and actions related to a WorkflowState
    */
   public readonly related = {
     /**
+     * Retrieves the Hub this webhook is stored in
+     */
+    hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
+
+    /**
      * Updates this Workflow State with the changes in the mutation parameter.
+     * @param mutation
      */
     update: (mutation: WorkflowState): Promise<WorkflowState> =>
       this.updateResource(mutation, WorkflowState),
@@ -57,7 +67,7 @@ export class WorkflowState extends HalResource {
  * @hidden
  */
 export class WorkflowStatesPage extends Page<WorkflowState> {
-  constructor(data?: any) {
+  constructor(data?: Record<string, unknown>) {
     super('workflow-states', WorkflowState, data);
   }
 }

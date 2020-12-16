@@ -22,7 +22,7 @@ export {
   ContentRepository,
   ContentRepositoryContentType,
 } from './lib/model/ContentRepository';
-export { ContentItem } from './lib/model/ContentItem';
+export { ContentItem, FacetedContentItem } from './lib/model/ContentItem';
 export {
   ContentTypeSchema,
   ValidationLevel,
@@ -46,10 +46,10 @@ export {
 } from './lib/content/models/ContentLink';
 export { ContentLinkInstance } from './lib/content/models/ContentLink';
 export { Webhook } from './lib/model/Webhook';
+export { WorkflowState } from './lib/model/WorkflowState';
 export { SearchIndex } from './lib/model/SearchIndex';
 export { SearchIndexSettings } from './lib/model/SearchIndexSettings';
 export { Settings } from './lib/model/Settings';
-export { WorkflowState } from './lib/model/WorkflowState';
 export {
   SearchIndexStatistics,
   SearchIndexStatisticsUsageMetric,

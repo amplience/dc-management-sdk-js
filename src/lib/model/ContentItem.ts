@@ -5,6 +5,12 @@ import { Page } from './Page';
 import { Status } from './Status';
 import { HierarchyMeta } from './HierarchyNode';
 import { FacetsResponse } from './Facets';
+import { WorkflowState } from './WorkflowState';
+import { HttpMethod } from '../http/HttpRequest';
+
+interface AssignedWorkflow {
+  state: string;
+}
 
 abstract class BaseContentItem extends HalResource {
   /**
@@ -84,6 +90,12 @@ abstract class BaseContentItem extends HalResource {
    * Defined if content item is a member of a hierarchy
    */
   public hierarchy?: HierarchyMeta;
+
+  /**
+   * Assigned workflow state
+   */
+  public workflow?: AssignedWorkflow;
+
   /**
    * Resources and actions related to a Content Item
    */
@@ -157,6 +169,18 @@ abstract class BaseContentItem extends HalResource {
         {},
         { version: this.version },
         ContentItem
+      ),
+
+    /**
+     * Assign a WorkflowState
+     */
+    assignWorkflowState: (workflowState: WorkflowState): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'edit-workflow',
+        {},
+        { version: this.version, state: workflowState.id },
+        ContentItem,
+        HttpMethod.PATCH
       ),
   };
 }
