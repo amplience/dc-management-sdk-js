@@ -33,7 +33,7 @@ export interface DynamicContentConfig {
 
   /**
    * URL used to connect to the Amplience OAuth API.
-   * This property defaults to 'https://auth.adis.ws' if not provided
+   * This property defaults to 'https://auth.amplience.net' if not provided
    */
   authUrl?: string;
 }
@@ -263,7 +263,7 @@ export class DynamicContent {
   ) {
     dcConfig = dcConfig || {};
     dcConfig.apiUrl = dcConfig.apiUrl || 'https://api.amplience.net/v2/content';
-    dcConfig.authUrl = dcConfig.authUrl || 'https://auth.adis.ws';
+    dcConfig.authUrl = dcConfig.authUrl || 'https://auth.amplience.net';
 
     let httpClientInstance: HttpClient;
     if (httpClient !== undefined && 'request' in httpClient) {
