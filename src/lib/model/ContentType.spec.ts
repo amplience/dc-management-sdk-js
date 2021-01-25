@@ -22,8 +22,7 @@ test('update', async (t) => {
       icons: [
         {
           size: 512,
-          url:
-            'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
+          url: 'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
         },
       ],
       label: 'New Label',
@@ -85,8 +84,7 @@ test('toJson should copy resource attributes', async (t) => {
       icons: [
         {
           size: 256,
-          url:
-            'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
+          url: 'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
         },
       ],
       label: 'Carousel',

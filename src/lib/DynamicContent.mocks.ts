@@ -1599,8 +1599,7 @@ export const CONTENT_TYPE = {
     icons: [
       {
         size: 256,
-        url:
-          'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
+        url: 'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
       },
     ],
     visualizations: [
@@ -1657,8 +1656,7 @@ const CONTENT_TYPE_UPDATED = {
     icons: [
       {
         size: 512,
-        url:
-          'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
+        url: 'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
       },
     ],
     label: 'New Label',
