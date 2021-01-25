@@ -1600,7 +1600,7 @@ export const CONTENT_TYPE = {
       {
         size: 256,
         url:
-          'http://apps.dev-artifacts.adis.ws/cms-icons/develop/v0.4.0/256/ca-types-grid-mixedmedia.png',
+          'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
       },
     ],
     visualizations: [
@@ -1658,7 +1658,7 @@ const CONTENT_TYPE_UPDATED = {
       {
         size: 512,
         url:
-          'http://apps.dev-artifacts.adis.ws/cms-icons/develop/v0.4.0/256/ca-types-grid-mixedmedia.png',
+          'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
       },
     ],
     label: 'New Label',
