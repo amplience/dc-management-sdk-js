@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.9.0...v1.10.0) (2021-01-28)
+
+
+### Features
+
+* updating auth and icon urls ([#77](https://github.com/amplience/dc-management-sdk-js/issues/77)) ([7cc7987](https://github.com/amplience/dc-management-sdk-js/commit/7cc79871b16672056b3137d569eff213c1899af5))
+
 ## [1.9.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.8.0...v1.9.0) (2020-12-16)
 
 
