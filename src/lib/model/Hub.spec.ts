@@ -4,6 +4,7 @@ import { ContentType } from './ContentType';
 import { Event } from './Event';
 import { WorkflowState } from './WorkflowState';
 import { Settings } from './Settings';
+import { Extension } from './Extension';
 
 test('list hubs', async (t) => {
   const client = new MockDynamicContent();
@@ -122,6 +123,27 @@ test('create event', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.events.create(new Event());
   t.is(result.name, 'January Sale');
+});
+
+test('list extensions', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.extensions.list();
+  t.is(result.getItems()[0].name, 'test-extension');
+});
+
+test('get extension by name', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.extensions.getByName('test-extension');
+  t.is(result.name, 'test-extension');
+});
+
+test('create extension', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.extensions.create(new Extension());
+  t.is(result.name, 'test-extension');
 });
 
 test('list content types', async (t) => {
