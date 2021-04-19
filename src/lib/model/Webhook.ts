@@ -28,6 +28,26 @@ export class Webhook extends HalResource {
   public handlers?: string[];
 
   /**
+   * List of custom webhook headers
+   */
+  public headers?: WebhookHeader[];
+
+  /**
+   * List of filters to apply to the webhook before sending
+   */
+  public filters?: WebhookFilter[];
+
+  /**
+   * The HTTP method the webhook should use to communicate with the endpoint.
+   */
+  public method?: 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+
+  /**
+   * A customized payload format.
+   */
+  public customPayload?: WebhookCustomPayload;
+
+  /**
    * Enables or disables the webhook
    */
   public active?: boolean;
@@ -50,6 +70,67 @@ export class Webhook extends HalResource {
     delete: (): Promise<void> => this.deleteResource(),
   };
 }
+
+/**
+ * A custom webhook header which will be sent along with a webhook.
+ */
+export type WebhookHeader = {
+  /**
+   * The header
+   */
+  key: string;
+  /**
+   * The headers value.
+   */
+  value: string;
+  /**
+   * Is the header a secret.
+   */
+  secret: boolean;
+};
+
+/**
+ * A custom payload format for the webhook.
+ */
+export type WebhookCustomPayload = {
+  /**
+   * What type of custom payload format being used.
+   */
+  type: 'text/x-handlebars-template';
+
+  /**
+   * The shape of the custom payload.
+   */
+  value: string;
+};
+
+/**
+ * A webhook filter to allow for body to be interigated to control whether a webhook is sent or not.
+ */
+export type WebhookFilter = {
+  /**
+   * The how will the filter arguments be treated.
+   */
+  type: 'equal' | 'in';
+  /**
+   * The arguments for the filter.
+   */
+  arguments: (WebhookFilterJSONPathArgument | WebhookFilterValueArgument)[];
+};
+
+/**
+ * A JSON Path argument.
+ */
+export type WebhookFilterJSONPathArgument = {
+  jsonPath: string;
+};
+
+/**
+ * A value argument.
+ */
+export type WebhookFilterValueArgument = {
+  value: string;
+};
 
 /**
  * @hidden
