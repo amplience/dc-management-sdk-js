@@ -28,17 +28,17 @@ export class Webhook extends HalResource {
   public handlers?: string[];
 
   /**
-   * List of custom webhook headers
+   * List of custom webhook headers to be send with webhook.
    */
   public headers?: WebhookHeader[];
 
   /**
-   * List of filters to apply to the webhook before sending
+   * List of filters used to gate sending of webhooks.
    */
   public filters?: WebhookFilter[];
 
   /**
-   * The HTTP method the webhook should use to communicate with the endpoint.
+   * The HTTP method the webhook should use to communicate with the handlers.
    */
   public method?: 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
