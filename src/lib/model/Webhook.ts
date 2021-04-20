@@ -129,7 +129,7 @@ export type WebhookFilterJSONPathArgument = {
  * A value argument.
  */
 export type WebhookFilterValueArgument = {
-  value: string;
+  value: string | string[];
 };
 
 /**
