@@ -69,6 +69,19 @@ export class Webhook extends HalResource {
 
     delete: (): Promise<void> => this.deleteResource(),
   };
+
+  public parse(data: unknown): void {
+    super.parse(data);
+
+    if (this.headers) {
+      this.headers.forEach((header) => {
+        // secret can come back as null, lets convert this to false
+        if (header.secret == null) {
+          header.secret = false;
+        }
+      });
+    }
+  }
 }
 
 /**
@@ -86,7 +99,7 @@ export type WebhookHeader = {
   /**
    * Is the header a secret.
    */
-  secret: boolean;
+  secret?: boolean;
 };
 
 /**
@@ -105,7 +118,7 @@ export type WebhookCustomPayload = {
 };
 
 /**
- * A webhook filter to allow for body to be interigated to control whether a webhook is sent or not.
+ * A webhook filter to allow for body to be interrogated to control whether a webhook is sent or not.
  */
 export type WebhookFilter = {
   /**
@@ -115,7 +128,7 @@ export type WebhookFilter = {
   /**
    * The arguments for the filter.
    */
-  arguments: (WebhookFilterJSONPathArgument | WebhookFilterValueArgument)[];
+  arguments: [WebhookFilterJSONPathArgument, WebhookFilterValueArgument];
 };
 
 /**

@@ -19,9 +19,100 @@ test('list webhooks', async (t) => {
 test('create webhook', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
-  const newWebhook = await hub.related.webhooks.create(new Webhook());
+  const webhook = new Webhook();
+  webhook.active = true;
+  webhook.label = 'Unit Test';
+  webhook.handlers = ['http://example.com/webhook'];
+  webhook.method = 'POST';
+  webhook.events = ['dynamic-content.content-item.created'];
+  webhook.filters = [
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: 'abc',
+        },
+      ],
+    },
+    {
+      type: 'in',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: ['abc', 'def'],
+        },
+      ],
+    },
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.not_present',
+        },
+        {
+          value: '123',
+        },
+      ],
+    },
+  ];
+  webhook.headers = [
+    {
+      key: 'X-Secret',
+      value: 'abc123',
+      secret: true,
+    },
+    {
+      key: 'X-Header',
+      value: 'abc123',
+    },
+  ];
+  webhook.customPayload = {
+    type: 'text/x-handlebars-template',
+    value:
+      '{{#withDeliveryContentItem contentItemId=payload.id account="myAccountId" stagingEnvironment="myVseUrl"}}{{{JSONstringify this}}}{{/withDeliveryContentItem}}',
+  };
+  webhook.secret = 'SECRET';
+  const newWebhook = await hub.related.webhooks.create(webhook);
+  const postRequests = client.mock.history['post'];
+  const createWebhook = postRequests[postRequests.length - 1];
+  // validate the request
+  const jsonBody = JSON.parse(createWebhook.data);
+  t.is(jsonBody.active, webhook.active);
+  t.is(jsonBody.label, webhook.label);
+  t.deepEqual(jsonBody.handlers, webhook.handlers);
+  t.is(jsonBody.method, webhook.method);
+  t.deepEqual(jsonBody.events, webhook.events);
+  t.deepEqual(jsonBody.filters, webhook.filters);
+  t.deepEqual(jsonBody.headers, webhook.headers);
+  t.deepEqual(jsonBody.customPayload, webhook.customPayload);
+  t.is(jsonBody.secret, webhook.secret);
 
-  t.is(newWebhook.label, 'myWebhookSubscription');
+  // validate the response
+  t.is(newWebhook.active, webhook.active);
+  t.is(newWebhook.label, webhook.label);
+  t.deepEqual(newWebhook.handlers, webhook.handlers);
+  t.is(newWebhook.method, webhook.method);
+  t.deepEqual(newWebhook.events, webhook.events);
+  t.deepEqual(newWebhook.filters, webhook.filters);
+  t.deepEqual(newWebhook.headers, [
+    {
+      key: 'X-Secret',
+      value: null, // value will be null a secret = true
+      secret: true,
+    },
+    {
+      key: 'X-Header',
+      value: 'abc123',
+      secret: false,
+    },
+  ]);
+  t.deepEqual(newWebhook.customPayload, webhook.customPayload);
+  t.is(newWebhook.secret, webhook.secret);
 });
 
 test('delete webhook', async (t) => {

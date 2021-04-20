@@ -1544,6 +1544,98 @@ export const WEBHOOK = {
   },
 };
 
+export const CREATED_WEBHOOK = {
+  id: '5a497a000000000000000000',
+  label: 'Unit Test',
+  events: ['dynamic-content.content-item.created'],
+  active: true,
+  handlers: ['http://example.com/webhook'],
+  notifications: [],
+  secret: 'SECRET',
+  createdDate: '2021-04-20T08:08:36.678Z',
+  lastModifiedDate: '2021-04-20T08:08:36.678Z',
+  headers: [
+    {
+      key: 'X-Secret',
+      value: null,
+      secret: true,
+    },
+    {
+      key: 'X-Header',
+      value: 'abc123',
+      secret: null,
+    },
+  ],
+  filters: [
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: 'abc',
+        },
+      ],
+    },
+    {
+      type: 'in',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: ['abc', 'def'],
+        },
+      ],
+    },
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.not_present',
+        },
+        {
+          value: '123',
+        },
+      ],
+    },
+  ],
+  customPayload: {
+    type: 'text/x-handlebars-template',
+    value:
+      '{{#withDeliveryContentItem contentItemId=payload.id account="myAccountId" stagingEnvironment="myVseUrl"}}{{{JSONstringify this}}}{{/withDeliveryContentItem}}',
+  },
+  method: 'POST',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    hub: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    requests: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit,excludeStatus}',
+      templated: true,
+    },
+    'event-types': {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
+    },
+    update: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    delete: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+  },
+};
+
 /**
  * @hidden
  */
@@ -2190,7 +2282,7 @@ export class DynamicContentFixtures {
       .nestedCollection('events', {}, 'events', [EVENT])
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
-      .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedCreateResource('create-webhook', {}, CREATED_WEBHOOK)
       .nestedCollection('workflow-states', {}, 'workflow-states', [
         WORKFLOW_STATE,
       ])
