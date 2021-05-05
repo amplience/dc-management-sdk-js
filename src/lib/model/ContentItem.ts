@@ -44,7 +44,7 @@ abstract class BaseContentItem extends HalResource {
   /**
    * Locale
    */
-  public locale: string;
+  public locale?: string;
 
   /**
    * Unique id used by client applications to request the content from the delivery API
