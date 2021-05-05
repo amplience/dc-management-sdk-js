@@ -63,7 +63,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "url-template": "^2.0.8"
   },
   "devDependencies": {
