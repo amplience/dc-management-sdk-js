@@ -140,3 +140,15 @@ test('assign a workflow state', async (t) => {
   );
   t.is(updatedContentItem.workflow.state, workflowState.id);
 });
+
+test('locale should not be required', async (t) => {
+  const item = new ContentItem({
+    label: 'New Label',
+    locale: 'en-GB',
+  });
+
+  item.locale = undefined;
+
+  const json = item.toJSON();
+  t.is(json.locale, undefined);
+});
