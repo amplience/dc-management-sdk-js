@@ -4,7 +4,7 @@ import { Page } from './Page';
 
 /**
  * Class representing the [Webhook](https://amplience.com/docs/api/dynamic-content/management/#tag/Webhooks) resource.
- * A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST.
+ * A Webhook is a HTTP callback: a HTTP request that occurs when something happens; a simple event-notification via the HTTP protocol.
  */
 export class Webhook extends HalResource {
   /**
@@ -28,7 +28,7 @@ export class Webhook extends HalResource {
   public handlers?: string[];
 
   /**
-   * List of custom webhook headers to be send with webhook.
+   * List of custom webhook headers to be sent.
    */
   public headers?: WebhookHeader[];
 
@@ -38,7 +38,7 @@ export class Webhook extends HalResource {
   public filters?: WebhookFilter[];
 
   /**
-   * The HTTP method the webhook should use to communicate with the handlers.
+   * The webhooks HTTP method.
    */
   public method?: 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
@@ -102,12 +102,14 @@ export type WebhookHeader = {
    * The header
    */
   key: string;
+
   /**
-   * The headers value.
+   * The header's value.
    */
   value: string;
+
   /**
-   * Is the header a secret.
+   * Indicates this header value is sensitive.
    */
   secret?: boolean;
 };
@@ -117,24 +119,25 @@ export type WebhookHeader = {
  */
 export type WebhookCustomPayload = {
   /**
-   * What type of custom payload format being used.
+   * MIME type of the custom payload.
    */
   type: 'text/x-handlebars-template';
 
   /**
-   * The shape of the custom payload.
+   * Custom payload.
    */
   value: string;
 };
 
 /**
- * A webhook filter to allow for body to be interrogated to control whether a webhook is sent or not.
+ * A webhook filter.
  */
 export type WebhookFilter = {
   /**
-   * The how will the filter arguments be treated.
+   * The type of filter.
    */
   type: 'equal' | 'in';
+
   /**
    * The arguments for the filter.
    */
