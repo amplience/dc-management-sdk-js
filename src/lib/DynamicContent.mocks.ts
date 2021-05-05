@@ -1544,7 +1544,7 @@ export const WEBHOOK = {
   },
 };
 
-export const CREATED_WEBHOOK = {
+export const WEBHOOK_WITH_EXTRAS = {
   id: '5a497a000000000000000000',
   label: 'Unit Test',
   events: ['dynamic-content.content-item.created'],
@@ -2282,7 +2282,7 @@ export class DynamicContentFixtures {
       .nestedCollection('events', {}, 'events', [EVENT])
       .nestedCreateResource('create-event', {}, EVENT)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
-      .nestedCreateResource('create-webhook', {}, CREATED_WEBHOOK)
+      .nestedCreateResource('create-webhook', {}, WEBHOOK_WITH_EXTRAS)
       .nestedCollection('workflow-states', {}, 'workflow-states', [
         WORKFLOW_STATE,
       ])
@@ -2569,7 +2569,10 @@ export class DynamicContentFixtures {
       .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
 
     // Webhooks
-    mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
+    mocks
+      .resource(WEBHOOK)
+      .nestedResource('hub', {}, HUB)
+      .nestedUpdateResource('update', {}, WEBHOOK_WITH_EXTRAS);
 
     // Workflow States
     mocks

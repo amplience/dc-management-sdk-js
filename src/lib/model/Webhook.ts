@@ -67,7 +67,17 @@ export class Webhook extends HalResource {
      */
     hub: (): Promise<Hub> => this.fetchLinkedResource('hub', {}, Hub),
 
+    /**
+     * Delete Webhook
+     */
     delete: (): Promise<void> => this.deleteResource(),
+
+    /**
+     * Updates this Webhook with the changes in the mutation parameter.
+     * @param mutation
+     */
+    update: (mutation: Webhook): Promise<Webhook> =>
+      this.updateResource(mutation, Webhook),
   };
 
   public parse(data: unknown): void {
