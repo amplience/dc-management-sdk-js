@@ -17,6 +17,7 @@ export { AxiosHttpClient } from './lib/http/AxiosHttpClient';
 
 export { Event } from './lib/model/Event';
 export { Edition } from './lib/model/Edition';
+export { Extension } from './lib/model/Extension';
 export { Hub } from './lib/model/Hub';
 export {
   ContentRepository,
