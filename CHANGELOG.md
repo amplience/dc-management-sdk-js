@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.10.0...v1.11.0) (2021-05-07)
+
+
+### Features
+
+* **webhooks:** add webhook properties for headers, method, filters and customPayload ([#83](https://www.github.com/amplience/dc-management-sdk-js/issues/83)) ([cc4315d](https://www.github.com/amplience/dc-management-sdk-js/commit/cc4315d04f42b67a29e3f53d24b87ef9629986e5))
+
+
+### Bug Fixes
+
+* **content items:** make locale nullable ([#80](https://www.github.com/amplience/dc-management-sdk-js/issues/80)) ([54a07b9](https://www.github.com/amplience/dc-management-sdk-js/commit/54a07b9b8663723664d39dcead44987039d192bf))
+* **deps:** bump axios from 0.18.1 to 0.21.1 ([#76](https://www.github.com/amplience/dc-management-sdk-js/issues/76)) ([b4f046c](https://www.github.com/amplience/dc-management-sdk-js/commit/b4f046c466069a61fc9869b93d3295a809375f11))
+
 ## [1.10.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.9.0...v1.10.0) (2021-01-28)
 
 
