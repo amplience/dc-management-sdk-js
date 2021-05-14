@@ -1,6 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Hub } from './Hub';
 import { Page } from './Page';
+import { Status } from './Status';
 
 /**
  * Supported validation levels
@@ -60,6 +61,11 @@ export class ContentTypeSchema extends HalResource {
    * Timestamp representing when the content item was last updated in ISO 8601 format
    */
   public lastModifiedDate?: string;
+
+  /**
+   * Lifecycle status of the content type schema
+   */
+  public status: Status;
 
   /**
    * Resources and actions related to a ContentTypeSchema

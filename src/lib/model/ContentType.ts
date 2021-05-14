@@ -1,6 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentTypeCachedSchema } from './ContentTypeCachedSchema';
 import { Page } from './Page';
+import { Status } from './Status';
 
 export interface ContentTypeIcon {
   /**
@@ -92,6 +93,11 @@ export class ContentType extends HalResource {
    * Object containing display settings for the content type
    */
   public settings?: ContentTypeSettings;
+
+  /**
+   * Lifecycle status of the content type
+   */
+  public status: Status;
 
   /**
    * Resources and actions related to a ContentType
