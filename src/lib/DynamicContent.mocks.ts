@@ -2562,7 +2562,7 @@ export class DynamicContentFixtures {
 
     mocks
       .resource(CONTENT_ITEM)
-      .nestedCollection('localizations', {}, 'localizations', [CONTENT_ITEM]);
+      .nestedCollection('localizations', {}, 'content-items', [CONTENT_ITEM]);
 
     // Content Types
     mocks

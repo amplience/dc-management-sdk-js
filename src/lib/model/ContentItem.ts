@@ -146,7 +146,7 @@ abstract class BaseContentItem extends HalResource {
      * Get localizations of the content item
      */
     localizations: (options?: Pageable): Promise<Page<ContentItem>> =>
-      this.fetchLinkedResource('localizations', options, LocalizationsPage),
+      this.fetchLinkedResource('localizations', options, ContentItemsPage),
 
     /**
      * Updates this Content Item with the changes in the mutation parameter.
@@ -232,15 +232,6 @@ export class ContentItem extends BaseContentItem {
 export class ContentItemsPage extends Page<ContentItem> {
   constructor(data?: any) {
     super('content-items', ContentItem, data);
-  }
-}
-
-/**
- * @hidden
- */
-export class LocalizationsPage extends Page<ContentItem> {
-  constructor(data?: any) {
-    super('localizations', ContentItem, data);
   }
 }
 
