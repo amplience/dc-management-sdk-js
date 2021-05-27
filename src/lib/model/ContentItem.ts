@@ -2,6 +2,7 @@ import { HalResource } from '../hal/models/HalResource';
 import { ContentRepository } from './ContentRepository';
 import { LocalizationJob } from './LocalizationJob';
 import { Page } from './Page';
+import { Pageable } from './Pageable';
 import { Status } from './Status';
 import { HierarchyMeta } from './HierarchyNode';
 import { FacetsResponse } from './Facets';
@@ -142,6 +143,12 @@ abstract class BaseContentItem extends HalResource {
       ),
 
     /**
+     * Get localizations of the content item
+     */
+    localizations: (options?: Pageable): Promise<Page<ContentItem>> =>
+      this.fetchLinkedResource('localizations', options, LocalizationsPage),
+
+    /**
      * Updates this Content Item with the changes in the mutation parameter.
      * You must provide the current version number in the mutation
      * to avoid overwriting other user's changes.
@@ -225,6 +232,15 @@ export class ContentItem extends BaseContentItem {
 export class ContentItemsPage extends Page<ContentItem> {
   constructor(data?: any) {
     super('content-items', ContentItem, data);
+  }
+}
+
+/**
+ * @hidden
+ */
+export class LocalizationsPage extends Page<ContentItem> {
+  constructor(data?: any) {
+    super('localizations', ContentItem, data);
   }
 }
 

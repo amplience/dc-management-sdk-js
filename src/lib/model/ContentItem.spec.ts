@@ -91,6 +91,18 @@ test('create localizations', async (t) => {
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
 
+test('get localizations', async (t) => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const itemLocalizations = await contentItem.related.localizations();
+
+  t.is(itemLocalizations.getItems()[0].label, 'Banner Ad Homepage');
+});
+
 test('content item with assignees', async (t) => {
   const client = new MockDynamicContent();
 
@@ -106,6 +118,7 @@ test('toJSON should copy resource attributes', async (t) => {
   const resource = await client.contentItems.get(
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
+  console.log(resource);
   t.deepEqual(resource.toJSON(), {
     body: {
       _meta: {
@@ -121,7 +134,6 @@ test('toJSON should copy resource attributes', async (t) => {
     label: 'Banner Ad Homepage',
     lastModifiedBy: 'user',
     lastModifiedDate: '2018-06-26T12:54:16.216Z',
-    locale: 'en-GB',
     status: 'ACTIVE',
     version: 1,
   });
