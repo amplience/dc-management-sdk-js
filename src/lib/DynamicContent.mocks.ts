@@ -554,6 +554,7 @@ export const CONTENT_TYPE_SCHEMA = {
   lastModifiedDate: '2018-06-26T12:54:16.216Z',
   version: 1,
   id: '5d4af55ced6688002869d808',
+  status: 'ACTIVE',
   _links: {
     self: {
       href:
@@ -1686,6 +1687,7 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
+  status: 'ACTIVE',
   settings: {
     label: 'Carousel',
     icons: [

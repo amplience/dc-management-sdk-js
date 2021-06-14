@@ -2,6 +2,7 @@ import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentType } from './ContentType';
 import { ContentTypeCachedSchema } from './ContentTypeCachedSchema';
+import { Status } from './Status';
 
 test('get content type by id', async (t) => {
   const client = new MockDynamicContent();
@@ -10,6 +11,7 @@ test('get content type by id', async (t) => {
     result.contentTypeUri,
     'http://deliver.bigcontent.io/schema/carousel.json'
   );
+  t.is(result.status, Status.ACTIVE);
 });
 
 test('update', async (t) => {
@@ -80,6 +82,7 @@ test('toJson should copy resource attributes', async (t) => {
   t.deepEqual(resource.toJson(), {
     contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
     id: '5be1d5134cedfd01c030c460',
+    status: Status.ACTIVE,
     settings: {
       icons: [
         {
