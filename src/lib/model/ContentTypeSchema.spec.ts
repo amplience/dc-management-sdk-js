@@ -1,6 +1,7 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { ContentTypeSchema } from './ContentTypeSchema';
+import { Status } from './Status';
 
 test('list ContentTypeSchemas for a Hub', async (t) => {
   const client = new MockDynamicContent();
@@ -18,6 +19,7 @@ test('get a ContentTypeSchema', async (t) => {
     '5d4af55ced6688002869d808'
   );
   t.is(result.schemaId, 'http://example.com/content-type-schema.json');
+  t.is(result.status, Status.ACTIVE);
 });
 
 test('get a version ContentTypeSchema', async (t) => {

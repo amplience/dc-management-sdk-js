@@ -573,6 +573,7 @@ export const CONTENT_TYPE_SCHEMA = {
   lastModifiedDate: '2018-06-26T12:54:16.216Z',
   version: 1,
   id: '5d4af55ced6688002869d808',
+  status: 'ACTIVE',
   _links: {
     self: {
       href:
@@ -1615,6 +1616,98 @@ export const WEBHOOK = {
   },
 };
 
+export const WEBHOOK_WITH_EXTRAS = {
+  id: '5a497a000000000000000000',
+  label: 'Unit Test',
+  events: ['dynamic-content.content-item.created'],
+  active: true,
+  handlers: ['http://example.com/webhook'],
+  notifications: [],
+  secret: 'SECRET',
+  createdDate: '2021-04-20T08:08:36.678Z',
+  lastModifiedDate: '2021-04-20T08:08:36.678Z',
+  headers: [
+    {
+      key: 'X-Secret',
+      value: null,
+      secret: true,
+    },
+    {
+      key: 'X-Header',
+      value: 'abc123',
+      secret: null,
+    },
+  ],
+  filters: [
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: 'abc',
+        },
+      ],
+    },
+    {
+      type: 'in',
+      arguments: [
+        {
+          jsonPath: '$.payload.id',
+        },
+        {
+          value: ['abc', 'def'],
+        },
+      ],
+    },
+    {
+      type: 'equal',
+      arguments: [
+        {
+          jsonPath: '$.payload.not_present',
+        },
+        {
+          value: '123',
+        },
+      ],
+    },
+  ],
+  customPayload: {
+    type: 'text/x-handlebars-template',
+    value:
+      '{{#withDeliveryContentItem contentItemId=payload.id account="myAccountId" stagingEnvironment="myVseUrl"}}{{{JSONstringify this}}}{{/withDeliveryContentItem}}',
+  },
+  method: 'POST',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    hub: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    requests: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit,excludeStatus}',
+      templated: true,
+    },
+    'event-types': {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
+    },
+    update: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    delete: {
+      href:
+        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+  },
+};
+
 /**
  * @hidden
  */
@@ -1665,6 +1758,7 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
+  status: 'ACTIVE',
   settings: {
     label: 'Carousel',
     icons: [
@@ -2269,7 +2363,7 @@ export class DynamicContentFixtures {
       )
       .nestedCreateResource('create-extension', {}, EXTENSION)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
-      .nestedCreateResource('create-webhook', {}, WEBHOOK)
+      .nestedCreateResource('create-webhook', {}, WEBHOOK_WITH_EXTRAS)
       .nestedCollection('workflow-states', {}, 'workflow-states', [
         WORKFLOW_STATE,
       ])
@@ -2562,7 +2656,10 @@ export class DynamicContentFixtures {
       .nestedResource('content-type-schema', {}, CONTENT_TYPE_CACHED_SCHEMA);
 
     // Webhooks
-    mocks.resource(WEBHOOK).nestedResource('hub', {}, HUB);
+    mocks
+      .resource(WEBHOOK)
+      .nestedResource('hub', {}, HUB)
+      .nestedUpdateResource('update', {}, WEBHOOK_WITH_EXTRAS);
 
     // Workflow States
     mocks
