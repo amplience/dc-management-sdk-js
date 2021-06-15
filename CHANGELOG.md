@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.12.0...v1.13.0) (2021-06-15)
+
+
+### Features
+
+* **extensions:** add extensions endpoints ([#78](https://www.github.com/amplience/dc-management-sdk-js/issues/78)) ([a965038](https://www.github.com/amplience/dc-management-sdk-js/commit/a965038a24b34a1ac8364adb40968218b2282c40))
+
 ## [1.12.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.11.0...v1.12.0) (2021-06-14)
 
 
