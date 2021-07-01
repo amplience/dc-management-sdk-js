@@ -1,5 +1,6 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Page } from './Page';
+import { Webhook } from './Webhook';
 
 /**
  * Class representing an Assigned Content Type for an Algolia Search Index.
@@ -33,6 +34,15 @@ export class AssignedContentType extends HalResource {
 
     recreateWebhook: (): Promise<void> =>
       this.performActionWithoutResourceResponse('recreate-webhook'),
+
+    webhook: (): Promise<Webhook> =>
+      this.fetchLinkedResource('webhook', {}, Webhook),
+
+    activeContentWebhook: (): Promise<Webhook> =>
+      this.fetchLinkedResource('active-content-webhook', {}, Webhook),
+
+    archivedContentWebhook: (): Promise<Webhook> =>
+      this.fetchLinkedResource('archived-content-webhook', {}, Webhook),
   };
 }
 

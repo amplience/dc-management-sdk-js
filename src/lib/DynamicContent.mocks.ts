@@ -1537,7 +1537,7 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     webhook: {
       href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-webhook': {
       href:
@@ -1545,7 +1545,11 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     'active-content-webhook': {
       href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    'archived-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-active-content-webhook': {
       href:
