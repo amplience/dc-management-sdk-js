@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.13.0...v1.14.0) (2021-09-16)
+
+
+### Features
+
+* implement fetching webhooks for search index assigned content types ([#95](https://github.com/amplience/dc-management-sdk-js/issues/95)) ([5c43cf2](https://github.com/amplience/dc-management-sdk-js/commit/5c43cf2fe73269db1e91144ab987d10f29414e5d))
+
 ## [1.13.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.12.0...v1.13.0) (2021-06-15)
 
 
