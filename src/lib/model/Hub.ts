@@ -19,6 +19,7 @@ import { Settings } from './Settings';
 import { Webhook, WebhooksPage } from './Webhook';
 import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 import { Extension, ExtensionsPage } from './Extension';
+import { Snapshot, SnapshotResultList } from './Snapshot';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -278,6 +279,20 @@ export class Hub extends HalResource {
           },
           mutation,
           Settings
+        ),
+    },
+
+    snapshots: {
+      /**
+       * Creates a Webhook inside this Hub
+       * @param request
+       */
+      create: (request: Snapshot[]): Promise<SnapshotResultList> =>
+        this.performActionThatReturnsResource(
+          'batch-create-snapshots',
+          {},
+          request,
+          SnapshotResultList
         ),
     },
 

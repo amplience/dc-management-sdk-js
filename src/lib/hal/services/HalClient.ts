@@ -35,7 +35,7 @@ export interface HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
   ): Promise<T>;
 
   createResource<T extends HalResource>(
@@ -187,7 +187,10 @@ export class DefaultHalClient implements HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH = HttpMethod.POST
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<T> {
     let href = link.href;
 

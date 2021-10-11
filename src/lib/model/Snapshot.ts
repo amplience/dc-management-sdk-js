@@ -1,6 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentItem } from './ContentItem';
 import { Hub } from './Hub';
+import { SnapshotCreator } from './SnapshotCreator';
 import { SnapshotType } from './SnapshotType';
 
 /**
@@ -29,6 +30,11 @@ export class Snapshot extends HalResource {
   public createdDate?: string;
 
   /**
+   * Resource type the snapshot was created from
+   */
+  public createdFrom?: SnapshotCreator;
+
+  /**
    * Snapshot type
    */
   public type?: SnapshotType;
@@ -52,4 +58,16 @@ export class Snapshot extends HalResource {
         ContentItem
       ),
   };
+}
+
+export class SnapshotResultList extends HalResource {
+  /**
+   * The Hub ID associated to the Snapshots
+   */
+  hubId: string;
+
+  /**
+   * The result Snapshots
+   */
+  snapshots: Snapshot[];
 }

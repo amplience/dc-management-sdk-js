@@ -133,7 +133,10 @@ export class HalResource {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH = HttpMethod.POST
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.performActionThatReturnsResource(
