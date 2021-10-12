@@ -59,15 +59,3 @@ export class Snapshot extends HalResource {
       ),
   };
 }
-
-export class SnapshotResultList extends HalResource {
-  /**
-   * The Hub ID associated to the Snapshots
-   */
-  hubId: string;
-
-  /**
-   * The result Snapshots
-   */
-  snapshots: Snapshot[];
-}
