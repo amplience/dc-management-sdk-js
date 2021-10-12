@@ -54,6 +54,17 @@ export class HalMockResource {
     return this;
   }
 
+  public nestedPutResource(
+    linkName: string,
+    args: any,
+    resource: HalLiteral
+  ): this {
+    const link = this.resource._links[linkName];
+    const href = CURIEs.expand(link.href, args);
+    this.mocks.putResource(href, resource);
+    return this;
+  }
+
   public nestedUpdateResource(
     linkName: string,
     args: any,
@@ -106,6 +117,11 @@ export class HalMocks {
 
   public createResource(url: string, resource: HalLiteral): HalMockResource {
     this.mockInstance.onPost(url).reply(200, resource);
+    return new HalMockResource(resource, this);
+  }
+
+  public putResource(url: string, resource: HalLiteral): HalMockResource {
+    this.mockInstance.onPut(url).reply(200, resource);
     return new HalMockResource(resource, this);
   }
 

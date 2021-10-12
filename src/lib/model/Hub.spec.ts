@@ -5,6 +5,9 @@ import { Event } from './Event';
 import { WorkflowState } from './WorkflowState';
 import { Settings } from './Settings';
 import { Extension } from './Extension';
+import { Snapshot } from './Snapshot';
+import { SnapshotType } from './SnapshotType';
+import { SnapshotCreator } from './SnapshotCreator';
 
 test('list hubs', async (t) => {
   const client = new MockDynamicContent();
@@ -198,6 +201,21 @@ test('create workflow-state', async (t) => {
     })
   );
   t.is(result.label, 'Todo');
+});
+
+test('create snapshot', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.snapshots.create([
+    new Snapshot({
+      contentRoot: 'a87fd535-fb25-44ee-b687-0db72bbab721',
+      comment: '',
+      createdFrom: SnapshotCreator.ContentItem,
+      type: SnapshotType.GENERATED,
+    }),
+  ]);
+
+  t.is(result.snapshots[0].id, '5b3237944cedfd01c45038ae');
 });
 
 test('toJSON should copy resource attributes', async (t) => {

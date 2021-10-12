@@ -157,7 +157,7 @@ export class Edition extends HalResource {
         this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
 
       /**
-       * Creates a new edition slot from a list of content IDs
+       * Creates new edition slots from a list of content IDs
        */
       create: (slots: EditionSlotRequest[]): Promise<Page<EditionSlot>> =>
         this.performActionThatReturnsResource(

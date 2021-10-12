@@ -1,5 +1,6 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
+import { Edition } from './Edition';
 
 test('get edition by id', async (t) => {
   const client = new MockDynamicContent();
@@ -30,6 +31,18 @@ test('unschedule edition', async (t) => {
   t.is(newRequest.publishingStatus, 'DRAFT');
 });
 
+test('update edition', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504172');
+
+  const mutation = new Edition({
+    comment: 'updated',
+  });
+
+  const update = await edition.related.update(mutation);
+  t.is(update.comment, mutation.comment);
+});
+
 test('delete edition', async (t) => {
   const client = new MockDynamicContent();
   const edition = await client.editions.get('5b32379e4cedfd01c4504172');
@@ -42,6 +55,16 @@ test('list slots', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.editions.get('5b32379e4cedfd01c4504172');
   const slots = await result.related.slots.list();
+
+  t.is(slots.getItems()[0].slotId, '7aa5f5d4-071c-42e3-b42e-02675c56d60e');
+});
+
+test('create slots', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.editions.get('5b32379e4cedfd01c4504172');
+  const slots = await result.related.slots.create([
+    { slot: '7aa5f5d4-071c-42e3-b42e-02675c56d60e' },
+  ]);
 
   t.is(slots.getItems()[0].slotId, '7aa5f5d4-071c-42e3-b42e-02675c56d60e');
 });
