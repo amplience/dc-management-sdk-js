@@ -2561,6 +2561,12 @@ export class DynamicContentFixtures {
       );
 
     mocks
+      .resource(LOCALIZATION_JOB, 'noself')
+      .nestedCollection('findByRootContentItem', {}, 'localization-jobs', [
+        LOCALIZATION_JOB,
+      ]);
+
+    mocks
       .resource(CONTENT_ITEM)
       .nestedCollection('localizations', {}, 'content-items', [CONTENT_ITEM]);
 

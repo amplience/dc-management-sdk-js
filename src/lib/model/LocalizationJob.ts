@@ -1,5 +1,8 @@
 import { HalResource } from '../hal/models/HalResource';
 import { LocalizationRoot } from './LocalizationRoot';
+import { Page } from './Page';
+import { Pageable } from './Pageable';
+import { Sortable } from './Sortable';
 
 /**
  * Class representing a LocalizationJob.
@@ -25,4 +28,27 @@ export class LocalizationJob extends HalResource {
    * Timestamp representing when the job was originally created (ISO 8601 format)
    */
   public createdDate?: string;
+
+  public readonly related = {
+    /**
+     * Retrieves the Localization Job Page
+     */
+    findByRootContentItem: (
+      options?: Pageable & Sortable
+    ): Promise<Page<LocalizationJob>> =>
+      this.fetchLinkedResource(
+        'findByRootContentItem',
+        { options },
+        LocalizationJobPage
+      ),
+  };
+}
+
+/**
+ * @hidden
+ */
+export class LocalizationJobPage extends Page<LocalizationJob> {
+  constructor(data?: any) {
+    super('localization-jobs', LocalizationJob, data);
+  }
 }
