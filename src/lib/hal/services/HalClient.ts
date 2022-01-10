@@ -35,7 +35,8 @@ export interface HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT,
+    returnError: boolean
   ): Promise<T>;
 
   createResource<T extends HalResource>(
@@ -190,7 +191,8 @@ export class DefaultHalClient implements HalClient {
     method:
       | HttpMethod.POST
       | HttpMethod.PATCH
-      | HttpMethod.PUT = HttpMethod.POST
+      | HttpMethod.PUT = HttpMethod.POST,
+    returnError = false
   ): Promise<T> {
     let href = link.href;
 
@@ -198,11 +200,14 @@ export class DefaultHalClient implements HalClient {
       href = CURIEs.expand(href, params);
     }
 
-    const response = await this.invoke({
-      data: this.serialize(data),
-      method,
-      url: href,
-    });
+    const response = await this.invoke(
+      {
+        data: this.serialize(data),
+        method,
+        url: href,
+      },
+      returnError
+    );
 
     return this.parse(response.data, resourceConstructor);
   }
@@ -220,7 +225,10 @@ export class DefaultHalClient implements HalClient {
     return JSON.parse(JSON.stringify(data));
   }
 
-  protected async invoke(request: HttpRequest): Promise<HttpResponse> {
+  protected async invoke(
+    request: HttpRequest,
+    returnError = false
+  ): Promise<HttpResponse> {
     const token = await this.tokenProvider.getToken();
 
     const fullRequest: HttpRequest = {
@@ -237,7 +245,13 @@ export class DefaultHalClient implements HalClient {
         return response;
       }
 
-      if (response.status >= 200 && response.status < 300) {
+      const codeFirstDigit = Math.floor(response.status / 100);
+      if (codeFirstDigit === 2) {
+        if (typeof response.data === 'string') {
+          response.data = JSON.parse(response.data);
+        }
+        return response;
+      } else if (returnError && codeFirstDigit == 4 && response.data) {
         if (typeof response.data === 'string') {
           response.data = JSON.parse(response.data);
         }

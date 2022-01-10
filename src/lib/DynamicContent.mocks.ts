@@ -934,6 +934,49 @@ EDITION_V2.comment = 'updated';
 /**
  * @hidden
  */
+export const EDITION_SCHEDULE_ERROR = {
+  errors: [
+    {
+      level: 'WARNING',
+      code: 'EDITION_SCHEDULE_OVERLAP',
+      message: 'Edition Schedule Overlap. Please try again later.',
+      overlaps: [
+        {
+          editionId: '5b32379e4cedfd01c4504172',
+          name: 'Test schedule edition',
+          start: '2022-01-07T15:31:47.337Z',
+        },
+      ],
+    },
+    {
+      level: 'WARNING',
+      code: 'EDITION_CONTAINS_SLOT_COLLISIONS',
+      message: 'Edition contains slots that collide with other editions.',
+    },
+  ],
+  _links: {},
+};
+
+/**
+ * @hidden
+ */
+export const EDITION_CONFLICT = { ...EDITION };
+EDITION_CONFLICT.id = '5b32379e4cedfd01c4504173';
+EDITION_CONFLICT._links = { ...EDITION_CONFLICT._links };
+EDITION_CONFLICT._links.self = {
+  ...EDITION_CONFLICT._links.self,
+  href:
+    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173',
+};
+EDITION_CONFLICT._links.schedule = {
+  ...EDITION_CONFLICT._links.schedule,
+  href:
+    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173/schedule{?ignoreWarnings}',
+};
+
+/**
+ * @hidden
+ */
 export const EDITION_SLOT = {
   eventId: '5b32379e4cedfd01c4504171',
   editionId: '5b32379e4cedfd01c4504172',
@@ -2652,6 +2695,7 @@ export class DynamicContentFixtures {
       .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT])
       .nestedCreateResource('archive', {}, EDITION)
       .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' })
+      .nestedCreateResource('schedule', { ignoreWarnings: true }, null)
       .nestedUpdateResource('update', {}, EDITION_V2)
       .nestedCreateResource('slots', {}, {
         _links: {},
@@ -2659,6 +2703,15 @@ export class DynamicContentFixtures {
           'edition-slots': [EDITION_SLOT],
         },
       } as HalLiteral);
+
+    mocks
+      .resource(EDITION_CONFLICT)
+      .nestedCreateResource(
+        'schedule',
+        { ignoreWarnings: false },
+        EDITION_SCHEDULE_ERROR,
+        409
+      );
 
     // Edition Slots
     mocks

@@ -46,11 +46,12 @@ export class HalMockResource {
   public nestedCreateResource(
     linkName: string,
     args: any,
-    resource: HalLiteral
+    resource: HalLiteral,
+    errorCode = 200
   ): this {
     const link = this.resource._links[linkName];
     const href = CURIEs.expand(link.href, args);
-    this.mocks.createResource(href, resource);
+    this.mocks.createResource(href, resource, errorCode);
     return this;
   }
 
@@ -115,8 +116,12 @@ export class HalMocks {
     });
   }
 
-  public createResource(url: string, resource: HalLiteral): HalMockResource {
-    this.mockInstance.onPost(url).reply(200, resource);
+  public createResource(
+    url: string,
+    resource: HalLiteral,
+    errorCode = 200
+  ): HalMockResource {
+    this.mockInstance.onPost(url).reply(errorCode, resource);
     return new HalMockResource(resource, this);
   }
 

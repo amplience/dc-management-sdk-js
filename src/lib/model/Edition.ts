@@ -1,4 +1,6 @@
+import { HttpMethod } from '../..';
 import { HalResource } from '../hal/models/HalResource';
+import { EditionScheduleStatus } from './EditionScheduleStatus';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
 import { EditionSlotRequest } from './EditionSlotRequest';
 import { Event } from './Event';
@@ -167,6 +169,19 @@ export class Edition extends HalResource {
           EditionSlotsPage
         ),
     },
+
+    /**
+     * Schedule Edition
+     */
+    schedule: (ignoreWarnings = false): Promise<EditionScheduleStatus> =>
+      this.performActionThatReturnsResource<EditionScheduleStatus>(
+        'schedule',
+        { ignoreWarnings },
+        {},
+        EditionScheduleStatus,
+        HttpMethod.POST,
+        true
+      ),
 
     /**
      * Unschedule Edition

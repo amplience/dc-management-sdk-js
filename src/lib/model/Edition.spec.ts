@@ -31,6 +31,24 @@ test('unschedule edition', async (t) => {
   t.is(newRequest.publishingStatus, 'DRAFT');
 });
 
+test('schedule edition (success)', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504172');
+  const result = await edition.related.schedule(true);
+
+  t.is(result.errors, undefined);
+});
+
+test('schedule edition (warning)', async (t) => {
+  const client = new MockDynamicContent();
+  const edition = await client.editions.get('5b32379e4cedfd01c4504173');
+  const result = await edition.related.schedule();
+
+  t.not(result.errors, undefined);
+  t.is(result.errors.length, 2);
+  t.is(result.errors[0].overlaps[0].editionId, '5b32379e4cedfd01c4504172');
+});
+
 test('update edition', async (t) => {
   const client = new MockDynamicContent();
   const edition = await client.editions.get('5b32379e4cedfd01c4504172');
