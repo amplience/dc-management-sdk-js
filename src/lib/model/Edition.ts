@@ -175,7 +175,7 @@ export class Edition extends HalResource {
      */
     schedule: (
       ignoreWarnings = false,
-      lastModifiedDate = this.lastModifiedDate
+      lastModifiedDate = new Date().toISOString()
     ): Promise<EditionScheduleStatus> =>
       this.performActionThatReturnsResource<EditionScheduleStatus>(
         'schedule',
