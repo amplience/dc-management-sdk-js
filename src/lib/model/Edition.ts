@@ -173,11 +173,14 @@ export class Edition extends HalResource {
     /**
      * Schedule Edition
      */
-    schedule: (ignoreWarnings = false): Promise<EditionScheduleStatus> =>
+    schedule: (
+      ignoreWarnings = false,
+      lastModifiedDate = this.lastModifiedDate
+    ): Promise<EditionScheduleStatus> =>
       this.performActionThatReturnsResource<EditionScheduleStatus>(
         'schedule',
         { ignoreWarnings },
-        {},
+        { lastModifiedDate },
         EditionScheduleStatus,
         HttpMethod.POST,
         true
