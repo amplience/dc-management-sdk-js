@@ -1,7 +1,7 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 
-test('get fby Root Content Item', async (t) => {
+test('get by Root Content Item', async (t) => {
   const client = new MockDynamicContent();
 
   const contentItem = await client.contentItems.get(
