@@ -285,7 +285,7 @@ export class Hub extends HalResource {
 
     snapshots: {
       /**
-       * Creates a Webhook inside this Hub
+       * Creates a Snapshot inside this Hub
        * @param request
        */
       create: (request: Snapshot[]): Promise<SnapshotResultList> =>
