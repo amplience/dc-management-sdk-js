@@ -86,6 +86,25 @@ export const HUB = {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/events',
     },
+    extensions: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions{?page,size,sort}',
+      templated: true,
+    },
+    'extensions-lite': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions?show-full=false{&page,size,sort}',
+      templated: true,
+    },
+    'extension-by-name': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions/{name}',
+      templated: true,
+    },
+    'create-extension': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions',
+    },
     update: {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
@@ -559,6 +578,7 @@ export const CONTENT_TYPE_SCHEMA = {
   lastModifiedDate: '2018-06-26T12:54:16.216Z',
   version: 1,
   id: '5d4af55ced6688002869d808',
+  status: 'ACTIVE',
   _links: {
     self: {
       href:
@@ -936,6 +956,58 @@ export const EDITION_SLOT = {
     content: {
       href:
         'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const EXTENSION = {
+  id: '5e441cd44cedfd0001889389',
+  hubId: '5b32377e4cedfd01c45036d8',
+  name: 'test-extension',
+  label: 'Test Extension',
+  description:
+    'A field for entering and modifying Rich Text, which will be stored as a JSON structure in the content type.',
+  url: 'https://example.net/index.html',
+  height: 200,
+  category: 'CONTENT_FIELD',
+  parameters: '{}',
+  snippets: [
+    {
+      label: 'Rich Text Editor (JSON)',
+      body:
+        '{\n  "type": "array",\n  "ui:extension": {\n    "name": "rich-text-block",\n    "params": {\n      "language": "json"\n    }\n  }\n}',
+    },
+  ],
+  settings:
+    '{"API":{"READ":false,"EDIT":false},"SANDBOX":{"SAME_ORIGIN":false,"MODALS":false,"NAVIGATION":false,"POPUPS":false,"POPUP_ESCAPE_SANDBOX":false,"DOWNLOADS":false,"FORMS":false}}',
+  status: 'ACTIVE',
+  createdBy: '4fdd7072-2634-457c-8d34-300e7054fc5b',
+  createdDate: '2020-02-12T15:42:12.536Z',
+  lastModifiedBy: 'd12ac106-5f27-4a9b-9544-0ff57c0bfa73',
+  lastModifiedDate: '2021-03-12T17:11:20.050Z',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+    },
+    extension: {
+      href:
+        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+    },
+    hub: {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
     },
   },
 };
@@ -1470,7 +1542,7 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     webhook: {
       href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-webhook': {
       href:
@@ -1478,7 +1550,11 @@ export const ASSIGNED_CONTENT_TYPE = {
     },
     'active-content-webhook': {
       href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/00112233445566778899aabb',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+    },
+    'archived-content-webhook': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-active-content-webhook': {
       href:
@@ -1691,6 +1767,7 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
 export const CONTENT_TYPE = {
   id: '5be1d5134cedfd01c030c460',
   contentTypeUri: 'http://deliver.bigcontent.io/schema/carousel.json',
+  status: 'ACTIVE',
   settings: {
     label: 'Carousel',
     icons: [
@@ -2286,6 +2363,14 @@ export class DynamicContentFixtures {
       ])
       .nestedCollection('events', {}, 'events', [EVENT])
       .nestedCreateResource('create-event', {}, EVENT)
+      .nestedCollection('extensions', {}, 'extensions', [EXTENSION])
+      .nestedCollection('extensions-lite', {}, 'extensions-lite', [EXTENSION])
+      .nestedResource(
+        'extension-by-name',
+        { name: 'test-extension' },
+        EXTENSION
+      )
+      .nestedCreateResource('create-extension', {}, EXTENSION)
       .nestedCollection('webhooks', {}, 'webhooks', [WEBHOOK])
       .nestedCreateResource('create-webhook', {}, WEBHOOK_WITH_EXTRAS)
       .nestedCollection('workflow-states', {}, 'workflow-states', [
@@ -2528,6 +2613,12 @@ export class DynamicContentFixtures {
       .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT])
       .nestedCreateResource('archive', {}, EDITION)
       .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' });
+
+    // Extensions
+    mocks
+      .resource(EXTENSION)
+      .nestedResource('hub', {}, HUB)
+      .nestedUpdateResource('update', {}, EXTENSION);
 
     // Snapshots
     mocks

@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.13.0...v1.14.0) (2021-09-16)
+
+
+### Features
+
+* implement fetching webhooks for search index assigned content types ([#95](https://github.com/amplience/dc-management-sdk-js/issues/95)) ([5c43cf2](https://github.com/amplience/dc-management-sdk-js/commit/5c43cf2fe73269db1e91144ab987d10f29414e5d))
+
+## [1.13.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.12.0...v1.13.0) (2021-06-15)
+
+
+### Features
+
+* **extensions:** add extensions endpoints ([#78](https://www.github.com/amplience/dc-management-sdk-js/issues/78)) ([a965038](https://www.github.com/amplience/dc-management-sdk-js/commit/a965038a24b34a1ac8364adb40968218b2282c40))
+
+## [1.12.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.11.0...v1.12.0) (2021-06-14)
+
+
+### Features
+
+* include archived in status enum, add it to content type and schema ([#90](https://www.github.com/amplience/dc-management-sdk-js/issues/90)) ([2e27c97](https://www.github.com/amplience/dc-management-sdk-js/commit/2e27c97f0c27d5b44c18dd008e3b1a1c527a294f))
+
 ## [1.11.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.10.0...v1.11.0) (2021-05-07)
 
 

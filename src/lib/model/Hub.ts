@@ -18,6 +18,7 @@ import { Status } from './Status';
 import { Settings } from './Settings';
 import { Webhook, WebhooksPage } from './Webhook';
 import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
+import { Extension, ExtensionsPage } from './Extension';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -204,6 +205,28 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Event>> =>
         this.fetchLinkedResource('events', options, EventsPage),
+    },
+
+    extensions: {
+      /**
+       * Creates an Extension inside this Hub
+       * @param resource
+       */
+      create: (resource: Extension): Promise<Extension> =>
+        this.createLinkedResource('create-extension', {}, resource, Extension),
+
+      /**
+       * Get an Extension inside this Hub by its name
+       */
+      getByName: (name: string): Promise<Extension> =>
+        this.fetchLinkedResource('extension-by-name', { name }, Extension),
+
+      /**
+       * Retrieves a list of Extension associated with this Hub
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<Extension>> =>
+        this.fetchLinkedResource('extensions', options, ExtensionsPage),
     },
 
     searchIndexes: {

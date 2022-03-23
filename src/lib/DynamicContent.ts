@@ -19,6 +19,7 @@ import { OAuth2Client } from './oauth2/services/OAuth2Client';
 import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
+import { Extension } from './model/Extension';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -229,6 +230,18 @@ export class DynamicContent {
      */
     get: (id: string): Promise<Edition> =>
       this.client.fetchResource(`/editions/${id}`, Edition),
+  };
+
+  /**
+   * Extension Resources
+   */
+  public readonly extensions = {
+    /**
+     * Retrieve an extension resource by id
+     * @param id extension id, previously generated on creation
+     */
+    get: (id: string): Promise<Extension> =>
+      this.client.fetchResource(`/extensions/${id}`, Extension),
   };
 
   /**
