@@ -255,6 +255,11 @@ export const CONTENT_ITEM = {
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
       templated: true,
     },
+    localizations: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localizations{?page,size,sort}',
+      templated: true,
+    },
     'content-item-versions': {
       href:
         'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
@@ -2645,6 +2650,16 @@ export class DynamicContentFixtures {
         { locales: ['fr-FR'], version: 1 },
         LOCALIZATION_JOB
       );
+
+    mocks
+      .resource(LOCALIZATION_JOB, 'noself')
+      .nestedCollection('findByRootContentItem', {}, 'localization-jobs', [
+        LOCALIZATION_JOB,
+      ]);
+
+    mocks
+      .resource(CONTENT_ITEM)
+      .nestedCollection('localizations', {}, 'content-items', [CONTENT_ITEM]);
 
     // Content Types
     mocks
