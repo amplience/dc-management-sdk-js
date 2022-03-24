@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.14.0...v1.15.0) (2022-03-24)
+
+
+### Features
+
+* add method to get localizations for ContentItem ([#103](https://github.com/amplience/dc-management-sdk-js/issues/103)) ([0a9340e](https://github.com/amplience/dc-management-sdk-js/commit/0a9340e75071fc1b707997f49c76a04fae9f70d0))
+
 ## [1.14.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.13.0...v1.14.0) (2022-03-24)
 
 
