@@ -255,8 +255,7 @@ export class DefaultHalClient implements HalClient {
         return response;
       }
 
-      const codeFirstDigit = Math.floor(response.status / 100);
-      if (codeFirstDigit === 2) {
+      if (response.status >= 200 && response.status < 300) {
         if (typeof response.data === 'string') {
           response.data = JSON.parse(response.data);
         }
