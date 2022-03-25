@@ -35,8 +35,7 @@ export interface HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT,
-    returnError: boolean
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
   ): Promise<T>;
 
   createResource<T extends HalResource>(
@@ -62,7 +61,12 @@ export interface HalClient {
 
   deleteResource(path: string): Promise<void>;
 
-  performActionWithoutResourceResponse(link: HalLink): Promise<void>;
+  performActionWithoutResourceResponse(
+    link: HalLink,
+    params: any,
+    data: any,
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
+  ): Promise<void>;
 
   parse<T extends HalResource>(
     data: any,
@@ -174,11 +178,24 @@ export class DefaultHalClient implements HalClient {
   }
 
   public async performActionWithoutResourceResponse(
-    link: HalLink
+    link: HalLink,
+    params: any,
+    data: any,
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<void> {
+    let href = link.href;
+
+    if (link.templated) {
+      href = CURIEs.expand(href, params);
+    }
+
     await this.invoke({
-      method: HttpMethod.POST,
-      url: link.href,
+      data: this.serialize(data),
+      method,
+      url: href,
     });
     return Promise.resolve();
   }
@@ -191,8 +208,7 @@ export class DefaultHalClient implements HalClient {
     method:
       | HttpMethod.POST
       | HttpMethod.PATCH
-      | HttpMethod.PUT = HttpMethod.POST,
-    returnError = false
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<T> {
     let href = link.href;
 
@@ -200,14 +216,11 @@ export class DefaultHalClient implements HalClient {
       href = CURIEs.expand(href, params);
     }
 
-    const response = await this.invoke(
-      {
-        data: this.serialize(data),
-        method,
-        url: href,
-      },
-      returnError
-    );
+    const response = await this.invoke({
+      data: this.serialize(data),
+      method,
+      url: href,
+    });
 
     return this.parse(response.data, resourceConstructor);
   }
@@ -225,10 +238,7 @@ export class DefaultHalClient implements HalClient {
     return JSON.parse(JSON.stringify(data));
   }
 
-  protected async invoke(
-    request: HttpRequest,
-    returnError = false
-  ): Promise<HttpResponse> {
+  protected async invoke(request: HttpRequest): Promise<HttpResponse> {
     const token = await this.tokenProvider.getToken();
 
     const fullRequest: HttpRequest = {
@@ -247,11 +257,6 @@ export class DefaultHalClient implements HalClient {
 
       const codeFirstDigit = Math.floor(response.status / 100);
       if (codeFirstDigit === 2) {
-        if (typeof response.data === 'string') {
-          response.data = JSON.parse(response.data);
-        }
-        return response;
-      } else if (returnError && codeFirstDigit == 4 && response.data) {
         if (typeof response.data === 'string') {
           response.data = JSON.parse(response.data);
         }

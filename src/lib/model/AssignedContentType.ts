@@ -42,7 +42,7 @@ export class AssignedContentType extends HalResource {
      * Recreates the webhooks for this Assigned Content Type.
      */
     recreateWebhook: (): Promise<void> =>
-      this.performActionWithoutResourceResponse('recreate-webhook'),
+      this.performActionWithoutResourceResponse('recreate-webhook', {}, {}),
 
     /**
      * Gets the primary webhook for this Assigned Content Type.

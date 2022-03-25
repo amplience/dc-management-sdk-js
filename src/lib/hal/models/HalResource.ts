@@ -136,8 +136,7 @@ export class HalResource {
     method:
       | HttpMethod.POST
       | HttpMethod.PATCH
-      | HttpMethod.PUT = HttpMethod.POST,
-    returnError = false
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<T> {
     return this.withHalLink(name).then(([link, client]) =>
       client.performActionThatReturnsResource(
@@ -145,8 +144,7 @@ export class HalResource {
         params,
         data,
         resourceConstructor,
-        method,
-        returnError
+        method
       )
     );
   }
@@ -154,9 +152,17 @@ export class HalResource {
   /**
    * POST to an action endpoint with no resource response returned.
    */
-  protected performActionWithoutResourceResponse(name: string): Promise<void> {
+  protected performActionWithoutResourceResponse(
+    name: string,
+    params: any,
+    data: any,
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
+  ): Promise<void> {
     return this.withHalLink(name).then(([link, client]) =>
-      client.performActionWithoutResourceResponse(link)
+      client.performActionWithoutResourceResponse(link, params, data, method)
     );
   }
 

@@ -1,6 +1,5 @@
 import { HttpMethod } from '../..';
 import { HalResource } from '../hal/models/HalResource';
-import { EditionScheduleStatus } from './EditionScheduleStatus';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
 import { EditionSlotRequest } from './EditionSlotRequest';
 import { Event } from './Event';
@@ -176,14 +175,12 @@ export class Edition extends HalResource {
     schedule: (
       ignoreWarnings = false,
       lastModifiedDate = new Date().toISOString()
-    ): Promise<EditionScheduleStatus> =>
-      this.performActionThatReturnsResource<EditionScheduleStatus>(
+    ): Promise<void> =>
+      this.performActionWithoutResourceResponse(
         'schedule',
         { ignoreWarnings },
         { lastModifiedDate },
-        EditionScheduleStatus,
-        HttpMethod.POST,
-        true
+        HttpMethod.POST
       ),
 
     /**
