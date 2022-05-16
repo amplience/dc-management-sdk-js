@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.16.2...v1.17.0) (2022-05-16)
+
+
+### Features
+
+* add methods for mutating events, editions, slots, snapshots ([#98](https://www.github.com/amplience/dc-management-sdk-js/issues/98)) ([64e7c9f](https://www.github.com/amplience/dc-management-sdk-js/commit/64e7c9fdf17f8a8bf54cf72449d4a5b14d91a464))
+
 ### [1.16.2](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.16.1...v1.16.2) (2022-03-28)
 
 
