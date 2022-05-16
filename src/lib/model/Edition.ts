@@ -1,5 +1,7 @@
+import { HttpMethod } from '../..';
 import { HalResource } from '../hal/models/HalResource';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
+import { EditionSlotRequest } from './EditionSlotRequest';
 import { Event } from './Event';
 import { Page } from './Page';
 import { PublishingStatus } from './PublishingStatus';
@@ -154,12 +156,44 @@ export class Edition extends HalResource {
        */
       list: (): Promise<Page<EditionSlot>> =>
         this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
+
+      /**
+       * Creates new edition slots from a list of content IDs
+       */
+      create: (slots: EditionSlotRequest[]): Promise<Page<EditionSlot>> =>
+        this.performActionThatReturnsResource(
+          'slots',
+          {},
+          slots,
+          EditionSlotsPage
+        ),
     },
+
+    /**
+     * Schedule Edition
+     */
+    schedule: (
+      ignoreWarnings = false,
+      lastModifiedDate = new Date().toISOString()
+    ): Promise<void> =>
+      this.performActionWithoutResourceResponse(
+        'schedule',
+        { ignoreWarnings },
+        { lastModifiedDate },
+        HttpMethod.POST
+      ),
 
     /**
      * Unschedule Edition
      */
     unschedule: (): Promise<void> => this.deleteLinkedResource('schedule', {}),
+
+    /**
+     * Updates this Edition with the changes in the mutation parameter.
+     * @param mutation Mutated edition
+     */
+    update: (mutation: Edition): Promise<Edition> =>
+      this.updateResource(mutation, Edition),
   };
 }
 

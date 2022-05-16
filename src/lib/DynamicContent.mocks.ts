@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import { DynamicContent, DynamicContentConfig } from './DynamicContent';
 import { HalClient } from './hal/services/HalClient';
-import { HalMocks } from './hal/utils/HalMock';
+import { HalLiteral, HalMocks } from './hal/utils/HalMock';
 import { AxiosHttpClient } from './http/AxiosHttpClient';
 import { HttpClient } from './http/HttpClient';
 import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
@@ -184,6 +184,10 @@ export const HUB = {
     'create-workflow-state': {
       href:
         'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states',
+    },
+    'batch-create-snapshots': {
+      href:
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
     },
   },
 };
@@ -837,6 +841,12 @@ export const EVENT = {
 /**
  * @hidden
  */
+export const EVENT_V2 = { ...EVENT };
+EVENT_V2.comment = 'updated';
+
+/**
+ * @hidden
+ */
 export const EDITION = {
   id: '5b32379e4cedfd01c4504172',
   name: 'January Sale',
@@ -918,6 +928,55 @@ export const EDITION = {
 /**
  * @hidden
  */
+export const EDITION_V2 = { ...EDITION };
+EDITION_V2.comment = 'updated';
+
+/**
+ * @hidden
+ */
+export const EDITION_SCHEDULE_ERROR = {
+  errors: [
+    {
+      level: 'WARNING',
+      code: 'EDITION_SCHEDULE_OVERLAP',
+      message: 'Edition Schedule Overlap. Please try again later.',
+      overlaps: [
+        {
+          editionId: '5b32379e4cedfd01c4504172',
+          name: 'Test schedule edition',
+          start: '2022-01-07T15:31:47.337Z',
+        },
+      ],
+    },
+    {
+      level: 'WARNING',
+      code: 'EDITION_CONTAINS_SLOT_COLLISIONS',
+      message: 'Edition contains slots that collide with other editions.',
+    },
+  ],
+  _links: {},
+};
+
+/**
+ * @hidden
+ */
+export const EDITION_CONFLICT = { ...EDITION };
+EDITION_CONFLICT.id = '5b32379e4cedfd01c4504173';
+EDITION_CONFLICT._links = { ...EDITION_CONFLICT._links };
+EDITION_CONFLICT._links.self = {
+  ...EDITION_CONFLICT._links.self,
+  href:
+    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173',
+};
+EDITION_CONFLICT._links.schedule = {
+  ...EDITION_CONFLICT._links.schedule,
+  href:
+    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173/schedule{?ignoreWarnings}',
+};
+
+/**
+ * @hidden
+ */
 export const EDITION_SLOT = {
   eventId: '5b32379e4cedfd01c4504171',
   editionId: '5b32379e4cedfd01c4504172',
@@ -929,6 +988,7 @@ export const EDITION_SLOT = {
         name: 'slot',
       },
     },
+    updated: 'no',
   },
   status: 'VALID',
   contentTypeId: '5b3237a24cedfd01c45041cf',
@@ -957,8 +1017,19 @@ export const EDITION_SLOT = {
       href:
         'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content',
     },
+    'safe-update-content': {
+      href:
+        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content{?lastModifiedDate,page,size,sort}',
+      templated: true,
+    },
   },
 };
+
+/**
+ * @hidden
+ */
+export const EDITION_SLOT_V2 = { ...EDITION_SLOT };
+EDITION_SLOT_V2.content.updated = 'content';
 
 /**
  * @hidden
@@ -1064,6 +1135,15 @@ export const SNAPSHOT = {
       templated: true,
     },
   },
+};
+
+/**
+ * @hidden
+ */
+export const SNAPSHOT_RESULTS = {
+  hubId: '5b32377e4cedfd01c45036d8',
+  snapshots: [SNAPSHOT],
+  _links: {},
 };
 
 /**
@@ -2408,7 +2488,8 @@ export class DynamicContentFixtures {
           sort: 'lastModifiedDate,desc',
         },
         CONTENT_ITEMS_FACET
-      );
+      )
+      .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS);
     hubMockResource.mocks.collection(
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
       'content-repositories',
@@ -2605,14 +2686,37 @@ export class DynamicContentFixtures {
       .nestedResource('hub', {}, HUB)
       .nestedCollection('editions', {}, 'editions', [EDITION])
       .nestedCreateResource('create-edition', {}, EDITION)
-      .nestedCreateResource('archive', {}, EVENT);
+      .nestedCreateResource('archive', {}, EVENT)
+      .nestedUpdateResource('update', {}, EVENT_V2);
 
     // Editions
     mocks
       .resource(EDITION)
       .nestedCollection('list-slots', {}, 'edition-slots', [EDITION_SLOT])
       .nestedCreateResource('archive', {}, EDITION)
-      .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' });
+      .nestedDelete('schedule', { id: '5b32379e4cedfd01c4504172' })
+      .nestedCreateResource('schedule', { ignoreWarnings: true }, null)
+      .nestedUpdateResource('update', {}, EDITION_V2)
+      .nestedCreateResource('slots', {}, {
+        _links: {},
+        _embedded: {
+          'edition-slots': [EDITION_SLOT],
+        },
+      } as HalLiteral);
+
+    mocks
+      .resource(EDITION_CONFLICT)
+      .nestedCreateResource(
+        'schedule',
+        { ignoreWarnings: false },
+        EDITION_SCHEDULE_ERROR,
+        409
+      );
+
+    // Edition Slots
+    mocks
+      .resource(EDITION_SLOT)
+      .nestedPutResource('safe-update-content', {}, EDITION_SLOT);
 
     // Extensions
     mocks

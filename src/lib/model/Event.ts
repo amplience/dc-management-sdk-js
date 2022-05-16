@@ -75,6 +75,13 @@ export class Event extends HalResource {
       list: (options?: Pageable & Sortable): Promise<Page<Edition>> =>
         this.fetchLinkedResource('editions', options, EditionsPage),
     },
+
+    /**
+     * Updates this Event with the changes in the mutation parameter.
+     * @param mutation Mutated event
+     */
+    update: (mutation: Event): Promise<Event> =>
+      this.updateResource(mutation, Event),
   };
 }
 

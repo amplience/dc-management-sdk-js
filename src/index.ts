@@ -35,9 +35,12 @@ export {
   PublishingStatus,
   ContentItemPublishingStatus,
 } from './lib/model/PublishingStatus';
+export { SnapshotCreator } from './lib/model/SnapshotCreator';
 export { SnapshotType } from './lib/model/SnapshotType';
 export { EditionSlot } from './lib/model/EditionSlot';
+export { EditionSlotRequest } from './lib/model/EditionSlotRequest';
 export { Snapshot } from './lib/model/Snapshot';
+export { SnapshotResultList } from './lib/model/SnapshotResultList';
 export { Page } from './lib/model/Page';
 export { PageMetadata } from './lib/model/PageMetadata';
 export { ContentGraph } from './lib/content/services/ContentGraph';

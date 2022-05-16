@@ -1,6 +1,7 @@
 import { HalResource } from '../hal/models/HalResource';
 import { ContentItem } from './ContentItem';
 import { Hub } from './Hub';
+import { SnapshotCreator } from './SnapshotCreator';
 import { SnapshotType } from './SnapshotType';
 
 /**
@@ -27,6 +28,11 @@ export class Snapshot extends HalResource {
    * Timestamp representing when the Snapshot was originally created in ISO 8601 format
    */
   public createdDate?: string;
+
+  /**
+   * Resource type the snapshot was created from
+   */
+  public createdFrom?: SnapshotCreator;
 
   /**
    * Snapshot type

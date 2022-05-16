@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { HttpMethod } from '../http/HttpRequest';
 import { Page } from './Page';
 
 /**
@@ -6,6 +7,11 @@ import { Page } from './Page';
  * EditionSlots model what content will go into a particular Slot for a specific Edition.
  */
 export class EditionSlot extends HalResource {
+  /**
+   * Unique id generated on creation
+   */
+  public id?: string;
+
   /**
    * Id of the slot content item
    */
@@ -15,6 +21,29 @@ export class EditionSlot extends HalResource {
    * JSON body of the slot as it will be when the Edition is published
    */
   public content: any;
+
+  /**
+   * Whether the slot is empty or not
+   */
+  public empty?: boolean;
+
+  /**
+   * Resources and actions related to a Slot
+   */
+  public readonly related = {
+    /**
+     * Updates this slot with new content
+     * @param content New content to update with
+     */
+    content: (content: any, lastModifiedDate?: string): Promise<EditionSlot> =>
+      this.performActionThatReturnsResource(
+        'safe-update-content',
+        { lastModifiedDate },
+        content,
+        EditionSlot,
+        HttpMethod.PUT
+      ),
+  };
 }
 
 /**

@@ -1,6 +1,7 @@
 import test from 'ava';
 import { MockDynamicContent } from '../DynamicContent.mocks';
 import { Edition } from './Edition';
+import { Event } from './Event';
 
 test('get event by id', async (t) => {
   const client = new MockDynamicContent();
@@ -20,6 +21,18 @@ test('archive event', async (t) => {
   const event = await client.events.get('5b32379e4cedfd01c4504171');
   const result = await event.related.archive();
   t.is(result.id, '5b32379e4cedfd01c4504171');
+});
+
+test('update event', async (t) => {
+  const client = new MockDynamicContent();
+  const event = await client.events.get('5b32379e4cedfd01c4504171');
+
+  const mutation = new Event({
+    comment: 'updated',
+  });
+
+  const update = await event.related.update(mutation);
+  t.is(update.comment, mutation.comment);
 });
 
 test('delete event', async (t) => {

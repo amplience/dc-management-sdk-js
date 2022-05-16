@@ -35,7 +35,7 @@ export interface HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
   ): Promise<T>;
 
   createResource<T extends HalResource>(
@@ -61,7 +61,12 @@ export interface HalClient {
 
   deleteResource(path: string): Promise<void>;
 
-  performActionWithoutResourceResponse(link: HalLink): Promise<void>;
+  performActionWithoutResourceResponse(
+    link: HalLink,
+    params: any,
+    data: any,
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
+  ): Promise<void>;
 
   parse<T extends HalResource>(
     data: any,
@@ -173,11 +178,24 @@ export class DefaultHalClient implements HalClient {
   }
 
   public async performActionWithoutResourceResponse(
-    link: HalLink
+    link: HalLink,
+    params: any,
+    data: any,
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<void> {
+    let href = link.href;
+
+    if (link.templated) {
+      href = CURIEs.expand(href, params);
+    }
+
     await this.invoke({
-      method: HttpMethod.POST,
-      url: link.href,
+      data: this.serialize(data),
+      method,
+      url: href,
     });
     return Promise.resolve();
   }
@@ -187,7 +205,10 @@ export class DefaultHalClient implements HalClient {
     params: any,
     data: any,
     resourceConstructor: HalResourceConstructor<T>,
-    method: HttpMethod.POST | HttpMethod.PATCH = HttpMethod.POST
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
   ): Promise<T> {
     let href = link.href;
 
