@@ -225,6 +225,18 @@ export class HalResource {
         `The ${name} action is not available, ensure you have permission to perform this action.`
       );
     }
+
+    if (name === 'list-slots' && link.templated) {
+      // Work around an API bug where pagination params are not included for list-slots.
+      const toReplace = '{?includedSlots}';
+      const toReplaceWith = '{?includedSlots,page,size,sort}';
+      if (link.href.endsWith(toReplace)) {
+        link.href =
+          link.href.substr(0, link.href.length - toReplace.length) +
+          toReplaceWith;
+      }
+    }
+
     return Promise.resolve([link, this.client] as [HalLink, HalClient]);
   }
 }

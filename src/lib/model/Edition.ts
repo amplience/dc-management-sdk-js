@@ -1,4 +1,4 @@
-import { HttpMethod } from '../..';
+import { HttpMethod, Pageable, Sortable } from '../..';
 import { HalResource } from '../hal/models/HalResource';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
 import { EditionSlotRequest } from './EditionSlotRequest';
@@ -153,9 +153,10 @@ export class Edition extends HalResource {
     slots: {
       /**
        * Retrieves a list of slots associated with this Edition
+       * @param options Pagination options
        */
-      list: (): Promise<Page<EditionSlot>> =>
-        this.fetchLinkedResource('list-slots', {}, EditionSlotsPage),
+      list: (options?: Pageable & Sortable): Promise<Page<EditionSlot>> =>
+        this.fetchLinkedResource('list-slots', options, EditionSlotsPage),
 
       /**
        * Creates new edition slots from a list of content IDs
