@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.1](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.0...v1.17.1) (2022-05-26)
+
+
+### Bug Fixes
+
+* pass pagination parameters to edition list-slots link ([#120](https://www.github.com/amplience/dc-management-sdk-js/issues/120)) ([5539961](https://www.github.com/amplience/dc-management-sdk-js/commit/553996189548f74fa5fd19c9a8331f72bb9016fb))
+
 ## [1.17.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.16.2...v1.17.0) (2022-05-16)
 
 
