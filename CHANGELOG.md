@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.17.2](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.1...v1.17.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* axios Regular Expression Denial of Service (ReDoS), follow-redir… ([#123](https://www.github.com/amplience/dc-management-sdk-js/issues/123)) ([9f65d15](https://www.github.com/amplience/dc-management-sdk-js/commit/9f65d1553b7d0db2298d7363ee2a2c2c20e12dba))
+
 ### [1.17.1](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.0...v1.17.1) (2022-05-26)
 
 
