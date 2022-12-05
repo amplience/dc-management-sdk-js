@@ -1,5 +1,8 @@
 import test from 'ava';
-import { MockDynamicContent } from '../DynamicContent.mocks';
+import {
+  MockDynamicContent,
+  SEARCH_INDEX_SETTINGS,
+} from '../DynamicContent.mocks';
 import { AssignedContentType } from './AssignedContentType';
 import { SearchIndex } from './SearchIndex';
 import { SearchesOrderBy } from './SearchIndexTopSearches';
@@ -129,6 +132,30 @@ test('update search index settings', async (t) => {
   const searchIndexSettings = await searchIndex.related.settings.get();
   searchIndexSettings.hitsPerPage = 25;
   const result = await searchIndex.related.settings.update(searchIndexSettings);
+  t.is(result.hitsPerPage, 25);
+  t.is(result.replicas[0], 'replica one');
+});
+
+test('update a search index wait until applied (no retry)', async (t) => {
+  const client = new MockDynamicContent();
+  const appliedGetResponse = { ...SEARCH_INDEX_SETTINGS, hitsPerPage: 25 };
+  client.mock
+    .onGet(
+      'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings'
+    )
+    .reply(200, appliedGetResponse);
+
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const searchIndexSettings = await searchIndex.related.settings.get();
+  searchIndexSettings.hitsPerPage = 25;
+  const result = await searchIndex.related.settings.update(
+    searchIndexSettings,
+    null,
+    { waitUntilApplied: true }
+  );
   t.is(result.hitsPerPage, 25);
   t.is(result.replicas[0], 'replica one');
 });

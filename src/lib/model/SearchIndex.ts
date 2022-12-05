@@ -142,41 +142,34 @@ export class SearchIndex extends HalResource {
       get: (): Promise<SearchIndexSettings> =>
         this.fetchLinkedResource('settings', {}, SearchIndexSettings),
 
-      update: (
+      update: async (
         resource: SearchIndexSettings,
         forwardToReplicas?: boolean,
         options?: { waitUntilApplied: boolean }
       ): Promise<SearchIndexSettings> => {
-        return this.updateLinkedResource(
+        const updatedResource = await this.updateLinkedResource(
           'update-settings',
           { forwardToReplicas },
           resource,
           SearchIndexSettings
-        ).then((updateResource) => {
-          if (!options || !options.waitUntilApplied) {
-            return updateResource;
+        );
+        if (!options || !options.waitUntilApplied) {
+          return updatedResource;
+        }
+        const checkForUpdate = async () => {
+          const savedSettings = (
+            await this.fetchLinkedResource('settings', {}, SearchIndexSettings)
+          ).toJSON();
+          const areTheSame =
+            Object.entries(resource.toJSON()).findIndex(
+              (entry) => !isEqual(savedSettings[entry[0]], entry[1])
+            ) === -1;
+          if (!areTheSame) {
+            throw new Error('Settings are not the same');
           }
-          const checkForUpdate = async () => {
-            const savedSettings = (
-              await this.fetchLinkedResource(
-                'settings',
-                {},
-                SearchIndexSettings
-              )
-            ).toJSON();
-
-            const areTheSame =
-              Object.entries(resource.toJSON()).findIndex(
-                (entry) => !isEqual(savedSettings[entry[0]], entry[1])
-              ) === -1;
-            if (!areTheSame) {
-              throw new Error('Settings are not the same');
-            }
-            return savedSettings;
-          };
-
-          return retry(checkForUpdate);
-        });
+          return savedSettings;
+        };
+        return retry(checkForUpdate);
       },
     },
 

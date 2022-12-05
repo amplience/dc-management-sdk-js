@@ -1,20 +1,6 @@
-export default function isEqual(obj1: unknown, obj2: unknown): boolean {
-  const props1 = Object.getOwnPropertyNames(obj1);
-  const props2 = Object.getOwnPropertyNames(obj2);
-
-  if (props1.length != props2.length) {
-    return false;
-  }
-  for (let i = 0; i < props1.length; i++) {
-    const prop = props1[i];
-    const bothAreObjects =
-      typeof obj1[prop] === 'object' && typeof obj2[prop] === 'object';
-    if (
-      (!bothAreObjects && obj1[prop] !== obj2[prop]) ||
-      (bothAreObjects && !isEqual(obj1[prop], obj2[prop]))
-    ) {
-      return false;
-    }
-  }
-  return true;
+export default function isEqual(x: unknown, y: unknown): boolean {
+  return x && y && typeof x === 'object' && typeof x === typeof y
+    ? Object.keys(x).length === Object.keys(y).length &&
+        Object.keys(x).every((key) => isEqual(x[key], y[key]))
+    : x === y;
 }
