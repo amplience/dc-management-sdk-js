@@ -20,6 +20,8 @@ import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
 import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
 import { Hub } from './Hub';
+import { retry } from './Retryer';
+import isEqual from '../utils/isEqual';
 
 /**
  * Class representing an Algolia Search Index.
@@ -142,14 +144,40 @@ export class SearchIndex extends HalResource {
 
       update: (
         resource: SearchIndexSettings,
-        forwardToReplicas?: boolean
-      ): Promise<SearchIndexSettings> =>
-        this.updateLinkedResource(
+        forwardToReplicas?: boolean,
+        options?: { waitUntilApplied: boolean }
+      ): Promise<SearchIndexSettings> => {
+        return this.updateLinkedResource(
           'update-settings',
           { forwardToReplicas },
           resource,
           SearchIndexSettings
-        ),
+        ).then((updateResource) => {
+          if (!options || !options.waitUntilApplied) {
+            return updateResource;
+          }
+          const checkForUpdate = async () => {
+            const savedSettings = (
+              await this.fetchLinkedResource(
+                'settings',
+                {},
+                SearchIndexSettings
+              )
+            ).toJSON();
+
+            const areTheSame =
+              Object.entries(resource.toJSON()).findIndex(
+                (entry) => !isEqual(savedSettings[entry[0]], entry[1])
+              ) === -1;
+            if (!areTheSame) {
+              throw new Error('Settings are not the same');
+            }
+            return savedSettings;
+          };
+
+          return retry(checkForUpdate);
+        });
+      },
     },
 
     stats: {

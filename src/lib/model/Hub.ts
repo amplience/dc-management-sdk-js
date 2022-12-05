@@ -21,7 +21,7 @@ import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
-
+import { retry } from './Retryer';
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
  * Hubs are containers for multiple repositories including media, content, content types.
@@ -236,13 +236,22 @@ export class Hub extends HalResource {
        * Create a search index for a given hub
        * @param resource
        */
-      create: (resource: SearchIndex): Promise<SearchIndex> =>
-        this.createLinkedResource(
+      create: async (resource: SearchIndex): Promise<SearchIndex> => {
+        const createdSearchIndex = await this.createLinkedResource(
           'create-algolia-search-index',
           {},
           resource,
           SearchIndex
-        ),
+        );
+
+        const RETRY_TIMEOUT = 3 * 60 * 1000;
+        // wait until settings are available
+        await retry(createdSearchIndex.related.settings.get, {
+          timeout: RETRY_TIMEOUT,
+        });
+
+        return createdSearchIndex;
+      },
 
       /**
        * Get a search index by its id
