@@ -20,7 +20,7 @@ import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
 import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
 import { Hub } from './Hub';
-import { retry } from './Retryer';
+import { retry } from '../utils/Retryer';
 import isEqual from '../utils/isEqual';
 
 /**

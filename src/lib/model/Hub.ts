@@ -21,7 +21,7 @@ import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
-import { retry } from './Retryer';
+import { retry } from '../utils/Retryer';
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
  * Hubs are containers for multiple repositories including media, content, content types.
