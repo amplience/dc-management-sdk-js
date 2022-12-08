@@ -8,12 +8,6 @@ const defaultOptions: RetryOptions = {
   delay: 3 * 1000,
 };
 
-const isFunction = (value: unknown) =>
-  value &&
-  (Object.prototype.toString.call(value) === '[object Function]' ||
-    'function' === typeof value ||
-    value instanceof Function);
-
 const sleep = (timeout: number) =>
   new Promise((resolve) => {
     setTimeout(resolve, timeout);
@@ -28,10 +22,7 @@ export async function retry<T>(
   const startTime = new Date().valueOf();
   while (startTime + options.timeout > new Date().valueOf()) {
     try {
-      const result = method();
-      if (isFunction(result.then)) {
-        return await result;
-      }
+      const result = await method();
       return result;
     } catch (_err) {
       // ignore the error
