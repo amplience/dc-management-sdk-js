@@ -167,7 +167,7 @@ export class SearchIndex extends HalResource {
           if (!areTheSame) {
             throw new Error('Settings are not the same');
           }
-          return savedSettings;
+          return updatedResource;
         };
         return retry(checkForUpdate);
       },
