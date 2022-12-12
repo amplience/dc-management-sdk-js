@@ -1,6 +1,6 @@
-interface RetryOptions {
-  timeout: number;
-  delay: number;
+export interface RetryOptions {
+  timeout?: number;
+  delay?: number;
 }
 
 const defaultOptions: RetryOptions = {

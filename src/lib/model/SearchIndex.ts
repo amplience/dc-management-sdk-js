@@ -20,8 +20,12 @@ import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
 import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
 import { Hub } from './Hub';
-import { retry } from '../utils/Retryer';
+import { retry, RetryOptions } from '../utils/Retryer';
 import isEqual from '../utils/isEqual';
+
+export const SEARCH_INDEX_RETRY_OPTIONS: RetryOptions = {
+  timeout: 3 * 60 * 1000,
+};
 
 /**
  * Class representing an Algolia Search Index.
@@ -169,7 +173,7 @@ export class SearchIndex extends HalResource {
           }
           return updatedResource;
         };
-        return retry(checkForUpdate);
+        return retry(checkForUpdate, SEARCH_INDEX_RETRY_OPTIONS);
       },
     },
 

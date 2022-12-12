@@ -12,7 +12,11 @@ import { FacetQuery, FacetsResponse } from './Facets';
 import { FindByDate } from './FindByDate';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
-import { SearchIndex, SearchIndexesPage } from './SearchIndex';
+import {
+  SearchIndex,
+  SearchIndexesPage,
+  SEARCH_INDEX_RETRY_OPTIONS,
+} from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
 import { Settings } from './Settings';
@@ -244,11 +248,10 @@ export class Hub extends HalResource {
           SearchIndex
         );
 
-        const RETRY_TIMEOUT = 3 * 60 * 1000;
-        // wait until settings are available
-        await retry(createdSearchIndex.related.settings.get, {
-          timeout: RETRY_TIMEOUT,
-        });
+        await retry(
+          createdSearchIndex.related.settings.get,
+          SEARCH_INDEX_RETRY_OPTIONS
+        );
 
         return createdSearchIndex;
       },
