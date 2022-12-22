@@ -152,7 +152,7 @@ export class SearchIndex extends HalResource {
       update: async (
         resource: SearchIndexSettings,
         forwardToReplicas?: boolean,
-        options?: { waitUntilApplied: boolean }
+        options?: { waitUntilApplied: boolean | string[] }
       ): Promise<SearchIndexSettings> => {
         const updatedResource = await this.updateLinkedResource(
           'update-settings',
@@ -160,15 +160,32 @@ export class SearchIndex extends HalResource {
           resource,
           SearchIndexSettings
         );
+
         if (!options || !options.waitUntilApplied) {
           return updatedResource;
         }
+
+        const entriesToCheckFor = Object.entries(resource.toJSON()).filter(
+          (entry) => {
+            if (Array.isArray(options.waitUntilApplied)) {
+              // include the entries that are supplied
+              return options.waitUntilApplied.includes(entry[0]);
+            }
+            if (options.waitUntilApplied == true) {
+              // include entry
+              return true;
+            }
+            // unknown value
+            return false;
+          }
+        );
+
         const checkForUpdate = async () => {
           const savedSettings = (
             await this.fetchLinkedResource('settings', {}, SearchIndexSettings)
           ).toJSON();
           const areTheSame =
-            Object.entries(resource.toJSON()).findIndex(
+            entriesToCheckFor.findIndex(
               (entry) => !isEqual(savedSettings[entry[0]], entry[1])
             ) === -1;
           if (!areTheSame) {
