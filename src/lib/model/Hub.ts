@@ -12,11 +12,7 @@ import { FacetQuery, FacetsResponse } from './Facets';
 import { FindByDate } from './FindByDate';
 import { Page } from './Page';
 import { Pageable } from './Pageable';
-import {
-  SearchIndex,
-  SearchIndexesPage,
-  SEARCH_INDEX_RETRY_OPTIONS,
-} from './SearchIndex';
+import { SearchIndex, SearchIndexesPage } from './SearchIndex';
 import { Sortable } from './Sortable';
 import { Status } from './Status';
 import { Settings } from './Settings';
@@ -25,7 +21,7 @@ import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
-import { retry } from '../utils/Retryer';
+
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
  * Hubs are containers for multiple repositories including media, content, content types.
@@ -248,10 +244,8 @@ export class Hub extends HalResource {
           SearchIndex
         );
 
-        await retry(
-          createdSearchIndex.related.settings.get,
-          SEARCH_INDEX_RETRY_OPTIONS
-        );
+        // await for the settings - once the settings are present the index has been created
+        await createdSearchIndex.related.settings.get();
 
         return createdSearchIndex;
       },

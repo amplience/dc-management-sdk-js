@@ -144,7 +144,10 @@ export class SearchIndex extends HalResource {
 
     settings: {
       get: (): Promise<SearchIndexSettings> =>
-        this.fetchLinkedResource('settings', {}, SearchIndexSettings),
+        retry(
+          () => this.fetchLinkedResource('settings', {}, SearchIndexSettings),
+          SEARCH_INDEX_RETRY_OPTIONS
+        ),
 
       update: async (
         resource: SearchIndexSettings,
