@@ -159,6 +159,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/pagemetadata.html" class="tsd-kind-icon">Page<wbr>Metadata</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/pageable.html" class="tsd-kind-icon">Pageable</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/projectedevent.html" class="tsd-kind-icon">Projected<wbr>Event</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/retryoptions.html" class="tsd-kind-icon">Retry<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/searchindexstatisticsusage.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/searchindexstatisticsusagemetric.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage<wbr>Metric</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/searchindexusersdatecount.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Users<wbr>Date<wbr>Count</a></li>
@@ -185,6 +186,21 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="globals.html#faceted_content_item" class="tsd-kind-icon">FACETED_<wbr>CONTENT_<wbr>ITEM</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#fixture_webhook_with_extra_props" class="tsd-kind-icon">FIXTURE_<wbr>WEBHOOK_<wbr>WITH_<wbr>EXTRA_<wbr>PROPS</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#get_settings_url" class="tsd-kind-icon">GET_<wbr>SETTINGS_<wbr>URL</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#retry_delay" class="tsd-kind-icon">RETRY_<wbr>DELAY</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#retry_timeout" class="tsd-kind-icon">RETRY_<wbr>TIMEOUT</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#arraytestcases" class="tsd-kind-icon">array<wbr>Test<wbr>Cases</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#objecttestcases" class="tsd-kind-icon">object<wbr>Test<wbr>Cases</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#primitivetestcases" class="tsd-kind-icon">primitive<wbr>Test<wbr>Cases</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#getcalls" class="tsd-kind-icon">get<wbr>Calls</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a></li>
+								<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#retry" class="tsd-kind-icon">retry</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#sleep" class="tsd-kind-icon">sleep</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -192,7 +208,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-object-literal"><a href="globals.html#content_items_facet" class="tsd-kind-icon">CONTENT_<wbr>ITEMS_<wbr>FACET</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#hierarchy_node" class="tsd-kind-icon">HIERARCHY_<wbr>NODE</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#search_index_retry_options" class="tsd-kind-icon">SEARCH_<wbr>INDEX_<wbr>RETRY_<wbr>OPTIONS</a></li>
 								<li class="tsd-kind-object-literal"><a href="globals.html#webhook_with_extras" class="tsd-kind-icon">WEBHOOK_<wbr>WITH_<wbr>EXTRAS</a></li>
+								<li class="tsd-kind-object-literal"><a href="globals.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a></li>
 							</ul>
 						</section>
 					</div>
@@ -206,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">Facet<wbr>Field<span class="tsd-signature-symbol">:</span> <a href="interfaces/enumfacet.html" class="tsd-signature-type">EnumFacet</a><span class="tsd-signature-symbol"> | </span><a href="interfaces/datefacet.html" class="tsd-signature-type">DateFacet</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Facets.ts#L36">src/lib/model/Facets.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Facets.ts#L36">src/lib/model/Facets.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">Hierarchy<wbr>Children<wbr>Model<wbr>Json<span class="tsd-signature-symbol">:</span> <a href="globals.html#hierarchynodemodel" class="tsd-signature-type">HierarchyNodeModel</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#hierarchynodemodel" class="tsd-signature-type">HierarchyNodeModel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/HierarchyChildren.ts#L7">src/lib/model/HierarchyChildren.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/HierarchyChildren.ts#L7">src/lib/model/HierarchyChildren.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">Hierarchy<wbr>Node<wbr>Model<span class="tsd-signature-symbol">:</span> <a href="interfaces/hierarchymeta.html" class="tsd-signature-type">HierarchyMeta</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>contentTypeUri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>hasChildren<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>label<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>publishingStatus<span class="tsd-signature-symbol">: </span><a href="enums/contentitempublishingstatus.html" class="tsd-signature-type">ContentItemPublishingStatus</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>repositoryId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/HierarchyNode.ts#L7">src/lib/model/HierarchyNode.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/HierarchyNode.ts#L7">src/lib/model/HierarchyNode.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +254,7 @@
 					<div class="tsd-signature tsd-kind-icon">Hierarchy<wbr>Parent<wbr>Model<wbr>Json<span class="tsd-signature-symbol">:</span> <a href="globals.html#hierarchynodemodel" class="tsd-signature-type">HierarchyNodeModel</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>parents<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="globals.html#hierarchynodemodel" class="tsd-signature-type">HierarchyNodeModel</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/HierarchyParents.ts#L7">src/lib/model/HierarchyParents.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/HierarchyParents.ts#L7">src/lib/model/HierarchyParents.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -246,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">Webhook<wbr>Custom<wbr>Payload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"text/x-handlebars-template"</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.ts#L120">src/lib/model/Webhook.ts:120</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.ts#L120">src/lib/model/Webhook.ts:120</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -282,7 +300,7 @@
 					<div class="tsd-signature tsd-kind-icon">Webhook<wbr>Filter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>arguments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="globals.html#webhookfilterjsonpathargument" class="tsd-signature-type">WebhookFilterJSONPathArgument</a><span class="tsd-signature-symbol">, </span><a href="globals.html#webhookfiltervalueargument" class="tsd-signature-type">WebhookFilterValueArgument</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"equal"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"in"</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.ts#L135">src/lib/model/Webhook.ts:135</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.ts#L135">src/lib/model/Webhook.ts:135</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -318,7 +336,7 @@
 					<div class="tsd-signature tsd-kind-icon">Webhook<wbr>FilterJSONPath<wbr>Argument<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>jsonPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.ts#L150">src/lib/model/Webhook.ts:150</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.ts#L150">src/lib/model/Webhook.ts:150</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -341,7 +359,7 @@
 					<div class="tsd-signature tsd-kind-icon">Webhook<wbr>Filter<wbr>Value<wbr>Argument<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.ts#L157">src/lib/model/Webhook.ts:157</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.ts#L157">src/lib/model/Webhook.ts:157</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,7 +382,7 @@
 					<div class="tsd-signature tsd-kind-icon">Webhook<wbr>Header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>secret<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.ts#L100">src/lib/model/Webhook.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.ts#L100">src/lib/model/Webhook.ts:100</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -411,7 +429,7 @@
 					<div class="tsd-signature tsd-kind-icon">FACETED_<wbr>CONTENT_<wbr>ITEM<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>schema<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {const facetedContentItem &#x3D; {...CONTENT_ITEM,schema: CONTENT_ITEM.body._meta.schema,};delete facetedContentItem.body;return facetedContentItem;})()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L508">src/lib/DynamicContent.mocks.ts:508</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L508">src/lib/DynamicContent.mocks.ts:508</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -429,9 +447,191 @@
 					<div class="tsd-signature tsd-kind-icon">FIXTURE_<wbr>WEBHOOK_<wbr>WITH_<wbr>EXTRA_<wbr>PROPS<span class="tsd-signature-symbol">:</span> <a href="classes/webhook.html" class="tsd-signature-type">Webhook</a><span class="tsd-signature-symbol"> = new Webhook({active: true,label: &#x27;Unit Test&#x27;,handlers: [&#x27;http://example.com/webhook&#x27;],method: &#x27;POST&#x27;,events: [&#x27;dynamic-content.content-item.created&#x27;],filters: [{type: &#x27;equal&#x27;,arguments: [{jsonPath: &#x27;$.payload.id&#x27;,},{value: &#x27;abc&#x27;,},],},{type: &#x27;in&#x27;,arguments: [{jsonPath: &#x27;$.payload.id&#x27;,},{value: [&#x27;abc&#x27;, &#x27;def&#x27;],},],},{type: &#x27;equal&#x27;,arguments: [{jsonPath: &#x27;$.payload.not_present&#x27;,},{value: &#x27;123&#x27;,},],},],headers: [{key: &#x27;X-Secret&#x27;,value: &#x27;abc123&#x27;,secret: true,},{key: &#x27;X-Header&#x27;,value: &#x27;abc123&#x27;,},],customPayload: {type: &#x27;text/x-handlebars-template&#x27;,value:&#x27;{{#withDeliveryContentItem contentItemId&#x3D;payload.id account&#x3D;&quot;myAccountId&quot; stagingEnvironment&#x3D;&quot;myVseUrl&quot;}}{{{JSONstringify this}}}{{/withDeliveryContentItem}}&#x27;,},secret: &#x27;SECRET&#x27;,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/model/Webhook.spec.ts#L5">src/lib/model/Webhook.spec.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/Webhook.spec.ts#L5">src/lib/model/Webhook.spec.ts:5</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="get_settings_url" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> GET_<wbr>SETTINGS_<wbr>URL</h3>
+					<div class="tsd-signature tsd-kind-icon">GET_<wbr>SETTINGS_<wbr>URL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings"</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/SearchIndex.spec.ts#L10">src/lib/model/SearchIndex.spec.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="retry_delay" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> RETRY_<wbr>DELAY</h3>
+					<div class="tsd-signature tsd-kind-icon">RETRY_<wbr>DELAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 2 * 1000</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.spec.ts#L5">src/lib/utils/Retryer.spec.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="retry_timeout" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> RETRY_<wbr>TIMEOUT</h3>
+					<div class="tsd-signature tsd-kind-icon">RETRY_<wbr>TIMEOUT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5 * 1000</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.spec.ts#L4">src/lib/utils/Retryer.spec.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="arraytestcases" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> array<wbr>Test<wbr>Cases</h3>
+					<div class="tsd-signature tsd-kind-icon">array<wbr>Test<wbr>Cases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [[[&#x27;value1&#x27;], [&#x27;value1&#x27;], true],[[&#x27;value1&#x27;], [&#x27;value2&#x27;], false],[[&#x27;value1&#x27;, &#x27;value2&#x27;], [&#x27;value1&#x27;, &#x27;value2&#x27;], true],[[&#x27;value1&#x27;, &#x27;value2&#x27;], [&#x27;value2&#x27;, &#x27;value1&#x27;], false],[[&#x27;value1&#x27;], [&#x27;value1&#x27;, &#x27;value2&#x27;], false],]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/isEqual.spec.ts#L15">src/lib/utils/isEqual.spec.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="objecttestcases" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> object<wbr>Test<wbr>Cases</h3>
+					<div class="tsd-signature tsd-kind-icon">object<wbr>Test<wbr>Cases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>arrayTest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>booleanTest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>nullTest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>numberTest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>stringTest<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>propA<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>propB<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>propC<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>propA<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>propB<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>propA<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>propB<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>propA<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">{ </span>propB<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>propC<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [[{booleanTest: true,numberTest: 2,nullTest: null,stringTest: &#x27;&lt;em&gt;&#x27;,arrayTest: [&#x27;value 1&#x27;, &#x27;value 2&#x27;],},{booleanTest: true,numberTest: 2,nullTest: null,stringTest: &#x27;&lt;em&gt;&#x27;,arrayTest: [&#x27;value 1&#x27;, &#x27;value 2&#x27;],},true,&#x27;should return true when objects with all types match&#x27;,],[{ propA: &#x27;valueA&#x27;, propB: &#x27;valueB&#x27;, propC: &#x27;valueC&#x27; },{ propB: &#x27;valueB&#x27;, propA: &#x27;valueA&#x27;, propC: &#x27;valueC&#x27; },true,&#x27;should return true when object property order changes&#x27;,],[{ propA: &#x27;valueA&#x27;, propB: &#x27;valueB&#x27;, propC: &#x27;valueC&#x27; },{ propA: &#x27;valueA&#x27;, propB: &#x27;valueB&#x27; },false,&#x27;should return false when object number of properties differ&#x27;,],[{ propA: &#x27;valueA&#x27;, propB: { propC: &#x27;valueC&#x27; } },{ propA: &#x27;valueA&#x27;, propB: { propC: &#x27;valueC&#x27; } },true,&#x27;should return true when object property contains a nested object&#x27;,],[{ propA: &#x27;valueA&#x27;, propB: { propC: &#x27;valueC&#x27; } },{ propA: &#x27;valueA&#x27;, propB: { propC: &#x27;valueD&#x27; } },false,&#x27;should return false when object property contains a nested object that differ&#x27;,],[{ propA: [{ propB: &#x27;valueB&#x27; }, { propC: &#x27;valueC&#x27; }] },{ propA: [{ propB: &#x27;valueB&#x27; }, { propC: &#x27;valueC&#x27; }] },true,&#x27;should return true when object property contains an array of object&#x27;,],[{ propA: [{ propB: &#x27;valueB&#x27; }, { propC: &#x27;valueC&#x27; }] },{ propA: [{ propC: &#x27;valueC&#x27; }, { propB: &#x27;valueB&#x27; }] },false,&#x27;should return false when object property contains an array of object in different order&#x27;,],]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/isEqual.spec.ts#L23">src/lib/utils/isEqual.spec.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="primitivetestcases" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> primitive<wbr>Test<wbr>Cases</h3>
+					<div class="tsd-signature tsd-kind-icon">primitive<wbr>Test<wbr>Cases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [[null, null, true],[true, true, true],[false, false, true],[true, false, false],[1, 1, true],[1, 2, false],[&#x27;value1&#x27;, &#x27;value1&#x27;, true],[&#x27;value1&#x27;, &#x27;value2&#x27;, false],]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/isEqual.spec.ts#L4">src/lib/utils/isEqual.spec.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getcalls" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Calls</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Calls<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MockDynamicContent</span>, url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/SearchIndex.spec.ts#L13">src/lib/model/SearchIndex.spec.ts:13</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>client: <span class="tsd-signature-type">MockDynamicContent</span></h5>
+								</li>
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AxiosRequestConfig</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="isequal" class="tsd-anchor"></a>
+					<h3>is<wbr>Equal</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/isEqual.ts#L1">src/lib/utils/isEqual.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">unknown</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">unknown</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+					<a name="retry" class="tsd-anchor"></a>
+					<h3>retry</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">retry&lt;T&gt;<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, overrideOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/retryoptions.html" class="tsd-signature-type">RetryOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.ts#L16">src/lib/utils/Retryer.ts:16</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>method: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> overrideOptions: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/retryoptions.html" class="tsd-signature-type">RetryOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="sleep" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> sleep</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">sleep<span class="tsd-signature-symbol">(</span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.ts#L11">src/lib/utils/Retryer.ts:11</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timeout: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -442,7 +642,7 @@
 					<div class="tsd-signature tsd-kind-icon">CONTENT_<wbr>ITEMS_<wbr>FACET<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L517">src/lib/DynamicContent.mocks.ts:517</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L517">src/lib/DynamicContent.mocks.ts:517</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -451,7 +651,7 @@
 						<div class="tsd-signature tsd-kind-icon">_embedded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L518">src/lib/DynamicContent.mocks.ts:518</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L518">src/lib/DynamicContent.mocks.ts:518</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -460,7 +660,7 @@
 							<div class="tsd-signature tsd-kind-icon">content-<wbr>items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>schema<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [FACETED_CONTENT_ITEM]</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L519">src/lib/DynamicContent.mocks.ts:519</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L519">src/lib/DynamicContent.mocks.ts:519</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -471,7 +671,7 @@
 						<div class="tsd-signature tsd-kind-icon">_facets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L541">src/lib/DynamicContent.mocks.ts:541</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L541">src/lib/DynamicContent.mocks.ts:541</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -480,7 +680,7 @@
 							<div class="tsd-signature tsd-kind-icon">assignees<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>count<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{_id: &#x27;7078e5e7-d5bf-4015-9add-b75fb6f60537&#x27;,count: 0,},]</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L557">src/lib/DynamicContent.mocks.ts:557</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L557">src/lib/DynamicContent.mocks.ts:557</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -490,7 +690,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date:<wbr>Last 14 days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L565">src/lib/DynamicContent.mocks.ts:565</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L565">src/lib/DynamicContent.mocks.ts:565</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -500,7 +700,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date:<wbr>Last 30 days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L563">src/lib/DynamicContent.mocks.ts:563</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L563">src/lib/DynamicContent.mocks.ts:563</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -510,7 +710,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date:<wbr>Last 60 days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L555">src/lib/DynamicContent.mocks.ts:555</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L555">src/lib/DynamicContent.mocks.ts:555</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -520,7 +720,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date:<wbr>Last 7 days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L548">src/lib/DynamicContent.mocks.ts:548</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L548">src/lib/DynamicContent.mocks.ts:548</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -530,7 +730,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date:<wbr>Over 60 days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L567">src/lib/DynamicContent.mocks.ts:567</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L567">src/lib/DynamicContent.mocks.ts:567</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -540,7 +740,7 @@
 							<div class="tsd-signature tsd-kind-icon">locale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L566">src/lib/DynamicContent.mocks.ts:566</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L566">src/lib/DynamicContent.mocks.ts:566</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -550,7 +750,7 @@
 							<div class="tsd-signature tsd-kind-icon">publishing<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L556">src/lib/DynamicContent.mocks.ts:556</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L556">src/lib/DynamicContent.mocks.ts:556</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -560,7 +760,7 @@
 							<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>count<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{_id: &#x27;0&#x27;,count: 0,},]</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L549">src/lib/DynamicContent.mocks.ts:549</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L549">src/lib/DynamicContent.mocks.ts:549</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -570,7 +770,7 @@
 							<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>count<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{_id: &#x27;http://deliver.bigcontent.io/schema/nested/nested-type.json&#x27;,count: 0,},]</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L542">src/lib/DynamicContent.mocks.ts:542</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L542">src/lib/DynamicContent.mocks.ts:542</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -580,7 +780,7 @@
 							<div class="tsd-signature tsd-kind-icon">workflow.state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L564">src/lib/DynamicContent.mocks.ts:564</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L564">src/lib/DynamicContent.mocks.ts:564</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -591,7 +791,7 @@
 						<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L521">src/lib/DynamicContent.mocks.ts:521</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L521">src/lib/DynamicContent.mocks.ts:521</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -600,7 +800,7 @@
 							<div class="tsd-signature tsd-kind-icon">first<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L522">src/lib/DynamicContent.mocks.ts:522</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L522">src/lib/DynamicContent.mocks.ts:522</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -609,7 +809,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query&#x3D;status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&amp;sort&#x3D;relevance&amp;page&#x3D;0&amp;size&#x3D;30&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L523">src/lib/DynamicContent.mocks.ts:523</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L523">src/lib/DynamicContent.mocks.ts:523</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -620,7 +820,7 @@
 							<div class="tsd-signature tsd-kind-icon">last<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L526">src/lib/DynamicContent.mocks.ts:526</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L526">src/lib/DynamicContent.mocks.ts:526</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -629,7 +829,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query&#x3D;status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&amp;sort&#x3D;relevance&amp;page&#x3D;0&amp;size&#x3D;30&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L527">src/lib/DynamicContent.mocks.ts:527</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L527">src/lib/DynamicContent.mocks.ts:527</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -640,7 +840,7 @@
 							<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L530">src/lib/DynamicContent.mocks.ts:530</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L530">src/lib/DynamicContent.mocks.ts:530</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -649,7 +849,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query&#x3D;status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&amp;sort&#x3D;relevance&amp;page&#x3D;0&amp;size&#x3D;30&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L531">src/lib/DynamicContent.mocks.ts:531</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L531">src/lib/DynamicContent.mocks.ts:531</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -661,7 +861,7 @@
 						<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L535">src/lib/DynamicContent.mocks.ts:535</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L535">src/lib/DynamicContent.mocks.ts:535</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -670,7 +870,7 @@
 							<div class="tsd-signature tsd-kind-icon">number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L539">src/lib/DynamicContent.mocks.ts:539</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L539">src/lib/DynamicContent.mocks.ts:539</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -680,7 +880,7 @@
 							<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 30</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L536">src/lib/DynamicContent.mocks.ts:536</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L536">src/lib/DynamicContent.mocks.ts:536</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -690,7 +890,7 @@
 							<div class="tsd-signature tsd-kind-icon">total<wbr>Elements<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L537">src/lib/DynamicContent.mocks.ts:537</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L537">src/lib/DynamicContent.mocks.ts:537</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -700,7 +900,7 @@
 							<div class="tsd-signature tsd-kind-icon">total<wbr>Pages<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L538">src/lib/DynamicContent.mocks.ts:538</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L538">src/lib/DynamicContent.mocks.ts:538</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -712,7 +912,7 @@
 					<div class="tsd-signature tsd-kind-icon">HIERARCHY_<wbr>NODE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2154">src/lib/DynamicContent.mocks.ts:2154</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2154">src/lib/DynamicContent.mocks.ts:2154</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -721,7 +921,7 @@
 						<div class="tsd-signature tsd-kind-icon">content<wbr>Type<wbr>Uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;http://release.sort.com&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2156">src/lib/DynamicContent.mocks.ts:2156</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2156">src/lib/DynamicContent.mocks.ts:2156</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -731,7 +931,7 @@
 						<div class="tsd-signature tsd-kind-icon">has<wbr>Children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2160">src/lib/DynamicContent.mocks.ts:2160</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2160">src/lib/DynamicContent.mocks.ts:2160</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -741,7 +941,7 @@
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;cb1f55f2-e541-4502-bd74-01052edc399d&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2155">src/lib/DynamicContent.mocks.ts:2155</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2155">src/lib/DynamicContent.mocks.ts:2155</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -751,7 +951,7 @@
 						<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;Countries&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2157">src/lib/DynamicContent.mocks.ts:2157</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2157">src/lib/DynamicContent.mocks.ts:2157</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -761,7 +961,7 @@
 						<div class="tsd-signature tsd-kind-icon">publishing<wbr>Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;NONE&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2158">src/lib/DynamicContent.mocks.ts:2158</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2158">src/lib/DynamicContent.mocks.ts:2158</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -771,7 +971,7 @@
 						<div class="tsd-signature tsd-kind-icon">repository<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;5f647f72c9e77c0001706820&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2161">src/lib/DynamicContent.mocks.ts:2161</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2161">src/lib/DynamicContent.mocks.ts:2161</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -781,7 +981,7 @@
 						<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2159">src/lib/DynamicContent.mocks.ts:2159</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2159">src/lib/DynamicContent.mocks.ts:2159</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -791,7 +991,7 @@
 						<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2162">src/lib/DynamicContent.mocks.ts:2162</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2162">src/lib/DynamicContent.mocks.ts:2162</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -800,7 +1000,7 @@
 							<div class="tsd-signature tsd-kind-icon">archive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2167">src/lib/DynamicContent.mocks.ts:2167</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2167">src/lib/DynamicContent.mocks.ts:2167</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -809,7 +1009,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2168">src/lib/DynamicContent.mocks.ts:2168</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2168">src/lib/DynamicContent.mocks.ts:2168</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -820,7 +1020,7 @@
 							<div class="tsd-signature tsd-kind-icon">content-<wbr>item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2163">src/lib/DynamicContent.mocks.ts:2163</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2163">src/lib/DynamicContent.mocks.ts:2163</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -829,7 +1029,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2164">src/lib/DynamicContent.mocks.ts:2164</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2164">src/lib/DynamicContent.mocks.ts:2164</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -840,7 +1040,7 @@
 							<div class="tsd-signature tsd-kind-icon">get-<wbr>hierarchy-<wbr>children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2175">src/lib/DynamicContent.mocks.ts:2175</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2175">src/lib/DynamicContent.mocks.ts:2175</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -849,7 +1049,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2176">src/lib/DynamicContent.mocks.ts:2176</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2176">src/lib/DynamicContent.mocks.ts:2176</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -860,7 +1060,7 @@
 							<div class="tsd-signature tsd-kind-icon">get-<wbr>hierarchy-<wbr>parents<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2171">src/lib/DynamicContent.mocks.ts:2171</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2171">src/lib/DynamicContent.mocks.ts:2171</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -869,11 +1069,31 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L2172">src/lib/DynamicContent.mocks.ts:2172</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L2172">src/lib/DynamicContent.mocks.ts:2172</a></li>
 									</ul>
 								</aside>
 							</section>
 						</section>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="search_index_retry_options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> SEARCH_<wbr>INDEX_<wbr>RETRY_<wbr>OPTIONS</h3>
+					<div class="tsd-signature tsd-kind-icon">SEARCH_<wbr>INDEX_<wbr>RETRY_<wbr>OPTIONS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/SearchIndex.ts#L26">src/lib/model/SearchIndex.ts:26</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="search_index_retry_options.timeout" class="tsd-anchor"></a>
+						<h3>timeout</h3>
+						<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3 * 60 * 1000</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/model/SearchIndex.ts#L27">src/lib/model/SearchIndex.ts:27</a></li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-object-literal">
@@ -882,7 +1102,7 @@
 					<div class="tsd-signature tsd-kind-icon">WEBHOOK_<wbr>WITH_<wbr>EXTRAS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1708">src/lib/DynamicContent.mocks.ts:1708</a></li>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1708">src/lib/DynamicContent.mocks.ts:1708</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -891,7 +1111,7 @@
 						<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1712">src/lib/DynamicContent.mocks.ts:1712</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1712">src/lib/DynamicContent.mocks.ts:1712</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -901,7 +1121,7 @@
 						<div class="tsd-signature tsd-kind-icon">created<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;2021-04-20T08:08:36.678Z&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1716">src/lib/DynamicContent.mocks.ts:1716</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1716">src/lib/DynamicContent.mocks.ts:1716</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -911,7 +1131,7 @@
 						<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;dynamic-content.content-item.created&#x27;]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1711">src/lib/DynamicContent.mocks.ts:1711</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1711">src/lib/DynamicContent.mocks.ts:1711</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -921,7 +1141,7 @@
 						<div class="tsd-signature tsd-kind-icon">filters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">{ </span>arguments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">{ </span>jsonPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>arguments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">{ </span>jsonPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{type: &#x27;equal&#x27;,arguments: [{jsonPath: &#x27;$.payload.id&#x27;,},{value: &#x27;abc&#x27;,},],},{type: &#x27;in&#x27;,arguments: [{jsonPath: &#x27;$.payload.id&#x27;,},{value: [&#x27;abc&#x27;, &#x27;def&#x27;],},],},{type: &#x27;equal&#x27;,arguments: [{jsonPath: &#x27;$.payload.not_present&#x27;,},{value: &#x27;123&#x27;,},],},]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1730">src/lib/DynamicContent.mocks.ts:1730</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1730">src/lib/DynamicContent.mocks.ts:1730</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -931,7 +1151,7 @@
 						<div class="tsd-signature tsd-kind-icon">handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;http://example.com/webhook&#x27;]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1713">src/lib/DynamicContent.mocks.ts:1713</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1713">src/lib/DynamicContent.mocks.ts:1713</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -941,7 +1161,7 @@
 						<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">{ </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>secret<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>secret<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [{key: &#x27;X-Secret&#x27;,value: null,secret: true,},{key: &#x27;X-Header&#x27;,value: &#x27;abc123&#x27;,secret: null,},]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1718">src/lib/DynamicContent.mocks.ts:1718</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1718">src/lib/DynamicContent.mocks.ts:1718</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -951,7 +1171,7 @@
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;5a497a000000000000000000&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1709">src/lib/DynamicContent.mocks.ts:1709</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1709">src/lib/DynamicContent.mocks.ts:1709</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -961,7 +1181,7 @@
 						<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;Unit Test&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1710">src/lib/DynamicContent.mocks.ts:1710</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1710">src/lib/DynamicContent.mocks.ts:1710</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -971,7 +1191,7 @@
 						<div class="tsd-signature tsd-kind-icon">last<wbr>Modified<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;2021-04-20T08:08:36.678Z&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1717">src/lib/DynamicContent.mocks.ts:1717</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1717">src/lib/DynamicContent.mocks.ts:1717</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -981,7 +1201,7 @@
 						<div class="tsd-signature tsd-kind-icon">method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;POST&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1770">src/lib/DynamicContent.mocks.ts:1770</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1770">src/lib/DynamicContent.mocks.ts:1770</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -991,7 +1211,7 @@
 						<div class="tsd-signature tsd-kind-icon">notifications<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1714">src/lib/DynamicContent.mocks.ts:1714</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1714">src/lib/DynamicContent.mocks.ts:1714</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1001,7 +1221,7 @@
 						<div class="tsd-signature tsd-kind-icon">secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;SECRET&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1715">src/lib/DynamicContent.mocks.ts:1715</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1715">src/lib/DynamicContent.mocks.ts:1715</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -1011,7 +1231,7 @@
 						<div class="tsd-signature tsd-kind-icon">_links<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1771">src/lib/DynamicContent.mocks.ts:1771</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1771">src/lib/DynamicContent.mocks.ts:1771</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -1020,7 +1240,7 @@
 							<div class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1793">src/lib/DynamicContent.mocks.ts:1793</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1793">src/lib/DynamicContent.mocks.ts:1793</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1029,7 +1249,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1794">src/lib/DynamicContent.mocks.ts:1794</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1794">src/lib/DynamicContent.mocks.ts:1794</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1040,7 +1260,7 @@
 							<div class="tsd-signature tsd-kind-icon">event-<wbr>types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1785">src/lib/DynamicContent.mocks.ts:1785</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1785">src/lib/DynamicContent.mocks.ts:1785</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1049,7 +1269,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1786">src/lib/DynamicContent.mocks.ts:1786</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1786">src/lib/DynamicContent.mocks.ts:1786</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1060,7 +1280,7 @@
 							<div class="tsd-signature tsd-kind-icon">hub<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1776">src/lib/DynamicContent.mocks.ts:1776</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1776">src/lib/DynamicContent.mocks.ts:1776</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1069,7 +1289,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1777">src/lib/DynamicContent.mocks.ts:1777</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1777">src/lib/DynamicContent.mocks.ts:1777</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1080,7 +1300,7 @@
 							<div class="tsd-signature tsd-kind-icon">requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1780">src/lib/DynamicContent.mocks.ts:1780</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1780">src/lib/DynamicContent.mocks.ts:1780</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1089,7 +1309,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit,excludeStatus}&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1781">src/lib/DynamicContent.mocks.ts:1781</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1781">src/lib/DynamicContent.mocks.ts:1781</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1099,7 +1319,7 @@
 								<div class="tsd-signature tsd-kind-icon">templated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1783">src/lib/DynamicContent.mocks.ts:1783</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1783">src/lib/DynamicContent.mocks.ts:1783</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1110,7 +1330,7 @@
 							<div class="tsd-signature tsd-kind-icon">self<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1772">src/lib/DynamicContent.mocks.ts:1772</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1772">src/lib/DynamicContent.mocks.ts:1772</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1119,7 +1339,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1773">src/lib/DynamicContent.mocks.ts:1773</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1773">src/lib/DynamicContent.mocks.ts:1773</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1130,7 +1350,7 @@
 							<div class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1789">src/lib/DynamicContent.mocks.ts:1789</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1789">src/lib/DynamicContent.mocks.ts:1789</a></li>
 								</ul>
 							</aside>
 							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1139,7 +1359,7 @@
 								<div class="tsd-signature tsd-kind-icon">href<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000&quot;</span></div>
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1790">src/lib/DynamicContent.mocks.ts:1790</a></li>
+										<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1790">src/lib/DynamicContent.mocks.ts:1790</a></li>
 									</ul>
 								</aside>
 							</section>
@@ -1151,7 +1371,7 @@
 						<div class="tsd-signature tsd-kind-icon">custom<wbr>Payload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1765">src/lib/DynamicContent.mocks.ts:1765</a></li>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1765">src/lib/DynamicContent.mocks.ts:1765</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -1160,7 +1380,7 @@
 							<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;text/x-handlebars-template&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1766">src/lib/DynamicContent.mocks.ts:1766</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1766">src/lib/DynamicContent.mocks.ts:1766</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -1170,10 +1390,40 @@
 							<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;{{#withDeliveryContentItem contentItemId&#x3D;payload.id account&#x3D;&quot;myAccountId&quot; stagingEnvironment&#x3D;&quot;myVseUrl&quot;}}{{{JSONstringify this}}}{{/withDeliveryContentItem}}&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/a78677e/src/lib/DynamicContent.mocks.ts#L1767">src/lib/DynamicContent.mocks.ts:1767</a></li>
+									<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/DynamicContent.mocks.ts#L1767">src/lib/DynamicContent.mocks.ts:1767</a></li>
 								</ul>
 							</aside>
 						</section>
+					</section>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal">
+					<a name="defaultoptions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.ts#L6">src/lib/utils/Retryer.ts:6</a></li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="defaultoptions.delay" class="tsd-anchor"></a>
+						<h3>delay</h3>
+						<div class="tsd-signature tsd-kind-icon">delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3 * 1000</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.ts#L8">src/lib/utils/Retryer.ts:8</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="defaultoptions.timeout" class="tsd-anchor"></a>
+						<h3>timeout</h3>
+						<div class="tsd-signature tsd-kind-icon">timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 60 * 1000</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/amplience/dc-management-sdk-js/blob/91c6cdf/src/lib/utils/Retryer.ts#L7">src/lib/utils/Retryer.ts:7</a></li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 			</section>
@@ -1426,6 +1676,9 @@
 						<a href="interfaces/projectedevent.html" class="tsd-kind-icon">Projected<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/retryoptions.html" class="tsd-kind-icon">Retry<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/searchindexstatisticsusage.html" class="tsd-kind-icon">Search<wbr>Index<wbr>Statistics<wbr>Usage</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -1473,6 +1726,36 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#fixture_webhook_with_extra_props" class="tsd-kind-icon">FIXTURE_<wbr>WEBHOOK_<wbr>WITH_<wbr>EXTRA_<wbr>PROPS</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#get_settings_url" class="tsd-kind-icon">GET_<wbr>SETTINGS_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retry_delay" class="tsd-kind-icon">RETRY_<wbr>DELAY</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#retry_timeout" class="tsd-kind-icon">RETRY_<wbr>TIMEOUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#arraytestcases" class="tsd-kind-icon">array<wbr>Test<wbr>Cases</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#objecttestcases" class="tsd-kind-icon">object<wbr>Test<wbr>Cases</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#primitivetestcases" class="tsd-kind-icon">primitive<wbr>Test<wbr>Cases</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getcalls" class="tsd-kind-icon">get<wbr>Calls</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#retry" class="tsd-kind-icon">retry</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sleep" class="tsd-kind-icon">sleep</a>
+					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#content_items_facet" class="tsd-kind-icon">CONTENT_<wbr>ITEMS_<wbr>FACET</a>
 					</li>
@@ -1480,7 +1763,13 @@
 						<a href="globals.html#hierarchy_node" class="tsd-kind-icon">HIERARCHY_<wbr>NODE</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#search_index_retry_options" class="tsd-kind-icon">SEARCH_<wbr>INDEX_<wbr>RETRY_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#webhook_with_extras" class="tsd-kind-icon">WEBHOOK_<wbr>WITH_<wbr>EXTRAS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>
