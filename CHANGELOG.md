@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.2...v1.18.0) (2023-01-17)
+
+
+### Features
+
+* support async search index create and update index settings ([#126](https://www.github.com/amplience/dc-management-sdk-js/issues/126)) ([12a43db](https://www.github.com/amplience/dc-management-sdk-js/commit/12a43dbac70e3f758fe83cea7d9b03faddce0b59))
+
 ### [1.17.2](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.1...v1.17.2) (2022-08-22)
 
 
