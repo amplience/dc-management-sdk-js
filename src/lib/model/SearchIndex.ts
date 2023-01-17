@@ -20,6 +20,12 @@ import { SearchIndexUsersCount } from './SearchIndexUsersCount';
 import { SearchIndexSearchesCount } from './SearchIndexSearchesCount';
 import { SearchIndexNoResultsRate } from './SearchIndexNoResultsRate';
 import { Hub } from './Hub';
+import { retry, RetryOptions } from '../utils/Retryer';
+import isEqual from '../utils/isEqual';
+
+export const SEARCH_INDEX_RETRY_OPTIONS: RetryOptions = {
+  timeout: 3 * 60 * 1000,
+};
 
 /**
  * Class representing an Algolia Search Index.
@@ -138,18 +144,57 @@ export class SearchIndex extends HalResource {
 
     settings: {
       get: (): Promise<SearchIndexSettings> =>
-        this.fetchLinkedResource('settings', {}, SearchIndexSettings),
+        retry(
+          () => this.fetchLinkedResource('settings', {}, SearchIndexSettings),
+          SEARCH_INDEX_RETRY_OPTIONS
+        ),
 
-      update: (
+      update: async (
         resource: SearchIndexSettings,
-        forwardToReplicas?: boolean
-      ): Promise<SearchIndexSettings> =>
-        this.updateLinkedResource(
+        forwardToReplicas?: boolean,
+        options?: { waitUntilApplied: boolean | string[] }
+      ): Promise<SearchIndexSettings> => {
+        const updatedResource = await this.updateLinkedResource(
           'update-settings',
           { forwardToReplicas },
           resource,
           SearchIndexSettings
-        ),
+        );
+
+        if (!options || !options.waitUntilApplied) {
+          return updatedResource;
+        }
+
+        const entriesToCheckFor = Object.entries(resource.toJSON()).filter(
+          (entry) => {
+            if (Array.isArray(options.waitUntilApplied)) {
+              // include the entries that are supplied
+              return options.waitUntilApplied.includes(entry[0]);
+            }
+            if (options.waitUntilApplied == true) {
+              // include entry
+              return true;
+            }
+            // unknown value
+            return false;
+          }
+        );
+
+        const checkForUpdate = async () => {
+          const savedSettings = (
+            await this.fetchLinkedResource('settings', {}, SearchIndexSettings)
+          ).toJSON();
+          const areTheSame =
+            entriesToCheckFor.findIndex(
+              (entry) => !isEqual(savedSettings[entry[0]], entry[1])
+            ) === -1;
+          if (!areTheSame) {
+            throw new Error('Settings are not the same');
+          }
+          return updatedResource;
+        };
+        return retry(checkForUpdate, SEARCH_INDEX_RETRY_OPTIONS);
+      },
     },
 
     stats: {

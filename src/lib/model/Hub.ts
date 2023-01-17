@@ -236,13 +236,19 @@ export class Hub extends HalResource {
        * Create a search index for a given hub
        * @param resource
        */
-      create: (resource: SearchIndex): Promise<SearchIndex> =>
-        this.createLinkedResource(
+      create: async (resource: SearchIndex): Promise<SearchIndex> => {
+        const createdSearchIndex = await this.createLinkedResource(
           'create-algolia-search-index',
           {},
           resource,
           SearchIndex
-        ),
+        );
+
+        // await for the settings - once the settings are present the index has been created
+        await createdSearchIndex.related.settings.get();
+
+        return createdSearchIndex;
+      },
 
       /**
        * Get a search index by its id

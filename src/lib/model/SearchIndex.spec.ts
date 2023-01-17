@@ -1,8 +1,17 @@
 import test from 'ava';
-import { MockDynamicContent } from '../DynamicContent.mocks';
+import {
+  MockDynamicContent,
+  SEARCH_INDEX_SETTINGS,
+} from '../DynamicContent.mocks';
 import { AssignedContentType } from './AssignedContentType';
 import { SearchIndex } from './SearchIndex';
 import { SearchesOrderBy } from './SearchIndexTopSearches';
+
+const GET_SETTINGS_URL =
+  'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings';
+
+const getCalls = (client: MockDynamicContent, url: string) =>
+  client.mock.history.get.filter((r) => r.url === url);
 
 test('get search index by id', async (t) => {
   const client = new MockDynamicContent();
@@ -131,6 +140,63 @@ test('update search index settings', async (t) => {
   const result = await searchIndex.related.settings.update(searchIndexSettings);
   t.is(result.hitsPerPage, 25);
   t.is(result.replicas[0], 'replica one');
+});
+
+test('update a search index wait until applied (no retry)', async (t) => {
+  const client = new MockDynamicContent();
+  const SEARCH_INDEX_SETTINGS_UPDATED = {
+    ...SEARCH_INDEX_SETTINGS,
+    hitsPerPage: 25,
+  };
+  client.mock.onGet(GET_SETTINGS_URL).reply(200, SEARCH_INDEX_SETTINGS_UPDATED);
+
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const searchIndexSettings = await searchIndex.related.settings.get();
+  searchIndexSettings.hitsPerPage = 25;
+  const result = await searchIndex.related.settings.update(
+    searchIndexSettings,
+    null,
+    { waitUntilApplied: true }
+  );
+
+  t.is(getCalls(client, GET_SETTINGS_URL).length, 2);
+  t.is(result.hitsPerPage, 25);
+});
+
+test('update a search index wait until applied - 1 retry', async (t) => {
+  const client = new MockDynamicContent();
+  const SEARCH_INDEX_SETTINGS_UPDATED = {
+    ...SEARCH_INDEX_SETTINGS,
+    hitsPerPage: 25,
+  };
+  let getSettingsCount = 0;
+  const updateAfterOneRetry = () => {
+    getSettingsCount++;
+    const response =
+      getSettingsCount === 3
+        ? SEARCH_INDEX_SETTINGS_UPDATED
+        : SEARCH_INDEX_SETTINGS;
+    return [200, response];
+  };
+  client.mock.onGet(GET_SETTINGS_URL).reply(updateAfterOneRetry);
+
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const searchIndex = await hub.related.searchIndexes.get(
+    '00112233445566778899aabb'
+  );
+  const searchIndexSettings = await searchIndex.related.settings.get();
+  searchIndexSettings.hitsPerPage = 25;
+  const result = await searchIndex.related.settings.update(
+    searchIndexSettings,
+    null,
+    { waitUntilApplied: true }
+  );
+
+  t.is(getCalls(client, GET_SETTINGS_URL).length, 3);
+  t.is(result.hitsPerPage, 25);
 });
 
 test('delete an index object', async (t) => {
