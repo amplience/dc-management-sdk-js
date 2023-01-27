@@ -136,7 +136,7 @@ export const HUB = {
     },
     'content-types': {
       href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types{?page,size,sort}',
+        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types{?page,size,sort,status}',
       templated: true,
     },
     'list-content-type-schemas': {
@@ -1904,6 +1904,58 @@ export const CONTENT_TYPE = {
 /**
  * @hidden
  */
+export const ARCHIVED_CONTENT_TYPE = {
+  id: '5be1d5134cedfd01c030c461',
+  contentTypeUri: 'http://deliver.bigcontent.io/schema/old-carousel.json',
+  status: 'ARCHIVED',
+  settings: {
+    label: 'Old Carousel',
+    icons: [
+      {
+        size: 256,
+        url: 'https://bigcontent.io/cms/icons/ca-types-grid-mixedmedia.png',
+      },
+    ],
+    visualizations: [
+      {
+        label: 'Desktop Website',
+        templatedUri: 'http://website',
+        default: true,
+      },
+      {
+        label: 'Mobile Website',
+        templatedUri: 'http://mobile.website',
+        default: false,
+      },
+    ],
+  },
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
+    },
+    'content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
+    },
+    'effective-content-type': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/effective-content-type',
+    },
+    'content-type-schema': {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/schema',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/unarchive',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 const CONTENT_TYPE_UPDATED = {
   ...CONTENT_TYPE,
   settings: {
@@ -2459,6 +2511,12 @@ export class DynamicContentFixtures {
       .nestedCreateResource('create-workflow-state', {}, WORKFLOW_STATE)
       .nestedResource('content-types', {}, CONTENT_TYPE)
       .nestedCollection('content-types', {}, 'content-types', [CONTENT_TYPE])
+      .nestedCollection(
+        'content-types',
+        { status: Status.ARCHIVED },
+        'content-types',
+        [ARCHIVED_CONTENT_TYPE]
+      )
       .nestedCollection('workflow-states', {}, 'workflow-states', [
         WORKFLOW_STATE,
       ])
@@ -2818,6 +2876,7 @@ export class DynamicContentFixtures {
  * @hidden
  */
 import MockAdapter from 'axios-mock-adapter';
+import { Status } from './model/Status';
 
 /**
  * @hidden
