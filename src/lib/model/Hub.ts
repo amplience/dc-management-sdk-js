@@ -21,6 +21,7 @@ import { WorkflowState, WorkflowStatesPage } from './WorkflowState';
 import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
+import { StatusFilterable } from './StatusFilterable';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -140,7 +141,9 @@ export class Hub extends HalResource {
        * Retrieves a list of Content Types associated with this Hub
        * @param options Pagination options
        */
-      list: (options?: Pageable & Sortable): Promise<Page<ContentType>> =>
+      list: (
+        options?: Pageable & Sortable & StatusFilterable
+      ): Promise<Page<ContentType>> =>
         this.fetchLinkedResource('content-types', options, ContentTypePage),
 
       /**

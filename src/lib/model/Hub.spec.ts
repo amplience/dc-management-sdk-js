@@ -8,6 +8,7 @@ import { Extension } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotType } from './SnapshotType';
 import { SnapshotCreator } from './SnapshotCreator';
+import { Status } from './Status';
 
 test('list hubs', async (t) => {
   const client = new MockDynamicContent();
@@ -154,6 +155,15 @@ test('list content types', async (t) => {
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
   const result = await hub.related.contentTypes.list();
   t.is(result.getItems()[0].settings.label, 'Carousel');
+});
+
+test('list archived content types', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentTypes.list({
+    status: Status.ARCHIVED,
+  });
+  t.is(result.getItems()[0].settings.label, 'Old Carousel');
 });
 
 test('get content type', async (t) => {
