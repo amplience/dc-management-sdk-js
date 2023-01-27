@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.18.1](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.18.0...v1.18.1) (2023-01-27)
+
+
+### Bug Fixes
+
+* content type list supports status parameter ([#99](https://www.github.com/amplience/dc-management-sdk-js/issues/99)) ([#133](https://www.github.com/amplience/dc-management-sdk-js/issues/133)) ([c407559](https://www.github.com/amplience/dc-management-sdk-js/commit/c407559cc4e865624d94d2932b120c78bf183131))
+
 ## [1.18.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.2...v1.18.0) (2023-01-17)
 
 
