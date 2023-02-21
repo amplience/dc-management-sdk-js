@@ -20,6 +20,8 @@ import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
+import { AccessTokenStorage } from './oauth2/models/AccessTokenStorage';
+import { InMemoryStorage } from './oauth2/services/InMemoryStorage';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -272,7 +274,8 @@ export class DynamicContent {
   constructor(
     clientCredentials: Partial<OAuth2ClientCredentials>,
     dcConfig?: DynamicContentConfig,
-    httpClient?: AxiosRequestConfig | HttpClient
+    httpClient?: AxiosRequestConfig | HttpClient,
+    storage?: AccessTokenStorage
   ) {
     dcConfig = dcConfig || {};
     dcConfig.apiUrl = dcConfig.apiUrl || 'https://api.amplience.net/v2/content';
@@ -290,7 +293,8 @@ export class DynamicContent {
     const tokenClient = this.createTokenClient(
       dcConfig,
       clientCredentials as OAuth2ClientCredentials,
-      httpClientInstance
+      httpClientInstance,
+      storage || new InMemoryStorage()
     );
 
     this.client = this.createResourceClient(
@@ -303,14 +307,16 @@ export class DynamicContent {
   protected createTokenClient(
     dcConfig: DynamicContentConfig,
     clientCredentials: OAuth2ClientCredentials,
-    httpClient: HttpClient
+    httpClient: HttpClient,
+    storage: AccessTokenStorage
   ): AccessTokenProvider {
     return new OAuth2Client(
       clientCredentials,
       {
         authUrl: dcConfig.authUrl,
       },
-      httpClient
+      httpClient,
+      storage
     );
   }
 

@@ -14,7 +14,9 @@ export class AxiosHttpClient implements HttpClient {
     this.client = axios.create(config);
   }
 
-  public request(config: HttpRequest): Promise<HttpResponse> {
+  public request<TResponseBody = Record<string, unknown>>(
+    config: HttpRequest
+  ): Promise<HttpResponse<TResponseBody>> {
     return this.client
       .request({
         data: config.data,

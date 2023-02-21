@@ -1,7 +1,7 @@
 /**
  * @hidden
  */
-export interface HttpResponse {
+export interface HttpResponse<TResponseBody = Record<string, unknown>> {
   status: number;
-  data: string | Record<string, unknown>;
+  data: string | TResponseBody;
 }

@@ -78,6 +78,16 @@ abstract class BaseContentItem extends HalResource {
   public lastModifiedDate: string;
 
   /**
+   * Last published version of content item
+   */
+  public lastPublishedVersion: number;
+
+  /**
+   * Timestamp representing when the content item was last published in ISO 8601 format
+   */
+  public lastPublishedDate: string;
+
+  /**
    * List of user Id' who are assigned to the content item
    */
   public assignees: string[];

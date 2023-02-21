@@ -4,6 +4,7 @@ import { combineURLs } from '../../utils/URL';
 import { AccessToken } from '../models/AccessToken';
 import { AccessTokenProvider } from '../models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
+import { AccessTokenStorage } from '../models/AccessTokenStorage';
 
 /**
  * @hidden
@@ -12,19 +13,20 @@ export class OAuth2Client implements AccessTokenProvider {
   public httpClient: HttpClient;
 
   private clientCredentials: OAuth2ClientCredentials;
-  private token: AccessToken;
-  private tokenExpires: number;
   private inFlight: Promise<AccessToken>;
   private authUrl: string;
+  private storage: AccessTokenStorage;
 
   constructor(
     clientCredentials: OAuth2ClientCredentials,
     { authUrl = 'https://auth.amplience.net' },
-    httpClient: HttpClient
+    httpClient: HttpClient,
+    storage: AccessTokenStorage
   ) {
     this.authUrl = authUrl;
     this.clientCredentials = clientCredentials;
     this.httpClient = httpClient;
+    this.storage = storage;
   }
 
   /**
@@ -39,8 +41,10 @@ export class OAuth2Client implements AccessTokenProvider {
       return this.inFlight;
     }
 
-    if (this.token != null && this.tokenExpires > Date.now()) {
-      return this.token;
+    const token = await this.storage.getToken(this.clientCredentials.client_id);
+
+    if (token != null && token.expires_at_locked_in > Date.now()) {
+      return token;
     }
 
     const payload =
@@ -50,7 +54,7 @@ export class OAuth2Client implements AccessTokenProvider {
       '&client_secret=' +
       encodeURIComponent(this.clientCredentials.client_secret);
 
-    const request = this.httpClient.request({
+    const request = this.httpClient.request<AccessToken>({
       data: payload,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -60,17 +64,23 @@ export class OAuth2Client implements AccessTokenProvider {
     });
 
     this.inFlight = request.then(
-      (response): AccessToken => {
+      async (response): Promise<AccessToken> => {
         if (typeof response.data !== 'object') {
           throw new Error(
             'Unexpected response format from /oauth/token endpoint'
           );
         }
 
-        this.token = response.data as any;
-        this.tokenExpires = Date.now() + this.token.expires_in * 1000;
+        response.data.expires_at_locked_in =
+          Date.now() + response.data.expires_in * 1000 - 2000;
+        await this.storage.saveToken(
+          this.clientCredentials.client_id,
+          response.data as any
+        );
+
         this.inFlight = null;
-        return this.token;
+
+        return response.data;
       }
     ) as Promise<AccessToken>;
 
