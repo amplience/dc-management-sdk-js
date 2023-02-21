@@ -72,7 +72,7 @@ export class OAuth2Client implements AccessTokenProvider {
         }
 
         response.data.expires_at_locked_in =
-          Date.now() + response.data.expires_in * 1000;
+          Date.now() + response.data.expires_in * 1000 - 2000;
         await this.storage.saveToken(
           this.clientCredentials.client_id,
           response.data as any
