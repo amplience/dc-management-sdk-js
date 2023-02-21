@@ -77,8 +77,10 @@ export class OAuth2Client implements AccessTokenProvider {
           this.clientCredentials.client_id,
           response.data as any
         );
+
         this.inFlight = null;
-        return (response.data as unknown) as AccessToken;
+
+        return response.data;
       }
     ) as Promise<AccessToken>;
 
