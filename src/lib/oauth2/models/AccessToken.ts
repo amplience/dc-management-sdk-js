@@ -16,4 +16,10 @@ export interface AccessToken {
    * Period (in seconds) for how long the access token will remain valid
    */
   expires_in: number;
+
+  /**
+   * Custom field added on the client to remember the exact time when the
+   * token is expired
+   */
+  expires_at_locked_in?: number;
 }

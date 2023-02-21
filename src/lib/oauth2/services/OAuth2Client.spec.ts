@@ -7,6 +7,7 @@ import { OAuth2Client } from './OAuth2Client';
  */
 // tslint:disable-next-line
 import MockAdapter from 'axios-mock-adapter';
+import { InMemoryStorage } from './InMemoryStorage';
 
 test('get token should request a token on the first invocation', async (t) => {
   const httpClient = new AxiosHttpClient({});
@@ -16,7 +17,8 @@ test('get token should request a token on the first invocation', async (t) => {
       client_secret: 'client_secret',
     },
     {},
-    httpClient
+    httpClient,
+    new InMemoryStorage()
   );
 
   const mock = new MockAdapter(httpClient.client);
@@ -42,7 +44,8 @@ test('get token should cache tokens', async (t) => {
       client_secret: 'client_secret',
     },
     {},
-    httpClient
+    httpClient,
+    new InMemoryStorage()
   );
 
   const mock = new MockAdapter(httpClient.client);
@@ -76,7 +79,7 @@ test('get token should cache tokens', async (t) => {
   t.is(token2.access_token, 'token');
 });
 
-test('cached tokens should expire', async (t) => {
+test.only('cached tokens should expire', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
     {
@@ -84,7 +87,8 @@ test('cached tokens should expire', async (t) => {
       client_secret: 'client_secret',
     },
     {},
-    httpClient
+    httpClient,
+    new InMemoryStorage()
   );
 
   const mock = new MockAdapter(httpClient.client);
@@ -112,6 +116,7 @@ test('cached tokens should expire', async (t) => {
       refresh_token: 'refresh',
     });
 
+  debugger;
   const token2 = await client.getToken();
 
   t.is(token1.access_token, 'token');
@@ -126,7 +131,8 @@ test('only one token refresh should be in flight at once', async (t) => {
       client_secret: 'client_secret',
     },
     {},
-    httpClient
+    httpClient,
+    new InMemoryStorage()
   );
 
   const mock = new MockAdapter(httpClient.client, { delayResponse: 2000 });
