@@ -113,12 +113,12 @@ test('client should successfully retry request when inital response returns stat
   const mock = new MockAdapter(client.client);
 
   mock
-    .onGet('/resource/get')
-    .replyOnce(500)
-    .onGet('/resource/get')
-    .replyOnce(200, {
-      id: '1234',
-    });
+      .onGet('/resource/get')
+      .replyOnce(500)
+      .onGet('/resource/get')
+      .replyOnce(200, {
+        id: '1234',
+      });
 
   const response = await client.request({
     headers: {
@@ -138,12 +138,12 @@ test('client should successfully retry request when inital response returns stat
   const mock = new MockAdapter(client.client);
 
   mock
-    .onGet('/resource/get')
-    .replyOnce(429)
-    .onGet('/resource/get')
-    .replyOnce(200, {
-      id: '1234',
-    });
+      .onGet('/resource/get')
+      .replyOnce(429)
+      .onGet('/resource/get')
+      .replyOnce(200, {
+        id: '1234',
+      });
 
   const response = await client.request({
     headers: {
@@ -163,18 +163,18 @@ test('client should fail after max (3) retry attempts when responses return stat
   const mock = new MockAdapter(client.client);
 
   mock
-    .onGet('/resource/get')
-    .replyOnce(500)
-    .onGet('/resource/get')
-    .replyOnce(500)
-    .onGet('/resource/get')
-    .replyOnce(500)
-    .onGet('/resource/get')
-    .replyOnce(500)
-    .onGet('/resource/get')
-    .reply(200, {
-      id: '1234',
-    });
+      .onGet('/resource/get')
+      .replyOnce(500)
+      .onGet('/resource/get')
+      .replyOnce(500)
+      .onGet('/resource/get')
+      .replyOnce(500)
+      .onGet('/resource/get')
+      .replyOnce(500)
+      .onGet('/resource/get')
+      .reply(200, {
+        id: '1234',
+      });
 
   const response = await client.request({
     headers: {
@@ -186,4 +186,22 @@ test('client should fail after max (3) retry attempts when responses return stat
 
   t.is(response.status, 500);
   t.is(mock.history.get.length, 4);
+});
+
+test('client can send a configured user-agent', async (t) => {
+  const client = new AxiosHttpClient({
+    headers: { 'User-Agent': 'test-user-agent' },
+  });
+
+  const mock = new MockAdapter(client.client);
+  mock.resetHistory();
+
+  mock.onGet('/ping').reply(200, 'pong');
+
+  await client.request({
+    method: HttpMethod.GET,
+    url: '/ping',
+  });
+
+  t.is(mock.history.get[0].headers['User-Agent'], 'test-user-agent');
 });
