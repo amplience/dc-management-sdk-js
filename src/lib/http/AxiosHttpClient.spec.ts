@@ -106,3 +106,21 @@ test('client should send JSON data', async (t) => {
 
   t.is(response.status, 200);
 });
+
+test('client can send a configured user-agent', async (t) => {
+  const client = new AxiosHttpClient({
+    headers: { 'User-Agent': 'test-user-agent' },
+  });
+
+  const mock = new MockAdapter(client.client);
+  mock.resetHistory();
+
+  mock.onGet('/ping').reply(200, 'pong');
+
+  const response = await client.request({
+    method: HttpMethod.GET,
+    url: '/ping',
+  });
+
+  t.is(mock.history.get[0].headers['User-Agent'], 'test-user-agent');
+});
