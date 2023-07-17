@@ -1,5 +1,3 @@
-[![Amplience Dynamic Content](media/header.png)](https://amplience.com/dynamic-content)
-
 # dc-management-sdk-js
 
 > Official Javascript SDK for the Amplience Dynamic Content API
