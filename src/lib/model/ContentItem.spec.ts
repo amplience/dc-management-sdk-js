@@ -158,7 +158,7 @@ test('remove a workflow state', async (t) => {
     'f3a2d4ec-8d81-4e7f-9a24-40947e0613d6'
   );
 
-  const updatedContentItem = await contentItem.related.removeWorkflowState();
+  const updatedContentItem = await contentItem.related.unassignWorkflowState();
   t.is(updatedContentItem.workflow, undefined);
 });
 
