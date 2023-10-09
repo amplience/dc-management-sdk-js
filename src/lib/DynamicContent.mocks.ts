@@ -1841,6 +1841,114 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE = {
   workflow: { state: WORKFLOW_STATE.id },
 };
 
+export const CONTENT_ITEM_WITH_WORKFLOW_STATE_REMOVED = {
+  id: 'f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+  folderId: '5b3237784cedfd01c4503658',
+  body: {
+    _meta: {
+      name: 'main-banner',
+      schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+    },
+  },
+  version: 1,
+  label: 'Banner Ad Homepage',
+  status: 'ACTIVE',
+  locale: 'en-GB',
+  createdBy: 'user',
+  createdDate: '2018-06-26T12:54:16.216Z',
+  lastModifiedBy: 'user',
+  lastModifiedDate: '2018-06-26T12:54:16.216Z',
+  deliveryId: 'f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+  _links: {
+    self: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+    },
+    'content-item': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+    },
+    publish: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/publish',
+    },
+    planned: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/planned{?epoch,time}',
+      templated: true,
+    },
+    update: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+    },
+    archive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/archive',
+    },
+    unarchive: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/unarchive',
+    },
+    delete: {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions/1',
+    },
+    'restore-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/restore',
+    },
+    'content-repository': {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+    },
+    'content-item-version': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{/version}',
+      templated: true,
+    },
+    'content-item-versions': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{?page,size,sort}',
+      templated: true,
+    },
+    'content-item-history': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/history{?page,size,sort}',
+      templated: true,
+    },
+    copy: {
+      href:
+        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      templated: true,
+    },
+    folder: {
+      href:
+        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
+    },
+    'content-item-with-children': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+    },
+    'set-locale': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/locale',
+    },
+    'create-localizations': {
+      href:
+        'http://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/localize',
+    },
+    'edit-workflow': {
+      href:
+        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/workflow',
+    },
+  },
+};
+
+export const CONTENT_ITEM_WITH_WORKFLOW_STATE_ASSIGNED = {
+  ...CONTENT_ITEM_WITH_WORKFLOW_STATE_REMOVED,
+  workflow: { state: WORKFLOW_STATE.id },
+};
+
 /**
  * @hidden
  */
@@ -2561,6 +2669,14 @@ export class DynamicContentFixtures {
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
       .nestedCreateResource('archive', {}, CONTENT_ITEM)
       .nestedCreateResource('unarchive', {}, CONTENT_ITEM);
+
+    mocks
+      .resource(CONTENT_ITEM_WITH_WORKFLOW_STATE_ASSIGNED)
+      .nestedUpdateResource(
+        'edit-workflow',
+        {},
+        CONTENT_ITEM_WITH_WORKFLOW_STATE_REMOVED
+      );
 
     // Content type schemas
     mocks
