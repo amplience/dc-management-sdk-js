@@ -152,6 +152,16 @@ test('assign a workflow state', async (t) => {
   t.is(updatedContentItem.workflow.state, workflowState.id);
 });
 
+test('remove a workflow state', async (t) => {
+  const client = new MockDynamicContent();
+  const contentItem = await client.contentItems.get(
+    'f3a2d4ec-8d81-4e7f-9a24-40947e0613d6'
+  );
+
+  const updatedContentItem = await contentItem.related.unassignWorkflowState();
+  t.is(updatedContentItem.workflow, undefined);
+});
+
 test('locale should not be required', async (t) => {
   const item = new ContentItem({
     label: 'New Label',

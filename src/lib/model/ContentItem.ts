@@ -189,6 +189,18 @@ abstract class BaseContentItem extends HalResource {
         ContentItem,
         HttpMethod.PATCH
       ),
+
+    /**
+     * Unassign a WorkflowState
+     */
+    unassignWorkflowState: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'edit-workflow',
+        {},
+        { version: this.version, state: null },
+        ContentItem,
+        HttpMethod.PATCH
+      ),
   };
 }
 
