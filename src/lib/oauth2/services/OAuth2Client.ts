@@ -11,6 +11,8 @@ import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
 export class OAuth2Client implements AccessTokenProvider {
   public httpClient: HttpClient;
 
+  private readonly safelyExpireOffsetSeconds = 30;
+
   private clientCredentials: OAuth2ClientCredentials;
   private token: AccessToken;
   private tokenExpires: number;
@@ -19,10 +21,12 @@ export class OAuth2Client implements AccessTokenProvider {
 
   constructor(
     clientCredentials: OAuth2ClientCredentials,
-    { authUrl = 'https://auth.amplience.net' },
+    options: { authUrl?: string } & Record<string, unknown>,
     httpClient: HttpClient
   ) {
-    this.authUrl = authUrl;
+    options = { ...options, authUrl: 'https://auth.amplience.net' };
+
+    this.authUrl = options.authUrl;
     this.clientCredentials = clientCredentials;
     this.httpClient = httpClient;
   }
@@ -39,7 +43,10 @@ export class OAuth2Client implements AccessTokenProvider {
       return this.inFlight;
     }
 
-    if (this.token != null && this.tokenExpires > Date.now()) {
+    if (
+      this.token != null &&
+      this.tokenExpires - this.safelyExpireOffsetSeconds * 1000 > Date.now()
+    ) {
       return this.token;
     }
 
