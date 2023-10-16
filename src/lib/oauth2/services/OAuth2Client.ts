@@ -24,7 +24,7 @@ export class OAuth2Client implements AccessTokenProvider {
     options: { authUrl?: string } & Record<string, unknown>,
     httpClient: HttpClient
   ) {
-    options = { ...options, authUrl: 'https://auth.amplience.net' };
+    options = { authUrl: 'https://auth.amplience.net', ...options };
 
     this.authUrl = options.authUrl;
     this.clientCredentials = clientCredentials;
