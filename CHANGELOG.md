@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.18.0...v1.19.0) (2023-10-13)
+
+
+### Features
+
+* remove Amplience DC header logo from README ([#143](https://www.github.com/amplience/dc-management-sdk-js/issues/143)) ([e8441e0](https://www.github.com/amplience/dc-management-sdk-js/commit/e8441e0cfbc55fd8640ad4419805be51e59b9d87))
+* unassign workflow state from an item ([#146](https://www.github.com/amplience/dc-management-sdk-js/issues/146)) ([92e22bc](https://www.github.com/amplience/dc-management-sdk-js/commit/92e22bc822a9c175582ae52d0160ccc173a8bc83))
+
+
+### Bug Fixes
+
+* content type list supports status parameter ([#99](https://www.github.com/amplience/dc-management-sdk-js/issues/99)) ([#133](https://www.github.com/amplience/dc-management-sdk-js/issues/133)) ([c407559](https://www.github.com/amplience/dc-management-sdk-js/commit/c407559cc4e865624d94d2932b120c78bf183131))
+* **node:** updated to use active node lts versions (16, 18, & 20) ([#147](https://www.github.com/amplience/dc-management-sdk-js/issues/147)) ([e08b0b9](https://www.github.com/amplience/dc-management-sdk-js/commit/e08b0b996d7a9b770caa906b5176e70dfa210a2b))
+
 ## [1.18.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.17.2...v1.18.0) (2023-01-17)
 
 
