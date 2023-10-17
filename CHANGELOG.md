@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.19.1](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.19.0...v1.19.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* **auth:** tokens refreshed 30s before they are due to expire ([#148](https://www.github.com/amplience/dc-management-sdk-js/issues/148)) ([e2a3263](https://www.github.com/amplience/dc-management-sdk-js/commit/e2a32635d92c92fd9ffe04bcba8b3ca72c898411))
+
 ## [1.19.0](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.18.0...v1.19.0) (2023-10-13)
 
 
