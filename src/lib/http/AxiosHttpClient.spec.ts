@@ -106,3 +106,84 @@ test('client should send JSON data', async (t) => {
 
   t.is(response.status, 200);
 });
+
+test('client should successfully retry request when inital response returns status 500', async (t) => {
+  const client = new AxiosHttpClient({});
+
+  const mock = new MockAdapter(client.client);
+
+  mock
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(200, {
+      id: '1234',
+    });
+
+  const response = await client.request({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: HttpMethod.GET,
+    url: '/resource/get',
+  });
+
+  t.is(response.status, 200);
+  t.is(mock.history.get.length, 2);
+});
+
+test('client should successfully retry request when inital response returns status 429 (throttled)', async (t) => {
+  const client = new AxiosHttpClient({});
+
+  const mock = new MockAdapter(client.client);
+
+  mock
+    .onGet('/resource/get')
+    .replyOnce(429)
+    .onGet('/resource/get')
+    .replyOnce(200, {
+      id: '1234',
+    });
+
+  const response = await client.request({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: HttpMethod.GET,
+    url: '/resource/get',
+  });
+
+  t.is(response.status, 200);
+  t.is(mock.history.get.length, 2);
+});
+
+test('client should fail after max (3) retry attempts when responses return status 500', async (t) => {
+  const client = new AxiosHttpClient({});
+
+  const mock = new MockAdapter(client.client);
+
+  mock
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .reply(200, {
+      id: '1234',
+    });
+
+  const response = await client.request({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: HttpMethod.GET,
+    url: '/resource/get',
+  });
+
+  t.is(response.status, 500);
+  t.is(mock.history.get.length, 4);
+});
