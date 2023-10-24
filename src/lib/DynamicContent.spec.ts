@@ -16,3 +16,12 @@ test('should be able to get a workflow state', async (t) => {
   const result = await client.workflowStates.get('5a497a000000000000000000');
   t.is(result.label, 'Todo');
 });
+
+test('should send user-agent header', async (t) => {
+  const client = new MockDynamicContent(undefined, undefined, {
+    headers: { 'User-Agent': 'my user agent' },
+  });
+  const hubs = await client.hubs.list();
+  t.is(hubs.getItems().length, 1);
+  t.is(client.mock.history.get[0].headers['User-Agent'], 'my user agent');
+});
