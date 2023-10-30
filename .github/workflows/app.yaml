@@ -8,25 +8,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node: [16, 18, 20]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - uses: actions/cache@v2
+      - uses: actions/setup-node@v3
         with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          node-version: ${{ matrix.node }}
 
       - name: npm install, build, and test
         run: |
@@ -37,10 +27,10 @@ jobs:
         env:
           CI: true
 
-      - if: matrix.node-version == '18.x'
+      - if: matrix.node == '18'
         continue-on-error: true
         name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@8cbef1dea373ebce56de0a14c68d6267baa10b44 #v1.1.2
+        uses: coverallsapp/github-action@3dfc5567390f6fa9267c0ee9c251e4c8c3f18949 #v2.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: './coverage/lcov.info'
+          file: './coverage/lcov.info'
