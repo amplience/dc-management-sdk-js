@@ -27,7 +27,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           cache: 'npm'
-          node-version: 18
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
         if: ${{ steps.release.outputs.release_created }}
