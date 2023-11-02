@@ -17,6 +17,7 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v3
         id: release
         with:
+          token: ${{ secrets.GH_REPO_ACCESS }}
           release-type: node
           package-name: dc-management-sdk-js
 
