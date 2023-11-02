@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.19.1...v1.20.0) (2023-11-02)
+
+
+### Features
+
+* **client:** updated default http client to retry network or rate limited errors ([#151](https://github.com/amplience/dc-management-sdk-js/issues/151)) ([332c0cc](https://github.com/amplience/dc-management-sdk-js/commit/332c0cc3bf362c645b06bb27de12eb6dbb2b1a2d))
+
+
+### Bug Fixes
+
+* **gh actions:** nodejs deprecation warnings ([#149](https://github.com/amplience/dc-management-sdk-js/issues/149)) ([fb8204d](https://github.com/amplience/dc-management-sdk-js/commit/fb8204d7e224f6c0b0812c90441b8aef91b832dd))
+* **gha release:** run build on release-please ([#153](https://github.com/amplience/dc-management-sdk-js/issues/153)) ([98a17fd](https://github.com/amplience/dc-management-sdk-js/commit/98a17fdcb3f2ffd26af2615b13d9600fe5d39233))
+
 ### [1.19.1](https://www.github.com/amplience/dc-management-sdk-js/compare/v1.19.0...v1.19.1) (2023-10-17)
 
 
