@@ -14,6 +14,9 @@ test('get token should request a token on the first invocation', async (t) => {
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
+      pat_token: {
+        access_token: 'token',
+      },
     },
     {},
     httpClient
@@ -40,6 +43,9 @@ test('get token should cache tokens', async (t) => {
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
+      pat_token: {
+        access_token: 'token',
+      },
     },
     {},
     httpClient
@@ -165,6 +171,9 @@ test('only one token refresh should be in flight at once', async (t) => {
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
+      pat_token: {
+        access_token: 'token',
+      },
     },
     {},
     httpClient

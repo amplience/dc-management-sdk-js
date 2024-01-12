@@ -5,6 +5,9 @@ test('should default auth and api url if not provided', async (t) => {
   const client = new MockDynamicContent({
     client_id: 'client_id',
     client_secret: 'client_secret',
+    pat_token: {
+      access_token: 'token',
+    },
   });
 
   const hubs = await client.hubs.list();

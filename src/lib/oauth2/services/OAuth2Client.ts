@@ -39,6 +39,9 @@ export class OAuth2Client implements AccessTokenProvider {
    * @returns {Promise<AccessToken>}
    */
   public async getToken(): Promise<AccessToken> {
+    if (typeof this.clientCredentials.pat_token !== 'undefined') {
+      return this.clientCredentials.pat_token;
+    }
     if (this.inFlight != null) {
       return this.inFlight;
     }

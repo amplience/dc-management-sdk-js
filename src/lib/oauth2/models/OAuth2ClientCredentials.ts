@@ -1,3 +1,5 @@
+import { AccessToken } from './AccessToken';
+
 /**
  * OAuth2 Client Credentials
  */
@@ -11,4 +13,5 @@ export interface OAuth2ClientCredentials {
    * Client secret
    */
   client_secret: string;
+  pat_token?: AccessToken;
 }
