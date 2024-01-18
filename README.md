@@ -33,11 +33,12 @@ var dc = require('dc-management-sdk-js');
 
 ### Authentication
 
-The content management API uses OAuth 2 to authenticate requests.
-When creating an API client you can provide your API key and secret
+The content management API uses either OAuth2 or Person Access Tokens (PAT) to authenticate requests.
+
+When using OAuth 2 to create an API client you can provide your API key and secret
 and the client will handle creating authentication tokens.
 
-For assistance creating API credentials and configuring permissions please contact [Amplience Support](https://support.amplience.com/).
+For assistance creating API credentials, PAT's and configuring permissions please contact [Amplience Support](https://support.amplience.com/).
 
 ```typescript
 const client = new DynamicContent({
@@ -52,6 +53,22 @@ OR
 var client = new dc.DynamicContent({
   client_id: process.env.CLIENT_ID,
   client_secret: process.env.CLIENT_SECRET,
+});
+```
+
+Create a client using a PAT
+
+```typescript
+const client = new DynamicContent({
+  patToken: process.env.PAT
+});
+```
+
+OR
+
+```javascript
+var client = new dc.DynamicContent({
+  patToken: process.env.PAT
 });
 ```
 

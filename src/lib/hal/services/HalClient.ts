@@ -83,7 +83,8 @@ export class DefaultHalClient implements HalClient {
   constructor(
     private baseUrl: string,
     private httpClient: HttpClient,
-    private tokenProvider: AccessTokenProvider
+    private tokenProvider: AccessTokenProvider,
+    private patToken?: string
   ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
@@ -239,12 +240,19 @@ export class DefaultHalClient implements HalClient {
   }
 
   protected async invoke(request: HttpRequest): Promise<HttpResponse> {
-    const token = await this.tokenProvider.getToken();
+    let accessToken: string = null;
+
+    if (this.patToken) {
+      accessToken = this.patToken;
+    } else {
+      const token = await this.tokenProvider.getToken();
+      accessToken = token.access_token;
+    }
 
     const fullRequest: HttpRequest = {
       data: request.data,
       headers: {
-        Authorization: 'bearer ' + token.access_token,
+        Authorization: 'bearer ' + accessToken,
       },
       method: request.method,
       url: combineURLs(this.baseUrl, request.url),

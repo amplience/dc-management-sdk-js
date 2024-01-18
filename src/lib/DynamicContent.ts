@@ -20,6 +20,7 @@ import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
+import { AuthorizationConfig } from './model/AuthorizationConfig';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -270,7 +271,7 @@ export class DynamicContent {
    * @param httpClient Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
-    clientCredentials: Partial<OAuth2ClientCredentials>,
+    authCredentials: Partial<AuthorizationConfig>,
     dcConfig?: DynamicContentConfig,
     httpClient?: AxiosRequestConfig | HttpClient
   ) {
@@ -289,24 +290,25 @@ export class DynamicContent {
 
     const tokenClient = this.createTokenClient(
       dcConfig,
-      clientCredentials as OAuth2ClientCredentials,
+      authCredentials as AuthorizationConfig,
       httpClientInstance
     );
 
     this.client = this.createResourceClient(
       dcConfig,
       tokenClient,
-      httpClientInstance
+      httpClientInstance,
+      authCredentials
     );
   }
 
   protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    clientCredentials: OAuth2ClientCredentials,
+    authCredentials: AuthorizationConfig,
     httpClient: HttpClient
   ): AccessTokenProvider {
     return new OAuth2Client(
-      clientCredentials,
+      authCredentials as OAuth2ClientCredentials,
       {
         authUrl: dcConfig.authUrl,
       },
@@ -317,8 +319,17 @@ export class DynamicContent {
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
     tokenProvider: AccessTokenProvider,
-    httpClient: HttpClient
+    httpClient: HttpClient,
+    authCredentials: AuthorizationConfig
   ): HalClient {
+    if (authCredentials.patToken) {
+      return new DefaultHalClient(
+        dcConfig.apiUrl,
+        httpClient,
+        tokenProvider,
+        authCredentials.patToken
+      );
+    }
     return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);
   }
 }
