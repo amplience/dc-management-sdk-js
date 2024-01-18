@@ -322,14 +322,11 @@ export class DynamicContent {
     httpClient: HttpClient,
     authCredentials: AuthorizationConfig
   ): HalClient {
-    if (authCredentials.patToken) {
-      return new DefaultHalClient(
-        dcConfig.apiUrl,
-        httpClient,
-        tokenProvider,
-        authCredentials.patToken
-      );
-    }
-    return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);
+    return new DefaultHalClient(
+      dcConfig.apiUrl,
+      httpClient,
+      tokenProvider,
+      authCredentials.patToken
+    );
   }
 }
