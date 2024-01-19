@@ -2,7 +2,6 @@ export { DynamicContent } from './lib/DynamicContent';
 export { OAuth2Client } from './lib/oauth2/services/OAuth2Client';
 export { OAuth2ClientCredentials } from './lib/oauth2/models/OAuth2ClientCredentials';
 export { AccessToken } from './lib/oauth2/models/AccessToken';
-export { AccessTokenProvider } from './lib/oauth2/models/AccessTokenProvider';
 export { HalClient, DefaultHalClient } from './lib/hal/services/HalClient';
 export {
   HalResource,

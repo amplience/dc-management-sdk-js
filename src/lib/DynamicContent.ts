@@ -19,7 +19,7 @@ import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
-import { AuthorizationConfig } from './model/AuthorizationConfig';
+import { AuthorizationConfig } from './auth/AuthorizationConfig';
 import { PatTokenClient } from './auth/PatTokenClient';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
 import { PersonalAccessToken } from './auth/PersonalAccessToken';

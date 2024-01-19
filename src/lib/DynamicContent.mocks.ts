@@ -2993,7 +2993,7 @@ export class DynamicContentFixtures {
  */
 import MockAdapter from 'axios-mock-adapter';
 import { Status } from './model/Status';
-import { AuthorizationConfig } from './model/AuthorizationConfig';
+import { AuthorizationConfig } from './auth/AuthorizationConfig';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
 import { PersonalAccessToken } from './auth/PersonalAccessToken';
 import { AccessToken } from './oauth2/models/AccessToken';
