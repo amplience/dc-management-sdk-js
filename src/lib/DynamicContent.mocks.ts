@@ -2994,6 +2994,9 @@ export class DynamicContentFixtures {
 import MockAdapter from 'axios-mock-adapter';
 import { Status } from './model/Status';
 import { AuthorizationConfig } from './model/AuthorizationConfig';
+import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
+import { PersonalAccessToken } from './auth/PersonalAccessToken';
+import { AccessToken } from './oauth2/models/AccessToken';
 
 /**
  * @hidden
@@ -3035,15 +3038,13 @@ export class MockDynamicContent extends DynamicContent {
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AccessTokenProvider,
-    httpClient: HttpClient,
-    authCredentials: AuthorizationConfig
+    tokenProvider: AuthHeaderProvider<PersonalAccessToken | AccessToken>,
+    httpClient: HttpClient
   ): HalClient {
     const client = super.createResourceClient(
       dcConfig,
       tokenProvider,
-      httpClient,
-      authCredentials
+      httpClient
     );
     this.mock = new MockAdapter((httpClient as AxiosHttpClient).client);
     DynamicContentFixtures.install(this.mock);

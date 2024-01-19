@@ -2,11 +2,13 @@ import { HttpClient } from '../../http/HttpClient';
 import { HttpError } from '../../http/HttpError';
 import { HttpMethod, HttpRequest } from '../../http/HttpRequest';
 import { HttpResponse } from '../../http/HttpResponse';
-import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
+import { AuthHeaderProvider } from '../../auth/AuthHeaderProvider';
 import { combineURLs } from '../../utils/URL';
 import { HalLink } from '../models/HalLink';
 import { HalResource, HalResourceConstructor } from '../models/HalResource';
 import { CURIEs } from './CURIEs';
+import { AccessToken } from '../../oauth2/models/AccessToken';
+import { PersonalAccessToken } from '../../auth/PersonalAccessToken';
 
 /**
  * @hidden
@@ -79,12 +81,13 @@ export interface HalClient {
 /**
  * @hidden
  */
-export class DefaultHalClient implements HalClient {
+export class DefaultHalClient<T> implements HalClient {
   constructor(
     private baseUrl: string,
     private httpClient: HttpClient,
-    private tokenProvider: AccessTokenProvider,
-    private patToken?: string
+    private tokenProvider: AuthHeaderProvider<
+      (T & PersonalAccessToken) | AccessToken
+    >
   ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
@@ -240,19 +243,12 @@ export class DefaultHalClient implements HalClient {
   }
 
   protected async invoke(request: HttpRequest): Promise<HttpResponse> {
-    let accessToken: string = null;
-
-    if (this.patToken) {
-      accessToken = this.patToken;
-    } else {
-      const token = await this.tokenProvider.getToken();
-      accessToken = token.access_token;
-    }
+    const token = await this.tokenProvider.getToken();
 
     const fullRequest: HttpRequest = {
       data: request.data,
       headers: {
-        Authorization: 'bearer ' + accessToken,
+        Authorization: 'bearer ' + token.access_token,
       },
       method: request.method,
       url: combineURLs(this.baseUrl, request.url),

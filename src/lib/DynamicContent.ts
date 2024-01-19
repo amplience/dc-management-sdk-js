@@ -13,7 +13,6 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
-import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
 import { OAuth2Client } from './oauth2/services/OAuth2Client';
 import { HierarchyParents } from './model/HierarchyParents';
@@ -21,7 +20,10 @@ import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
 import { AuthorizationConfig } from './model/AuthorizationConfig';
-
+import { PatTokenClient } from './auth/PatTokenClient';
+import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
+import { PersonalAccessToken } from './auth/PersonalAccessToken';
+import { AccessToken } from './oauth2/models/AccessToken';
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
  * override these values with environment specific values.
@@ -297,8 +299,7 @@ export class DynamicContent {
     this.client = this.createResourceClient(
       dcConfig,
       tokenClient,
-      httpClientInstance,
-      authCredentials
+      httpClientInstance
     );
   }
 
@@ -306,7 +307,11 @@ export class DynamicContent {
     dcConfig: DynamicContentConfig,
     authCredentials: AuthorizationConfig,
     httpClient: HttpClient
-  ): AccessTokenProvider {
+  ): AuthHeaderProvider<PersonalAccessToken | AccessToken> {
+    if (authCredentials.patToken) {
+      return new PatTokenClient(authCredentials.patToken);
+    }
+
     return new OAuth2Client(
       authCredentials as OAuth2ClientCredentials,
       {
@@ -318,15 +323,9 @@ export class DynamicContent {
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AccessTokenProvider,
-    httpClient: HttpClient,
-    authCredentials: AuthorizationConfig
+    tokenProvider: AuthHeaderProvider<PersonalAccessToken | AccessToken>,
+    httpClient: HttpClient
   ): HalClient {
-    return new DefaultHalClient(
-      dcConfig.apiUrl,
-      httpClient,
-      tokenProvider,
-      authCredentials.patToken
-    );
+    return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);
   }
 }
