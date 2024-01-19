@@ -81,13 +81,11 @@ export interface HalClient {
 /**
  * @hidden
  */
-export class DefaultHalClient<T> implements HalClient {
+export class DefaultHalClient implements HalClient {
   constructor(
     private baseUrl: string,
     private httpClient: HttpClient,
-    private tokenProvider: AuthHeaderProvider<
-      (T & PersonalAccessToken) | AccessToken
-    >
+    private tokenProvider: AuthHeaderProvider<PersonalAccessToken | AccessToken>
   ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
