@@ -93,6 +93,6 @@ export class OAuth2Client implements AuthHeaderProvider {
   public async getAuthHeader(): Promise<string> {
     const token = await this.getToken();
 
-    return 'bearer ' + token.access_token;
+    return `bearer ${token.access_token}`;
   }
 }
