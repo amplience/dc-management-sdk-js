@@ -4,7 +4,7 @@ import { HalClient } from './hal/services/HalClient';
 import { HalLiteral, HalMocks } from './hal/utils/HalMock';
 import { AxiosHttpClient } from './http/AxiosHttpClient';
 import { HttpClient } from './http/HttpClient';
-import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
+import { Oauth2AuthHeaderProviderCredentials } from './oauth2/models/Oauth2AuthHeaderProviderCredentials';
 
 /* tslint:disable:object-literal-sort-keys */
 
@@ -3019,7 +3019,7 @@ export class MockDynamicContent extends DynamicContent {
   protected createTokenClient(
     /* eslint-disable unused-imports/no-unused-vars-ts */
     dcConfig: DynamicContentConfig,
-    clientCredentials: OAuth2ClientCredentials,
+    clientCredentials: Oauth2AuthHeaderProviderCredentials,
     httpClient: HttpClient
   ): AuthHeaderProvider {
     /* eslint-enable */

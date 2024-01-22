@@ -1,5 +1,5 @@
 import { AuthHeaderProvider } from './AuthHeaderProvider';
-export class PatTokenClient implements AuthHeaderProvider {
+export class PatTokenAuthHeaderProvider implements AuthHeaderProvider {
   constructor(private readonly patToken: string) {}
 
   public async getAuthHeader(): Promise<string> {

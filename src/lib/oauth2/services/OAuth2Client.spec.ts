@@ -1,6 +1,6 @@
 import test from 'ava';
 import { AxiosHttpClient } from '../../http/AxiosHttpClient';
-import { OAuth2Client } from './OAuth2Client';
+import { Oauth2AuthHeaderProvider } from './Oauth2AuthHeaderProvider';
 
 /**
  * @hidden
@@ -10,7 +10,7 @@ import MockAdapter from 'axios-mock-adapter';
 
 test('get token should request a token on the first invocation', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
@@ -36,7 +36,7 @@ test('get token should request a token on the first invocation', async (t) => {
 
 test('get auth header should return an auth header', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
@@ -63,7 +63,7 @@ test('get auth header should return an auth header', async (t) => {
 
 test('get token should cache tokens', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
@@ -105,7 +105,7 @@ test('get token should cache tokens', async (t) => {
 
 test('cached tokens should expire', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
@@ -147,7 +147,7 @@ test('cached tokens should expire', async (t) => {
 
 test('cached tokens should expire if they have less than 30 seconds left', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',
@@ -188,7 +188,7 @@ test('cached tokens should expire if they have less than 30 seconds left', async
 
 test('only one token refresh should be in flight at once', async (t) => {
   const httpClient = new AxiosHttpClient({});
-  const client = new OAuth2Client(
+  const client = new Oauth2AuthHeaderProvider(
     {
       client_id: 'client_id',
       client_secret: 'client_secret',

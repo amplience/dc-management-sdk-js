@@ -13,14 +13,14 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
-import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
-import { OAuth2Client } from './oauth2/services/OAuth2Client';
+import { Oauth2AuthHeaderProviderCredentials } from './oauth2/models/Oauth2AuthHeaderProviderCredentials';
+import { Oauth2AuthHeaderProvider } from './oauth2/services/Oauth2AuthHeaderProvider';
 import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
 import { AuthorizationConfig } from './auth/AuthorizationConfig';
-import { PatTokenClient } from './auth/PatTokenClient';
+import { PatTokenAuthHeaderProvider } from './auth/PatTokenAuthHeaderProvider';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
 
 /**
@@ -308,11 +308,11 @@ export class DynamicContent {
     httpClient: HttpClient
   ): AuthHeaderProvider {
     if (authCredentials.patToken) {
-      return new PatTokenClient(authCredentials.patToken);
+      return new PatTokenAuthHeaderProvider(authCredentials.patToken);
     }
 
-    return new OAuth2Client(
-      authCredentials as OAuth2ClientCredentials,
+    return new Oauth2AuthHeaderProvider(
+      authCredentials as Oauth2AuthHeaderProviderCredentials,
       {
         authUrl: dcConfig.authUrl,
       },
