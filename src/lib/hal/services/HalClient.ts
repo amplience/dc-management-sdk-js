@@ -83,7 +83,7 @@ export class DefaultHalClient implements HalClient {
   constructor(
     private baseUrl: string,
     private httpClient: HttpClient,
-    private tokenProvider: AuthHeaderProvider
+    private authHeaderProvider: AuthHeaderProvider
   ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
@@ -239,7 +239,7 @@ export class DefaultHalClient implements HalClient {
   }
 
   protected async invoke(request: HttpRequest): Promise<HttpResponse> {
-    const authHeader = await this.tokenProvider.getAuthHeader();
+    const authHeader = await this.authHeaderProvider.getAuthHeader();
 
     const fullRequest: HttpRequest = {
       data: request.data,
