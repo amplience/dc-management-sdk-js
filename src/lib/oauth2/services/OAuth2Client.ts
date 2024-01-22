@@ -87,7 +87,6 @@ export class OAuth2Client implements AuthHeaderProvider {
   /**
    * Returns an authorization header that can be used to make
    * requests to the Dynamic Content api.
-   * Tokens are reused until they expire.
    *
    * @returns {Promise<string>}
    */

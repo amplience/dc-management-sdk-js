@@ -1,5 +1,5 @@
 /**
- * AuthHeaderProvider is used to provide a getToken method to provide and authorization token
+ * AuthHeaderProvider is used to provide a getAuthHeader method to provide and authorization header
  * Oauth2Client and PatTokenClient are two options for providing an AuthHeaderProvider
  */
 

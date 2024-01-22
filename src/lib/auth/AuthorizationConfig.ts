@@ -1,6 +1,6 @@
 /**
  * AuthorizationConfig
- * @description Either OAuth2ClientCredentials or PatTokenCredentials
+ * @description Either OAuth2ClientCredentials or a Personal Access Token
  */
 
 export interface AuthorizationConfig {
