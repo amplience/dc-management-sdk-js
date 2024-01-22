@@ -3,6 +3,6 @@
  * Oauth2Client and PatTokenClient are two options for providing an AuthHeaderProvider
  */
 
-export interface AuthHeaderProvider<T> {
-  getToken(): Promise<T>;
+export interface AuthHeaderProvider {
+  getAuthHeader(): Promise<string>;
 }

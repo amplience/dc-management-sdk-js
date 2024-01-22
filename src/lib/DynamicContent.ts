@@ -22,8 +22,7 @@ import { Extension } from './model/Extension';
 import { AuthorizationConfig } from './auth/AuthorizationConfig';
 import { PatTokenClient } from './auth/PatTokenClient';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
-import { PersonalAccessToken } from './auth/PersonalAccessToken';
-import { AccessToken } from './oauth2/models/AccessToken';
+
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
  * override these values with environment specific values.
@@ -307,7 +306,7 @@ export class DynamicContent {
     dcConfig: DynamicContentConfig,
     authCredentials: AuthorizationConfig,
     httpClient: HttpClient
-  ): AuthHeaderProvider<PersonalAccessToken | AccessToken> {
+  ): AuthHeaderProvider {
     if (authCredentials.patToken) {
       return new PatTokenClient(authCredentials.patToken);
     }
@@ -323,7 +322,7 @@ export class DynamicContent {
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AuthHeaderProvider<PersonalAccessToken | AccessToken>,
+    tokenProvider: AuthHeaderProvider,
     httpClient: HttpClient
   ): HalClient {
     return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);

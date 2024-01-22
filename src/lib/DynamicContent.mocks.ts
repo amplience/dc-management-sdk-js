@@ -2994,8 +2994,6 @@ import MockAdapter from 'axios-mock-adapter';
 import { Status } from './model/Status';
 import { AuthorizationConfig } from './auth/AuthorizationConfig';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
-import { PersonalAccessToken } from './auth/PersonalAccessToken';
-import { AccessToken } from './oauth2/models/AccessToken';
 
 /**
  * @hidden
@@ -3023,21 +3021,16 @@ export class MockDynamicContent extends DynamicContent {
     dcConfig: DynamicContentConfig,
     clientCredentials: OAuth2ClientCredentials,
     httpClient: HttpClient
-  ): AuthHeaderProvider<PersonalAccessToken | AccessToken> {
+  ): AuthHeaderProvider {
     /* eslint-enable */
     return {
-      getToken: () =>
-        Promise.resolve({
-          access_token: 'token',
-          expires_in: 60,
-          refresh_token: 'refresh',
-        }),
+      getAuthHeader: () => Promise.resolve('bearer token'),
     };
   }
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AuthHeaderProvider<PersonalAccessToken | AccessToken>,
+    tokenProvider: AuthHeaderProvider,
     httpClient: HttpClient
   ): HalClient {
     const client = super.createResourceClient(

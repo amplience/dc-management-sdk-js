@@ -14,12 +14,7 @@ import MockAdapter from 'axios-mock-adapter';
  * @hidden
  */
 const tokenProvider = {
-  getToken: () =>
-    Promise.resolve({
-      access_token: 'token',
-      expires_in: 500,
-      refresh_token: 'refresh',
-    }),
+  getAuthHeader: () => Promise.resolve('bearer token'),
 };
 
 /**

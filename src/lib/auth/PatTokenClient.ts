@@ -1,11 +1,8 @@
 import { AuthHeaderProvider } from './AuthHeaderProvider';
-import { PersonalAccessToken } from './PersonalAccessToken';
-export class PatTokenClient implements AuthHeaderProvider<PersonalAccessToken> {
+export class PatTokenClient implements AuthHeaderProvider {
   constructor(private readonly patToken: string) {}
 
-  public async getToken(): Promise<PersonalAccessToken> {
-    return {
-      access_token: this.patToken,
-    };
+  public async getAuthHeader(): Promise<string> {
+    return `bearer ${this.patToken}`;
   }
 }

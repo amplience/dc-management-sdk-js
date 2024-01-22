@@ -1,14 +1,14 @@
+import { AuthHeaderProvider } from '../../auth/AuthHeaderProvider';
 import { HttpClient } from '../../http/HttpClient';
 import { HttpMethod } from '../../http/HttpRequest';
 import { combineURLs } from '../../utils/URL';
 import { AccessToken } from '../models/AccessToken';
-import { AccessTokenProvider } from '../models/AccessTokenProvider';
 import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
 
 /**
  * @hidden
  */
-export class OAuth2Client implements AccessTokenProvider {
+export class OAuth2Client implements AuthHeaderProvider {
   public httpClient: HttpClient;
 
   private readonly safelyExpireOffsetSeconds = 30;
@@ -82,5 +82,18 @@ export class OAuth2Client implements AccessTokenProvider {
     ) as Promise<AccessToken>;
 
     return this.inFlight;
+  }
+
+  /**
+   * Returns an authorization header that can be used to make
+   * requests to the Dynamic Content api.
+   * Tokens are reused until they expire.
+   *
+   * @returns {Promise<string>}
+   */
+  public async getAuthHeader(): Promise<string> {
+    const token = await this.getToken();
+
+    return 'bearer ' + token.access_token;
   }
 }

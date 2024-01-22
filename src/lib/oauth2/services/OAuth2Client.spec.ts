@@ -34,6 +34,33 @@ test('get token should request a token on the first invocation', async (t) => {
   t.is((await client.getToken()).access_token, 'token');
 });
 
+test('get auth header should return an auth header', async (t) => {
+  const httpClient = new AxiosHttpClient({});
+  const client = new OAuth2Client(
+    {
+      client_id: 'client_id',
+      client_secret: 'client_secret',
+    },
+    {},
+    httpClient
+  );
+
+  const mock = new MockAdapter(httpClient.client);
+  mock
+    .onPost(
+      'https://auth.amplience.net/oauth/token',
+      'grant_type=client_credentials&client_id=client_id&client_secret=client_secret'
+    )
+    .reply(200, {
+      access_token: 'token',
+      expires_in: 0,
+      refresh_token: 'refresh',
+    });
+
+  const authHeader = await client.getAuthHeader();
+  t.is(authHeader, 'bearer token');
+});
+
 test('get token should cache tokens', async (t) => {
   const httpClient = new AxiosHttpClient({});
   const client = new OAuth2Client(
