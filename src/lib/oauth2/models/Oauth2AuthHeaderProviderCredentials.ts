@@ -1,7 +1,7 @@
 /**
  * OAuth2 Client Credentials
  */
-export interface OAuth2ClientCredentials {
+export interface Oauth2AuthHeaderProviderCredentials {
   /**
    * Client id
    */

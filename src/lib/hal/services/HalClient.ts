@@ -2,7 +2,7 @@ import { HttpClient } from '../../http/HttpClient';
 import { HttpError } from '../../http/HttpError';
 import { HttpMethod, HttpRequest } from '../../http/HttpRequest';
 import { HttpResponse } from '../../http/HttpResponse';
-import { AccessTokenProvider } from '../../oauth2/models/AccessTokenProvider';
+import { AuthHeaderProvider } from '../../auth/AuthHeaderProvider';
 import { combineURLs } from '../../utils/URL';
 import { HalLink } from '../models/HalLink';
 import { HalResource, HalResourceConstructor } from '../models/HalResource';
@@ -83,7 +83,7 @@ export class DefaultHalClient implements HalClient {
   constructor(
     private baseUrl: string,
     private httpClient: HttpClient,
-    private tokenProvider: AccessTokenProvider
+    private authHeaderProvider: AuthHeaderProvider
   ) {}
 
   public async fetchLinkedResource<T extends HalResource>(
@@ -239,12 +239,12 @@ export class DefaultHalClient implements HalClient {
   }
 
   protected async invoke(request: HttpRequest): Promise<HttpResponse> {
-    const token = await this.tokenProvider.getToken();
+    const authHeader = await this.authHeaderProvider.getAuthHeader();
 
     const fullRequest: HttpRequest = {
       data: request.data,
       headers: {
-        Authorization: 'bearer ' + token.access_token,
+        Authorization: authHeader,
       },
       method: request.method,
       url: combineURLs(this.baseUrl, request.url),

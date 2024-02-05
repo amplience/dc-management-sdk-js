@@ -26,12 +26,7 @@ function createMockClient(): [HalClient, any] {
  * @hidden
  */
 const tokenProvider = {
-  getToken: () =>
-    Promise.resolve({
-      access_token: 'token',
-      expires_in: 500,
-      refresh_token: 'refresh',
-    }),
+  getAuthHeader: () => Promise.resolve('bearer token'),
 };
 
 test('fetchResource should load and parse resource', async (t) => {
@@ -137,21 +132,15 @@ test('requests should include auth token', async (t) => {
 test('should ask for token from provider every request', async (t) => {
   const httpClient = new AxiosHttpClient({});
 
-  let tokenCount = 0;
   const client = new DefaultHalClient('', httpClient, {
-    getToken: () =>
-      Promise.resolve({
-        access_token: 'token' + tokenCount++,
-        expires_in: 500,
-        refresh_token: 'refresh',
-      }),
+    getAuthHeader: () => Promise.resolve('bearer token'),
   });
 
   const mock = new MockAdapter(httpClient.client);
   mock
     .onGet('/hubs/1', undefined, {
       Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token0',
+      Authorization: 'bearer token',
     })
     .reply(200, {
       name: 'hub 1',

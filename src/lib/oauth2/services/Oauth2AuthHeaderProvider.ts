@@ -1,26 +1,26 @@
+import { AuthHeaderProvider } from '../../auth/AuthHeaderProvider';
 import { HttpClient } from '../../http/HttpClient';
 import { HttpMethod } from '../../http/HttpRequest';
 import { combineURLs } from '../../utils/URL';
 import { AccessToken } from '../models/AccessToken';
-import { AccessTokenProvider } from '../models/AccessTokenProvider';
-import { OAuth2ClientCredentials } from '../models/OAuth2ClientCredentials';
+import { Oauth2AuthHeaderProviderCredentials } from '../models/Oauth2AuthHeaderProviderCredentials';
 
 /**
  * @hidden
  */
-export class OAuth2Client implements AccessTokenProvider {
+export class Oauth2AuthHeaderProvider implements AuthHeaderProvider {
   public httpClient: HttpClient;
 
   private readonly safelyExpireOffsetSeconds = 30;
 
-  private clientCredentials: OAuth2ClientCredentials;
+  private clientCredentials: Oauth2AuthHeaderProviderCredentials;
   private token: AccessToken;
   private tokenExpires: number;
   private inFlight: Promise<AccessToken>;
   private authUrl: string;
 
   constructor(
-    clientCredentials: OAuth2ClientCredentials,
+    clientCredentials: Oauth2AuthHeaderProviderCredentials,
     options: { authUrl?: string } & Record<string, unknown>,
     httpClient: HttpClient
   ) {
@@ -82,5 +82,17 @@ export class OAuth2Client implements AccessTokenProvider {
     ) as Promise<AccessToken>;
 
     return this.inFlight;
+  }
+
+  /**
+   * Returns an authorization header that can be used to make
+   * requests to the Dynamic Content api.
+   *
+   * @returns {Promise<string>}
+   */
+  public async getAuthHeader(): Promise<string> {
+    const token = await this.getToken();
+
+    return `bearer ${token.access_token}`;
   }
 }

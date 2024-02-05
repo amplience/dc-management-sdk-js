@@ -13,13 +13,15 @@ import { Hub, HubsPage } from './model/Hub';
 import { Page } from './model/Page';
 import { Pageable } from './model/Pageable';
 import { Snapshot } from './model/Snapshot';
-import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
-import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
-import { OAuth2Client } from './oauth2/services/OAuth2Client';
+import { Oauth2AuthHeaderProviderCredentials } from './oauth2/models/Oauth2AuthHeaderProviderCredentials';
+import { Oauth2AuthHeaderProvider } from './oauth2/services/Oauth2AuthHeaderProvider';
 import { HierarchyParents } from './model/HierarchyParents';
 import { HierarchyChildren } from './model/HierarchyChildren';
 import { WorkflowState } from './model/WorkflowState';
 import { Extension } from './model/Extension';
+import { AuthorizationConfig } from './auth/AuthorizationConfig';
+import { PatTokenAuthHeaderProvider } from './auth/PatTokenAuthHeaderProvider';
+import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -270,7 +272,7 @@ export class DynamicContent {
    * @param httpClient Optional request settings, can be used to provide proxy settings, add interceptors etc
    */
   constructor(
-    clientCredentials: Partial<OAuth2ClientCredentials>,
+    authCredentials: Partial<AuthorizationConfig>,
     dcConfig?: DynamicContentConfig,
     httpClient?: AxiosRequestConfig | HttpClient
   ) {
@@ -289,7 +291,7 @@ export class DynamicContent {
 
     const tokenClient = this.createTokenClient(
       dcConfig,
-      clientCredentials as OAuth2ClientCredentials,
+      authCredentials as AuthorizationConfig,
       httpClientInstance
     );
 
@@ -302,11 +304,15 @@ export class DynamicContent {
 
   protected createTokenClient(
     dcConfig: DynamicContentConfig,
-    clientCredentials: OAuth2ClientCredentials,
+    authCredentials: AuthorizationConfig,
     httpClient: HttpClient
-  ): AccessTokenProvider {
-    return new OAuth2Client(
-      clientCredentials,
+  ): AuthHeaderProvider {
+    if (authCredentials.patToken) {
+      return new PatTokenAuthHeaderProvider(authCredentials.patToken);
+    }
+
+    return new Oauth2AuthHeaderProvider(
+      authCredentials as Oauth2AuthHeaderProviderCredentials,
       {
         authUrl: dcConfig.authUrl,
       },
@@ -316,7 +322,7 @@ export class DynamicContent {
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AccessTokenProvider,
+    tokenProvider: AuthHeaderProvider,
     httpClient: HttpClient
   ): HalClient {
     return new DefaultHalClient(dcConfig.apiUrl, httpClient, tokenProvider);

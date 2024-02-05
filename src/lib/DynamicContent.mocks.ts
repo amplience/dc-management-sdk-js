@@ -4,8 +4,7 @@ import { HalClient } from './hal/services/HalClient';
 import { HalLiteral, HalMocks } from './hal/utils/HalMock';
 import { AxiosHttpClient } from './http/AxiosHttpClient';
 import { HttpClient } from './http/HttpClient';
-import { AccessTokenProvider } from './oauth2/models/AccessTokenProvider';
-import { OAuth2ClientCredentials } from './oauth2/models/OAuth2ClientCredentials';
+import { Oauth2AuthHeaderProviderCredentials } from './oauth2/models/Oauth2AuthHeaderProviderCredentials';
 
 /* tslint:disable:object-literal-sort-keys */
 
@@ -2993,6 +2992,8 @@ export class DynamicContentFixtures {
  */
 import MockAdapter from 'axios-mock-adapter';
 import { Status } from './model/Status';
+import { AuthorizationConfig } from './auth/AuthorizationConfig';
+import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
 
 /**
  * @hidden
@@ -3001,12 +3002,12 @@ export class MockDynamicContent extends DynamicContent {
   public mock: MockAdapter;
 
   constructor(
-    clientCredentials?: OAuth2ClientCredentials,
+    authCredentials?: AuthorizationConfig,
     dcConfig?: DynamicContentConfig,
     httpClient?: AxiosRequestConfig
   ) {
     super(
-      clientCredentials || {
+      authCredentials || {
         client_id: 'client_id',
         client_secret: 'client_secret',
       },
@@ -3018,23 +3019,18 @@ export class MockDynamicContent extends DynamicContent {
   protected createTokenClient(
     /* eslint-disable unused-imports/no-unused-vars-ts */
     dcConfig: DynamicContentConfig,
-    clientCredentials: OAuth2ClientCredentials,
+    clientCredentials: Oauth2AuthHeaderProviderCredentials,
     httpClient: HttpClient
-  ): AccessTokenProvider {
+  ): AuthHeaderProvider {
     /* eslint-enable */
     return {
-      getToken: () =>
-        Promise.resolve({
-          access_token: 'token',
-          expires_in: 60,
-          refresh_token: 'refresh',
-        }),
+      getAuthHeader: () => Promise.resolve('bearer token'),
     };
   }
 
   protected createResourceClient(
     dcConfig: DynamicContentConfig,
-    tokenProvider: AccessTokenProvider,
+    tokenProvider: AuthHeaderProvider,
     httpClient: HttpClient
   ): HalClient {
     const client = super.createResourceClient(
