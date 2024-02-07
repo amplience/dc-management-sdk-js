@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.20.0...v2.0.0) (2024-02-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* add support for pat token to authenticate ([#154](https://github.com/amplience/dc-management-sdk-js/issues/154))
+
+### Features
+
+* add support for pat token to authenticate ([#154](https://github.com/amplience/dc-management-sdk-js/issues/154)) ([cf4dfb1](https://github.com/amplience/dc-management-sdk-js/commit/cf4dfb1d35197a9956a6ab0b3f5fd16a5a697246))
+
 ## [1.20.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.19.1...v1.20.0) (2023-11-02)
 
 
