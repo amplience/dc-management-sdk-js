@@ -40,7 +40,7 @@ and the client will handle creating authentication tokens.
 
 For assistance creating API credentials, PAT's and configuring permissions please contact [Amplience Support](https://support.amplience.com/).
 
-A guide for creating and managing PAT's can be found on the [Amplience Developer Hub](https://amplience.com/developers/docs/apis/authorization/personal-access-tokens/)
+A guide for creating and managing PAT's can be found on the [Amplience Developer Hub](https://amplience.com/developers/docs/apis/authorization/personal-access-tokens/).
 
 ```typescript
 const client = new DynamicContent({
