@@ -1,5 +1,9 @@
 import { HalResource } from '../hal/models/HalResource';
-import { ContentItemsFacets, FacetedContentItem } from './ContentItem';
+import {
+  ContentItem,
+  ContentItemsFacets,
+  FacetedContentItem,
+} from './ContentItem';
 import {
   ContentRepositoriesPage,
   ContentRepository,
@@ -177,6 +181,12 @@ export class Hub extends HalResource {
           options,
           facetQuery,
           ContentItemsFacets
+        ),
+
+      getByDeliveryKey: (key: string): Promise<ContentItem> =>
+        this.client.fetchResource(
+          `hubs/${this.id}/delivery-keys/content-item?key=${key}`,
+          ContentItem
         ),
     },
 

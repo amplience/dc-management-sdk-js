@@ -115,6 +115,15 @@ test('facet the content items ', async (t) => {
   );
 });
 
+test('get content item by its deliveryKey', async (t) => {
+  const client = new MockDynamicContent();
+  const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
+  const result = await hub.related.contentItems.getByDeliveryKey(
+    'a-delivery-key'
+  );
+  t.is(result.body._meta.deliveryKey, 'a-delivery-key');
+});
+
 test('list events', async (t) => {
   const client = new MockDynamicContent();
   const hub = await client.hubs.get('5b32377e4cedfd01c45036d8');
