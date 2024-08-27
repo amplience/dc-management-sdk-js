@@ -113,12 +113,12 @@ test('client should successfully retry request when inital response returns stat
   const mock = new MockAdapter(client.client);
 
   mock
-      .onGet('/resource/get')
-      .replyOnce(500)
-      .onGet('/resource/get')
-      .replyOnce(200, {
-        id: '1234',
-      });
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(200, {
+      id: '1234',
+    });
 
   const response = await client.request({
     headers: {
@@ -138,12 +138,12 @@ test('client should successfully retry request when inital response returns stat
   const mock = new MockAdapter(client.client);
 
   mock
-      .onGet('/resource/get')
-      .replyOnce(429)
-      .onGet('/resource/get')
-      .replyOnce(200, {
-        id: '1234',
-      });
+    .onGet('/resource/get')
+    .replyOnce(429)
+    .onGet('/resource/get')
+    .replyOnce(200, {
+      id: '1234',
+    });
 
   const response = await client.request({
     headers: {
@@ -163,18 +163,18 @@ test('client should fail after max (3) retry attempts when responses return stat
   const mock = new MockAdapter(client.client);
 
   mock
-      .onGet('/resource/get')
-      .replyOnce(500)
-      .onGet('/resource/get')
-      .replyOnce(500)
-      .onGet('/resource/get')
-      .replyOnce(500)
-      .onGet('/resource/get')
-      .replyOnce(500)
-      .onGet('/resource/get')
-      .reply(200, {
-        id: '1234',
-      });
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .replyOnce(500)
+    .onGet('/resource/get')
+    .reply(200, {
+      id: '1234',
+    });
 
   const response = await client.request({
     headers: {
