@@ -98,6 +98,11 @@ abstract class BaseContentItem extends HalResource {
   public workflow?: AssignedWorkflow;
 
   /**
+   * Validation state
+   */
+  public validationState?: 'VALID' | 'INVALID' | 'EMPTY';
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
