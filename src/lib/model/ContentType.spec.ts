@@ -61,7 +61,8 @@ test('contentTypeSchemas.get', async (t) => {
 
   const contentType = await client.contentTypes.get('5be1d5134cedfd01c030c460');
 
-  const contentTypeCachedSchema = await contentType.related.contentTypeSchema.get();
+  const contentTypeCachedSchema =
+    await contentType.related.contentTypeSchema.get();
   t.is(contentTypeCachedSchema.hubId, '5b32377e4cedfd01c45036d8');
 });
 
@@ -70,9 +71,10 @@ test('contentTypeSchemas.update', async (t) => {
 
   const contentType = await client.contentTypes.get('5be1d5134cedfd01c030c460');
 
-  const contentTypeCachedSchema = await contentType.related.contentTypeSchema.update(
-    new ContentTypeCachedSchema()
-  );
+  const contentTypeCachedSchema =
+    await contentType.related.contentTypeSchema.update(
+      new ContentTypeCachedSchema()
+    );
   t.is(contentTypeCachedSchema.hubId, '5b32377e4cedfd01c45036d8');
 });
 

@@ -67,8 +67,7 @@ test('client should send form data', async (t) => {
     });
 
   const response = await client.request({
-    data:
-      'grant_type=client_credentials&client_id=client_id&client_secret=client_secret',
+    data: 'grant_type=client_credentials&client_id=client_id&client_secret=client_secret',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },

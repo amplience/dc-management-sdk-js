@@ -60,133 +60,104 @@ export const HUB = {
   lastModifiedDate: '2018-06-26T12:54:22.142Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     snapshots: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots{?types}{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots{?types}{&page,size,sort}',
       templated: true,
     },
     'create-snapshot': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots',
     },
     events: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/events{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/events{?page,size,sort}',
       templated: true,
     },
     'create-event': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/events',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/events',
     },
     extensions: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions{?page,size,sort}',
       templated: true,
     },
     'extensions-lite': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions?show-full=false{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions?show-full=false{&page,size,sort}',
       templated: true,
     },
     'extension-by-name': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions/{name}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions/{name}',
       templated: true,
     },
     'create-extension': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/extensions',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     'update-settings': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/settings',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/settings',
     },
     share: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/share',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/share',
     },
     'content-repositories': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-repositories{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-repositories{?page,size,sort}',
       templated: true,
     },
     'create-content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-repositories',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-repositories',
     },
     'register-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types',
     },
     'content-types': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types{?page,size,sort,status}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-types{?page,size,sort,status}',
       templated: true,
     },
     'list-content-type-schemas': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas{?page,size,sort}',
       templated: true,
     },
     'create-content-type-schema': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-type-schemas',
     },
     'search-content-items': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/find?q={query}{&page,size,sort}',
       templated: true,
     },
     'facet-content-items': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/facet{?page,projection,query,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/content-items/facet{?page,projection,query,size,sort}',
       templated: true,
     },
     webhooks: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks{?page,size,sort}',
       templated: true,
     },
     'create-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks',
     },
     'algolia-search-indexes': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{?parentId,projection,page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{?parentId,projection,page,size,sort}',
       templated: true,
     },
     'create-algolia-search-index': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes',
     },
     'workflow-states': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states{?page,size,sort}',
       templated: true,
     },
     'create-workflow-state': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/workflow-states',
     },
     'batch-create-snapshots': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
     },
   },
 };
@@ -213,86 +184,67 @@ export const CONTENT_ITEM = {
   deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab721',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     publish: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
     },
     planned: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1',
     },
     'restore-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     'content-item-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
       templated: true,
     },
     localizations: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localizations{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localizations{?page,size,sort}',
       templated: true,
     },
     'content-item-versions': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
       templated: true,
     },
     'content-item-history': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
       templated: true,
     },
     copy: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
       templated: true,
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
+      href: 'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
     },
     'content-item-with-children': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     'set-locale': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
     },
     'edit-workflow': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -326,85 +278,66 @@ export const CONTENT_ITEM_WITH_LOCALE = {
   deliveryId: 'a87fd535-fb25-44ee-b687-0db72bbab721',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     publish: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
     },
     planned: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/archive',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unarchive',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions/1',
     },
     'restore-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/restore',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     'content-item-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{/version}',
       templated: true,
     },
     'content-item-versions': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/versions{?page,size,sort}',
       templated: true,
     },
     'content-item-history': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/history{?page,size,sort}',
       templated: true,
     },
     copy: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab721',
       templated: true,
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
+      href: 'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
     },
     'content-item-with-children': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     'set-locale': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/locale',
     },
     'create-localizations': {
-      href:
-        'http://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localize',
+      href: 'http://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/localize',
     },
     'edit-workflow': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -433,73 +366,57 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
   assignedDate: '2018-06-27T12:54:16.216Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
     },
     publish: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/publish',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/publish',
     },
     planned: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/planned{?epoch,time}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/planned{?epoch,time}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions/1',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions/1',
     },
     'restore-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/restore',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/restore',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     'content-item-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{/version}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{/version}',
       templated: true,
     },
     'content-item-versions': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/versions{?page,size,sort}',
       templated: true,
     },
     'content-item-history': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/history{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/history{?page,size,sort}',
       templated: true,
     },
     copy: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab722',
+      href: 'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=a87fd535-fb25-44ee-b687-0db72bbab722',
       templated: true,
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
+      href: 'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
     },
     'content-item-with-children': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab722',
+      href: 'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=a87fd535-fb25-44ee-b687-0db72bbab722',
     },
     'set-locale': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/locale',
     },
     'edit-workflow': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/workflow',
     },
   },
 };
@@ -519,16 +436,13 @@ export const CONTENT_ITEMS_FACET = {
   },
   _links: {
     first: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
     },
     last: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
     },
     self: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180/content-items/facet?query=status%3A%22ACTIVE%22contentRepositoryId%3A%225d4af2ccc9e77c00015fa183%22sss&sort=relevance&page=0&size=30',
     },
   },
   page: {
@@ -572,8 +486,7 @@ export const CONTENT_ITEMS_FACET = {
  */
 export const CONTENT_TYPE_SCHEMA = {
   validationLevel: 'CONTENT_TYPE',
-  body:
-    '{\n\t"$schema": "http://json-schema.org/draft-04/schema#",\n\t"id": "http://example.com/content-type-schema.json",\n\t"title": "Image",\n\t"description": "Image schema",\n\t"allOf": [\n\t\t{\n\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"\n\t\t}\n\t],\n\t"type": "object",\n\t"properties": {\n\t\t"image": {\n\t\t\t"title": "Image",\n\t\t\t"description": "insert an image",\n\t\t\t"type": "object",\n\t\t\t"anyOf": [\n\t\t\t\t{\n\t\t\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t"altText": {\n\t\t\t"type": "string",\n\t\t\t"minLength": 0,\n\t\t\t"maxLength": 150,\n\t\t\t"title": "Alt text",\n\t\t\t"description": "insert image alt text"\n\t\t}\n\t},\n\t"propertyOrder": [\n\t\t"image",\n\t\t"altText"\n\t],\n\t"required": [\n\t\t"image",\n\t\t"altText"\n\t]\n}',
+  body: '{\n\t"$schema": "http://json-schema.org/draft-04/schema#",\n\t"id": "http://example.com/content-type-schema.json",\n\t"title": "Image",\n\t"description": "Image schema",\n\t"allOf": [\n\t\t{\n\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"\n\t\t}\n\t],\n\t"type": "object",\n\t"properties": {\n\t\t"image": {\n\t\t\t"title": "Image",\n\t\t\t"description": "insert an image",\n\t\t\t"type": "object",\n\t\t\t"anyOf": [\n\t\t\t\t{\n\t\t\t\t\t"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/image-link"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t"altText": {\n\t\t\t"type": "string",\n\t\t\t"minLength": 0,\n\t\t\t"maxLength": 150,\n\t\t\t"title": "Alt text",\n\t\t\t"description": "insert image alt text"\n\t\t}\n\t},\n\t"propertyOrder": [\n\t\t"image",\n\t\t"altText"\n\t],\n\t"required": [\n\t\t"image",\n\t\t"altText"\n\t]\n}',
   schemaId: 'http://example.com/content-type-schema.json',
   createdBy: 'user',
   createdDate: '2018-06-26T12:54:16.216Z',
@@ -584,41 +497,32 @@ export const CONTENT_TYPE_SCHEMA = {
   status: 'ACTIVE',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
     },
     'content-type-schema': {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180',
+      href: 'https://api.amplience.net/v2/content/hubs/5d4aed7dc9e77c00015fa180',
     },
     history: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/history',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/history',
     },
     getByVersion: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/{version}',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/{version}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/archive',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/archive',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/unarchive',
     },
     restore: {
-      href:
-        'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/restore',
+      href: 'https://api.amplience.net/v2/content/content-type-schemas/5d4af55ced6688002869d808/restore',
     },
   },
 };
@@ -643,64 +547,50 @@ export const CONTENT_REPOSITORY = {
   itemLocales: ['en', 'fr'],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
     },
     'create-content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-items',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-items',
     },
     'search-content-items': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
       templated: true,
     },
     'content-items': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-items{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-items{?page,size,sort}',
       templated: true,
     },
     share: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
     },
     'assign-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-types',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-types',
     },
     'unassign-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-types/{id}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/content-types/{id}',
       templated: true,
     },
     folders: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/folders{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/folders{?page,size,sort}',
       templated: true,
     },
     'create-folder': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/folders',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/folders',
     },
     features: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/features?feature={feature}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/features?feature={feature}',
       templated: true,
     },
     'update-content-items': {
@@ -723,64 +613,50 @@ export const CONTENT_REPOSITORY_SLOTS = {
   itemLocales: ['en', 'fr'],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690',
     },
     'create-content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items',
     },
     'search-content-items': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377b4cedfd01c4503690/content-items/find?q={query}{&page,size,sort}',
       templated: true,
     },
     'content-items': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-items{?page,size,sort}',
       templated: true,
     },
     share: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691/share',
     },
     'assign-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types',
     },
     'unassign-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types/{id}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/content-types/{id}',
       templated: true,
     },
     folders: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders{?page,size,sort}',
       templated: true,
     },
     'create-folder': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/folders',
     },
     features: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/features?feature={feature}',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503692/features?feature={feature}',
       templated: true,
     },
     'update-content-items': {
@@ -801,37 +677,29 @@ export const EVENT = {
   brief: 'http://external.doc/mybrief',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
     event: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/archive',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/archive',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32379e4cedfd01c4504170',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32379e4cedfd01c4504170',
     },
     editions: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/editions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/editions{?page,size,sort}',
       templated: true,
     },
     'create-edition': {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/editions{?sourceEditionId}',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171/editions{?sourceEditionId}',
       templated: true,
     },
   },
@@ -867,58 +735,45 @@ export const EDITION = {
   stagedDate: null,
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
     },
     edition: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
     },
     'create-preview': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/preview',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/preview',
     },
     preview: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/preview',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/preview',
     },
     schedule: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/schedule{?ignoreWarnings}',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/schedule{?ignoreWarnings}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/archive',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/archive',
     },
     slots: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/slots',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/slots',
     },
     'list-slots': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/slots{?includedSlots}',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/slots{?includedSlots}',
       templated: true,
     },
     event: {
-      href:
-        'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
+      href: 'https://api.amplience.net/v2/content/events/5b32379e4cedfd01c4504171',
     },
     'edition-conflicts': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/conflicts',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/conflicts',
     },
     'edition-conflict': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/conflicts/findByIdAndVersion{?id,version}',
+      href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504172/conflicts/findByIdAndVersion{?id,version}',
       templated: true,
     },
   },
@@ -964,13 +819,11 @@ EDITION_CONFLICT.id = '5b32379e4cedfd01c4504173';
 EDITION_CONFLICT._links = { ...EDITION_CONFLICT._links };
 EDITION_CONFLICT._links.self = {
   ...EDITION_CONFLICT._links.self,
-  href:
-    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173',
+  href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173',
 };
 EDITION_CONFLICT._links.schedule = {
   ...EDITION_CONFLICT._links.schedule,
-  href:
-    'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173/schedule{?ignoreWarnings}',
+  href: 'https://api.amplience.net/v2/content/editions/5b32379e4cedfd01c4504173/schedule{?ignoreWarnings}',
 };
 
 /**
@@ -997,28 +850,22 @@ export const EDITION_SLOT = {
   empty: true,
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5',
+      href: 'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5',
     },
     'edition-slot': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5',
+      href: 'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5',
     },
     edition: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1',
+      href: 'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1',
     },
     slot: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/7aa5f5d4-071c-42e3-b42e-02675c56d60e',
+      href: 'https://api.amplience.net/v2/content/content-items/7aa5f5d4-071c-42e3-b42e-02675c56d60e',
     },
     content: {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content',
+      href: 'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content',
     },
     'safe-update-content': {
-      href:
-        'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content{?lastModifiedDate,page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/editions/5b3237a24cedfd01c45041d1/slots/5b3237a24cedfd01c45041d5/content{?lastModifiedDate,page,size,sort}',
       templated: true,
     },
   },
@@ -1047,8 +894,7 @@ export const EXTENSION = {
   snippets: [
     {
       label: 'Rich Text Editor (JSON)',
-      body:
-        '{\n  "type": "array",\n  "ui:extension": {\n    "name": "rich-text-block",\n    "params": {\n      "language": "json"\n    }\n  }\n}',
+      body: '{\n  "type": "array",\n  "ui:extension": {\n    "name": "rich-text-block",\n    "params": {\n      "language": "json"\n    }\n  }\n}',
     },
   ],
   settings:
@@ -1060,24 +906,19 @@ export const EXTENSION = {
   lastModifiedDate: '2021-03-12T17:11:20.050Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+      href: 'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
     },
     extension: {
-      href:
-        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+      href: 'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+      href: 'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
+      href: 'https://api.amplience.net/v2/content/extensions/5e441cd44cedfd0001889389',
     },
   },
 };
@@ -1100,37 +941,29 @@ export const SNAPSHOT = {
   },
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae',
     },
     snapshot: {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae',
     },
     'publishing-jobs': {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/publishing-jobs{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/publishing-jobs{?page,size,sort}',
       templated: true,
     },
     'create-publishing-job': {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/publishing-jobs',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/publishing-jobs',
     },
     'edition-links': {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/edition-links',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/edition-links',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b3237944cedfd01c45038a8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b3237944cedfd01c45038a8',
     },
     'content-root': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e7a3d579-11fa-4f5e-b580-8f41c96382bf',
+      href: 'https://api.amplience.net/v2/content/content-items/e7a3d579-11fa-4f5e-b580-8f41c96382bf',
     },
     'snapshot-content-item': {
-      href:
-        'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/content-items{/id}',
+      href: 'https://api.amplience.net/v2/content/snapshots/5b3237944cedfd01c45038ae/content-items{/id}',
       templated: true,
     },
   },
@@ -1160,12 +993,10 @@ export const LOCALIZATION_JOB = {
   createdDate: '2018-10-23T21:46:06.169Z',
   _links: {
     'content-root': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721',
     },
     findByRootContentItem: {
-      href:
-        'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=a87fd535-fb25-44ee-b687-0db72bbab721{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=a87fd535-fb25-44ee-b687-0db72bbab721{&page,size,sort}',
       templated: true,
     },
   },
@@ -1179,36 +1010,28 @@ export const FOLDER = {
   name: 'A folder to end all folders',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
     },
     folders: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a',
     },
     'content-items': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05b',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05b',
     },
     'create-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b/folders',
     },
     'delete-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
     },
     'update-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05b',
     },
   },
 };
@@ -1221,36 +1044,28 @@ export const NEW_FOLDER = {
   name: 'Another Folder',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
     },
     folders: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a',
     },
     'content-items': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05c',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b72ed67d6018001c81ef05a/content-items?folderId=5b72ed68d6018001c81ef05c',
     },
     'create-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c/folders',
     },
     'delete-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
     },
     'update-folder': {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
+      href: 'https://api.amplience.net/v2/content/folders/5b72ed68d6018001c81ef05c',
     },
   },
 };
@@ -1269,94 +1084,74 @@ export const SEARCH_INDEX = {
   lastModifiedDate: '2019-01-01T00:00:00.000Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{/id}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes{/id}',
       templated: true,
     },
     'hub-search-key': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
     'list-replicas': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes?parentId=00112233445566778899aabb{&projection,page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes?parentId=00112233445566778899aabb{&projection,page,size,sort}',
       templated: true,
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     settings: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
     },
     'update-settings': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings{?forwardToReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings{?forwardToReplicas}',
       templated: true,
     },
     'assigned-content-types': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
     },
     'create-assigned-content-types': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types',
     },
     clear: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/clear',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/clear',
     },
     stats: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats{?period}',
       templated: true,
     },
     'top-searches': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-searches{?clickAnalytics,orderBy,direction,startDate,endDate,limit,offset,tags,includeReplicas}',
       templated: true,
     },
     'top-hits': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-hits{?search,startDate,endDate,limit,offset,tags}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-hits{?search,startDate,endDate,limit,offset,tags}',
       templated: true,
     },
     'searches-with-no-results': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-with-no-results{?startDate,endDate,limit,offset,tags}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-with-no-results{?startDate,endDate,limit,offset,tags}',
       templated: true,
     },
     'top-filters-no-result-search': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-filters-no-result-search{?search,startDate,endDate,limit,offset,tags}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/top-filters-no-result-search{?search,startDate,endDate,limit,offset,tags}',
       templated: true,
     },
     'users-count': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/users-count{?startDate,endDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/users-count{?startDate,endDate,tags,includeReplicas}',
       templated: true,
     },
     'searches-count': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,endDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,endDate,tags,includeReplicas}',
       templated: true,
     },
     'no-results-rate': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,endDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/00112233445566778899aabb/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,endDate,tags,includeReplicas}',
       templated: true,
     },
   },
@@ -1384,21 +1179,17 @@ export const SEARCH_INDEX_SETTINGS = {
   replicas: ['replica one'],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     settings: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/settings',
       templated: true,
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
   },
 };
@@ -1458,21 +1249,17 @@ export const SEARCH_INDEX_USERS_COUNT = {
   ],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     'users-count': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count{?startDate,toDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/users-count{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
   },
 };
@@ -1490,21 +1277,17 @@ export const SEARCH_INDEX_SEARCHES_COUNT = {
   ],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     'searches-count': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,toDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/searches-count{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
   },
 };
@@ -1526,21 +1309,17 @@ export const SEARCH_INDEX_NO_RESULTS_RATE = {
   ],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     'no-results-rate': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,toDate,tags,includeReplicas}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/analytics/no-results-rate{?startDate,toDate,tags,includeReplicas}',
       templated: true,
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
   },
 };
@@ -1574,21 +1353,17 @@ export const SEARCH_INDEX_STATISTICS = {
   },
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     stats: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/stats',
       templated: true,
     },
     index: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb',
     },
   },
 };
@@ -1603,45 +1378,35 @@ export const ASSIGNED_CONTENT_TYPE = {
   lastModifiedDate: '2020-01-01T00:00:00.000Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
     },
     'assigned-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/{/id}',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/{/id}',
       templated: true,
     },
     'content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/content-types/00112233445566778899aabb',
     },
     unassign: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb',
     },
     webhook: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
     },
     'active-content-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'archived-content-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     'recreate-active-content-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=active',
     },
     'recreate-archived-content-webhook': {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=archived',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/assigned-content-types/00112233445566778899aabb/recreate-webhook?type=archived',
     },
   },
 };
@@ -1656,8 +1421,7 @@ export const SEARCH_INDEX_API_KEY = {
   applicationId: 'AaBbCcDdEeFfGg',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
+      href: 'https://api.amplience.net/v2/content/algolia-search/5b32377e4cedfd01c45036d8/indexes/00112233445566778899aabb/keys/00112233445566778899aabb',
     },
   },
 };
@@ -1677,29 +1441,23 @@ export const WEBHOOK = {
   lastModifiedDate: '2018-01-02T03:04:05Z',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     requests: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit}',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit}',
       templated: true,
     },
     'event-types': {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
   },
 };
@@ -1769,29 +1527,23 @@ export const WEBHOOK_WITH_EXTRAS = {
   method: 'POST',
   _links: {
     self: {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     hub: {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     requests: {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit,excludeStatus}',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000/requests{?cursor,limit,excludeStatus}',
       templated: true,
     },
     'event-types': {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/event-types',
     },
     update: {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
     delete: {
-      href:
-        'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
+      href: 'https://api.amplience-dev.net/v2/content/hubs/5b32377e4cedfd01c45036d8/webhooks/5a497a000000000000000000',
     },
   },
 };
@@ -1809,20 +1561,16 @@ export const WORKFLOW_STATE = {
   color: 'rgb(0,0,0)',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
     },
     'workflow-state': {
-      href:
-        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
     },
     hub: {
-      href:
-        'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
+      href: 'https://api.amplience.net/v2/content/workflow-states/5a497a000000000000000000',
     },
   },
 };
@@ -1860,85 +1608,66 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE_REMOVED = {
   deliveryId: 'f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
     },
     publish: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/publish',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/publish',
     },
     planned: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/planned{?epoch,time}',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/planned{?epoch,time}',
       templated: true,
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/archive',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/unarchive',
     },
     delete: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions/1',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions/1',
     },
     'restore-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/restore',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/restore',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5b32377b4cedfd01c4503691',
     },
     'content-item-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{/version}',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{/version}',
       templated: true,
     },
     'content-item-versions': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/versions{?page,size,sort}',
       templated: true,
     },
     'content-item-history': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/history{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/history{?page,size,sort}',
       templated: true,
     },
     copy: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      href: 'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
       templated: true,
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
+      href: 'https://api.amplience.net/v2/content/folders/5b3237784cedfd01c4503658',
     },
     'content-item-with-children': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
+      href: 'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=f3a2d4ec-8d81-4e7f-9a24-40947e0613d6',
     },
     'set-locale': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/locale',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/locale',
     },
     'create-localizations': {
-      href:
-        'http://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/localize',
+      href: 'http://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/localize',
     },
     'edit-workflow': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/workflow',
+      href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/workflow',
     },
   },
 };
@@ -1978,32 +1707,25 @@ export const CONTENT_TYPE = {
   },
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/archive',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/archive',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/unarchive',
     },
     'content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460',
     },
     'effective-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/effective-content-type',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/effective-content-type',
     },
     'content-type-schema': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/schema',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c460/schema',
     },
   },
 };
@@ -2038,24 +1760,19 @@ export const ARCHIVED_CONTENT_TYPE = {
   },
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
     },
     'content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461',
     },
     'effective-content-type': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/effective-content-type',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/effective-content-type',
     },
     'content-type-schema': {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/schema',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/schema',
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-types/5be1d5134cedfd01c030c461/unarchive',
     },
   },
 };
@@ -2146,8 +1863,7 @@ export const CONTENT_TYPE_CACHED_SCHEMA = {
   },
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-types/5d8a54cd46e0fb0386cb41f4/schema',
+      href: 'https://api.amplience.net/v2/content/content-types/5d8a54cd46e0fb0386cb41f4/schema',
     },
   },
 };
@@ -2185,96 +1901,75 @@ export const HIERARCHY_CONTENT_ITEM = {
   deliveryId: 'e3ba7f44-8236-41e9-80d3-1ef769c289f4',
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4{?projection}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4{?projection}',
       templated: true,
     },
     planned: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/planned{?epoch,time}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/planned{?epoch,time}',
       templated: true,
     },
     publish: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/publish',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/publish',
     },
     update: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
     },
     'restore-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/restore',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/restore',
     },
     'content-repository': {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/5f647f72c9e77c0001706820',
+      href: 'https://api.amplience.net/v2/content/content-repositories/5f647f72c9e77c0001706820',
     },
     'content-item-version': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{/version}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{/version}',
       templated: true,
     },
     'content-item-versions': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/versions{?page,size,sort}',
       templated: true,
     },
     'content-item-history': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/history{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/history{?page,size,sort}',
       templated: true,
     },
     copy: {
-      href:
-        'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      href: 'https://api.amplience.net/v2/content/content-repositories/{id}/content-items?sourceContentItemId=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
       templated: true,
     },
     unarchive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/unarchive',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/unarchive',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/archive',
     },
     folder: {
-      href:
-        'https://api.amplience.net/v2/content/folders/5f648c86c9e77c0001706832',
+      href: 'https://api.amplience.net/v2/content/folders/5f648c86c9e77c0001706832',
     },
     'set-locale': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/locale',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/locale',
     },
     'create-localizations': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localize',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localize',
     },
     localizations: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localizations{?page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/localizations{?page,size,sort}',
       templated: true,
     },
     'localization-jobs': {
-      href:
-        'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4{&page,size,sort}',
+      href: 'https://api.amplience.net/v2/content/localization-jobs/search/findByRootContentItem?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4{&page,size,sort}',
       templated: true,
     },
     'edition-slot-associations': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/edition-slot-associations',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/edition-slot-associations',
     },
     'edit-workflow': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/workflow',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/workflow',
     },
     'content-item-with-children': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      href: 'https://api.amplience.net/v2/content/content-items/search/findByIdWithChildren?id=e3ba7f44-8236-41e9-80d3-1ef769c289f4',
     },
   },
 };
@@ -2293,20 +1988,16 @@ export const HIERARCHY_NODE_FIRST_CHILD = {
   repositoryId: '5f647f72c9e77c0001706820',
   _links: {
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+      href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
     },
     'get-hierarchy-parents': {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
     },
     'get-hierarchy-children': {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
     },
   },
 };
@@ -2320,20 +2011,16 @@ export const HIERARCHY_NODE = {
   repositoryId: '5f647f72c9e77c0001706820',
   _links: {
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+      href: 'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
     },
     archive: {
-      href:
-        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
+      href: 'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
     },
     'get-hierarchy-parents': {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
     },
     'get-hierarchy-children': {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
     },
   },
 };
@@ -2361,20 +2048,16 @@ export const HIERARCHY_CHILDREN = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+          href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
         },
       },
     },
@@ -2389,20 +2072,16 @@ export const HIERARCHY_CHILDREN = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8',
+          href: 'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/cac578af-eab5-42a4-9dc9-4c1e08a6a8e8/children',
         },
       },
     },
@@ -2417,20 +2096,16 @@ export const HIERARCHY_CHILDREN = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88',
+          href: 'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/2e68125c-25b2-45c2-b098-4fd1f8529f88/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/2e68125c-25b2-45c2-b098-4fd1f8529f88/children',
         },
       },
     },
@@ -2445,20 +2120,16 @@ export const HIERARCHY_CHILDREN = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e',
+          href: 'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/1ee912c5-60fd-4439-8bf5-b9703935999e/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/1ee912c5-60fd-4439-8bf5-b9703935999e/children',
         },
       },
     },
@@ -2473,32 +2144,26 @@ export const HIERARCHY_CHILDREN = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1',
+          href: 'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/17d26e9e-302d-4f3d-97ba-590cb70418e1/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/17d26e9e-302d-4f3d-97ba-590cb70418e1/children',
         },
       },
     },
   ],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+      href: 'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
     },
   },
 };
@@ -2526,20 +2191,16 @@ export const HIERARCHY_PARENTS = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
+          href: 'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/cb1f55f2-e541-4502-bd74-01052edc399d/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/cb1f55f2-e541-4502-bd74-01052edc399d/children',
         },
       },
     },
@@ -2554,32 +2215,26 @@ export const HIERARCHY_PARENTS = {
       repositoryId: '5f647f72c9e77c0001706820',
       _links: {
         'content-item': {
-          href:
-            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
+          href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205',
         },
         archive: {
-          href:
-            'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
+          href: 'https://api.amplience.net/v2/content/content-items/07d9e788-6ee8-49a8-b343-7f01d18f5205/archive',
         },
         'get-hierarchy-parents': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/parents',
         },
         'get-hierarchy-children': {
-          href:
-            'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
+          href: 'https://api.amplience.net/v2/content/hierarchy-node/07d9e788-6ee8-49a8-b343-7f01d18f5205/children',
         },
       },
     },
   ],
   _links: {
     self: {
-      href:
-        'https://api.amplience.net/v2/content/hierarchy-node/e3ba7f44-8236-41e9-80d3-1ef769c289f4/parents',
+      href: 'https://api.amplience.net/v2/content/hierarchy-node/e3ba7f44-8236-41e9-80d3-1ef769c289f4/parents',
     },
     'content-item': {
-      href:
-        'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
+      href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
     },
   },
 };
