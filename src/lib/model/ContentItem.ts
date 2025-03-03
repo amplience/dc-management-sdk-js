@@ -158,8 +158,11 @@ abstract class BaseContentItem extends HalResource {
      * You must provide the current version number in the mutation
      * to avoid overwriting other user's changes.
      */
-    update: (mutation: ContentItem): Promise<ContentItem> =>
-      this.updateResource(mutation, ContentItem),
+    update: (
+      mutation: ContentItem,
+      params?: { ignoreValidation?: boolean }
+    ): Promise<ContentItem> =>
+      this.updateResource(mutation, ContentItem, params),
 
     /**
      * Archive content item

@@ -190,11 +190,12 @@ export class HalResource {
    */
   protected updateResource<T extends HalResource>(
     resource: T,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
+    params?: Record<string, unknown>
   ): Promise<T> {
     return this.updateLinkedResource(
       'update',
-      {},
+      { ...params },
       resource,
       resourceConstructor
     );

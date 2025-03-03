@@ -96,11 +96,11 @@ export class ContentRepository extends HalResource {
        */
       create: (
         resource: ContentItem,
-        options?: { ignoreValidation?: boolean }
+        params?: { ignoreValidation?: boolean }
       ): Promise<ContentItem> =>
         this.createLinkedResource(
           'create-content-item',
-          { ...options },
+          { ...params },
           resource,
           ContentItem
         ),
