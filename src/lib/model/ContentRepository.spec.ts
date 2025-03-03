@@ -35,7 +35,7 @@ test('create content item with options', async (t) => {
   newContentItem.label = 'Banner Ad Homepage';
   const createdContentItem =
     await contentRepository.related.contentItems.create(newContentItem, {
-      ignoreValidation: true,
+      ignoreSchemaValidation: true,
     });
   t.is(createdContentItem.label, 'Banner Ad Homepage');
 });

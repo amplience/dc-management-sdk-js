@@ -160,7 +160,7 @@ abstract class BaseContentItem extends HalResource {
      */
     update: (
       mutation: ContentItem,
-      params?: { ignoreValidation?: boolean }
+      params?: { ignoreSchemaValidation?: boolean }
     ): Promise<ContentItem> =>
       this.updateResource(mutation, ContentItem, params),
 

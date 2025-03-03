@@ -96,7 +96,7 @@ export class ContentRepository extends HalResource {
        */
       create: (
         resource: ContentItem,
-        params?: { ignoreValidation?: boolean }
+        params?: { ignoreSchemaValidation?: boolean }
       ): Promise<ContentItem> =>
         this.createLinkedResource(
           'create-content-item',
