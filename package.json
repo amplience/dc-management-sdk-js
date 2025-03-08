@@ -63,7 +63,7 @@
     "node": ">=16"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.8.2",
     "axios-retry": "^3.8.0",
     "url-template": "^2.0.8"
   },
