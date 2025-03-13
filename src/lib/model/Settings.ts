@@ -36,10 +36,8 @@ export interface Locale {
  * validation
  */
 export interface ContentItems {
-  contentItems: {
-    validation: {
-      ignoreSchemaValidation: boolean;
-    };
+  validation: {
+    ignoreSchemaValidation: boolean;
   };
 }
 
@@ -52,5 +50,5 @@ export class Settings extends HalResource {
   public applications?: Application[];
   public devices?: Device[];
   public localization?: Locale;
-  public ContentItems?: ContentItems;
+  public contentItems?: ContentItems;
 }
