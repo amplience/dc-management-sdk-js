@@ -20,9 +20,23 @@ test('create content item', async (t) => {
   );
   const newContentItem = new ContentItem();
   newContentItem.label = 'Banner Ad Homepage';
-  const createdContentItem = await contentRepository.related.contentItems.create(
-    newContentItem
+  const createdContentItem =
+    await contentRepository.related.contentItems.create(newContentItem);
+  t.is(createdContentItem.label, 'Banner Ad Homepage');
+});
+
+test('create content item with options', async (t) => {
+  const client = new MockDynamicContent();
+
+  const contentRepository = await client.contentRepositories.get(
+    '5b32377b4cedfd01c4503691'
   );
+  const newContentItem = new ContentItem();
+  newContentItem.label = 'Banner Ad Homepage';
+  const createdContentItem =
+    await contentRepository.related.contentItems.create(newContentItem, {
+      ignoreSchemaValidation: true,
+    });
   t.is(createdContentItem.label, 'Banner Ad Homepage');
 });
 

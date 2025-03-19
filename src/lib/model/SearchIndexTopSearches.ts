@@ -61,9 +61,7 @@ export class SearchIndexTopSearches extends HalResource {
 /**
  * @hidden
  */
-export class SearchIndexTopSearchesCollection extends EmbeddedCollection<
-  SearchIndexTopSearches
-> {
+export class SearchIndexTopSearchesCollection extends EmbeddedCollection<SearchIndexTopSearches> {
   constructor(data?: any) {
     super('top-searches', SearchIndexTopSearches, data);
   }

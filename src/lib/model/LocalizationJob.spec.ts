@@ -14,7 +14,8 @@ test('get by Root Content Item', async (t) => {
 
   t.is(localizationJob.status, 'IN_PROGRESS');
 
-  const localizationJobStatuses = await localizationJob.related.findByRootContentItem();
+  const localizationJobStatuses =
+    await localizationJob.related.findByRootContentItem();
 
   t.is(
     localizationJobStatuses.getItems()[0].rootContentItem.id,
