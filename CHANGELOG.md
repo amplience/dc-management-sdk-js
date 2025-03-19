@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.0.0...v2.1.0) (2025-03-19)
+
+
+### Features
+
+* add 'ignore validation' support ([#160](https://github.com/amplience/dc-management-sdk-js/issues/160)) ([4b3ea4a](https://github.com/amplience/dc-management-sdk-js/commit/4b3ea4af1dd90c75285def060103adbf4cb86770))
+
 ## [2.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.20.0...v2.0.0) (2024-02-07)
 
 
