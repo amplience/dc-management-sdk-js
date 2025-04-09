@@ -2672,7 +2672,7 @@ export class MockDynamicContent extends DynamicContent {
   }
 
   protected createTokenClient(
-    /* eslint-disable unused-imports/no-unused-vars-ts */
+    /* eslint-disable unused-imports/no-unused-vars */
     dcConfig: DynamicContentConfig,
     clientCredentials: Oauth2AuthHeaderProviderCredentials,
     httpClient: HttpClient

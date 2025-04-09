@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-declaration-merging */
 import { HalResource } from '../hal/models/HalResource';
 
 export interface SearchIndexSearchesCount {
