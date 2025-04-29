@@ -28,8 +28,8 @@
     "cov:send": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "cov:check": "nyc report --reporter=lcov && nyc check-coverage --lines 80 --functions 80 --branches 80",
     "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --target ES6 --mode file --media media/ --out build/docs",
-    "doc:json": "typedoc src/ --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:html": "typedoc src/ entryPointStrategy file --out build/docs",
+    "doc:json": "typedoc src/ entryPointStrategy file --json build/docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "reset": "git clean -dfx && git reset --hard && npm ci",
     "clean": "run-s clean:*",
@@ -88,7 +88,7 @@
     "prettier": "^2.0.5",
     "trash-cli": "^3.0.0",
     "ts-node": "^8.10.2",
-    "typedoc": "^0.17.8",
+    "typedoc": "^0.28.3",
     "typescript": "^5.8.3"
   },
   "config": {
