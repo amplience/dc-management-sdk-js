@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.1](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.0...v3.0.1) (2025-04-29)
+
+
+### Bug Fixes
+
+* updating typedoc to version that supports typescript 5.8 ([#166](https://github.com/amplience/dc-management-sdk-js/issues/166)) ([2d801b2](https://github.com/amplience/dc-management-sdk-js/commit/2d801b23b365756d90a0a687919247a0d9305755))
+
 ## [3.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.1.0...v3.0.0) (2025-04-29)
 
 
