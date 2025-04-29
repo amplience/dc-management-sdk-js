@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.2](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.1...v3.0.2) (2025-04-29)
+
+
+### Bug Fixes
+
+* copyright version ([#168](https://github.com/amplience/dc-management-sdk-js/issues/168)) ([f0a1656](https://github.com/amplience/dc-management-sdk-js/commit/f0a1656a6ab0b8de50ca35095d44f15ed8e81dff))
+
 ## [3.0.1](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.0...v3.0.1) (2025-04-29)
 
 
