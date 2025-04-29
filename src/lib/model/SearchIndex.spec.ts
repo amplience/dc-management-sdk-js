@@ -173,7 +173,7 @@ test('update a search index wait until applied - 1 retry', async (t) => {
     hitsPerPage: 25,
   };
   let getSettingsCount = 0;
-  const updateAfterOneRetry = () => {
+  const updateAfterOneRetry = (): [number, any] => {
     getSettingsCount++;
     const response =
       getSettingsCount === 3

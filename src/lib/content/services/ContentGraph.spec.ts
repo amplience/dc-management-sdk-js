@@ -2,7 +2,7 @@ import test from 'ava';
 import { ContentItem } from '../../model/ContentItem';
 import { ContentGraph } from './ContentGraph';
 
-/* eslint-disable unused-imports/no-unused-vars-ts */
+/* eslint-disable unused-imports/no-unused-vars */
 
 /**
  * @hidden

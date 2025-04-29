@@ -138,17 +138,21 @@ test('should ask for token from provider every request', async (t) => {
 
   const mock = new MockAdapter(httpClient.client);
   mock
-    .onGet('/hubs/1', undefined, {
-      Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token',
+    .onGet('/hubs/1', {
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        Authorization: 'bearer token',
+      },
     })
     .reply(200, {
       name: 'hub 1',
     });
   mock
-    .onGet('/hubs/1', undefined, {
-      Accept: 'application/json, text/plain, */*',
-      Authorization: 'bearer token1',
+    .onGet('/hubs/1', {
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        Authorization: 'bearer token1',
+      },
     })
     .reply(200, {
       name: 'hub 1',
