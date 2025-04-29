@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.1.0...v3.0.0) (2025-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* node axios and package updates ([#164](https://github.com/amplience/dc-management-sdk-js/issues/164))
+
+### Features
+
+* node axios and package updates ([#164](https://github.com/amplience/dc-management-sdk-js/issues/164)) ([9301507](https://github.com/amplience/dc-management-sdk-js/commit/93015071260720cd0f4a4373b773d2f581e74739))
+
 ## [2.1.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.0.0...v2.1.0) (2025-03-19)
 
 
