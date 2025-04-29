@@ -62,7 +62,7 @@ Create a client using a PAT
 
 ```typescript
 const client = new DynamicContent({
-  patToken: process.env.PAT
+  patToken: process.env.PAT,
 });
 ```
 
@@ -70,7 +70,7 @@ OR
 
 ```javascript
 var client = new dc.DynamicContent({
-  patToken: process.env.PAT
+  patToken: process.env.PAT,
 });
 ```
 
@@ -173,7 +173,7 @@ If you need help using the sdk please reach out using one of the following chann
 
 This software is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 
-Copyright 2018 Amplience
+Copyright 2025 Amplience
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
