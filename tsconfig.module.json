@@ -1,11 +1,9 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2020",
     "outDir": "build/module",
-    "module": "esnext"
+    "module": "ES2020"
   },
-  "exclude": [
-    "node_modules/**"
-  ]
+  "exclude": ["node_modules/**"]
 }
