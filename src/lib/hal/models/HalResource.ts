@@ -220,6 +220,7 @@ export class HalResource {
       return Promise.reject(new Error('HalResource has no client'));
     }
     const link = this._links[name];
+
     if (!link) {
       return Promise.reject(
         `The ${name} action is not available, ensure you have permission to perform this action.`
