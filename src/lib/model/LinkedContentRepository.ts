@@ -1,6 +1,11 @@
 import { HalResource } from '../hal/models/HalResource';
 import { Page } from './Page';
 
+/**
+ * Class representing Linked Content Repositories.
+ * Linked Content Repositories map a repository in one hub to a repository in a different hub
+ * to be used when syncing content between hubs.
+ */
 export class LinkedContentRepository extends HalResource {
   /**
    * Origin hub ID

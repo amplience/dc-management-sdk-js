@@ -108,3 +108,4 @@ export {
   FacetsResponse,
   FacetCount,
 } from './lib/model/Facets';
+export { LinkedContentRepository } from './lib/model/LinkedContentRepository';
