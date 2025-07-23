@@ -26,6 +26,7 @@ import {
   LinkedContentRepositoriesPage,
   LinkedContentRepository,
 } from './LinkedContentRepository';
+import { HttpMethod } from '../http/HttpRequest';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -258,11 +259,12 @@ export class Hub extends HalResource {
       create: (
         resource: LinkedContentRepository
       ): Promise<LinkedContentRepository> =>
-        this.updateLinkedResource(
+        this.performActionThatReturnsResource(
           'linked-content-repositories',
           {},
           resource,
-          LinkedContentRepository
+          LinkedContentRepository,
+          HttpMethod.PUT
         ),
       /**
        * Update linked content repositories mapping
@@ -272,11 +274,12 @@ export class Hub extends HalResource {
       update: (
         resource: LinkedContentRepository
       ): Promise<LinkedContentRepository> =>
-        this.updateLinkedResource(
+        this.performActionThatReturnsResource(
           'linked-content-repositories',
           {},
           resource,
-          LinkedContentRepository
+          LinkedContentRepository,
+          HttpMethod.PUT
         ),
       /**
        * Delete linked content repositories mapping
@@ -286,11 +289,12 @@ export class Hub extends HalResource {
       delete: (
         resource: LinkedContentRepository
       ): Promise<LinkedContentRepository> =>
-        this.updateLinkedResource(
+        this.performActionThatReturnsResource(
           'linked-content-repositories',
           {},
           { ...resource, relationships: [] } as LinkedContentRepository,
-          LinkedContentRepository
+          LinkedContentRepository,
+          HttpMethod.PUT
         ),
     },
 
