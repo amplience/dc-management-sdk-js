@@ -187,6 +187,17 @@ abstract class BaseContentItem extends HalResource {
       ),
 
     /**
+     * Unarchive content item
+     */
+    unpublish: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'unpublish',
+        {},
+        { version: this.version },
+        ContentItem
+      ),
+
+    /**
      * Assign a WorkflowState
      */
     assignWorkflowState: (workflowState: WorkflowState): Promise<ContentItem> =>

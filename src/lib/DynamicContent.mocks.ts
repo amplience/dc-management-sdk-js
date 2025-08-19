@@ -192,6 +192,9 @@ export const CONTENT_ITEM = {
     publish: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
     },
+    unpublish: {
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
+    },
     planned: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
       templated: true,
@@ -286,6 +289,9 @@ export const CONTENT_ITEM_WITH_LOCALE = {
     publish: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/publish',
     },
+    unpublish: {
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
+    },
     planned: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/planned{?epoch,time}',
       templated: true,
@@ -373,6 +379,9 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
     },
     publish: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/publish',
+    },
+    unpublish: {
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
     },
     planned: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/planned{?epoch,time}',
@@ -1616,6 +1625,9 @@ export const CONTENT_ITEM_WITH_WORKFLOW_STATE_REMOVED = {
     publish: {
       href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/publish',
     },
+    unpublish: {
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
+    },
     planned: {
       href: 'https://api.amplience.net/v2/content/content-items/f3a2d4ec-8d81-4e7f-9a24-40947e0613d6/planned{?epoch,time}',
       templated: true,
@@ -1913,6 +1925,9 @@ export const HIERARCHY_CONTENT_ITEM = {
     },
     publish: {
       href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4/publish',
+    },
+    unpublish: {
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
     },
     update: {
       href: 'https://api.amplience.net/v2/content/content-items/e3ba7f44-8236-41e9-80d3-1ef769c289f4',
@@ -2322,7 +2337,8 @@ export class DynamicContentFixtures {
       .nestedResource('content-item-version', { version: 1 }, CONTENT_ITEM)
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
       .nestedCreateResource('archive', {}, CONTENT_ITEM)
-      .nestedCreateResource('unarchive', {}, CONTENT_ITEM);
+      .nestedCreateResource('unarchive', {}, CONTENT_ITEM)
+      .nestedCreateResource('unpublish', {}, CONTENT_ITEM);
 
     mocks
       .resource(CONTENT_ITEM_WITH_WORKFLOW_STATE_ASSIGNED)
