@@ -187,6 +187,17 @@ abstract class BaseContentItem extends HalResource {
       ),
 
     /**
+     * Publish content item
+     */
+    publish: (): Promise<ContentItem> =>
+      this.performActionThatReturnsResource(
+        'publish',
+        {},
+        { version: this.version },
+        ContentItem
+      ),
+
+    /**
      * Assign a WorkflowState
      */
     assignWorkflowState: (workflowState: WorkflowState): Promise<ContentItem> =>

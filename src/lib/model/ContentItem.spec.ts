@@ -73,6 +73,15 @@ test('unarchive', async (t) => {
   t.is(unarchiveContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
 });
 
+test('publish', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+  const publishContentType = await result.related.publish();
+  t.is(publishContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
+});
+
 test('get repository', async (t) => {
   const client = new MockDynamicContent();
 
