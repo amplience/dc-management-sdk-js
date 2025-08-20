@@ -257,7 +257,7 @@ export class DefaultHalClient implements HalClient {
 
       if (response.status >= 200 && response.status < 300) {
         if (typeof response.data === 'string') {
-          response.data = JSON.parse(response.data);
+          response.data = JSON.parse(JSON.stringify(response.data));
         }
         return response;
       } else {
