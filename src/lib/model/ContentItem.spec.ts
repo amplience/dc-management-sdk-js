@@ -78,8 +78,8 @@ test('unpublish', async (t) => {
   const result = await client.contentItems.get(
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
-  const unpublishContentType = await result.related.unpublish();
-  t.is(unpublishContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
+
+  await t.notThrowsAsync(result.related.unpublish());
 });
 
 test('get repository', async (t) => {
