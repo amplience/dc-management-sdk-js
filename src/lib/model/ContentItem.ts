@@ -115,7 +115,7 @@ abstract class BaseContentItem extends HalResource {
    * Resources and actions related to a Content Item
    */
   public readonly related = {
-    /**npm run
+    /**
      * Retrieves a specific version of the content item
      * @param version Version number requested
      */
