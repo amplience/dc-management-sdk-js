@@ -8,6 +8,10 @@ import { HierarchyMeta } from './HierarchyNode';
 import { FacetsResponse } from './Facets';
 import { WorkflowState } from './WorkflowState';
 import { HttpMethod } from '../http/HttpRequest';
+import {
+  ContentItemPublishingStatus,
+  PublishingStatus,
+} from './PublishingStatus';
 
 interface AssignedWorkflow {
   state: string;
@@ -103,10 +107,15 @@ abstract class BaseContentItem extends HalResource {
   public validationState?: 'VALID' | 'INVALID' | 'EMPTY';
 
   /**
+   * Publishing status
+   */
+  public publishingStatus?: PublishingStatus | ContentItemPublishingStatus;
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
-    /**
+    /**npm run
      * Retrieves a specific version of the content item
      * @param version Version number requested
      */
