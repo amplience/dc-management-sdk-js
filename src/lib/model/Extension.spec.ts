@@ -42,8 +42,7 @@ test('toJSON should copy resource attributes', async (t) => {
     snippets: [
       {
         label: 'Rich Text Editor (JSON)',
-        body:
-          '{\n  "type": "array",\n  "ui:extension": {\n    "name": "rich-text-block",\n    "params": {\n      "language": "json"\n    }\n  }\n}',
+        body: '{\n  "type": "array",\n  "ui:extension": {\n    "name": "rich-text-block",\n    "params": {\n      "language": "json"\n    }\n  }\n}',
       },
     ],
     settings:

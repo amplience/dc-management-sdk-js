@@ -98,6 +98,11 @@ abstract class BaseContentItem extends HalResource {
   public workflow?: AssignedWorkflow;
 
   /**
+   * Validation state
+   */
+  public validationState?: 'VALID' | 'INVALID' | 'EMPTY';
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
@@ -153,8 +158,11 @@ abstract class BaseContentItem extends HalResource {
      * You must provide the current version number in the mutation
      * to avoid overwriting other user's changes.
      */
-    update: (mutation: ContentItem): Promise<ContentItem> =>
-      this.updateResource(mutation, ContentItem),
+    update: (
+      mutation: ContentItem,
+      params?: { ignoreSchemaValidation?: boolean }
+    ): Promise<ContentItem> =>
+      this.updateResource(mutation, ContentItem, params),
 
     /**
      * Archive content item

@@ -11,8 +11,10 @@ export type HierarchyChildrenModelJson = HierarchyNodeModel & {
   children: Array<HierarchyNodeModel>;
 };
 
-export class HierarchyChildren extends HalResource
-  implements HierarchyChildrenModelJson {
+export class HierarchyChildren
+  extends HalResource
+  implements HierarchyChildrenModelJson
+{
   public id: string;
   public label: string;
   public parentId: string | undefined;

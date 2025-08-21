@@ -5,9 +5,9 @@ import { PageMetadata } from './PageMetadata';
 /**
  * Paginated Result
  */
-export abstract class Page<T extends HalResource> extends EmbeddedCollection<
-  T
-> {
+export abstract class Page<
+  T extends HalResource
+> extends EmbeddedCollection<T> {
   /**
    * Pagination Metadata
    */

@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.3](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.2...v3.0.3) (2025-05-06)
+
+
+### Bug Fixes
+
+* fixing module version in tsconfig for backward compatibility issue with typescript upgrade ([#170](https://github.com/amplience/dc-management-sdk-js/issues/170)) ([8be5d96](https://github.com/amplience/dc-management-sdk-js/commit/8be5d96c303fa647da60abe6576793c4ae8cbde8))
+
+## [3.0.2](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.1...v3.0.2) (2025-04-29)
+
+
+### Bug Fixes
+
+* copyright version ([#168](https://github.com/amplience/dc-management-sdk-js/issues/168)) ([f0a1656](https://github.com/amplience/dc-management-sdk-js/commit/f0a1656a6ab0b8de50ca35095d44f15ed8e81dff))
+
+## [3.0.1](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.0...v3.0.1) (2025-04-29)
+
+
+### Bug Fixes
+
+* updating typedoc to version that supports typescript 5.8 ([#166](https://github.com/amplience/dc-management-sdk-js/issues/166)) ([2d801b2](https://github.com/amplience/dc-management-sdk-js/commit/2d801b23b365756d90a0a687919247a0d9305755))
+
+## [3.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.1.0...v3.0.0) (2025-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* node axios and package updates ([#164](https://github.com/amplience/dc-management-sdk-js/issues/164))
+
+### Features
+
+* node axios and package updates ([#164](https://github.com/amplience/dc-management-sdk-js/issues/164)) ([9301507](https://github.com/amplience/dc-management-sdk-js/commit/93015071260720cd0f4a4373b773d2f581e74739))
+
+## [2.1.0](https://github.com/amplience/dc-management-sdk-js/compare/v2.0.0...v2.1.0) (2025-03-19)
+
+
+### Features
+
+* add 'ignore validation' support ([#160](https://github.com/amplience/dc-management-sdk-js/issues/160)) ([4b3ea4a](https://github.com/amplience/dc-management-sdk-js/commit/4b3ea4af1dd90c75285def060103adbf4cb86770))
+
 ## [2.0.0](https://github.com/amplience/dc-management-sdk-js/compare/v1.20.0...v2.0.0) (2024-02-07)
 
 

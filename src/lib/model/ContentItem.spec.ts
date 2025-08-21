@@ -37,6 +37,24 @@ test('update', async (t) => {
   t.is(update.version, contentItem.version + 1);
 });
 
+test('update with params', async (t) => {
+  const client = new MockDynamicContent();
+
+  const contentItem = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const mutation = new ContentItem({
+    label: 'New Label',
+    version: contentItem.version,
+  });
+
+  const update = await contentItem.related.update(mutation, {
+    ignoreSchemaValidation: true,
+  });
+  t.is(update.version, contentItem.version + 1);
+});
+
 test('archive', async (t) => {
   const client = new MockDynamicContent();
   const result = await client.contentItems.get(

@@ -24,6 +24,7 @@ export async function retry<T>(
     try {
       const result = await method();
       return result;
+      // eslint-disable-next-line unused-imports/no-unused-vars
     } catch (_err) {
       // ignore the error
     }

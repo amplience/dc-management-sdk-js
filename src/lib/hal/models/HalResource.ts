@@ -13,13 +13,12 @@ export interface HalResourceConstructor<T extends HalResource> {
  * Base class for all Resources
  */
 export class HalResource {
-  // eslint-disable-next-line
   public _links?: Map<string, HalLink>;
 
   /**
    * @hidden
    */
-  // eslint-disable-next-line
+
   protected _embedded: Map<string, any>;
 
   /**
@@ -190,11 +189,12 @@ export class HalResource {
    */
   protected updateResource<T extends HalResource>(
     resource: T,
-    resourceConstructor: HalResourceConstructor<T>
+    resourceConstructor: HalResourceConstructor<T>,
+    params?: Record<string, unknown>
   ): Promise<T> {
     return this.updateLinkedResource(
       'update',
-      {},
+      { ...params },
       resource,
       resourceConstructor
     );

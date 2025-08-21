@@ -38,9 +38,7 @@ export class SearchIndexTopFiltersNoResultSearch extends HalResource {
 /**
  * @hidden
  */
-export class SearchIndexTopFiltersNoResultSearchCollection extends EmbeddedCollection<
-  SearchIndexTopFiltersNoResultSearch
-> {
+export class SearchIndexTopFiltersNoResultSearchCollection extends EmbeddedCollection<SearchIndexTopFiltersNoResultSearch> {
   constructor(data?: any) {
     super(
       'top-filters-no-result-search',

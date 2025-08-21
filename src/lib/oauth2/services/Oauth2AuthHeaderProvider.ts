@@ -66,20 +66,18 @@ export class Oauth2AuthHeaderProvider implements AuthHeaderProvider {
       url: combineURLs(this.authUrl, '/oauth/token'),
     });
 
-    this.inFlight = request.then(
-      (response): AccessToken => {
-        if (typeof response.data !== 'object') {
-          throw new Error(
-            'Unexpected response format from /oauth/token endpoint'
-          );
-        }
-
-        this.token = response.data as any;
-        this.tokenExpires = Date.now() + this.token.expires_in * 1000;
-        this.inFlight = null;
-        return this.token;
+    this.inFlight = request.then((response): AccessToken => {
+      if (typeof response.data !== 'object') {
+        throw new Error(
+          'Unexpected response format from /oauth/token endpoint'
+        );
       }
-    ) as Promise<AccessToken>;
+
+      this.token = response.data as any;
+      this.tokenExpires = Date.now() + this.token.expires_in * 1000;
+      this.inFlight = null;
+      return this.token;
+    }) as Promise<AccessToken>;
 
     return this.inFlight;
   }
