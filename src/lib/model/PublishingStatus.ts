@@ -24,3 +24,13 @@ export enum ContentItemPublishingStatus {
   EARLT = 'EARLY',
   LATEST = 'LATEST',
 }
+
+export enum PublishingJobStatus {
+  CREATED = 'CREATED',
+  CANCELLED = 'CANCELLED',
+  PREPARING = 'PREPARING',
+  WAITING = 'WAITING',
+  PUBLISHING = 'PUBLISHING',
+  FAILED = 'FAILED',
+  COMPLETED = 'COMPLETED',
+}

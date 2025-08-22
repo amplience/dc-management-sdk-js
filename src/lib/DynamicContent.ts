@@ -22,6 +22,7 @@ import { Extension } from './model/Extension';
 import { AuthorizationConfig } from './auth/AuthorizationConfig';
 import { PatTokenAuthHeaderProvider } from './auth/PatTokenAuthHeaderProvider';
 import { AuthHeaderProvider } from './auth/AuthHeaderProvider';
+import { PublishingJob } from './model/PublishingJob';
 
 /**
  * Configuration settings for Dynamic Content API client. You can optionally
@@ -256,6 +257,15 @@ export class DynamicContent {
      */
     get: (id: string): Promise<WorkflowState> =>
       this.client.fetchResource(`/workflow-states/${id}`, WorkflowState),
+  };
+
+  public readonly publishingJob = {
+    /**
+     * Get publishing job by id
+     * * @param publishingJobId publishing job id
+     */
+    get: (id: string): Promise<PublishingJob> =>
+      this.client.fetchResource(`/publishing-jobs/${id}`, PublishingJob),
   };
 
   /**
