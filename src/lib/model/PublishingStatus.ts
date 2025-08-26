@@ -21,6 +21,16 @@ export enum PublishingStatus {
  */
 export enum ContentItemPublishingStatus {
   NONE = 'NONE',
-  EARLT = 'EARLY',
+  EARLY = 'EARLY',
   LATEST = 'LATEST',
+}
+
+export enum PublishingJobStatus {
+  CREATED = 'CREATED',
+  CANCELLED = 'CANCELLED',
+  PREPARING = 'PREPARING',
+  WAITING = 'WAITING',
+  PUBLISHING = 'PUBLISHING',
+  FAILED = 'FAILED',
+  COMPLETED = 'COMPLETED',
 }
