@@ -159,6 +159,9 @@ export const HUB = {
     'batch-create-snapshots': {
       href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
     },
+    'list-linked-content-repositories': {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/list-linked-content-repositories',
+    },
     'linked-content-repositories': {
       href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/linked-content-repositories',
     },
@@ -2345,9 +2348,9 @@ export class DynamicContentFixtures {
       )
       .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS)
       .nestedCollection(
-        'linked-content-repositories',
+        'list-linked-content-repositories',
         {},
-        'linked-content-repositories',
+        'list-linked-content-repositories',
         [LINKED_CONTENT_REPOSITORY]
       )
       .nestedPutResource(

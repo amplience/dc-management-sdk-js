@@ -247,7 +247,7 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable) =>
         this.fetchLinkedResource(
-          'linked-content-repositories',
+          'list-linked-content-repositories',
           options,
           LinkedContentRepositoriesPage
         ),
