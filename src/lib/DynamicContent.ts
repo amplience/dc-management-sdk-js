@@ -259,6 +259,9 @@ export class DynamicContent {
       this.client.fetchResource(`/workflow-states/${id}`, WorkflowState),
   };
 
+  /**
+   * Publishing Job
+   */
   public readonly publishingJob = {
     /**
      * Get publishing job by id
