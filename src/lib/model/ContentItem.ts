@@ -196,7 +196,13 @@ abstract class BaseContentItem extends HalResource {
       ),
 
     /**
-     * Unarchive content item
+     * Publish content item
+     */
+    publish: (): Promise<void> =>
+      this.performActionWithoutResourceResponse('publish', {}, {}),
+
+    /**
+     * Unpublish content item
      */
     unpublish: (): Promise<void> =>
       this.performActionWithoutResourceResponse('unpublish', {}, {}),

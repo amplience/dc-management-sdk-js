@@ -2338,6 +2338,7 @@ export class DynamicContentFixtures {
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
       .nestedCreateResource('archive', {}, CONTENT_ITEM)
       .nestedCreateResource('unarchive', {}, CONTENT_ITEM)
+      .nestedCreateResource('publish', {}, CONTENT_ITEM)
       .nestedCreateResource('unpublish', {}, CONTENT_ITEM);
 
     mocks
