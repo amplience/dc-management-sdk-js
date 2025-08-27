@@ -55,6 +55,6 @@ export class LinkedContentRepository extends HalResource {
  */
 export class LinkedContentRepositoriesPage extends Page<LinkedContentRepository> {
   constructor(data?: any) {
-    super('list-linked-content-repositories', LinkedContentRepository, data);
+    super('linked-content-repositories', LinkedContentRepository, data);
   }
 }

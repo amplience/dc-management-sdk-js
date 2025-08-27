@@ -2350,7 +2350,7 @@ export class DynamicContentFixtures {
       .nestedCollection(
         'list-linked-content-repositories',
         {},
-        'list-linked-content-repositories',
+        'linked-content-repositories',
         [LINKED_CONTENT_REPOSITORY]
       )
       .nestedPutResource(
