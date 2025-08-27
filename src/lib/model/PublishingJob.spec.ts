@@ -5,14 +5,14 @@ import { PublishingJob } from './PublishingJob';
 
 test('get a publishing job by id', async (t) => {
   const client = new MockDynamicContent();
-  const result = await client.publishingJob.get('68a83ba875c14d19c73219b6');
+  const result = await client.publishingJobs.get('68a83ba875c14d19c73219b6');
 
   t.is(result.state, PublishingJobStatus.PUBLISHING);
 });
 
 test('cancel a publishing job by id', async (t) => {
   const client = new MockDynamicContent();
-  const publishingJob = await client.publishingJob.get(
+  const publishingJob = await client.publishingJobs.get(
     '68a83ba875c14d19c73219b6'
   );
 

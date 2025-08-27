@@ -79,7 +79,8 @@ test('publish', async (t) => {
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
 
-  await t.notThrowsAsync(result.related.publish());
+  const publishResponse = await result.related.publish();
+  t.is(publishResponse.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
 });
 
 test('unpublish', async (t) => {
@@ -88,7 +89,8 @@ test('unpublish', async (t) => {
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
 
-  await t.notThrowsAsync(result.related.unpublish());
+  const unpublishResponse = await result.related.unpublish();
+  t.is(unpublishResponse.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
 });
 
 test('get repository', async (t) => {

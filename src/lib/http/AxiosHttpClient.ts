@@ -34,7 +34,12 @@ export class AxiosHttpClient implements HttpClient {
       })
       .then((response) => {
         return {
-          data: response.data,
+          data: {
+            ...response.data,
+            ...(response.headers?.location && {
+              location: response.headers.location,
+            }),
+          },
           status: response.status,
         };
       })

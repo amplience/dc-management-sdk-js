@@ -262,7 +262,7 @@ export class DynamicContent {
   /**
    * Publishing Job
    */
-  public readonly publishingJob = {
+  public readonly publishingJobs = {
     /**
      * Get publishing job by id
      * * @param publishingJobId publishing job id

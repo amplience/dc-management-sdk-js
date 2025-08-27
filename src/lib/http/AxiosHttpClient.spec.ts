@@ -13,14 +13,14 @@ test('client should use provided base url', async (t) => {
   });
 
   const mock = new MockAdapter(client.client);
-  mock.onGet('http://mywebsite.com/ping').reply(200, 'pong');
+  mock.onGet('http://mywebsite.com/ping').reply(200, { message: 'pong' });
 
   const response = await client.request({
     method: HttpMethod.GET,
     url: 'http://mywebsite.com/ping',
   });
 
-  t.is(response.data, 'pong');
+  t.deepEqual(response.data, { message: 'pong' });
 });
 
 test('client should return status code', async (t) => {

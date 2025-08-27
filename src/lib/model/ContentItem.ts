@@ -112,6 +112,11 @@ abstract class BaseContentItem extends HalResource {
   public publishingStatus?: PublishingStatus | ContentItemPublishingStatus;
 
   /**
+   * Location when publishing / unpublishing content item
+   */
+  public location?: string;
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
@@ -198,14 +203,18 @@ abstract class BaseContentItem extends HalResource {
     /**
      * Publish content item
      */
-    publish: (): Promise<void> =>
-      this.performActionWithoutResourceResponse('publish', {}, {}),
+    publish: (): Promise<ContentItem> =>
+      //this.performActionWithoutResourceResponse('publish', {}, {}),
+
+      this.performActionThatReturnsResource('publish', {}, {}, ContentItem),
 
     /**
      * Unpublish content item
      */
-    unpublish: (): Promise<void> =>
-      this.performActionWithoutResourceResponse('unpublish', {}, {}),
+    unpublish: (): Promise<ContentItem> =>
+      //this.performActionWithoutResourceResponse('unpublish', {}, {}),
+
+      this.performActionThatReturnsResource('unpublish', {}, {}, ContentItem),
 
     /**
      * Assign a WorkflowState
