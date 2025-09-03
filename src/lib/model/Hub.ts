@@ -378,21 +378,26 @@ export class Hub extends HalResource {
        * @param data.jobType Optional job type to filter by
        */
       list: (
-        params: Pageable & Sortable,
-        data: {
+        params?: Pageable & Sortable,
+        data?: {
           user?: string;
           limitDateRange?: boolean;
           status?: JobStatus;
           jobType?: JobType;
         }
       ): Promise<Page<Job>> =>
-        this.performActionThatReturnsResource('jobs', params, data, JobsPage),
+        this.performActionThatReturnsResource(
+          'jobs',
+          params || {},
+          data || {},
+          JobsPage
+        ),
       /**
        * Get a job by its id
        * @param id
        */
-      get: (id: string): Promise<Job> =>
-        this.client.fetchResource(`jobs/${id}`, Job),
+      get: (jobId: string): Promise<Job> =>
+        this.fetchLinkedResource('job', { jobId }, Job),
     },
   };
 }
