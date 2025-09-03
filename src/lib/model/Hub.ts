@@ -373,13 +373,13 @@ export class Hub extends HalResource {
        * @param options Pagination options
        */
       list: (
-        params?: Pageable & Sortable,
-        data?: {
+        params: Pageable & Sortable = {},
+        data: {
           user?: string;
-          limitDateRange: boolean;
-          status: JobStatus;
-          jobType: JobType;
-        }
+          limitDateRange?: boolean;
+          status?: JobStatus;
+          jobType?: JobType;
+        } = {}
       ): Promise<Page<Job>> =>
         this.performActionThatReturnsResource('jobs', params, data, JobsPage),
       /**
