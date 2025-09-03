@@ -367,19 +367,24 @@ export class Hub extends HalResource {
        * @param resource
        */
       createDeepSyncJob: (resource: Job): Promise<Job> =>
-        this.createLinkedResource('deep-sync-job', {}, resource, Job),
+        this.createLinkedResource('create-deep-sync-job', {}, resource, Job),
       /**
        * List jobs associated with this hub
-       * @param options Pagination options
+       * @param params Pagination options
+       * @param data Filter options
+       * @param data.user Optional user ID to filter jobs by the user that created them
+       * @param data.limitDateRange Optional flag to limit the date range of jobs returned to the last 30 days
+       * @param data.status Optional job status to filter by
+       * @param data.jobType Optional job type to filter by
        */
       list: (
-        params: Pageable & Sortable = {},
+        params: Pageable & Sortable,
         data: {
           user?: string;
           limitDateRange?: boolean;
           status?: JobStatus;
           jobType?: JobType;
-        } = {}
+        }
       ): Promise<Page<Job>> =>
         this.performActionThatReturnsResource('jobs', params, data, JobsPage),
       /**
