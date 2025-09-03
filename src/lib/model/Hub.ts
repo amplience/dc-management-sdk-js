@@ -22,6 +22,7 @@ import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
 import { StatusFilterable } from './StatusFilterable';
+import { Job, JobsPage, JobStatus, JobType } from './Job';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -358,6 +359,35 @@ export class Hub extends HalResource {
           options,
           WorkflowStatesPage
         ),
+    },
+
+    jobs: {
+      /**
+       * Create a sync job associated with this hub
+       * @param resource
+       */
+      createDeepSyncJob: (resource: Job): Promise<Job> =>
+        this.createLinkedResource('deep-sync-job', {}, resource, Job),
+      /**
+       * List jobs associated with this hub
+       * @param options Pagination options
+       */
+      list: (
+        params?: Pageable & Sortable,
+        data?: {
+          user?: string;
+          limitDateRange: boolean;
+          status: JobStatus;
+          jobType: JobType;
+        }
+      ): Promise<Page<Job>> =>
+        this.performActionThatReturnsResource('jobs', params, data, JobsPage),
+      /**
+       * Get a job by its id
+       * @param id
+       */
+      get: (id: string): Promise<Job> =>
+        this.client.fetchResource(`jobs/${id}`, Job),
     },
   };
 }
