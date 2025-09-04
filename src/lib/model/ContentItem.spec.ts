@@ -79,10 +79,12 @@ test('publish', async (t) => {
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
 
-  const publishResponse = await result.related.publish();
-  const publishJobId = publishResponse.related.publishingJob();
+  const publishJobLocation = await result.related.publish();
 
-  t.is(publishJobId, '68adcb6c1ad05f3b50ebc821');
+  t.is(
+    publishJobLocation.location,
+    'https://api.amplience.net/v2/content/publishing-jobs/68adcb6c1ad05f3b50ebc821'
+  );
 });
 
 test('get repository', async (t) => {

@@ -1,4 +1,5 @@
 import { HalResource } from '../hal/models/HalResource';
+import { PublishingJobStatus } from './PublishingJobStatus';
 
 /**
  * Class representing the [Publishing Jobs](https://amplience.com/developers/docs/apis/content-management-reference/#tag/Publishing-Jobs) resource.
@@ -23,31 +24,23 @@ export class PublishingJob extends HalResource {
   /**
    * State of Publishing Job
    */
-  public state: string;
+  public state: PublishingJobStatus;
 
   /**
    * Publish error status (only present if state=FAILED)
    */
   public publishErrorStatus?: string;
 
-  /**
-   * Location of the publishing job
-   */
-  private location: string;
-
   public readonly related = {
     /**
-     * Updates this PublishingJob with the changes in the mutation parameter.
-     * @param mutation Mutated publishingjob
+     * Cancel the publishing job.
      */
-    cancel: (mutation: PublishingJob): Promise<PublishingJob> =>
-      this.updateLinkedResource('cancel', {}, mutation, PublishingJob),
-
-    /**
-     * Returns the publishing job id
-     */
-    publishingJob: (): string => {
-      return this.location.split('/').pop();
-    },
+    cancel: (): Promise<PublishingJob> =>
+      this.updateLinkedResource(
+        'cancel',
+        {},
+        new PublishingJob({ state: PublishingJobStatus.CANCELLED }),
+        PublishingJob
+      ),
   };
 }

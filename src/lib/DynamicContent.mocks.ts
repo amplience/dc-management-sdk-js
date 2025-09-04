@@ -2238,6 +2238,57 @@ export const HIERARCHY_PARENTS = {
     },
   },
 };
+
+/**
+ * @hidden
+ */
+export const PUBLISHING_JOB = {
+  id: '68a83ba875c14d19c73219b6',
+  scheduledDate: '2025-08-22T09:43:04.275Z',
+  createdDate: '2025-08-22T09:43:04.281Z',
+  createdBy: 'f4453936-4678-4686-ab3b-b05e71ed021a',
+  state: 'PUBLISHING',
+  _links: {
+    self: {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    'publishing-job': {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    cancel: {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    snapshot: {
+      href: 'https://api.amplience.net/v2/content/snapshots/68a83ba875c14d19c73219b5',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
+export const PUBLISHING_JOB_CANCELLED = {
+  id: '68a83ba875c14d19c73219b6',
+  scheduledDate: '2025-08-22T09:43:04.275Z',
+  createdDate: '2025-08-22T09:43:04.281Z',
+  createdBy: 'f4453936-4678-4686-ab3b-b05e71ed021a',
+  state: 'CANCELLED',
+  _links: {
+    self: {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    'publishing-job': {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    cancel: {
+      href: 'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
+    },
+    snapshot: {
+      href: 'https://api.amplience.net/v2/content/snapshots/68a83ba875c14d19c73219b5',
+    },
+  },
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -2647,6 +2698,10 @@ export class DynamicContentFixtures {
       .nestedResource('get-hierarchy-children', {}, HIERARCHY_CHILDREN)
       .nestedResource('get-hierarchy-parents', {}, HIERARCHY_PARENTS)
       .nestedResource('content-item', {}, HIERARCHY_CONTENT_ITEM);
+
+    mocks
+      .resource(PUBLISHING_JOB)
+      .nestedUpdateResource('cancel', {}, PUBLISHING_JOB_CANCELLED);
   }
 }
 
