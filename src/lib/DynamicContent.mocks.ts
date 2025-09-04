@@ -2379,7 +2379,7 @@ export class DynamicContentFixtures {
         {},
         {
           location:
-            'https://api.amplience.net/v2/content/publishing-jobs/68adcb6c1ad05f3b50ebc821',
+            'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6',
         }
       );
 

@@ -5,6 +5,9 @@ import { PublishingJob } from './PublishingJob';
  * Class representing the Publishing Job Location resource.
  */
 export class PublishingJobLocation extends HalResource {
+  constructor(data?: any) {
+    super({ location: data?.location });
+  }
   /**
    * Location of the publishing job
    */
