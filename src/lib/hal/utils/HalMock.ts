@@ -77,6 +77,17 @@ export class HalMockResource {
     return this;
   }
 
+  public nestedPostResourceNoContentWithHeaders(
+    linkName: string,
+    args: any,
+    headers: Record<string, string>
+  ): this {
+    const link = this.resource._links[linkName];
+    const href = CURIEs.expand(link.href, args);
+    this.mocks.postResourceNoContentWithHeaders(href, headers);
+    return this;
+  }
+
   public nestedDelete(linkName: string, args: any): this {
     const link = this.resource._links[linkName];
     const href = CURIEs.expand(link.href, args);
@@ -141,5 +152,12 @@ export class HalMocks {
 
   public postResource(url: string): void {
     this.mockInstance.onPost(url).reply(204);
+  }
+
+  public postResourceNoContentWithHeaders(
+    url: string,
+    headers: Record<string, string>
+  ): void {
+    this.mockInstance.onPost(url).reply(204, null, headers);
   }
 }

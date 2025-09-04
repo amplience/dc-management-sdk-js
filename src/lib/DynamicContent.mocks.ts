@@ -2323,7 +2323,14 @@ export class DynamicContentFixtures {
       .nestedUpdateResource('update', {}, CONTENT_ITEM_V2)
       .nestedCreateResource('archive', {}, CONTENT_ITEM)
       .nestedCreateResource('unarchive', {}, CONTENT_ITEM)
-      .nestedCreateResource('publish', {}, CONTENT_ITEM);
+      .nestedPostResourceNoContentWithHeaders(
+        'publish',
+        {},
+        {
+          location:
+            'https://api.amplience.net/v2/content/publishing-jobs/68adcb6c1ad05f3b50ebc821',
+        }
+      );
 
     mocks
       .resource(CONTENT_ITEM_WITH_WORKFLOW_STATE_ASSIGNED)

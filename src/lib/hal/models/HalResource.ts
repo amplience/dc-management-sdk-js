@@ -149,6 +149,31 @@ export class HalResource {
   }
 
   /**
+   * POST to an action endpoint and get a resource response with header data
+   * @hidden
+   */
+  protected performActionWithHeadersThatReturnsResource<T extends HalResource>(
+    name: string,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>,
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
+  ): Promise<T> {
+    return this.withHalLink(name).then(([link, client]) =>
+      client.performActionWithHeadersThatReturnsResource(
+        link,
+        params,
+        data,
+        resourceConstructor,
+        method
+      )
+    );
+  }
+
+  /**
    * POST to an action endpoint with no resource response returned.
    */
   protected performActionWithoutResourceResponse(

@@ -8,6 +8,7 @@ import { HierarchyMeta } from './HierarchyNode';
 import { FacetsResponse } from './Facets';
 import { WorkflowState } from './WorkflowState';
 import { HttpMethod } from '../http/HttpRequest';
+import { PublishingJob } from './PublishingJob';
 
 interface AssignedWorkflow {
   state: string;
@@ -189,8 +190,23 @@ abstract class BaseContentItem extends HalResource {
     /**
      * Publish content item
      */
-    publish: (): Promise<void> =>
-      this.performActionWithoutResourceResponse('publish', {}, {}),
+    publish: (): Promise<PublishingJob> =>
+      //this.performActionWithoutResourceResponse('publish', {}, {}),
+
+      this.performActionWithHeadersThatReturnsResource(
+        'publish',
+        {},
+        {},
+        PublishingJob
+      ),
+
+    /**
+     * Unpublish content item
+     */
+    unpublish: (): Promise<PublishingJob> =>
+      //this.performActionWithoutResourceResponse('unpublish', {}, {}),
+
+      this.performActionThatReturnsResource('unpublish', {}, {}, PublishingJob),
 
     /**
      * Assign a WorkflowState

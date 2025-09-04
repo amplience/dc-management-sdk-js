@@ -79,7 +79,10 @@ test('publish', async (t) => {
     'a87fd535-fb25-44ee-b687-0db72bbab721'
   );
 
-  await t.notThrowsAsync(result.related.publish());
+  const publishResponse = await result.related.publish();
+  const publishJobId = publishResponse.related.publishingJob();
+
+  t.is(publishJobId, '68adcb6c1ad05f3b50ebc821');
 });
 
 test('get repository', async (t) => {
