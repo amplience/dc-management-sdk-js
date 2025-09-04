@@ -2344,9 +2344,14 @@ export class DynamicContentFixtures {
         CONTENT_ITEMS_FACET
       )
       .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS)
-      .nestedCollection('jobs', {}, 'jobs', [JOB]);
-    // .nestedCreateResource('deep-sync-job', {}, JOB)
-    // .nestedResource('job', {}, JOB);
+      .nestedCreateResource('jobs', {}, {
+        _embedded: {
+          jobs: [JOB],
+        },
+        _links: {},
+      } as HalLiteral)
+      .nestedCreateResource('create-deep-sync-job', {}, JOB)
+      .nestedResource('job', { jobId: '689b6f1576dc233601467b5f' }, JOB);
 
     hubMockResource.mocks.collection(
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
