@@ -381,7 +381,7 @@ export const CONTENT_ITEM_WITH_ASSIGNEE = {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/publish',
     },
     unpublish: {
-      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab721/unpublish',
+      href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/unpublish',
     },
     planned: {
       href: 'https://api.amplience.net/v2/content/content-items/a87fd535-fb25-44ee-b687-0db72bbab722/planned{?epoch,time}',

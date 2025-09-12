@@ -8,10 +8,7 @@ import { HierarchyMeta } from './HierarchyNode';
 import { FacetsResponse } from './Facets';
 import { WorkflowState } from './WorkflowState';
 import { HttpMethod } from '../http/HttpRequest';
-import {
-  ContentItemPublishingStatus,
-  PublishingStatus,
-} from './PublishingStatus';
+import { ContentItemPublishingStatus } from './PublishingStatus';
 
 interface AssignedWorkflow {
   state: string;
@@ -109,7 +106,7 @@ abstract class BaseContentItem extends HalResource {
   /**
    * Publishing status
    */
-  public publishingStatus?: PublishingStatus | ContentItemPublishingStatus;
+  public publishingStatus?: ContentItemPublishingStatus;
 
   /**
    * Resources and actions related to a Content Item
@@ -196,7 +193,7 @@ abstract class BaseContentItem extends HalResource {
       ),
 
     /**
-     * Unarchive content item
+     * Unpublish content item
      */
     unpublish: (): Promise<void> =>
       this.performActionWithoutResourceResponse('unpublish', {}, {}),
