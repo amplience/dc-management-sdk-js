@@ -23,4 +23,5 @@ export enum ContentItemPublishingStatus {
   NONE = 'NONE',
   EARLY = 'EARLY',
   LATEST = 'LATEST',
+  UNPUBLISHED = 'UNPUBLISHED',
 }

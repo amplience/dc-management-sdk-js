@@ -9,6 +9,7 @@ import { FacetsResponse } from './Facets';
 import { WorkflowState } from './WorkflowState';
 import { HttpMethod } from '../http/HttpRequest';
 import { PublishingJobLocation } from './PublishingJobLocation';
+import { ContentItemPublishingStatus } from './PublishingStatus';
 
 interface AssignedWorkflow {
   state: string;
@@ -104,6 +105,11 @@ abstract class BaseContentItem extends HalResource {
   public validationState?: 'VALID' | 'INVALID' | 'EMPTY';
 
   /**
+   * Publishing status
+   */
+  public publishingStatus?: ContentItemPublishingStatus;
+
+  /**
    * Resources and actions related to a Content Item
    */
   public readonly related = {
@@ -197,6 +203,12 @@ abstract class BaseContentItem extends HalResource {
         {},
         PublishingJobLocation
       ),
+
+    /**
+     * Unpublish content item
+     */
+    unpublish: (): Promise<void> =>
+      this.performActionWithoutResourceResponse('unpublish', {}, {}),
 
     /**
      * Assign a WorkflowState
