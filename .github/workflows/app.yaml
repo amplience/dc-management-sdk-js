@@ -18,9 +18,9 @@ jobs:
           cache: 'npm'
           node-version: ${{ matrix.node }}
 
-      - name: npm install, build, and test
+      - name: Install, build, and test
         run: |
-          npm ci
+          npm ci --ignore-scripts
           npm run build
           npm test
           npm run cov:check
