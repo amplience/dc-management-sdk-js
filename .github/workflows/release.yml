@@ -30,7 +30,7 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
         if: ${{ steps.release.outputs.release_created }}
 
       - run: |
