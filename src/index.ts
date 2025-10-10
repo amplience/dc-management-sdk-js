@@ -108,4 +108,12 @@ export {
   FacetsResponse,
   FacetCount,
 } from './lib/model/Facets';
-export { Job } from './lib/model/Job';
+export {
+  Job,
+  JobStatus,
+  JobEntityType,
+  JobType,
+  JobError,
+  CreateDeepSyncJobResponse,
+  CreateDeepSyncJobRequest,
+} from './lib/model/Job';

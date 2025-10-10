@@ -2272,6 +2272,22 @@ export const JOB = {
   },
 };
 
+/**
+ * @hidden
+ */
+export const CREATE_SYNC_JOB_RESPONSE = {
+  jobId: '689b6f1576dc233601467b5f',
+  _links: {
+    self: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/689b6f1576dc233601467b5f',
+    },
+    job: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/{jobId}',
+      templated: true,
+    },
+  },
+};
+
 /* tslint:enable:object-literal-sort-keys */
 /**
  * @hidden
@@ -2350,7 +2366,11 @@ export class DynamicContentFixtures {
         },
         _links: {},
       } as HalLiteral)
-      .nestedCreateResource('create-deep-sync-job', {}, JOB)
+      .nestedCreateResource(
+        'create-deep-sync-job',
+        {},
+        CREATE_SYNC_JOB_RESPONSE
+      )
       .nestedResource('job', { jobId: '689b6f1576dc233601467b5f' }, JOB);
 
     hubMockResource.mocks.collection(

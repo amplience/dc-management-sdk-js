@@ -30,6 +30,33 @@ export type JobError = {
   };
 };
 
+interface iCreateDeepSyncJobRequest {
+  label: string;
+  ignoreSchemaValidation: boolean;
+  destinationHubId: string;
+  input: {
+    rootContentItemIds: string[];
+  };
+}
+
+export class CreateDeepSyncJobRequest implements iCreateDeepSyncJobRequest {
+  public label: string;
+  public ignoreSchemaValidation: boolean;
+  public destinationHubId: string;
+  public input: {
+    rootContentItemIds: string[];
+  };
+  constructor(params: iCreateDeepSyncJobRequest) {
+    Object.assign(this, structuredClone(params));
+  }
+}
+export class CreateDeepSyncJobResponse extends HalResource {
+  /**
+   * Job ID
+   */
+  public jobId: string;
+}
+
 export class Job extends HalResource {
   /**
    * Job ID
