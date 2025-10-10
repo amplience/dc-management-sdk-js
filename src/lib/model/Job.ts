@@ -40,9 +40,21 @@ interface iCreateDeepSyncJobRequest {
 }
 
 export class CreateDeepSyncJobRequest implements iCreateDeepSyncJobRequest {
+  /**
+   * Job label
+   */
   public label: string;
+  /**
+   * Should schema validation be ignored if allowed at the hub level?
+   */
   public ignoreSchemaValidation: boolean;
+  /**
+   * Destination hub ID
+   */
   public destinationHubId: string;
+  /**
+   * Content items to sync
+   */
   public input: {
     rootContentItemIds: string[];
   };
