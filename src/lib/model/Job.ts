@@ -47,7 +47,7 @@ export class CreateDeepSyncJobRequest implements iCreateDeepSyncJobRequest {
     rootContentItemIds: string[];
   };
   constructor(params: iCreateDeepSyncJobRequest) {
-    Object.assign(this, structuredClone(params));
+    Object.assign(this, params);
   }
 }
 export class CreateDeepSyncJobResponse extends HalResource {
