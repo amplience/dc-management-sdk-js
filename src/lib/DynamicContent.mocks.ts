@@ -159,6 +159,12 @@ export const HUB = {
     'batch-create-snapshots': {
       href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
     },
+    'list-linked-content-repositories': {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/list-linked-content-repositories',
+    },
+    'linked-content-repositories': {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/linked-content-repositories',
+    },
   },
 };
 
@@ -2257,6 +2263,36 @@ export const HIERARCHY_PARENTS = {
 /**
  * @hidden
  */
+export const LINKED_CONTENT_REPOSITORY = {
+  originHubId: '6796aab8-62b3-46e8-9008-3c37eb0a55da',
+  hubIds: [
+    '6796aab8-62b3-46e8-9008-3c37eb0a55da',
+    '9a22ec72-86ec-4968-9abb-6a191dab3feb',
+  ],
+  originHubLabel: 'Origin hub',
+  destinationHubLabel: 'Destination hub',
+  bidirectional: true,
+  relationships: [
+    {
+      originRepositoryId: 'b3e9d885-308b-4325-8678-c9e7e715cef3',
+      originRepositoryLabel: 'Origin repo label',
+      dstRepositoryId: '39a528c0-b0c2-4cd8-a5de-f29338adee1e',
+      dstRepositoryLabel: 'Dest repo label',
+    },
+  ],
+  _links: {
+    self: {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/linked-content-repositories',
+    },
+    'linked-content-repositories': {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/linked-content-repositories',
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 export const PUBLISHING_JOB = {
   id: '68a83ba875c14d19c73219b6',
   scheduledDate: '2025-08-22T09:43:04.275Z',
@@ -2375,7 +2411,19 @@ export class DynamicContentFixtures {
         },
         CONTENT_ITEMS_FACET
       )
-      .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS);
+      .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS)
+      .nestedCollection(
+        'list-linked-content-repositories',
+        {},
+        'linked-content-repositories',
+        [LINKED_CONTENT_REPOSITORY]
+      )
+      .nestedPutResource(
+        'linked-content-repositories',
+        {},
+        LINKED_CONTENT_REPOSITORY
+      );
+
     hubMockResource.mocks.collection(
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
       'content-repositories',
