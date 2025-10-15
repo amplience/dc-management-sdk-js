@@ -22,6 +22,14 @@ import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
 import { StatusFilterable } from './StatusFilterable';
+import {
+  CreateDeepSyncJobRequest,
+  CreateDeepSyncJobResponse,
+  Job,
+  JobsPage,
+  JobStatus,
+  JobType,
+} from './Job';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -358,6 +366,52 @@ export class Hub extends HalResource {
           options,
           WorkflowStatesPage
         ),
+    },
+
+    jobs: {
+      /**
+       * Create a sync job associated with this hub
+       * @param resource
+       */
+      createDeepSyncJob: (
+        resource: CreateDeepSyncJobRequest
+      ): Promise<CreateDeepSyncJobResponse> =>
+        this.performActionThatReturnsResource(
+          'create-deep-sync-job',
+          {},
+          resource,
+          CreateDeepSyncJobResponse
+        ),
+      /**
+       * List jobs associated with this hub
+       * @param params Pagination options
+       * @param data Filter options
+       * @param data.user Optional user ID to filter jobs by the user that created them
+       * @param data.limitDateRange Optional flag to limit the date range of jobs returned to the last 30 days
+       * @param data.status Optional job status to filter by
+       * @param data.jobType Optional job type to filter by
+       */
+      list: (
+        params?: Pageable & Sortable,
+        data?: {
+          user?: string;
+          limitDateRange?: boolean;
+          status?: JobStatus;
+          jobType?: JobType;
+        }
+      ): Promise<Page<Job>> =>
+        this.performActionThatReturnsResource(
+          'jobs',
+          params || {},
+          data || {},
+          JobsPage
+        ),
+      /**
+       * Get a job by its id
+       * @param id
+       */
+      get: (jobId: string): Promise<Job> =>
+        this.fetchLinkedResource('job', { jobId }, Job),
     },
   };
 }

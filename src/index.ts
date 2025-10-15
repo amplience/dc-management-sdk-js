@@ -110,3 +110,12 @@ export {
 } from './lib/model/Facets';
 export { PublishingJob } from './lib/model/PublishingJob';
 export { PublishingJobLocation } from './lib/model/PublishingJobLocation';
+export {
+  Job,
+  JobStatus,
+  JobEntityType,
+  JobType,
+  JobError,
+  CreateDeepSyncJobResponse,
+  CreateDeepSyncJobRequest,
+} from './lib/model/Job';
