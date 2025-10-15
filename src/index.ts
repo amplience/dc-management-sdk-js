@@ -117,3 +117,5 @@ export {
   CreateDeepSyncJobResponse,
   CreateDeepSyncJobRequest,
 } from './lib/model/Job';
+export { PublishingJob } from './lib/model/PublishingJob';
+export { PublishingJobLocation } from './lib/model/PublishingJobLocation';
