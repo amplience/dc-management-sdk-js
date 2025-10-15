@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.3...v3.1.0) (2025-10-15)
+
+
+### Features
+
+* add publish and unpublish methods to content item ([#173](https://github.com/amplience/dc-management-sdk-js/issues/173)) ([838f27d](https://github.com/amplience/dc-management-sdk-js/commit/838f27d9fdf14510abb4df86ff4d72f44f72975e))
+* node 24 and trusted publish ([#181](https://github.com/amplience/dc-management-sdk-js/issues/181)) ([cfb15e4](https://github.com/amplience/dc-management-sdk-js/commit/cfb15e4000ced1462c88c5fb4934da6d05eb2907))
+
+
+### Bug Fixes
+
+* installing with ignore scripts flag ([#179](https://github.com/amplience/dc-management-sdk-js/issues/179)) ([fde9d0a](https://github.com/amplience/dc-management-sdk-js/commit/fde9d0ac4e86e81622fc3567926988fddbb039e5))
+
 ## [3.0.3](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.2...v3.0.3) (2025-05-06)
 
 
