@@ -73,6 +73,29 @@ test('unarchive', async (t) => {
   t.is(unarchiveContentType.id, 'a87fd535-fb25-44ee-b687-0db72bbab721');
 });
 
+test('publish', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  const publishingJobLocation = await result.related.publish();
+
+  t.is(
+    publishingJobLocation.location,
+    'https://api.amplience.net/v2/content/publishing-jobs/68a83ba875c14d19c73219b6'
+  );
+});
+
+test('unpublish', async (t) => {
+  const client = new MockDynamicContent();
+  const result = await client.contentItems.get(
+    'a87fd535-fb25-44ee-b687-0db72bbab721'
+  );
+
+  await t.notThrowsAsync(result.related.unpublish());
+});
+
 test('get repository', async (t) => {
   const client = new MockDynamicContent();
 

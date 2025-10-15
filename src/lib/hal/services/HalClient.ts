@@ -38,6 +38,14 @@ export interface HalClient {
     method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
   ): Promise<T>;
 
+  performActionWithHeadersThatReturnsResource<T extends HalResource>(
+    link: HalLink,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>,
+    method: HttpMethod.POST | HttpMethod.PATCH | HttpMethod.PUT
+  ): Promise<T>;
+
   createResource<T extends HalResource>(
     path: string,
     resource: T,
@@ -225,6 +233,41 @@ export class DefaultHalClient implements HalClient {
     return this.parse(response.data, resourceConstructor);
   }
 
+  public async performActionWithHeadersThatReturnsResource<
+    T extends HalResource
+  >(
+    link: HalLink,
+    params: any,
+    data: any,
+    resourceConstructor: HalResourceConstructor<T>,
+    method:
+      | HttpMethod.POST
+      | HttpMethod.PATCH
+      | HttpMethod.PUT = HttpMethod.POST
+  ): Promise<T> {
+    let href = link.href;
+
+    if (link.templated) {
+      href = CURIEs.expand(href, params);
+    }
+
+    const response = await this.invoke({
+      data: this.serialize(data),
+      method,
+      url: href,
+    });
+
+    const responseData =
+      typeof response.data === 'string'
+        ? JSON.parse(JSON.stringify(response.data))
+        : response.data;
+
+    return this.parse(
+      { ...responseData, ...response.headers },
+      resourceConstructor
+    );
+  }
+
   public parse<T extends HalResource>(
     data: any,
     resourceConstructor: HalResourceConstructor<T>
@@ -257,7 +300,7 @@ export class DefaultHalClient implements HalClient {
 
       if (response.status >= 200 && response.status < 300) {
         if (typeof response.data === 'string') {
-          response.data = JSON.parse(response.data);
+          response.data = JSON.parse(JSON.stringify(response.data));
         }
         return response;
       } else {
