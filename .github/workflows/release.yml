@@ -18,7 +18,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.GH_REPO_ACCESS }}
+          token: ${{ secrets.GH_REPO_ACCESS_PUBLIC_REPOS }}
           release-type: node
 
       - uses: actions/checkout@v4
