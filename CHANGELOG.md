@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.1.0...v3.2.0) (2025-11-05)
+
+
+### Features
+
+* added linked content repositories to hub ([#172](https://github.com/amplience/dc-management-sdk-js/issues/172)) ([8f8335d](https://github.com/amplience/dc-management-sdk-js/commit/8f8335d73c99116f982ddf212d937509b7cc8d98))
+* tar-1123 adding jobs endpoints ([#177](https://github.com/amplience/dc-management-sdk-js/issues/177)) ([d481680](https://github.com/amplience/dc-management-sdk-js/commit/d48168007feadbcd215a0e5ea4b52229e7565f86))
+
 ## [3.1.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.0.3...v3.1.0) (2025-10-15)
 
 
