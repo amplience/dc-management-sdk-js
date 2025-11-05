@@ -108,6 +108,15 @@ export {
   FacetsResponse,
   FacetCount,
 } from './lib/model/Facets';
+export {
+  Job,
+  JobStatus,
+  JobEntityType,
+  JobType,
+  JobError,
+  CreateDeepSyncJobResponse,
+  CreateDeepSyncJobRequest,
+} from './lib/model/Job';
 export { LinkedContentRepository } from './lib/model/LinkedContentRepository';
 export { PublishingJob } from './lib/model/PublishingJob';
 export { PublishingJobLocation } from './lib/model/PublishingJobLocation';

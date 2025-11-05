@@ -159,6 +159,17 @@ export const HUB = {
     'batch-create-snapshots': {
       href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/snapshots/batch',
     },
+    job: {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/{jobId}',
+      templated: true,
+    },
+    jobs: {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs{?page,size,sort}',
+      templated: true,
+    },
+    'create-deep-sync-job': {
+      href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/deep-sync-job',
+    },
     'list-linked-content-repositories': {
       href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/list-linked-content-repositories',
     },
@@ -2263,6 +2274,28 @@ export const HIERARCHY_PARENTS = {
 /**
  * @hidden
  */
+export const JOB = {
+  id: '689b6f1576dc233601467b5f',
+  label: 'Valid sync job',
+  status: 'CREATED',
+  stateChanges: [],
+  jobType: 'DEEP_SYNC_JOB',
+  createdBy: '958be97d-ae73-4214-a716-352809e32daf',
+  createdDate: '2025-08-12T16:43:01.003Z',
+  _links: {
+    self: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/689b6f1576dc233601467b5f',
+    },
+    job: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/{jobId}',
+      templated: true,
+    },
+  },
+};
+
+/**
+ * @hidden
+ */
 export const LINKED_CONTENT_REPOSITORY = {
   originHubId: '6796aab8-62b3-46e8-9008-3c37eb0a55da',
   hubIds: [
@@ -2318,6 +2351,19 @@ export const PUBLISHING_JOB = {
 /**
  * @hidden
  */
+export const CREATE_SYNC_JOB_RESPONSE = {
+  jobId: '689b6f1576dc233601467b5f',
+  _links: {
+    self: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/689b6f1576dc233601467b5f',
+    },
+    job: {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/jobs/{jobId}',
+      templated: true,
+    },
+  },
+};
+
 export const PUBLISHING_JOB_CANCELLED = {
   id: '68a83ba875c14d19c73219b6',
   scheduledDate: '2025-08-22T09:43:04.275Z',
@@ -2412,6 +2458,18 @@ export class DynamicContentFixtures {
         CONTENT_ITEMS_FACET
       )
       .nestedCreateResource('batch-create-snapshots', {}, SNAPSHOT_RESULTS)
+      .nestedCreateResource('jobs', {}, {
+        _embedded: {
+          jobs: [JOB],
+        },
+        _links: {},
+      } as HalLiteral)
+      .nestedCreateResource(
+        'create-deep-sync-job',
+        {},
+        CREATE_SYNC_JOB_RESPONSE
+      )
+      .nestedResource('job', { jobId: '689b6f1576dc233601467b5f' }, JOB)
       .nestedCollection(
         'list-linked-content-repositories',
         {},
