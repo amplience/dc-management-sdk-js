@@ -22,6 +22,11 @@ import { Extension, ExtensionsPage } from './Extension';
 import { Snapshot } from './Snapshot';
 import { SnapshotResultList } from './SnapshotResultList';
 import { StatusFilterable } from './StatusFilterable';
+import {
+  LinkedContentRepositoriesPage,
+  LinkedContentRepository,
+} from './LinkedContentRepository';
+import { HttpMethod } from '../http/HttpRequest';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -136,6 +141,7 @@ export class Hub extends HalResource {
           ContentRepositoriesPage
         ),
     },
+
     contentTypes: {
       /**
        * Retrieves a list of Content Types associated with this Hub
@@ -232,6 +238,64 @@ export class Hub extends HalResource {
        */
       list: (options?: Pageable & Sortable): Promise<Page<Extension>> =>
         this.fetchLinkedResource('extensions', options, ExtensionsPage),
+    },
+
+    linkedContentRepositories: {
+      /**
+       * Retrieves a list of Linked Content Repositories associated with the organization
+       * @param options Pagination options
+       */
+      list: (options?: Pageable) =>
+        this.fetchLinkedResource(
+          'list-linked-content-repositories',
+          options,
+          LinkedContentRepositoriesPage
+        ),
+      /**
+       * Create linked content repositories mapping
+       * @param resource
+       * @returns
+       */
+      create: (
+        resource: LinkedContentRepository
+      ): Promise<LinkedContentRepository> =>
+        this.performActionThatReturnsResource(
+          'linked-content-repositories',
+          {},
+          resource,
+          LinkedContentRepository,
+          HttpMethod.PUT
+        ),
+      /**
+       * Update linked content repositories mapping
+       * @param resource
+       * @returns
+       */
+      update: (
+        resource: LinkedContentRepository
+      ): Promise<LinkedContentRepository> =>
+        this.performActionThatReturnsResource(
+          'linked-content-repositories',
+          {},
+          resource,
+          LinkedContentRepository,
+          HttpMethod.PUT
+        ),
+      /**
+       * Delete linked content repositories mapping
+       * @param resource
+       * @returns
+       */
+      delete: (
+        resource: LinkedContentRepository
+      ): Promise<LinkedContentRepository> =>
+        this.performActionThatReturnsResource(
+          'linked-content-repositories',
+          {},
+          { ...resource, relationships: [] } as LinkedContentRepository,
+          LinkedContentRepository,
+          HttpMethod.PUT
+        ),
     },
 
     searchIndexes: {

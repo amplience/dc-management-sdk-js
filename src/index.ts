@@ -108,5 +108,6 @@ export {
   FacetsResponse,
   FacetCount,
 } from './lib/model/Facets';
+export { LinkedContentRepository } from './lib/model/LinkedContentRepository';
 export { PublishingJob } from './lib/model/PublishingJob';
 export { PublishingJobLocation } from './lib/model/PublishingJobLocation';
