@@ -33,7 +33,7 @@ export type JobError = {
 interface iCreateDeepSyncJobRequest {
   label: string;
   ignoreSchemaValidation: boolean;
-  forceSync: boolean;
+  forceSync?: boolean;
   destinationHubId: string;
   input: {
     rootContentItemIds: string[];
@@ -52,7 +52,7 @@ export class CreateDeepSyncJobRequest implements iCreateDeepSyncJobRequest {
   /**
    * Should unmodified content items be force synced to the destination hub?
    */
-  public forceSync: boolean;
+  public forceSync?: boolean;
   /**
    * Destination hub ID
    */
