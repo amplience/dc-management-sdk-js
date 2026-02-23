@@ -19,6 +19,7 @@ test('create job', async (t) => {
       rootContentItemIds: ['a87fd535-fb25-44ee-b687-0db72bbab721'],
     },
     ignoreSchemaValidation: false,
+    forceSync: false,
   });
   const createdJob = await hub.related.jobs.createDeepSyncJob(request);
 

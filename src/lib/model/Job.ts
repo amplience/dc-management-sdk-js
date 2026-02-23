@@ -33,6 +33,7 @@ export type JobError = {
 interface iCreateDeepSyncJobRequest {
   label: string;
   ignoreSchemaValidation: boolean;
+  forceSync?: boolean;
   destinationHubId: string;
   input: {
     rootContentItemIds: string[];
@@ -48,6 +49,10 @@ export class CreateDeepSyncJobRequest implements iCreateDeepSyncJobRequest {
    * Should schema validation be ignored if allowed at the hub level?
    */
   public ignoreSchemaValidation: boolean;
+  /**
+   * Should unmodified content items be force synced to the destination hub?
+   */
+  public forceSync?: boolean;
   /**
    * Destination hub ID
    */
