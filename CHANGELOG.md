@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.2.0...v3.3.0) (2026-02-23)
+
+
+### Features
+
+* add force sync param ([#184](https://github.com/amplience/dc-management-sdk-js/issues/184)) ([9fcfcb2](https://github.com/amplience/dc-management-sdk-js/commit/9fcfcb2d9c2843b5aa851f9a6bfdaa9f2f3ee425))
+
 ## [3.2.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.1.0...v3.2.0) (2025-11-05)
 
 
