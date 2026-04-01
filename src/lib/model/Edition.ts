@@ -1,5 +1,7 @@
 import { HttpMethod, Pageable, Sortable } from '../..';
 import { HalResource } from '../hal/models/HalResource';
+import { EditionContent, EditionContentPage } from './EditionContent';
+import { EditionContents } from './EditionContents';
 import { EditionSlot, EditionSlotsPage } from './EditionSlot';
 import { EditionSlotRequest } from './EditionSlotRequest';
 import { Event } from './Event';
@@ -167,6 +169,31 @@ export class Edition extends HalResource {
           {},
           slots,
           EditionSlotsPage
+        ),
+    },
+
+    editionContents: {
+      /**
+       * Retrieves a list of edition-content associated with this Edition
+       * @param options Pagination options
+       */
+      list: (options?: Pageable & Sortable): Promise<Page<EditionContent>> =>
+        this.fetchLinkedResource(
+          'edition-contents',
+          options,
+          EditionContentPage
+        ),
+
+      /**
+       * Creates a new edition-content associated with this Edition.
+       * Used to schedule content to be published on a specific date.
+       */
+      create: () =>
+        this.createLinkedResource(
+          'create-edition-content',
+          {},
+          new EditionContents({}),
+          EditionContents
         ),
     },
 

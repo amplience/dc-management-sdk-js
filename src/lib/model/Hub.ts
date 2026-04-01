@@ -39,6 +39,7 @@ import {
   LinkedContentRepository,
 } from './LinkedContentRepository';
 import { HttpMethod } from '../http/HttpRequest';
+import { HierarchySnapshotRequest } from './HierarchySnapshotRequest';
 
 /**
  * Class representing the [Hub](https://amplience.com/docs/api/dynamic-content/management/#resources-hubs) resource.
@@ -486,6 +487,21 @@ export class Hub extends HalResource {
        */
       get: (jobId: string): Promise<Job> =>
         this.fetchLinkedResource('job', { jobId }, Job),
+    },
+
+    hierarchies: {
+      /**
+       * Creates a snapshot of a content item hierarchy. The snapshot will include the content item specified and all of its descendant content items.
+       * @param request
+       * @returns
+       */
+      createSnapshot: (request: HierarchySnapshotRequest): Promise<Snapshot> =>
+        this.performActionThatReturnsResource(
+          'snapshot-hierarchy',
+          {},
+          request,
+          Snapshot
+        ),
     },
   };
 }
