@@ -5,6 +5,24 @@ import { SnapshotCreator } from './SnapshotCreator';
 import { SnapshotType } from './SnapshotType';
 
 /**
+ * Root content item information included in a Snapshot response
+ */
+type RootContentItem = {
+  /**
+   * Label of the content item
+   */
+  label: string;
+  /**
+   * Content type URI of the content item
+   */
+  contentTypeUri: string;
+  /**
+   * Id of the content item
+   */
+  id: string;
+};
+
+/**
  * Class representing the [Snapshot](https://amplience.com/docs/api/dynamic-content/management/#tag/Snapshots) resource.
  * A Snapshot is an immutable representation of a content item with all of its descendants (including their versions) at a given point in time.
  */
@@ -38,6 +56,16 @@ export class Snapshot extends HalResource {
    * Snapshot type
    */
   public type?: SnapshotType;
+
+  /**
+   * Root content item
+   */
+  public rootContentItem?: RootContentItem;
+
+  /**
+   * Root content items
+   */
+  public rootContentItems?: RootContentItem[];
 
   /**
    * Resources and actions related to a Snapshot

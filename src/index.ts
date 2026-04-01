@@ -120,3 +120,6 @@ export {
 export { LinkedContentRepository } from './lib/model/LinkedContentRepository';
 export { PublishingJob } from './lib/model/PublishingJob';
 export { PublishingJobLocation } from './lib/model/PublishingJobLocation';
+export { EditionContent } from './lib/model/EditionContent';
+export { EditionContents } from './lib/model/EditionContents';
+export { HierarchySnapshotRequest } from './lib/model/HierarchySnapshotRequest';
