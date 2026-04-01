@@ -15,6 +15,14 @@ export class EditionContent extends HalResource {
     // For backwards compatibility reasons, some snapshots may have a single rootContentItem property instead of an array of rootContentItems.
     const rootContentItem =
       snapshot.rootContentItems[0] || snapshot.rootContentItem;
+    if (!rootContentItem) {
+      throw new Error(
+        'Snapshot must have at least one root content item to create an EditionContent'
+      );
+    }
+    const ids = snapshot.rootContentItems.map((item) => item.id) || [
+      snapshot.rootContentItem.id,
+    ];
     return new EditionContent({
       body: {
         contents: [
@@ -22,7 +30,7 @@ export class EditionContent extends HalResource {
             _meta: {
               schema:
                 'http://bigcontent.io/cms/schema/v1/core#/definitions/content-link',
-              rootContentItemIds: [rootContentItem.id],
+              rootContentItemIds: ids,
               locked: false,
             },
             id: snapshot.id,
