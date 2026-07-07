@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.3.0...v3.4.0) (2026-07-07)
+
+
+### Features
+
+* TAR-1865 Added replicateFolderStructure to localize method ([#193](https://github.com/amplience/dc-management-sdk-js/issues/193)) ([89322c9](https://github.com/amplience/dc-management-sdk-js/commit/89322c9f6ee599a5196cfcf550ea6f25fd96369c))
+
 ## [3.3.0](https://github.com/amplience/dc-management-sdk-js/compare/v3.2.0...v3.3.0) (2026-02-23)
 
 
