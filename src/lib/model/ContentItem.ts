@@ -145,12 +145,20 @@ abstract class BaseContentItem extends HalResource {
     /**
      * Create localizations of the content item
      * @param locales Array of locales to create
+     * @param replicateFolderStructure Should the localised items be created in the same folder as the original items or at the root of the repository. Default is false (create at root)
      */
-    localize: (localesList: string[]): Promise<any> =>
+    localize: (
+      localesList: string[],
+      replicateFolderStructure = false
+    ): Promise<any> =>
       this.performActionThatReturnsResource(
         'create-localizations',
         {},
-        { locales: localesList, version: this.version },
+        {
+          locales: localesList,
+          version: this.version,
+          replicateFolderStructure,
+        },
         LocalizationJob
       ),
 

@@ -127,7 +127,10 @@ test('create localizations', async (t) => {
 
   const itemWithLocale = await contentItem.related.setLocale('en-GB');
 
-  const localizationJob = await itemWithLocale.related.localize(['fr-FR']);
+  const localizationJob = await itemWithLocale.related.localize(
+    ['fr-FR'],
+    true
+  );
 
   t.is(localizationJob.status, 'IN_PROGRESS');
 });
