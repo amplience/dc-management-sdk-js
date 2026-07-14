@@ -176,6 +176,10 @@ export const HUB = {
     'linked-content-repositories': {
       href: 'https://api.amplience-qa.net/v2/content/hubs/5b32377e4cedfd01c45036d8/linked-content-repositories',
     },
+    'delivery-keys': {
+      href: 'https://api.amplience.net/v2/content/hubs/5b32377e4cedfd01c45036d8/delivery-keys?key={key}',
+      templated: true,
+    },
   },
 };
 
@@ -274,6 +278,20 @@ export const CONTENT_ITEM = {
  */
 export const CONTENT_ITEM_V2 = { ...CONTENT_ITEM };
 CONTENT_ITEM_V2.version++;
+
+/**
+ * @hidden
+ */
+export const CONTENT_ITEM_WITH_DELIVERY_KEY = {
+  ...CONTENT_ITEM,
+  body: {
+    _meta: {
+      name: 'main-banner',
+      schema: 'http://deliver.bigcontent.io/schema/nested/nested-type.json',
+      deliveryKey: 'a-delivery-key',
+    },
+  },
+};
 
 /**
  * @hidden
@@ -2486,6 +2504,11 @@ export class DynamicContentFixtures {
       `${hubMockResource.resource._links['self'].href}/content-repositories/search/findByFeaturesContaining?feature=slots`,
       'content-repositories',
       [CONTENT_REPOSITORY_SLOTS]
+    );
+
+    hubMockResource.mocks.resource(
+      CONTENT_ITEM_WITH_DELIVERY_KEY,
+      `${hubMockResource.resource._links['self'].href}/delivery-keys/content-item?key=a-delivery-key`
     );
 
     // Content items
